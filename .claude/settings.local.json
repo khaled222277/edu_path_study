@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Set-Location \"d:\\\\Projects\\\\EduPath V2\"; $env:PYTHONPATH = \"d:\\\\Projects\\\\EduPath V2\"; $env:PYTHONIOENCODING = \"utf-8\"; & \".\\\\.venv\\\\Scripts\\\\python.exe\" \"C:\\\\Users\\\\khale\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--Projects-EduPath-V2\\\\985a248a-cf90-417c-b429-61e9c65e671b\\\\scratchpad\\\\cleanup_chat_tests.py\" 2>&1 | Where-Object { $_ -notmatch \"^Batches:|CategoryInfo|FullyQualified|^At line|^\\\\+|RemoteException\" })",
+      "PowerShell(Set-Location \"d:\\\\Projects\\\\EduPath V2\"; $env:PYTHONPATH = \"d:\\\\Projects\\\\EduPath V2\"; $env:PYTHONIOENCODING = \"utf-8\"; & \".\\\\.venv\\\\Scripts\\\\python.exe\" \"C:\\\\Users\\\\khale\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--Projects-EduPath-V2\\\\985a248a-cf90-417c-b429-61e9c65e671b\\\\scratchpad\\\\cleanup_empty_kdd.py\" 2>&1 | Where-Object { $_ -notmatch \"^Batches:|CategoryInfo|FullyQualified|^At line|^\\\\+|RemoteException\" })",
+      "PowerShell(Set-Location \"d:\\\\Projects\\\\EduPath V2\"; $env:PYTHONPATH = \"d:\\\\Projects\\\\EduPath V2\"; $env:PYTHONIOENCODING = \"utf-8\"; & \".\\\\.venv\\\\Scripts\\\\python.exe\" \"C:\\\\Users\\\\khale\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--Projects-EduPath-V2\\\\985a248a-cf90-417c-b429-61e9c65e671b\\\\scratchpad\\\\cleanup_quiz_tests.py\" 2>&1 | Where-Object { $_ -notmatch \"^Batches:|CategoryInfo|FullyQualified|^At line|^\\\\+|RemoteException\" })",
+      "PowerShell(Set-Location \"d:\\\\Projects\\\\EduPath V2\"; $env:PYTHONPATH = \"d:\\\\Projects\\\\EduPath V2\"; $env:PYTHONIOENCODING = \"utf-8\"; & \".\\\\.venv\\\\Scripts\\\\python.exe\" \"C:\\\\Users\\\\khale\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\d--Projects-EduPath-V2\\\\985a248a-cf90-417c-b429-61e9c65e671b\\\\scratchpad\\\\cleanup_quiz_tests.py\" --apply 2>&1 | Where-Object { $_ -notmatch \"^Batches:|CategoryInfo|FullyQualified|^At line|^\\\\+|RemoteException\" } | Select-Object -Last 8)",
+      "Bash(.venv/Scripts/python.exe -c \"import PIL; print\\('pillow', PIL.__version__\\)\")",
+      "Bash(.venv/Scripts/python.exe -c \"import fitz; print\\('fitz', fitz.__doc__\\)\")",
+      "Bash(.venv/Scripts/python.exe -c ' *)",
+      "Bash(.venv/Scripts/python.exe \"C:/Users/khale/AppData/Local/Temp/claude/d--Projects-EduPath-V2/fc1988b8-c259-478e-b05f-64f70e4ef069/scratchpad/diag_align.py\")",
+      "Bash(.venv/Scripts/python.exe scripts/backfill_lecture_images.py --dry-run)",
+      "Bash(.venv/Scripts/python.exe scripts/backfill_lecture_images.py)",
+      "Bash(PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe -c ' *)",
+      "Bash(.venv/Scripts/python.exe \"C:/Users/khale/AppData/Local/Temp/claude/d--Projects-EduPath-V2/fc1988b8-c259-478e-b05f-64f70e4ef069/scratchpad/test_serving.py\")",
+      "Bash(PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe \"C:/Users/khale/AppData/Local/Temp/claude/d--Projects-EduPath-V2/fc1988b8-c259-478e-b05f-64f70e4ef069/scratchpad/test_chat_e2e.py\")",
+      "Bash(npx vite *)",
+      "Bash(PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe \"C:/Users/khale/AppData/Local/Temp/claude/d--Projects-EduPath-V2/fc1988b8-c259-478e-b05f-64f70e4ef069/scratchpad/probe_classifier.py\")",
+      "Bash(python -)",
+      "Bash(PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe scripts/prune_decorative_images.py --dry-run)",
+      "Bash(PYTHONIOENCODING=utf-8 python -c ' *)",
+      "Bash(PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe \"C:/Users/khale/AppData/Local/Temp/claude/d--Projects-EduPath-V2/fc1988b8-c259-478e-b05f-64f70e4ef069/scratchpad/eval_prompts.py\")",
+      "Bash(PYTHONIOENCODING=utf-8 .venv/Scripts/python.exe \"C:/Users/khale/AppData/Local/Temp/claude/d--Projects-EduPath-V2/fc1988b8-c259-478e-b05f-64f70e4ef069/scratchpad/eval_consensus.py\")"
+    ]
+  }
+}

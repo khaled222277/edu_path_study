@@ -1,0 +1,295 @@
+# EduPath Study V2
+
+Multilingual (Arabic/English) study platform for university students.
+
+- **Phase 1 (done)** — auth, onboarding, university/subject catalogue.
+- **Phase 2 (done)** — admin lecture ingestion into Postgres + ChromaDB.
+- **Phase 3 (done)** — grounded study chat over the lecture corpus.
+- **Phase 4 (done)** — validated Arabic/English quiz generation.
+- **Phase 5 (done)** — the student's own progress dashboard.
+
+## Layout
+
+```
+app/
+  models/       SQLAlchemy models
+  schemas/      Pydantic request/response schemas
+  controllers/  business logic
+  routers/      thin FastAPI route definitions
+  services/     vector_store.py (Chroma collection + bge-m3); RAG/LLM logic later
+  auth/         Google OAuth flow + JWT issue/verify
+  db/           session factory + Alembic migrations
+  main.py
+ingestion/      extract_text.py, chunking.py, images.py + the two CLIs
+frontend/       React (Vite)
+data/chroma_db/ persistent vector store
+data/images/    extracted figures, one directory per lecture id
+scripts/        seed script, image backfill
+```
+
+## Setup
+
+### 1. Database
+
+Postgres 16 runs in Docker:
+
+```bash
+docker compose up -d
+```
+
+Credentials live in `.env` (gitignored); `docker-compose.yml` reads them from there.
+
+### 2. Backend
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate          # Windows
+pip install -r requirements.txt
+
+alembic upgrade head            # create tables
+python scripts/seed.py          # one university + 3 year-5 IT subjects
+
+uvicorn app.main:app --reload   # http://localhost:8000
+```
+
+Interactive API docs: <http://localhost:8000/docs>
+
+### 3. Google OAuth
+
+Create an OAuth 2.0 Client ID (type: Web application) at
+<https://console.cloud.google.com/apis/credentials>, then:
+
+- Add `http://localhost:8000/auth/google/callback` as an **Authorized redirect URI**
+- Put the client ID and secret into `.env` as `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET`
+
+`/auth/google/login` returns 503 until those two are set.
+
+### 4. Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev                     # http://localhost:5173
+```
+
+## Ingestion (Phase 2, admin-only)
+
+Students never upload anything. Lectures are ingested offline via CLI.
+
+### Prerequisites
+
+- **Ollama** running locally with a vision model: `ollama pull qwen3-vl:4b`.
+  It reads slide labels far better than `llava:latest` — measured against two
+  figures with hand-verified ground truth, qwen3-vl:4b recovered 9/9 and 6/6
+  labels where llava managed 3/9 and 0/6.
+- **Tesseract** on PATH, *with the Arabic language pack*. Check with
+  `tesseract --list-langs`; if `ara` is absent, download `ara.traineddata` from
+  <https://github.com/tesseract-ocr/tessdata> into your `tessdata/` directory
+  (on Windows, `C:\Program Files\Tesseract-OCR\tessdata\`, needs admin).
+  Without it, `-l ara+eng` fails with *"Failed loading language 'ara'"* and every
+  scanned Arabic page errors.
+- First run downloads **bge-m3** (~2.2 GB) into the HuggingFace cache.
+
+### Add a subject
+
+```bash
+cd ingestion
+python add_subject.py --university-id 1 --year 5 --name "Networking" --code "NET501"
+```
+
+### Ingest a lecture
+
+```bash
+# sanity-check extraction quality first -- writes nothing
+python ingest_lecture.py --university-id 1 --subject-id 4 --file lecture.pdf --dry-run
+
+# commit it
+python ingest_lecture.py --university-id 1 --subject-id 4 --file lecture.pdf
+```
+
+Useful flags: `--skip-images` (skip figure description entirely), `--vision-model`,
+`--ocr-min-alnum`, `--chunk-size` / `--chunk-overlap`, `--device cuda`.
+
+Re-running on an unchanged file is a no-op: the file's SHA-256 is stored on the
+`lectures` row and checked first.
+
+### How it works
+
+| Step | Detail |
+| --- | --- |
+| Extract | `extract_text.extract_pdf_pages()` — **one** pass; per-page native/OCR decision |
+| OCR gate | off by default (`--ocr-min-alnum 0`) — see note below |
+| Compose | Pages joined with `[Page N]` markers; report derived from the same pages |
+| Chunk | `RecursiveCharacterTextSplitter`, 800 chars / 100 overlap |
+| Page tracing | Markers stripped before splitting; page spans tracked by offset |
+| Embed | `BAAI/bge-m3`, normalized, cosine — **no** `query:`/`passage:` prefix |
+| Images | PyMuPDF extract → size/aspect filter → de-dup → **content/decorative classification** → save PNG → vision-model description |
+| Store | One Chroma collection at `data/chroma_db/`; figure files under `data/images/` |
+
+Every chunk carries `university_id`, `year`, `subject_id`, `lecture_id`,
+`source_filename`, `page_number`, and `content_type` (`text` or
+`image_description`) so Phase 3 retrieval can scope and cite. Image chunks also
+carry `image_path` — `{lecture_id}/page_{n}_{i}.png`, relative to `data/images/`
+— which is what lets a citation show the figure itself.
+
+Image filtering drops anything under 150×150, under 3 KB, or outside a 0.2–5.0
+aspect ratio — that removes logos, header bands, and vertical rules. Identical
+images repeated across slides are described once.
+
+### Decorative vs content classification
+
+The size/aspect filter is about *shape*, so it cannot reject a 460×600 textbook
+cover or a glossy branding badge — those look exactly like real figures by every
+measurement available. Four reached students as citations from `kdd_lec01`
+alone (the KDD monogram, a "data MINING" badge, and the Tan et al. and Han et
+al. book covers).
+
+Keyword heuristics were considered and rejected for the reason the OCR gate
+taught: they do not generalise. A book-cover photograph matches no "logo"
+vocabulary, and neither would a stock photo or generic clipart. Instead the
+vision model is asked one cheap binary question per image — CONTENT or
+DECORATIVE — *before* the expensive description is generated. Only CONTENT
+images are described, saved, and indexed; DECORATIVE ones produce no chunk, no
+PNG, and cannot be cited. Every rejection is logged with its page.
+
+Two things to know if you touch this:
+
+- **`num_predict` must be generous (300).** qwen3-vl reasons before answering
+  and the reasoning is drawn from the same token budget as the reply. At 20
+  tokens the budget went entirely to reasoning and `response` came back empty
+  for *all* 14 probe images. `think=False` does not avoid this.
+- **No verdict means keep.** A failed or unparseable classification leaves the
+  image in. Losing one real diagram costs a student more than keeping one logo.
+
+Disable per-run with `--skip-image-classification`.
+
+### Pruning decoratives from an existing corpus
+
+```bash
+python scripts/prune_decorative_images.py --dry-run   # classify + report only
+python scripts/prune_decorative_images.py             # delete chunks + PNGs
+```
+
+Classifies each *stored PNG* (the exact bytes being served, not a fresh
+extraction), deletes the Chroma chunk and file for anything decorative, and
+leaves everything classified CONTENT completely untouched — descriptions are
+never regenerated. Removals are written to `data/decorative_pruned.txt` with
+lecture, page, and the stored description, for auditing over-rejection.
+
+Every image that survives the filter is written to
+`data/images/{lecture_id}/page_{n}_{i}.png`, where `i` counts the kept images on
+that page. Saving is downstream of filtering and independent of describing, so
+the set of files on disk is exactly the set of images the pipeline chose to keep.
+
+### Backfilling figures for older lectures
+
+Lectures ingested before figures were persisted have descriptions in Chroma but
+no files on disk. The backfill re-extracts them with the same filter and stamps
+`image_path` onto the existing records — it never calls the vision model, so
+reviewed descriptions are left untouched:
+
+```bash
+python scripts/backfill_lecture_images.py --dry-run   # report the matching
+python scripts/backfill_lecture_images.py             # write files + metadata
+```
+
+Descriptions are matched to images **by page**, not by position: a failed
+description leaves no record, and a figure re-described later is appended out of
+order, so the id's trailing index is not a reliable pointer into the image list.
+The script reports any page whose description and image counts disagree rather
+than guessing.
+
+## Figure images in chat
+
+Serving is a route, not a `StaticFiles` mount: `GET
+/lectures/images/{lecture_id}/{filename}` requires a signed-in student whose
+university and year match the lecture's subject — the same rule chat and quiz
+use. Filenames are matched against a strict pattern rather than sanitised, so
+nothing outside `data/images/` is reachable.
+
+Chat citations for `image_description` chunks carry an `image_url` alongside the
+usual filename and page; the frontend renders it as a thumbnail under the
+citation, click to enlarge. Text citations are unchanged and have no `image_url`.
+
+### Why the OCR gate is off
+
+OCR on a *pictorial* page (a figure slide with no text layer) returns symbol
+soup. An alphanumeric-ratio filter was tried to drop it, but auditing all 11
+pages it rejected showed it cannot work: noise scored 0.737–0.845 and **real
+content scored 0.744–0.845** — fully overlapping. Code listings and data tables
+are punctuation-dense, so they look exactly like noise. It was discarding the
+PlayTennis training set, sklearn examples, and worked entropy problems.
+
+Symbol soup ranks poorly in retrieval and is harmless; losing teaching material
+is not. The mechanism is retained behind `--ocr-min-alnum` should a corpus ever
+need it, but it defaults to off.
+
+## Endpoints
+
+| Method | Path | Notes |
+| --- | --- | --- |
+| GET | `/health` | liveness |
+| GET | `/auth/google/login` | redirects to Google consent |
+| GET | `/auth/google/callback` | upserts user, sets httpOnly JWT cookie, redirects to frontend |
+| GET | `/auth/me` | current user + `onboarding_required`, else 401 |
+| POST | `/auth/logout` | clears the cookie |
+| POST | `/onboarding` | `{ university_id, year }` |
+| GET | `/universities` | public, for the onboarding dropdown |
+| GET | `/universities/{id}/subjects` | optional `?year=` filter |
+| GET | `/subjects` | the signed-in student's own university + year |
+| POST | `/chat/sessions` | start a session for `{subject_id}`; 403 if out of scope |
+| GET | `/chat/sessions` | the student's sessions, most recent first |
+| GET | `/chat/sessions/{id}` | full message history |
+| POST | `/chat/sessions/{id}/messages` | ask a question, get a grounded answer + citations |
+| POST | `/quiz/start` | generate a quiz; answers withheld until answered |
+| POST | `/quiz/{id}/answer` | record an answer, reveal correctness |
+| POST | `/quiz/{id}/complete` | close an attempt early |
+| GET | `/quiz/{id}/results` | full review once complete |
+| GET | `/quiz/history` | past attempts, most recent first |
+| GET | `/dashboard/summary` | per-subject scores + overall readiness |
+| GET | `/dashboard/activity` | merged chat/quiz feed, `?limit=` |
+
+## Dashboard (Phase 5)
+
+Scoped entirely to the signed-in student — the endpoints take no identifying
+parameter, so every aggregate derives from the session cookie and there is
+nothing to pass that would reach another student's data.
+
+Three deliberate choices:
+
+- **Overall readiness is a mean over subjects, not over attempts.** Drilling one
+  subject twenty times cannot drown out the others. A student with 100% in one
+  subject and 50% across four attempts in another reads as 75%, not 60%.
+- **A subject with no completed quiz shows `null`, never 0%.** Zero implies a
+  quiz was taken and failed; that is a different and misleading story. Such
+  subjects are also excluded from readiness rather than dragging it to zero.
+- **Unfinished attempts are excluded from every score but still shown.** They
+  appear on the subject card as "unfinished" and in the activity feed timestamped
+  when they were started, so an interrupted quiz never silently disappears. Each
+  attempt appears in the feed exactly once — completed or in-progress, never both.
+
+## Study chat (Phase 3)
+
+`query → bge-m3 vector search (top 10, subject-scoped) → FlashRank rerank (top 3)
+→ llama3.1:8b with a grounding prompt`
+
+The model answers **only** from retrieved context, cites every claim as
+`[file.pdf, page N]`, and replies "not found in the lecture material" rather
+than falling back on general knowledge. It answers in whatever language the
+student asked in. Figure descriptions are cited like any other source.
+
+### Why reranking is confidence-gated
+
+FlashRank's `ms-marco-MultiBERT-L-12` is strong on English but collapses on
+cross-lingual pairs — an Arabic question against English lecture text scored
+0.0005–0.0008 versus 0.69–0.999 for English, and its reorderings were wrong
+(it demoted the correct "How to Handle Missing Data" chunk out of the top 5).
+bge-m3 ranks those correctly by itself, so when the cross-encoder's top score
+falls below `RERANK_MIN_CONFIDENCE` (0.1) the vector ordering is kept.
+
+## Migrations
+
+```bash
+alembic revision --autogenerate -m "describe change"
+alembic upgrade head
+```
