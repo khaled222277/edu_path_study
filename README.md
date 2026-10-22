@@ -287,6 +287,27 @@ cross-lingual pairs — an Arabic question against English lecture text scored
 bge-m3 ranks those correctly by itself, so when the cross-encoder's top score
 falls below `RERANK_MIN_CONFIDENCE` (0.1) the vector ordering is kept.
 
+## Tests
+
+The suite runs fully offline and in about a second: Postgres is replaced by
+in-memory SQLite, and Ollama, ChromaDB and the reranker are faked. Any test that
+would touch a real one fails with an explicit error instead.
+
+```bash
+pip install -r requirements.txt -r requirements-dev.txt
+pytest
+```
+
+| File | Covers |
+| --- | --- |
+| `test_quiz_validation.py` | Latin leakage in Arabic items, placeholder options, option count, duplicates |
+| `test_quiz_service.py` | strict attempts, then relaxed attempts for Arabic only; Ollama outage aborts |
+| `test_retrieval.py` | reranker skipped below 0.1 confidence, top-3 selection, subject scoping |
+| `test_auth.py` | valid, expired, tampered, forged and missing session cookies |
+| `test_authorization.py` | one student cannot read another's chat session, quiz or dashboard |
+| `test_error_handling.py` | clean 503s when Ollama/Chroma fail; rate limiting |
+| `test_config.py` | production startup refuses placeholder secrets and insecure cookies |
+
 ## Migrations
 
 ```bash
