@@ -1,10 +1,18 @@
 """Application settings, loaded from environment / .env."""
 
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+
+# Development defaults. They exist so a fresh clone boots, and are refused in
+# production by Settings.validate_for_environment().
+DEFAULT_DB_PASSWORD = "your_password_here"
+PLACEHOLDER_JWT_SECRET = "change-me-in-production"
+PLACEHOLDER_SESSION_SECRET = "change-me-in-production-too"
+MIN_SECRET_LENGTH = 32
 
 
 class Settings(BaseSettings):
@@ -16,9 +24,12 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
+    # "production" turns on validate_for_environment() at startup.
+    environment: str = "development"
+
     # --- Database ---
     database_url: str = (
-        "postgresql://edupath:your_password_here@localhost:5432/edupath_study"
+        f"postgresql://edupath:{DEFAULT_DB_PASSWORD}@localhost:5432/edupath_study"
     )
 
     # --- Google OAuth2 ---
@@ -28,12 +39,12 @@ class Settings(BaseSettings):
     google_redirect_uri: str = "http://localhost:8000/auth/google/callback"
 
     # --- JWT / session ---
-    jwt_secret: str = "change-me-in-production"
+    jwt_secret: str = PLACEHOLDER_JWT_SECRET
     jwt_algorithm: str = "HS256"
     jwt_expire_minutes: int = 60 * 24 * 7  # 7 days
 
     # Signs the short-lived Starlette session used for the OAuth state param.
-    session_secret: str = "change-me-in-production-too"
+    session_secret: str = PLACEHOLDER_SESSION_SECRET
 
     # --- Cookie ---
     cookie_name: str = "edupath_session"
@@ -42,6 +53,44 @@ class Settings(BaseSettings):
 
     # --- Frontend ---
     frontend_url: str = "http://localhost:5173"
+
+    @property
+    def is_production(self) -> bool:
+        return self.environment.strip().lower() == "production"
+
+    def validate_for_environment(self) -> None:
+        """Raise RuntimeError listing every unsafe setting when in production.
+
+        A no-op in any other environment. Reports all problems at once so an
+        operator fixes them in one pass instead of one restart per secret.
+        """
+        if not self.is_production:
+            return
+
+        problems: list[str] = []
+        for name, value, placeholder in (
+            ("JWT_SECRET", self.jwt_secret, PLACEHOLDER_JWT_SECRET),
+            ("SESSION_SECRET", self.session_secret, PLACEHOLDER_SESSION_SECRET),
+        ):
+            if not value or value == placeholder or value.startswith("change-me"):
+                problems.append(f"{name} is unset or still the placeholder")
+            elif len(value) < MIN_SECRET_LENGTH:
+                problems.append(f"{name} must be at least {MIN_SECRET_LENGTH} characters")
+        if self.jwt_secret == self.session_secret:
+            problems.append("JWT_SECRET and SESSION_SECRET must be different values")
+
+        db_password = urlsplit(self.database_url).password
+        if not db_password or db_password == DEFAULT_DB_PASSWORD:
+            problems.append("DATABASE_URL has an empty or default database password")
+
+        if not self.cookie_secure:
+            problems.append("COOKIE_SECURE must be true (serve over HTTPS)")
+
+        if problems:
+            raise RuntimeError(
+                "Refusing to start with ENVIRONMENT=production:\n  - "
+                + "\n  - ".join(problems)
+            )
 
 
 settings = Settings()

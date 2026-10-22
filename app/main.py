@@ -14,6 +14,9 @@ from app.routers import (
     universities,
 )
 
+# Fail fast on placeholder secrets / insecure cookies before serving anything.
+settings.validate_for_environment()
+
 app = FastAPI(title="EduPath Study V2 API", version="0.1.0")
 
 # Authlib stores the OAuth state/nonce in this signed cookie session.
