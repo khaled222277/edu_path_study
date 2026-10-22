@@ -4,7 +4,6 @@ FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1 \
     PIP_DEFAULT_TIMEOUT=60 \
     PIP_RETRIES=10
 
@@ -13,10 +12,16 @@ WORKDIR /app
 # CPU-only torch first: the default Linux wheel drags in ~2.5 GB of CUDA libs
 # that sentence-transformers does not need here. requirements.txt then sees
 # torch as already satisfied.
-RUN pip install torch --index-url https://download.pytorch.org/whl/cpu
+#
+# The pip cache is a BuildKit cache mount (kept out of the image), so a build
+# that dies mid-download on a slow link resumes from the wheels it already has
+# instead of starting over.
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install torch --index-url https://download.pytorch.org/whl/cpu
 
 COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN --mount=type=cache,target=/root/.cache/pip \
+    pip install -r requirements.txt
 
 COPY alembic.ini .
 COPY app ./app
