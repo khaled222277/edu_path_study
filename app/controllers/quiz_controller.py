@@ -10,14 +10,21 @@ from sqlalchemy.orm import Session
 from app.controllers.chat_controller import assert_subject_in_scope
 from app.models.quiz import QuizAttempt, QuizItem
 from app.models.user import User
+from app.services.llm import LLMUnavailableError
 from app.services.quiz_service import (
     DEFAULT_QUESTION_COUNT,
     LANG_EN,
+    QuizGenerationError,
     detect_language,
     generate_quiz,
 )
 
 log = logging.getLogger(__name__)
+
+# Generic on purpose: the cause is logged, never echoed to the client.
+QUIZ_UNAVAILABLE_DETAIL = (
+    "Could not generate a quiz right now. Please try again in a moment."
+)
 
 
 def get_attempt_or_404(db: Session, attempt_id: int, user: User) -> QuizAttempt:
@@ -51,11 +58,17 @@ def start_quiz(
         questions = generate_quiz(subject_id, question_count, resolved)
     except NotImplementedError:
         raise
-    except Exception as exc:
+    except (LLMUnavailableError, QuizGenerationError) as exc:
+        log.error("quiz generation failed: %s", exc)
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=QUIZ_UNAVAILABLE_DETAIL,
+        ) from exc
+    except Exception as exc:  # e.g. Chroma unreadable
         log.exception("quiz generation failed")
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail=f"Could not generate a quiz right now: {exc}",
+            detail=QUIZ_UNAVAILABLE_DETAIL,
         ) from exc
 
     if not questions:

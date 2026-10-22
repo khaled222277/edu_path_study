@@ -25,9 +25,10 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import fitz  # PyMuPDF
-import ollama
 from PIL import Image
 
+from app.config import settings
+from app.services.llm import get_client
 from app.services.lecture_images import (
     image_filename,
     lecture_dir,
@@ -301,7 +302,7 @@ def classify_image(
 
     for attempt_model in attempts:
         try:
-            response = ollama.generate(
+            response = _client().generate(
                 model=attempt_model,
                 prompt=CLASSIFY_PROMPT,
                 images=[data],
@@ -357,7 +358,7 @@ def classify_images(
 def describe_image(image: ExtractedImage, model: str = VISION_MODEL) -> str | None:
     """One vision-model description, or None if the call failed."""
     try:
-        response = ollama.generate(
+        response = _client().generate(
             model=model,
             prompt=DESCRIBE_PROMPT,
             images=[image.data],
@@ -452,3 +453,8 @@ def describe_images(
         )
 
     return descriptions, failures
+
+
+def _client():
+    """Ollama client with the (long) ingestion timeout."""
+    return get_client(settings.ollama_ingest_timeout_seconds)

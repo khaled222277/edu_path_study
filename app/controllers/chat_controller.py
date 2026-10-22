@@ -2,7 +2,6 @@
 
 import logging
 
-import ollama
 from fastapi import HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
@@ -10,6 +9,7 @@ from sqlalchemy.orm import Session
 from app.models.chat import ROLE_ASSISTANT, ROLE_USER, ChatMessage, ChatSession
 from app.models.subject import Subject
 from app.models.user import User
+from app.services.llm import get_client
 from app.services.retrieval import RetrievedChunk, format_context, retrieve
 
 log = logging.getLogger(__name__)
@@ -21,6 +21,15 @@ CHAT_MODEL = "llama3.1:8b"
 HISTORY_TURNS = 6
 
 CHAT_OPTIONS = {"temperature": 0.2, "num_predict": 800}
+
+# Client-facing 503 messages. Deliberately generic: the real cause is logged
+# server-side, never echoed back.
+MODEL_UNAVAILABLE_DETAIL = (
+    "The study assistant is temporarily unavailable. Please try again shortly."
+)
+SEARCH_UNAVAILABLE_DETAIL = (
+    "Lecture search is temporarily unavailable. Please try again shortly."
+)
 
 NOT_FOUND_MARKER = "not found in the lecture material"
 
@@ -146,17 +155,28 @@ def answer_question(
     db.flush()
     db.refresh(chat_session)
 
-    chunks = retrieve(question, chat_session.subject_id)
+    try:
+        chunks = retrieve(question, chat_session.subject_id)
+    except Exception as exc:
+        # Chroma unreadable, embedding model or reranker failed to load, etc.
+        db.rollback()
+        log.exception("lecture retrieval failed")
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=SEARCH_UNAVAILABLE_DETAIL,
+        ) from exc
     messages = _build_messages(chat_session, question, chunks)
 
     try:
-        response = ollama.chat(model=model, messages=messages, options=CHAT_OPTIONS)
+        response = get_client().chat(
+            model=model, messages=messages, options=CHAT_OPTIONS
+        )
     except Exception as exc:
         db.rollback()
         log.exception("chat model call failed")
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail=f"The tutor model is unavailable: {exc}",
+            detail=MODEL_UNAVAILABLE_DETAIL,
         ) from exc
 
     answer = (response.get("message", {}).get("content") or "").strip()

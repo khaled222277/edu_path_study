@@ -12,8 +12,7 @@ import random
 import re
 from dataclasses import dataclass
 
-import ollama
-
+from app.services.llm import LLM_ERRORS, LLMUnavailableError, get_client
 from app.services.vector_store import get_collection
 
 log = logging.getLogger(__name__)
@@ -39,6 +38,10 @@ MIN_CHUNK_CHARS = 220
 
 LANG_AR = "ar"
 LANG_EN = "en"
+
+
+class QuizGenerationError(Exception):
+    """Lecture material existed but no chunk yielded a valid question."""
 
 
 @dataclass
@@ -428,7 +431,14 @@ def _normalize(item) -> tuple[str, list[str], str] | None:
 
 
 def _ask_model(prompt: str, model: str) -> str:
-    response = ollama.generate(model=model, prompt=prompt, options=QUIZ_OPTIONS)
+    try:
+        response = get_client().generate(
+            model=model, prompt=prompt, options=QUIZ_OPTIONS
+        )
+    except LLM_ERRORS as exc:
+        # Ollama down / hung / model missing: retrying the same call a dozen
+        # more times per chunk cannot help, so surface it instead of "rejecting".
+        raise LLMUnavailableError(str(exc)) from exc
     return response.get("response") or ""
 
 
@@ -444,8 +454,9 @@ def _generate_one(
         # V1 wrapped the whole attempt so any malformed response simply became
         # another retry; keep that, rather than letting one odd shape abort the
         # quiz mid-generation.
+        raw = _ask_model(prompt, model)  # LLMUnavailableError propagates
         try:
-            items = _parse_items(_ask_model(prompt, model))
+            items = _parse_items(raw)
         except Exception as exc:
             log.debug("quiz generation attempt failed to parse (%s)", exc)
             rejected += 1
@@ -544,4 +555,8 @@ def generate_quiz(
         "generated %s/%s questions for subject %s (%s)",
         len(questions), count, subject_id, "ar" if in_arabic else "en",
     )
+    if not questions:
+        raise QuizGenerationError(
+            f"no valid question from {len(chunks)} chunk(s) after all retries"
+        )
     return questions

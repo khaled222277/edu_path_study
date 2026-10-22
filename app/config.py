@@ -32,6 +32,14 @@ class Settings(BaseSettings):
         f"postgresql://edupath:{DEFAULT_DB_PASSWORD}@localhost:5432/edupath_study"
     )
 
+    # --- Ollama ---
+    # Per-request ceiling for the chat / quiz models (seconds). Without it a hung
+    # Ollama would hold a request thread forever.
+    ollama_timeout_seconds: float = 120.0
+    # Offline ingestion talks to a slower vision model on whatever hardware the
+    # admin has, so it gets a much longer ceiling.
+    ollama_ingest_timeout_seconds: float = 600.0
+
     # --- Google OAuth2 ---
     google_client_id: str = ""
     google_client_secret: str = ""
