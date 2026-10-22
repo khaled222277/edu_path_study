@@ -1,0 +1,14 @@
+.git
+.venv
+__pycache__
+*.pyc
+.env
+.env.*
+!.env.example
+data
+frontend
+graphify-out
+.claude
+.vscode
+.pytest_cache
+tests
