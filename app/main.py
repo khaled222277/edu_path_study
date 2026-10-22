@@ -1,8 +1,10 @@
 from fastapi import FastAPI
+from slowapi.errors import RateLimitExceeded
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 
 from app.config import settings
+from app.rate_limit import limiter, rate_limit_exceeded_handler
 from app.routers import (
     auth,
     chat,
@@ -19,6 +21,9 @@ settings.validate_for_environment()
 
 app = FastAPI(title="EduPath Study V2 API", version="0.1.0")
 
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, rate_limit_exceeded_handler)
+
 # Authlib stores the OAuth state/nonce in this signed cookie session.
 app.add_middleware(
     SessionMiddleware,
@@ -31,8 +36,10 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[settings.frontend_url],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    # Exactly what the frontend uses (see frontend/src/api.js), not "*", since
+    # credentials are allowed.
+    allow_methods=["GET", "POST"],
+    allow_headers=["Content-Type"],
 )
 
 app.include_router(health.router)

@@ -1,10 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, Request, status
 from sqlalchemy.orm import Session
 
 from app.auth.dependencies import get_current_user
 from app.controllers import quiz_controller
+from app.config import settings
 from app.db.session import get_db
 from app.models.user import User
+from app.rate_limit import limiter
 from app.schemas.quiz import (
     AnswerIn,
     AnswerOut,
@@ -20,7 +22,9 @@ router = APIRouter(prefix="/quiz", tags=["quiz"])
 
 
 @router.post("/start", response_model=QuizStartOut, status_code=status.HTTP_201_CREATED)
+@limiter.limit(settings.rate_limit_quiz)
 def start_quiz(
+    request: Request,
     payload: QuizStart,
     user: User = Depends(get_current_user),
     db: Session = Depends(get_db),

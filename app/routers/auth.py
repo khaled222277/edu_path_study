@@ -1,21 +1,28 @@
 """Google OAuth2 sign-in routes. Thin — the work lives in the controllers."""
 
+import logging
+
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from fastapi.responses import RedirectResponse
+from slowapi.util import get_remote_address
 from sqlalchemy.orm import Session
 
 from app.auth.dependencies import get_current_user
 from app.auth.oauth import oauth
 from app.config import settings
 from app.controllers import auth_controller
+from app.rate_limit import limiter
 from app.db.session import get_db
 from app.models.user import User
 from app.schemas.user import UserOut
+
+log = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
 
 @router.get("/google/login")
+@limiter.limit(settings.rate_limit_auth, key_func=get_remote_address)
 async def google_login(request: Request):
     """Kick off the OAuth dance by redirecting to Google's consent screen."""
     if not settings.google_client_id or not settings.google_client_secret:
@@ -28,14 +35,17 @@ async def google_login(request: Request):
 
 
 @router.get("/google/callback")
+@limiter.limit(settings.rate_limit_auth, key_func=get_remote_address)
 async def google_callback(request: Request, db: Session = Depends(get_db)):
     """Exchange the code for tokens, upsert the user, and set the session cookie."""
     try:
         token = await oauth.google.authorize_access_token(request)
     except Exception as exc:  # Authlib raises a variety of OAuth errors here.
+        # Log the cause; the client only learns that sign-in failed.
+        log.warning("google sign-in failed: %s", exc)
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Google sign-in failed: {exc}",
+            detail="Google sign-in failed. Please try again.",
         ) from exc
 
     userinfo = token.get("userinfo")

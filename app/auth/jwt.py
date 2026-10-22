@@ -21,7 +21,11 @@ def decode_access_token(token: str) -> int | None:
     """Return the user id encoded in `token`, or None if it is invalid/expired."""
     try:
         payload = jwt.decode(
-            token, settings.jwt_secret, algorithms=[settings.jwt_algorithm]
+            token,
+            settings.jwt_secret,
+            algorithms=[settings.jwt_algorithm],
+            # A token without an expiry would otherwise be valid forever.
+            options={"require": ["exp", "sub"]},
         )
         return int(payload["sub"])
     except (jwt.PyJWTError, KeyError, TypeError, ValueError):

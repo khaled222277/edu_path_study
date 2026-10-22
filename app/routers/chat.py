@@ -1,10 +1,12 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, Request, status
 from sqlalchemy.orm import Session
 
 from app.auth.dependencies import get_current_user
 from app.controllers import chat_controller
+from app.config import settings
 from app.db.session import get_db
 from app.models.user import User
+from app.rate_limit import limiter
 from app.schemas.chat import (
     AssistantReply,
     Citation,
@@ -48,7 +50,9 @@ def get_session(
 
 
 @router.post("/sessions/{session_id}/messages", response_model=AssistantReply)
+@limiter.limit(settings.rate_limit_chat)
 def send_message(
+    request: Request,
     session_id: int,
     payload: MessageCreate,
     user: User = Depends(get_current_user),

@@ -40,6 +40,12 @@ class Settings(BaseSettings):
     # admin has, so it gets a much longer ceiling.
     ollama_ingest_timeout_seconds: float = 600.0
 
+    # --- Rate limiting (slowapi, in-memory, per process) ---
+    rate_limit_enabled: bool = True
+    rate_limit_auth: str = "10/minute"  # login + OAuth callback, per client IP
+    rate_limit_chat: str = "20/minute"  # chat messages, per user
+    rate_limit_quiz: str = "5/minute"  # quiz generation, per user
+
     # --- Google OAuth2 ---
     google_client_id: str = ""
     google_client_secret: str = ""
