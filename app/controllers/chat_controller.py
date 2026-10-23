@@ -6,6 +6,7 @@ from fastapi import HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from app.config import settings
 from app.models.chat import ROLE_ASSISTANT, ROLE_USER, ChatMessage, ChatSession
 from app.models.subject import Subject
 from app.models.user import User
@@ -14,7 +15,7 @@ from app.services.retrieval import RetrievedChunk, format_context, retrieve
 
 log = logging.getLogger(__name__)
 
-CHAT_MODEL = "llama3.1:8b"
+CHAT_MODEL = settings.chat_model
 
 # How many prior turns to replay. Enough for follow-ups ("explain that again")
 # without letting old turns crowd out the retrieved context.

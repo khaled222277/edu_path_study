@@ -12,6 +12,7 @@ from pathlib import Path
 
 from flashrank import Ranker, RerankRequest
 
+from app.config import settings
 from app.services import lecture_images
 from app.services.vector_store import (
     CONTENT_TYPE_IMAGE,
@@ -22,8 +23,8 @@ from app.services.vector_store import (
 
 log = logging.getLogger(__name__)
 
-CANDIDATE_K = 10  # pulled from Chroma
-TOP_K = 3  # kept after reranking
+CANDIDATE_K = settings.candidate_k  # pulled from Chroma
+TOP_K = settings.top_k  # kept after reranking
 
 RERANKER_MODEL = "ms-marco-MultiBERT-L-12"
 RERANKER_CACHE = PROJECT_ROOT / "data" / "flashrank"
@@ -38,7 +39,7 @@ RERANKER_CACHE = PROJECT_ROOT / "data" / "flashrank"
 # the cross-encoder is this unsure we keep the vector order rather than trust it.
 # 0.1 sits three orders of magnitude above the Arabic scores and well below the
 # lowest confident English one.
-RERANK_MIN_CONFIDENCE = 0.1
+RERANK_MIN_CONFIDENCE = settings.rerank_min_confidence
 
 
 @dataclass

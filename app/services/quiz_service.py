@@ -12,6 +12,7 @@ import random
 import re
 from dataclasses import dataclass
 
+from app.config import settings
 from app.services.llm import LLM_ERRORS, LLMUnavailableError, get_client
 from app.services.vector_store import get_collection, retry_if_stale
 
@@ -19,7 +20,7 @@ log = logging.getLogger(__name__)
 
 DEFAULT_QUESTION_COUNT = 5
 
-QUIZ_MODEL = "llama3.1:8b"
+QUIZ_MODEL = settings.quiz_model
 
 # Carried over from the V1 prototype: models leak Latin script and placeholder
 # options into Arabic quizzes often enough that generation has to be validated

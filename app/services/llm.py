@@ -31,5 +31,6 @@ class LLMUnavailableError(Exception):
 def get_client(timeout: float | None = None) -> ollama.Client:
     """Ollama client with a bounded timeout (seconds)."""
     return ollama.Client(
-        timeout=timeout if timeout is not None else settings.ollama_timeout_seconds
+        host=settings.ollama_base_url or None,
+        timeout=timeout if timeout is not None else settings.ollama_timeout_seconds,
     )

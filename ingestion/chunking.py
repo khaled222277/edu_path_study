@@ -13,8 +13,10 @@ from dataclasses import dataclass
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
-CHUNK_SIZE = 800
-CHUNK_OVERLAP = 100
+from app.config import settings
+
+CHUNK_SIZE = settings.chunk_size
+CHUNK_OVERLAP = settings.chunk_overlap
 
 # Deliberately permissive: matches a delimiter-ish line carrying a page number,
 # e.g. "--- Page 3 ---", "[Page 3]", "=== PAGE 3 ===", "--- صفحة 3 ---".

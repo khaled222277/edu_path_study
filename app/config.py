@@ -3,6 +3,7 @@
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from pydantic import Field, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -36,7 +37,33 @@ class Settings(BaseSettings):
     # first user request does not pay ~30 s for it. Failure is logged, not fatal.
     warmup_on_startup: bool = True
 
+    # --- Models (Ollama tags) ---
+    chat_model: str = "llama3.1:8b"
+    quiz_model: str = "llama3.1:8b"
+    # Ingestion only: reads slide figures. The fallback is tried when the primary
+    # gives no verdict; set it to an empty string to disable the fallback.
+    vision_model: str = "qwen3-vl:4b"
+    fallback_vision_model: str = "qwen3-vl:8b"
+
+    # --- Retrieval ---
+    # Chunks pulled from Chroma, then reranked down to `top_k` for the prompt.
+    candidate_k: int = Field(default=10, ge=1, le=200)
+    top_k: int = Field(default=3, ge=1, le=50)
+    # Below this best cross-encoder score the reranker is ignored and the vector
+    # order is kept (it is unreliable on cross-lingual pairs).
+    rerank_min_confidence: float = Field(default=0.1, ge=0.0, le=1.0)
+
+    # --- Chunking (ingestion) ---
+    # Changing either only affects lectures ingested AFTER the change; existing
+    # chunks keep their old boundaries until the lecture is re-ingested.
+    chunk_size: int = Field(default=800, ge=100, le=8000)
+    chunk_overlap: int = Field(default=100, ge=0)
+
     # --- Ollama ---
+    # Empty = the ollama library default, which honours the OLLAMA_HOST env var
+    # (http://localhost:11434). Inside Docker point it at the host, e.g.
+    # http://host.docker.internal:11434.
+    ollama_base_url: str = ""
     # Per-request ceiling for the chat / quiz models (seconds). Without it a hung
     # Ollama would hold a request thread forever.
     ollama_timeout_seconds: float = 120.0
@@ -71,6 +98,24 @@ class Settings(BaseSettings):
 
     # --- Frontend ---
     frontend_url: str = "http://localhost:5173"
+
+    @model_validator(mode="after")
+    def _check_relationships(self) -> "Settings":
+        """Cross-field bounds that a single Field() constraint cannot express."""
+        if self.candidate_k < self.top_k:
+            raise ValueError(
+                f"CANDIDATE_K ({self.candidate_k}) must be >= TOP_K ({self.top_k})"
+            )
+        if self.chunk_overlap >= self.chunk_size:
+            raise ValueError(
+                f"CHUNK_OVERLAP ({self.chunk_overlap}) must be smaller than "
+                f"CHUNK_SIZE ({self.chunk_size})"
+            )
+        if not self.chat_model.strip() or not self.quiz_model.strip():
+            raise ValueError("CHAT_MODEL and QUIZ_MODEL must not be empty")
+        if not self.vision_model.strip():
+            raise ValueError("VISION_MODEL must not be empty")
+        return self
 
     @property
     def is_production(self) -> bool:

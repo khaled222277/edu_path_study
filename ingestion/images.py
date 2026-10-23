@@ -48,13 +48,13 @@ MIN_BYTES = 3072
 # qwen3-vl reads text off slides far better than llava:latest, which scored
 # 3/9 and 0/6 on labels in two verified figures where qwen3-vl:4b scored 9/9
 # and 6/6. Override per-run with --vision-model.
-VISION_MODEL = "qwen3-vl:4b"
+VISION_MODEL = settings.vision_model
 
 # qwen3-vl:4b intermittently returns an empty response, and on some figures it
 # does so repeatedly -- a real clustering diagram was silently dropped from the
 # KDD corpus that way. One retry clears the intermittent case; the fallback
 # model covers the rest (8b described that figure correctly).
-FALLBACK_VISION_MODEL = "qwen3-vl:8b"
+FALLBACK_VISION_MODEL = settings.fallback_vision_model
 DESCRIBE_RETRIES = 1
 
 # Asking a vision model to "name every label" sent llava into a repetition loop
