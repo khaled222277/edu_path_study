@@ -23,6 +23,19 @@ LLM_ERRORS = (
 )
 
 
+@lru_cache(maxsize=2)
+def get_async_client(timeout: float | None = None) -> ollama.AsyncClient:
+    """Async twin of get_client(), for streaming without holding a worker thread.
+
+    The timeout is httpx's per-read timeout, so for a stream it bounds a stall
+    between tokens rather than the length of the whole answer.
+    """
+    return ollama.AsyncClient(
+        host=settings.ollama_base_url or None,
+        timeout=timeout if timeout is not None else settings.ollama_timeout_seconds,
+    )
+
+
 def keep_alive() -> float | str:
     """OLLAMA_KEEP_ALIVE in the form Ollama's API accepts.
 

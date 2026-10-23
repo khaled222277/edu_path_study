@@ -1,12 +1,14 @@
 """Grounded question answering over one subject's lecture corpus."""
 
 import logging
+from dataclasses import dataclass
 
 from fastapi import HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from app.config import settings
+from app.db.session import session_scope
 from app.models.chat import ROLE_ASSISTANT, ROLE_USER, ChatMessage, ChatSession
 from app.models.subject import Subject
 from app.models.user import User
@@ -148,10 +150,14 @@ def _build_messages(
     ]
 
 
-def answer_question(
-    db: Session, chat_session: ChatSession, question: str, model: str = CHAT_MODEL
-) -> tuple[ChatMessage, list[RetrievedChunk]]:
-    """Persist the question, answer it from the corpus, persist the reply."""
+def _prepare(
+    db: Session, chat_session: ChatSession, question: str
+) -> tuple[list[RetrievedChunk], list[dict]]:
+    """Everything before the model call: record the question, retrieve, build the prompt.
+
+    Leaves the question flushed (not committed) in `db`. Shared by the plain and
+    the streaming route so the two cannot drift apart.
+    """
     db.add(ChatMessage(session_id=chat_session.id, role=ROLE_USER, content=question))
     db.flush()
     db.refresh(chat_session)
@@ -166,7 +172,63 @@ def answer_question(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail=SEARCH_UNAVAILABLE_DETAIL,
         ) from exc
-    messages = _build_messages(chat_session, question, chunks)
+    return chunks, _build_messages(chat_session, question, chunks)
+
+
+def finalize_answer(raw: str | None) -> str:
+    """The text that is stored and shown for a model reply."""
+    answer = (raw or "").strip()
+    if not answer:
+        answer = f"Sorry — I could not produce an answer. This may be {NOT_FOUND_MARKER}."
+    return answer
+
+
+def visible_chunks(answer: str, chunks: list[RetrievedChunk]) -> list[RetrievedChunk]:
+    """The sources worth showing under `answer`.
+
+    Showing sources under "not found in the lecture material" contradicts the
+    answer -- the chunks were retrieved but none of them answered the question.
+    """
+    if NOT_FOUND_MARKER.lower() in answer.lower():
+        return []
+    return chunks
+
+
+@dataclass
+class PreparedTurn:
+    """A chat turn that is ready for the model but has stored nothing yet."""
+
+    session_id: int
+    question: str
+    chunks: list[RetrievedChunk]
+    messages: list[dict]
+
+
+def prepare_turn(db: Session, chat_session: ChatSession, question: str) -> PreparedTurn:
+    """_prepare(), then undo the write: a streamed turn is stored only on success."""
+    session_id = chat_session.id
+    chunks, messages = _prepare(db, chat_session, question)
+    db.rollback()
+    return PreparedTurn(session_id, question, chunks, messages)
+
+
+def persist_exchange(session_id: int, question: str, answer: str) -> ChatMessage:
+    """Store a finished question + answer pair in one commit, in its own session."""
+    with session_scope() as db:
+        db.add(ChatMessage(session_id=session_id, role=ROLE_USER, content=question))
+        reply = ChatMessage(session_id=session_id, role=ROLE_ASSISTANT, content=answer)
+        db.add(reply)
+        db.commit()
+        db.refresh(reply)
+        db.expunge(reply)  # keep its loaded attributes readable after the session closes
+        return reply
+
+
+def answer_question(
+    db: Session, chat_session: ChatSession, question: str, model: str = CHAT_MODEL
+) -> tuple[ChatMessage, list[RetrievedChunk]]:
+    """Persist the question, answer it from the corpus, persist the reply."""
+    chunks, messages = _prepare(db, chat_session, question)
 
     try:
         response = get_client().chat(
@@ -183,9 +245,7 @@ def answer_question(
             detail=MODEL_UNAVAILABLE_DETAIL,
         ) from exc
 
-    answer = (response.get("message", {}).get("content") or "").strip()
-    if not answer:
-        answer = f"Sorry — I could not produce an answer. This may be {NOT_FOUND_MARKER}."
+    answer = finalize_answer(response.get("message", {}).get("content"))
 
     reply = ChatMessage(
         session_id=chat_session.id, role=ROLE_ASSISTANT, content=answer
@@ -194,9 +254,4 @@ def answer_question(
     db.commit()
     db.refresh(reply)
 
-    # Showing sources under "not found in the lecture material" contradicts the
-    # answer -- the chunks were retrieved but none of them answered the question.
-    if NOT_FOUND_MARKER.lower() in answer.lower():
-        return reply, []
-
-    return reply, chunks
+    return reply, visible_chunks(answer, chunks)

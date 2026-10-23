@@ -160,6 +160,8 @@ def forbid_real_backends(monkeypatch):
         ("app.services.llm.get_client", "Ollama"),
         ("app.controllers.chat_controller.get_client", "Ollama"),
         ("app.services.quiz_service.get_client", "Ollama"),
+        ("app.services.llm.get_async_client", "Ollama"),
+        ("app.controllers.chat_stream.get_async_client", "Ollama"),
     ]:
         monkeypatch.setattr(target, blocked(name))
 
@@ -172,3 +174,74 @@ def fresh_vector_store_caches():
     vector_store.reset_cache(drop_embedders=True)
     yield
     vector_store.reset_cache(drop_embedders=True)
+
+
+# --- streaming fakes ----------------------------------------------------------
+
+
+class FakeAsyncOllama:
+    """Stands in for ollama.AsyncClient.
+
+    `script` is what the stream yields, in order: a str is a token, an Exception
+    instance is raised at that point. `fail_on_open` raises from chat() itself.
+    `consumed` counts tokens handed out and `closed` flips when the stream is
+    closed, which is how tests prove an abandoned answer released the model.
+    """
+
+    def __init__(self, script=(), fail_on_open=None, delay=0.0):
+        self.script = list(script)
+        self.fail_on_open = fail_on_open
+        self.delay = delay
+        self.kwargs: list[dict] = []
+        self.consumed = 0
+        self.closed = False
+
+    async def chat(self, **kwargs):
+        self.kwargs.append(kwargs)
+        if self.fail_on_open is not None:
+            raise self.fail_on_open
+        return self._stream()
+
+    async def _stream(self):
+        import asyncio
+
+        try:
+            for item in self.script:
+                if isinstance(item, Exception):
+                    raise item
+                if self.delay:
+                    await asyncio.sleep(self.delay)
+                self.consumed += 1
+                yield {"message": {"content": item}}
+        finally:
+            self.closed = True
+
+
+@pytest.fixture()
+def fake_async_ollama(monkeypatch):
+    """Install a FakeAsyncOllama wherever the streaming path builds its client."""
+
+    def install(**kwargs) -> FakeAsyncOllama:
+        fake = FakeAsyncOllama(**kwargs)
+        monkeypatch.setattr("app.services.llm.get_async_client", lambda timeout=None: fake)
+        monkeypatch.setattr("app.controllers.chat_stream.get_async_client", lambda timeout=None: fake)
+        return fake
+
+    return install
+
+
+@pytest.fixture()
+def store_in_test_db(db, monkeypatch):
+    """Point the streaming path's own-session writes at the test database.
+
+    The real code opens a fresh session because the request's is already closed
+    by the time a stream is produced; tests share one in-memory SQLite session.
+    """
+    from contextlib import contextmanager
+
+    @contextmanager
+    def scope():
+        yield db
+
+    monkeypatch.setattr("app.controllers.chat_controller.session_scope", scope)
+    return db

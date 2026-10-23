@@ -1,8 +1,9 @@
 from fastapi import APIRouter, Depends, Request, status
+from fastapi.concurrency import run_in_threadpool
 from sqlalchemy.orm import Session
 
 from app.auth.dependencies import get_current_user
-from app.controllers import chat_controller
+from app.controllers import chat_controller, chat_stream
 from app.config import settings
 from app.db.session import get_db
 from app.models.user import User
@@ -50,7 +51,7 @@ def get_session(
 
 
 @router.post("/sessions/{session_id}/messages", response_model=AssistantReply)
-@limiter.limit(settings.rate_limit_chat)
+@limiter.shared_limit(settings.rate_limit_chat, scope="chat")
 def send_message(
     request: Request,
     session_id: int,
@@ -75,3 +76,33 @@ def send_message(
             for c in chunks
         ],
     )
+
+
+@router.post("/sessions/{session_id}/messages/stream")
+@limiter.shared_limit(settings.rate_limit_chat, scope="chat")
+async def stream_message(
+    request: Request,
+    session_id: int,
+    payload: MessageCreate,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Same turn as `send_message`, streamed as newline-delimited JSON events.
+
+    Events: `citations`, then `token`s, then `done` (or `error`). See
+    app/controllers/chat_stream.py. Failures before the first token are the same
+    HTTP errors as the plain route; the exchange is stored only once the answer
+    is complete.
+
+    `async def` on purpose: the stream is awaited on the event loop rather than
+    held in a worker thread. The blocking steps -- ownership check, vector search,
+    database writes -- are pushed to the threadpool explicitly.
+    """
+    chat_session = await run_in_threadpool(
+        chat_controller.get_session_or_404, db, session_id, user
+    )
+    turn = await run_in_threadpool(
+        chat_controller.prepare_turn, db, chat_session, payload.content
+    )
+    stream, first_part = await chat_stream.open_chat_stream(turn.messages)
+    return chat_stream.streaming_response(turn, stream, first_part)
