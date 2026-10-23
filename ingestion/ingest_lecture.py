@@ -30,6 +30,7 @@ from ingestion.chunking import CHUNK_OVERLAP, CHUNK_SIZE, chunk_document  # noqa
 from ingestion.images import (  # noqa: E402
     FALLBACK_VISION_MODEL,
     VISION_MODEL,
+    FigureIssue,
     classify_images,
     describe_images,
     extract_images,
@@ -183,6 +184,33 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def print_figure_issues(
+    issues: list[FigureIssue], pdf_path: Path, lecture_id: int | None
+) -> None:
+    """Which figures the vision model failed on, by lecture and page.
+
+    Ollama errors are otherwise only log warnings, which scroll past; a skipped
+    figure is permanently missing from chat and quizzes until re-ingested.
+    """
+    if not issues:
+        return
+    where = f"lecture {lecture_id} ({pdf_path.name})" if lecture_id is not None else pdf_path.name
+    skipped = sorted((i for i in issues if not i.kept), key=lambda i: i.page_number)
+    unclassified = sorted((i for i in issues if i.kept), key=lambda i: i.page_number)
+
+    print("-" * 58)
+    if skipped:
+        print(f"WARNING: {len(skipped)} figure(s) SKIPPED after errors (not stored):")
+        for i in skipped:
+            print(f"  {where} page {i.page_number}: {i.reason}")
+    if unclassified:
+        print(f"{len(unclassified)} figure(s) kept WITHOUT a content/decorative verdict:")
+        for i in unclassified:
+            print(f"  {where} page {i.page_number}: {i.reason}")
+    if skipped:
+        print("Fix the cause (is Ollama up? is the vision model pulled?), then re-ingest.")
+
+
 def print_summary(
     *,
     pdf_path: Path,
@@ -192,6 +220,7 @@ def print_summary(
     decorative_count: int,
     described_count: int,
     image_failures: int,
+    figure_issues: list[FigureIssue],
     saved_count: int | None,
     markers_found: bool,
     dry_run: bool,
@@ -227,6 +256,7 @@ def print_summary(
         print(f"images saved to disk: {saved_count}")
         if saved_count < image_count:
             print(f"  could not encode  : {image_count - saved_count}")
+    print_figure_issues(figure_issues, pdf_path, lecture_id)
     if not markers_found:
         print("WARNING: no page markers found -- chunks report page 0.")
     print("=" * 58 + "\n")
@@ -306,6 +336,7 @@ def main() -> int:
         images = []
         descriptions = []
         image_failures = 0
+        figure_issues: list[FigureIssue] = []
         decorative_count = 0
         if args.skip_images:
             log.info("Skipping images (--skip-images).")
@@ -325,6 +356,7 @@ def main() -> int:
                     args.vision_model,
                     args.fallback_vision_model or None,
                     source=pdf_path.name,
+                    issues=figure_issues,
                 )
                 decorative_count = len(decorative)
                 log.info(
@@ -339,7 +371,10 @@ def main() -> int:
                     args.vision_model, args.fallback_vision_model or "none",
                 )
                 descriptions, image_failures = describe_images(
-                    images, args.vision_model, args.fallback_vision_model or None
+                    images,
+                    args.vision_model,
+                    args.fallback_vision_model or None,
+                    issues=figure_issues,
                 )
 
         if args.dry_run:
@@ -351,6 +386,7 @@ def main() -> int:
                 decorative_count=decorative_count,
                 described_count=len(descriptions),
                 image_failures=image_failures,
+                figure_issues=figure_issues,
                 saved_count=None,
                 markers_found=markers_found,
                 dry_run=True,
@@ -429,6 +465,7 @@ def main() -> int:
             decorative_count=decorative_count,
             described_count=len(descriptions),
             image_failures=image_failures,
+            figure_issues=figure_issues,
             saved_count=len(saved),
             markers_found=markers_found,
             dry_run=False,

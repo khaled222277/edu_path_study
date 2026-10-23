@@ -133,6 +133,27 @@ class ExtractedImage:
     sha256: str
 
 
+@dataclass(frozen=True)
+class FigureIssue:
+    """A figure the vision model failed on, for the end-of-run summary.
+
+    Purely a report: collecting these never changes what is described, stored or
+    skipped. `kept` is True when the figure is still ingested despite the problem
+    (classification gave no verdict, so it is kept), False when it was dropped.
+    """
+
+    stage: str  # "classification" | "description"
+    page_number: int
+    reason: str
+    kept: bool
+
+
+def _reason(exc: Exception) -> str:
+    """One short line for an exception, safe to print."""
+    text = " ".join(str(exc).split())
+    return f"{type(exc).__name__}: {text[:100]}" if text else type(exc).__name__
+
+
 @dataclass
 class ImageDescription:
     page_number: int
@@ -289,8 +310,11 @@ def classify_image(
     model: str = VISION_MODEL,
     fallback: str | None = FALLBACK_VISION_MODEL,
     retries: int = DESCRIBE_RETRIES,
+    errors: list[str] | None = None,
 ) -> str | None:
     """LABEL_CONTENT, LABEL_DECORATIVE, or None if the model never gave a verdict.
+
+    If `errors` is given, each failed attempt appends its reason to it.
 
     None means "we do not know", and every caller treats that as keep. Dropping
     a figure because a model call failed is the same mistake the OCR gate made:
@@ -310,11 +334,15 @@ def classify_image(
             )
         except Exception as exc:
             log.warning("classification call failed on %s (%s)", attempt_model, exc)
+            if errors is not None:
+                errors.append(_reason(exc))
             continue
 
         verdict = _parse_verdict(response.get("response") or "")
         if verdict:
             return verdict
+        if errors is not None:
+            errors.append(f"no CONTENT/DECORATIVE verdict from {attempt_model}")
 
     return None
 
@@ -324,6 +352,7 @@ def classify_images(
     model: str = VISION_MODEL,
     fallback: str | None = FALLBACK_VISION_MODEL,
     source: str = "",
+    issues: list[FigureIssue] | None = None,
 ) -> tuple[list[ExtractedImage], list[ExtractedImage], int]:
     """Split `images` into (content, decorative, unclassified_count).
 
@@ -335,7 +364,8 @@ def classify_images(
     unclassified = 0
 
     for i, image in enumerate(images, start=1):
-        verdict = classify_image(image.data, model, fallback)
+        reasons: list[str] = []
+        verdict = classify_image(image.data, model, fallback, errors=reasons)
         if verdict == LABEL_DECORATIVE:
             decorative.append(image)
             log.info(
@@ -350,13 +380,25 @@ def classify_images(
                 "  page %s: no classification verdict -- keeping the image",
                 image.page_number,
             )
+            if issues is not None:
+                issues.append(FigureIssue(
+                    "classification", image.page_number,
+                    reasons[-1] if reasons else "no verdict", kept=True,
+                ))
         content.append(image)
 
     return content, decorative, unclassified
 
 
-def describe_image(image: ExtractedImage, model: str = VISION_MODEL) -> str | None:
-    """One vision-model description, or None if the call failed."""
+def describe_image(
+    image: ExtractedImage,
+    model: str = VISION_MODEL,
+    errors: list[str] | None = None,
+) -> str | None:
+    """One vision-model description, or None if the call failed.
+
+    If `errors` is given, the reason for a failure is appended to it.
+    """
     try:
         response = _client().generate(
             model=model,
@@ -366,6 +408,8 @@ def describe_image(image: ExtractedImage, model: str = VISION_MODEL) -> str | No
         )
     except Exception as exc:
         log.warning("page %s: description failed (%s)", image.page_number, exc)
+        if errors is not None:
+            errors.append(_reason(exc))
         return None
 
     text = (response.get("response") or "").strip()
@@ -374,6 +418,8 @@ def describe_image(image: ExtractedImage, model: str = VISION_MODEL) -> str | No
             "page %s: model returned an empty description (%sx%s) -- skipped",
             image.page_number, image.width, image.height,
         )
+        if errors is not None:
+            errors.append(f"empty response from {model}")
         return None
 
     if len(text) > MAX_DESCRIPTION_CHARS:
@@ -388,6 +434,8 @@ def describe_image(image: ExtractedImage, model: str = VISION_MODEL) -> str | No
             "page %s: description looks degenerate (repetition loop) -- discarded",
             image.page_number,
         )
+        if errors is not None:
+            errors.append(f"repetition loop from {model}")
         return None
 
     return text
@@ -398,6 +446,7 @@ def describe_image_resilient(
     model: str = VISION_MODEL,
     fallback: str | None = FALLBACK_VISION_MODEL,
     retries: int = DESCRIBE_RETRIES,
+    errors: list[str] | None = None,
 ) -> str | None:
     """Describe `image`, retrying and then falling back to a second model."""
     # Empty responses are stochastic in both models -- a figure that comes back
@@ -405,7 +454,7 @@ def describe_image_resilient(
     # refuses may succeed on 4b. So retry each model rather than trusting a
     # single attempt from either.
     for attempt in range(retries + 1):
-        text = describe_image(image, model)
+        text = describe_image(image, model, errors)
         if text:
             return text
         if attempt < retries:
@@ -414,7 +463,7 @@ def describe_image_resilient(
     if fallback and fallback != model:
         for attempt in range(retries + 1):
             log.info("  page %s: falling back to %s", image.page_number, fallback)
-            text = describe_image(image, fallback)
+            text = describe_image(image, fallback, errors)
             if text:
                 return text
 
@@ -425,8 +474,13 @@ def describe_images(
     images: list[ExtractedImage],
     model: str = VISION_MODEL,
     fallback: str | None = FALLBACK_VISION_MODEL,
+    issues: list[FigureIssue] | None = None,
 ) -> tuple[list[ImageDescription], int]:
-    """Describe every image. Returns (descriptions, failure_count)."""
+    """Describe every image. Returns (descriptions, failure_count).
+
+    If `issues` is given, each skipped figure is appended to it with its page and
+    the last failure reason. The return value is unaffected.
+    """
     descriptions: list[ImageDescription] = []
     failures = 0
 
@@ -435,9 +489,15 @@ def describe_images(
             "  describing image %s/%s (page %s, %sx%s)",
             i, len(images), image.page_number, image.width, image.height,
         )
-        text = describe_image_resilient(image, model, fallback)
+        reasons: list[str] = []
+        text = describe_image_resilient(image, model, fallback, errors=reasons)
         if text is None:
             failures += 1
+            if issues is not None:
+                issues.append(FigureIssue(
+                    "description", image.page_number,
+                    reasons[-1] if reasons else "no description", kept=False,
+                ))
             log.warning(
                 "  page %s: no description after retry and fallback -- figure skipped",
                 image.page_number,
