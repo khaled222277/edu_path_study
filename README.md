@@ -307,6 +307,24 @@ pytest
 | `test_authorization.py` | one student cannot read another's chat session, quiz or dashboard |
 | `test_error_handling.py` | clean 503s when Ollama/Chroma fail; rate limiting |
 | `test_config.py` | production startup refuses placeholder secrets and insecure cookies |
+| `test_vector_store.py` | embedder built once under concurrency, stale-client recovery, startup warm-up |
+| `test_ingestion_summary.py` | skipped/unclassified figures reported by lecture and page |
+
+Frontend (pure logic, Node's built-in runner, no install needed):
+
+```bash
+cd frontend && npm test
+```
+
+### Benchmark
+
+```bash
+python scripts/bench_chat.py --subject-id 7                   # needs Ollama + an ingested subject
+python scripts/bench_chat.py --subject-id 7 --warm-up-first   # as the API behaves after boot
+```
+
+Times retrieval stage by stage (cold vs warm) and one full chat turn. It never
+writes to Postgres.
 
 ## Migrations
 
