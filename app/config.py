@@ -32,6 +32,10 @@ class Settings(BaseSettings):
         f"postgresql://edupath:{DEFAULT_DB_PASSWORD}@localhost:5432/edupath_study"
     )
 
+    # Load the embedding model and reranker in the background at startup so the
+    # first user request does not pay ~30 s for it. Failure is logged, not fatal.
+    warmup_on_startup: bool = True
+
     # --- Ollama ---
     # Per-request ceiling for the chat / quiz models (seconds). Without it a hung
     # Ollama would hold a request thread forever.

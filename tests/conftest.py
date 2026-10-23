@@ -17,6 +17,7 @@ os.environ.update(
         "GOOGLE_CLIENT_ID": "",
         "GOOGLE_CLIENT_SECRET": "",
         "RATE_LIMIT_ENABLED": "false",
+        "WARMUP_ON_STARTUP": "false",
         "COOKIE_SECURE": "false",
     }
 )
@@ -158,3 +159,13 @@ def forbid_real_backends(monkeypatch):
         ("app.services.quiz_service.get_client", "Ollama"),
     ]:
         monkeypatch.setattr(target, blocked(name))
+
+
+@pytest.fixture(autouse=True)
+def fresh_vector_store_caches():
+    """Process-wide caches must not leak between tests."""
+    from app.services import vector_store
+
+    vector_store.reset_cache(drop_embedders=True)
+    yield
+    vector_store.reset_cache(drop_embedders=True)

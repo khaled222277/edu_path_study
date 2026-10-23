@@ -17,6 +17,7 @@ from app.services.vector_store import (
     CONTENT_TYPE_IMAGE,
     PROJECT_ROOT,
     get_collection,
+    retry_if_stale,
 )
 
 log = logging.getLogger(__name__)
@@ -89,12 +90,13 @@ def retrieve(
     if not query.strip():
         return []
 
-    collection = get_collection()
-    result = collection.query(
-        query_texts=[query],
-        n_results=candidate_k,
-        where={"subject_id": subject_id},
-        include=["documents", "metadatas", "distances"],
+    result = retry_if_stale(
+        lambda: get_collection().query(
+            query_texts=[query],
+            n_results=candidate_k,
+            where={"subject_id": subject_id},
+            include=["documents", "metadatas", "distances"],
+        )
     )
 
     documents = result["documents"][0]

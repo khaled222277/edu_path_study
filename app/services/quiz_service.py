@@ -13,7 +13,7 @@ import re
 from dataclasses import dataclass
 
 from app.services.llm import LLM_ERRORS, LLMUnavailableError, get_client
-from app.services.vector_store import get_collection
+from app.services.vector_store import get_collection, retry_if_stale
 
 log = logging.getLogger(__name__)
 
@@ -106,9 +106,10 @@ def sample_chunks(
     Round-robins over lectures so a five-question quiz draws on five different
     lectures where the subject has that many, and never twice from one page.
     """
-    collection = get_collection()
-    stored = collection.get(
-        where={"subject_id": subject_id}, include=["documents", "metadatas"]
+    stored = retry_if_stale(
+        lambda: get_collection().get(
+            where={"subject_id": subject_id}, include=["documents", "metadatas"]
+        )
     )
     documents = stored.get("documents") or []
     metadatas = stored.get("metadatas") or []
