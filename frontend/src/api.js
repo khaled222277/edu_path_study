@@ -15,11 +15,16 @@ function httpError(status, body) {
 
 /** fetch wrapper that always sends the httpOnly session cookie. */
 async function request(path, options = {}) {
-  const res = await fetch(`${API_URL}${path}`, {
-    credentials: "include",
-    headers: { "Content-Type": "application/json" },
-    ...options,
-  });
+  let res;
+  try {
+    res = await fetch(`${API_URL}${path}`, {
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      ...options,
+    });
+  } catch (e) {
+    throw networkFailure(e); // backend down / offline: not the browser's raw message
+  }
 
   if (res.status === 204) return null;
 

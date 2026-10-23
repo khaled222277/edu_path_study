@@ -29,6 +29,8 @@ from chromadb.api.shared_system_client import SharedSystemClient
 from chromadb.errors import InternalError
 from chromadb.utils import embedding_functions
 
+from app.config import settings
+
 log = logging.getLogger(__name__)
 
 T = TypeVar("T")
@@ -55,11 +57,50 @@ _clients: dict[str, chromadb.ClientAPI] = {}
 _collections: dict[tuple[str, str], Collection] = {}
 
 
-def get_embedding_function(device: str = "cpu"):
+_warned_devices: set[str] = set()
+
+
+def resolve_device(requested: str) -> str:
+    """`requested` if this machine can use it, otherwise "cpu" (with one warning).
+
+    Startup validation only checks that the name is well formed; whether a GPU is
+    actually there can only be known here. A missing accelerator should slow the
+    app down, not stop it.
+    """
+    if requested == "cpu":
+        return "cpu"
+
+    problem = None
+    try:
+        import torch
+
+        if requested == "mps":
+            if not torch.backends.mps.is_available():
+                problem = "MPS is not available"
+        else:  # "cuda" or "cuda:N"
+            if not torch.cuda.is_available():
+                problem = "CUDA is not available"
+            elif ":" in requested and int(requested.split(":")[1]) >= torch.cuda.device_count():
+                problem = f"only {torch.cuda.device_count()} CUDA device(s) present"
+    except ImportError:
+        problem = "torch is not installed"
+
+    if problem is None:
+        return requested
+    if requested not in _warned_devices:
+        _warned_devices.add(requested)
+        log.warning("EMBED_DEVICE=%s requested but %s; using cpu", requested, problem)
+    return "cpu"
+
+
+def get_embedding_function(device: str | None = None):
     """SentenceTransformer embedding fn, built once per device per process.
 
-    Normalized vectors, to pair with cosine.
+    Normalized vectors, to pair with cosine. `device` defaults to EMBED_DEVICE and
+    falls back to cpu if unavailable; the cache is keyed by the device actually
+    used, so a request for an absent GPU shares the cpu instance.
     """
+    device = resolve_device(device or settings.embed_device)
     with _lock:
         fn = _embedding_functions.get(device)
         if fn is None:
@@ -86,9 +127,10 @@ def get_client(persist_path: Path | None = None) -> chromadb.ClientAPI:
 
 
 def get_collection(
-    persist_path: Path | None = None, device: str = "cpu"
+    persist_path: Path | None = None, device: str | None = None
 ) -> Collection:
     """The single collection every lecture chunk lands in."""
+    device = resolve_device(device or settings.embed_device)
     key = (str(persist_path or CHROMA_PATH), device)
     with _lock:
         collection = _collections.get(key)
@@ -115,6 +157,7 @@ def reset_cache(*, drop_embedders: bool = False) -> None:
         _clients.clear()
         if drop_embedders:
             _embedding_functions.clear()
+            _warned_devices.clear()
         SharedSystemClient.clear_system_cache()
 
 

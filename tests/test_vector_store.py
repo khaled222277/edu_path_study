@@ -80,6 +80,8 @@ def test_embedder_is_built_once_under_concurrent_first_requests(monkeypatch):
 
 
 def test_embedder_is_cached_per_device(monkeypatch):
+    # Pretend both devices exist: this is about cache keys, not this machine's GPU.
+    monkeypatch.setattr(vector_store, "resolve_device", lambda requested: requested)
     monkeypatch.setattr(
         vector_store.embedding_functions,
         "SentenceTransformerEmbeddingFunction",

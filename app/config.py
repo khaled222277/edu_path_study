@@ -53,6 +53,12 @@ class Settings(BaseSettings):
     # order is kept (it is unreliable on cross-lingual pairs).
     rerank_min_confidence: float = Field(default=0.1, ge=0.0, le=1.0)
 
+    # Where the query embedder (bge-m3) runs: "cpu", "mps", "cuda" or "cuda:N".
+    # If the requested accelerator is not available the app falls back to cpu with
+    # a warning instead of failing to start. Vectors are the same either way, so
+    # this never needs a re-ingest.
+    embed_device: str = Field(default="cpu", pattern=r"^(cpu|mps|cuda(:\d+)?)$")
+
     # --- Chunking (ingestion) ---
     # Changing either only affects lectures ingested AFTER the change; existing
     # chunks keep their old boundaries until the lecture is re-ingested.

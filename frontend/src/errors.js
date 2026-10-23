@@ -85,7 +85,10 @@ export function restoreDraft(current, failedContent) {
  */
 export function networkFailure(cause) {
   if (cause?.name === "AbortError") return cause;
-  const err = new Error("Network error");
+  // The message is the friendly English text, so screens that print err.message
+  // directly (App, Dashboard) never show the browser's raw "Failed to fetch";
+  // Chat and Quiz translate from `kind` instead.
+  const err = new Error(MESSAGES.unavailable.en);
   err.kind = "unavailable";
   err.cause = cause;
   return err;
