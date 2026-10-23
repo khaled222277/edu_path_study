@@ -241,6 +241,7 @@ need it, but it defaults to off.
 | GET | `/chat/sessions` | the student's sessions, most recent first |
 | GET | `/chat/sessions/{id}` | full message history |
 | POST | `/chat/sessions/{id}/messages` | ask a question, get a grounded answer + citations |
+| POST | `/chat/sessions/{id}/messages/stream` | same turn, streamed as NDJSON events (below) |
 | POST | `/quiz/start` | generate a quiz; answers withheld until answered |
 | POST | `/quiz/{id}/answer` | record an answer, reveal correctness |
 | POST | `/quiz/{id}/complete` | close an attempt early |
@@ -309,6 +310,9 @@ pytest
 | `test_config.py` | production startup refuses placeholder secrets and insecure cookies |
 | `test_vector_store.py` | embedder built once under concurrency, stale-client recovery, startup warm-up |
 | `test_ingestion_summary.py` | skipped/unclassified figures reported by lecture and page |
+| `test_chat_stream.py` | streaming route: event order, errors, auth, rate limit, disconnect cleanup, no thread starvation |
+| `test_keep_alive.py` | model residency: keep-alive on every call, warm-up steps independent |
+| `test_embed_device.py` | EMBED_DEVICE validation and fallback to cpu |
 
 Frontend (pure logic, Node's built-in runner, no install needed):
 
@@ -321,10 +325,34 @@ cd frontend && npm test
 ```bash
 python scripts/bench_chat.py --subject-id 7                   # needs Ollama + an ingested subject
 python scripts/bench_chat.py --subject-id 7 --warm-up-first   # as the API behaves after boot
+python scripts/bench_chat.py --subject-id 7 --cold-llm        # evict the chat model first
 ```
 
-Times retrieval stage by stage (cold vs warm) and one full chat turn. It never
+Times retrieval stage by stage (cold vs warm), then streamed chat turns: time to the
+first token (what a student waits for before text appears) and the total. It never
 writes to Postgres.
+
+### Streaming answers
+
+`POST /chat/sessions/{id}/messages/stream` takes the same body and enforces the same
+auth, ownership and rate limit (one shared allowance with the plain route) but
+answers as `application/x-ndjson`, one JSON object per line:
+
+| Event | Meaning |
+| --- | --- |
+| `{"type":"citations","citations":[...]}` | sources, sent with the first token |
+| `{"type":"token","text":"..."}` | a piece of the answer, in order |
+| `{"type":"done","message":{...},"citations":[...]}` | stored message; `citations` here is authoritative (empty for a "not found" answer) |
+| `{"type":"error","detail":"..."}` | the answer broke off part-way; nothing was stored |
+
+Problems before the first token (Ollama or Chroma down) are ordinary HTTP errors,
+exactly like the plain route. The question and answer are stored together, only
+once the answer is complete: a failure or a client that disconnects leaves nothing
+behind, and a disconnect closes the Ollama request so it stops generating.
+
+Chat latency settings: `OLLAMA_KEEP_ALIVE` keeps the model loaded between students,
+and the startup warm-up loads it before the first request. `EMBED_DEVICE` picks the
+query-embedding device. See `.env.example`.
 
 ## Migrations
 
