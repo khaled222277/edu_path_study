@@ -17,6 +17,18 @@ const MESSAGES = {
     en: "The AI service is busy or unavailable. Please try again.",
     ar: "خدمة الذكاء الاصطناعي مشغولة أو غير متاحة حاليًا. يرجى المحاولة مرة أخرى.",
   },
+  // A streamed answer that broke off part-way (an `error` event, a dropped
+  // connection, or an unreadable event).
+  interrupted: {
+    en: "The answer was interrupted. Please try again.",
+    ar: "انقطعت الإجابة. يرجى المحاولة مرة أخرى.",
+  },
+  // The student pressed Stop. Said plainly because the partial answer is shown
+  // but was not saved: it will not be there after a reload.
+  stopped: {
+    en: "Stopped. This answer was not saved.",
+    ar: "تم الإيقاف. لم يتم حفظ هذه الإجابة.",
+  },
 };
 
 /** Which friendly message an HTTP status maps to, or null for "show the server's". */
@@ -64,4 +76,17 @@ export function withoutPending(messages, pendingId) {
  */
 export function restoreDraft(current, failedContent) {
   return current && current.trim() ? current : failedContent;
+}
+
+/**
+ * A failed fetch() -- backend down, offline, connection reset -- as an error the
+ * UI can translate, instead of the browser's raw "Failed to fetch". An abort is
+ * the caller cancelling on purpose, not a failure, so it passes through unchanged.
+ */
+export function networkFailure(cause) {
+  if (cause?.name === "AbortError") return cause;
+  const err = new Error("Network error");
+  err.kind = "unavailable";
+  err.cause = cause;
+  return err;
 }

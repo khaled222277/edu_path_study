@@ -826,6 +826,42 @@ button:disabled {
   font-style: italic;
 }
 
+/* A caret at the logical end of the text, so it trails the last word in both
+   directions, while an answer is still being written. */
+.msg-streaming .msg-body::after {
+  content: "\258D";
+  margin-inline-start: 2px;
+  color: var(--text-faint);
+  animation: caret-blink 1s steps(2, start) infinite;
+}
+
+@keyframes caret-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .msg-streaming .msg-body::after {
+    animation: none;
+  }
+}
+
+/* Why an answer stops short: pressed Stop (muted) or it broke (error). */
+.msg-note {
+  margin-top: 10px;
+  font-size: 13px;
+  text-align: start;
+}
+
+.msg-note-muted {
+  color: var(--text-muted);
+}
+
+.msg-note-error {
+  color: var(--danger);
+}
+
 .citations {
   margin-top: 12px;
   padding-top: 10px;

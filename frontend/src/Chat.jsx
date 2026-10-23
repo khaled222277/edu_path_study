@@ -7,9 +7,16 @@ import {
   getMySubjects,
   getSession,
   listSessions,
-  sendMessage,
+  streamMessage,
 } from "./api.js";
 import { friendlyError, guessLanguage, restoreDraft, withoutPending } from "./errors.js";
+import {
+  applyEvent,
+  failurePlan,
+  initialStreamState,
+  streamOutcome,
+  upsertAnswer,
+} from "./stream.js";
 
 export default function Chat({ user, initialSubject = null }) {
   const [subjects, setSubjects] = useState([]);
@@ -27,6 +34,11 @@ export default function Chat({ user, initialSubject = null }) {
   const [zoomed, setZoomed] = useState(null);
 
   const bottomRef = useRef(null);
+  // The in-flight answer's AbortController; null when nothing is streaming. A
+  // send only touches the screen while it is still the one stored here.
+  const abortRef = useRef(null);
+  // Follow the answer as it grows, unless the student scrolled up to read.
+  const stickRef = useRef(true);
 
   useEffect(() => {
     getMySubjects().then(setSubjects).catch((e) => setError(friendlyError(e)));
@@ -41,8 +53,22 @@ export default function Chat({ user, initialSubject = null }) {
   }, [initialSubject?.id]);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+    if (!stickRef.current) return;
+    // Instant while streaming: a smooth scroll restarts on every update and lags.
+    bottomRef.current?.scrollIntoView({ behavior: sending ? "auto" : "smooth" });
   }, [messages, sending]);
+
+  // Leaving a chat (another session, back to the list, unmounting) abandons its
+  // answer: closing the request tells the server to stop and to save nothing.
+  useEffect(
+    () => () => {
+      const controller = abortRef.current;
+      abortRef.current = null; // detach first, so the aborted send stays off-screen
+      controller?.abort();
+      setSending(false);
+    },
+    [session?.id],
+  );
 
   // Escape closes the enlarged figure, so the student never loses the chat
   // behind an overlay they cannot dismiss from the keyboard.
@@ -83,28 +109,99 @@ export default function Chat({ user, initialSubject = null }) {
     const content = draft.trim();
     if (!content || sending) return;
 
-    const pendingId = `pending-${Date.now()}`;
+    const lang = guessLanguage(content);
+    const stamp = Date.now();
+    const userId = `pending-${stamp}`;
+    const answerId = `stream-${stamp}`;
+    const controller = new AbortController();
+    abortRef.current = controller;
+    stickRef.current = true;
+
     setDraft("");
     setSending(true);
     setError(null);
     // Optimistic echo so the student sees their question immediately.
-    setMessages((prev) => [...prev, { id: pendingId, role: "user", content }]);
+    setMessages((prev) => [...prev, { id: userId, role: "user", content }]);
+
+    let state = initialStreamState();
+    const isCurrent = () => abortRef.current === controller;
+    const paint = (extra) => setMessages((prev) => upsertAnswer(prev, answerId, state, extra));
+    // Tokens arrive far faster than a screen refreshes; painting once per frame
+    // keeps the text steady instead of re-rendering on every few characters.
+    // The handle is local to this send: a send that was abandoned (the student
+    // switched chats) must not be able to cancel the next one's frame.
+    let frame = null;
+    const schedule = () => {
+      if (frame != null) return;
+      frame = requestAnimationFrame(() => {
+        frame = null;
+        if (isCurrent()) paint();
+      });
+    };
+    const cancelFrame = () => {
+      if (frame != null) cancelAnimationFrame(frame);
+      frame = null;
+    };
+    // Nothing worth keeping: take the attempt off the screen and give the text back.
+    const undo = () => {
+      setMessages((prev) => prev.filter((m) => m.id !== userId && m.id !== answerId));
+      setDraft((current) => restoreDraft(current, content));
+    };
+    // The answer ended without completing: see failurePlan for the policy.
+    const handleFailure = (error) => {
+      const plan = failurePlan(error, state);
+      const message = friendlyError(plan.cause, lang);
+      if (plan.keepPartial) {
+        // Part of an answer is on screen: keep it and say why it stops.
+        paint({ note: message, noteTone: plan.tone });
+        setDraft((current) => restoreDraft(current, content));
+      } else {
+        // Nothing worth keeping (refused, offline, stopped at once): nothing was
+        // stored, so take the echo out and hand the text back to edit or resend.
+        undo();
+        if (plan.banner) setError(message);
+      }
+    };
 
     try {
-      const reply = await sendMessage(session.id, content);
-      setMessages((prev) => [...prev, reply.message]);
-      setCitations((prev) => ({ ...prev, [reply.message.id]: reply.citations }));
+      await streamMessage(session.id, content, {
+        signal: controller.signal,
+        onEvent: (ev) => {
+          state = applyEvent(state, ev);
+          if (ev.type === "citations") {
+            // Sources are known before the first word: show them straight away.
+            setCitations((prev) => ({ ...prev, [answerId]: state.citations }));
+          }
+          if (ev.type === "token" || ev.type === "citations") schedule();
+        },
+      });
+      cancelFrame();
+      if (!isCurrent()) return;
+
+      if (streamOutcome(state) === "done") {
+        paint(); // swaps the placeholder for the stored message, with its real id
+        const storedId = state.message.id;
+        setCitations((prev) => {
+          const { [answerId]: _placeholder, ...rest } = prev;
+          return { ...rest, [storedId]: state.citations };
+        });
+      } else {
+        handleFailure(null); // an `error` event, or the connection just closed
+      }
     } catch (e) {
-      // On 429 the request never reached the handler, and on 503 the server
-      // rolls the question back, so it was not stored: take the echo out and
-      // hand the text back to edit or resend. A failed send must not eat what
-      // the student typed.
-      setMessages((prev) => withoutPending(prev, pendingId));
-      setDraft((current) => restoreDraft(current, content));
-      setError(friendlyError(e, guessLanguage(content)));
+      cancelFrame();
+      if (isCurrent()) handleFailure(e);
     } finally {
-      setSending(false);
+      cancelFrame();
+      if (isCurrent()) {
+        abortRef.current = null;
+        setSending(false);
+      }
     }
+  }
+
+  function handleStop() {
+    abortRef.current?.abort();
   }
 
   const subjectName = (id) => {
@@ -195,7 +292,13 @@ export default function Chat({ user, initialSubject = null }) {
         </button>
       </header>
 
-      <div className="messages">
+      <div
+        className="messages"
+        onScroll={(e) => {
+          const el = e.currentTarget;
+          stickRef.current = el.scrollHeight - el.scrollTop - el.clientHeight < 160;
+        }}
+      >
         {messages.length === 0 && (
           <p className="hint chat-empty">
             Ask anything from your lectures — in Arabic or English.
@@ -207,8 +310,13 @@ export default function Chat({ user, initialSubject = null }) {
             which side it takes comes from align-self by role, and align-self
             ignores direction. */}
         {messages.map((m) => (
-          <div key={m.id} className={`msg msg-${m.role}`} dir="auto">
+          <div
+            key={m.id}
+            className={`msg msg-${m.role}${m.streaming ? " msg-streaming" : ""}`}
+            dir="auto"
+          >
             <div className="msg-body">{m.content}</div>
+            {m.note && <div className={`msg-note msg-note-${m.noteTone}`}>{m.note}</div>}
             {citations[m.id]?.length > 0 && (
               <div className="citations">
                 <div className="citations-label">Sources</div>
@@ -251,7 +359,7 @@ export default function Chat({ user, initialSubject = null }) {
           </div>
         ))}
 
-        {sending && (
+        {sending && !messages.some((m) => m.streaming) && (
           <div className="msg msg-assistant">
             <div className="msg-body typing">Thinking…</div>
           </div>
@@ -269,9 +377,15 @@ export default function Chat({ user, initialSubject = null }) {
           onChange={(e) => setDraft(e.target.value)}
           disabled={sending}
         />
-        <button type="submit" disabled={sending || !draft.trim()}>
-          Send
-        </button>
+        {sending ? (
+          <button type="button" className="btn-secondary" onClick={handleStop}>
+            Stop
+          </button>
+        ) : (
+          <button type="submit" disabled={!draft.trim()}>
+            Send
+          </button>
+        )}
       </form>
 
       {/* dir="ltr": the overlay is chrome, not content, so it keeps its

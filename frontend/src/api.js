@@ -1,7 +1,17 @@
-import { kindForStatus } from "./errors.js";
+import { kindForStatus, networkFailure } from "./errors.js";
+import { createNdjsonParser } from "./stream.js";
 
 // Optional chaining so this module also loads under plain Node (the unit tests).
 export const API_URL = import.meta.env?.VITE_API_URL || "http://localhost:8000";
+
+/** The Error for a non-2xx response, tagged so the UI can pick a friendly message. */
+function httpError(status, body) {
+  const err = new Error(body?.detail || `Request failed (${status})`);
+  err.status = status;
+  // "rate_limited" (429) / "unavailable" (503) get a translated message in the UI.
+  err.kind = kindForStatus(status);
+  return err;
+}
 
 /** fetch wrapper that always sends the httpOnly session cookie. */
 async function request(path, options = {}) {
@@ -14,13 +24,7 @@ async function request(path, options = {}) {
   if (res.status === 204) return null;
 
   const body = await res.json().catch(() => null);
-  if (!res.ok) {
-    const err = new Error(body?.detail || `Request failed (${res.status})`);
-    err.status = res.status;
-    // "rate_limited" (429) / "unavailable" (503) get a translated message in the UI.
-    err.kind = kindForStatus(res.status);
-    throw err;
-  }
+  if (!res.ok) throw httpError(res.status, body);
   return body;
 }
 
@@ -54,6 +58,59 @@ export const sendMessage = (sessionId, content) =>
     method: "POST",
     body: JSON.stringify({ content }),
   });
+
+/**
+ * Ask a question and receive the answer as it is written.
+ *
+ * Calls `onEvent` for each event (see stream.js) and resolves when the stream
+ * ends. Rejects with the same tagged errors as the other calls if the request is
+ * refused (401, 403, 429, 503...) before any text; with an `unavailable` error if
+ * the connection drops part-way; and with the browser's AbortError if `signal`
+ * is aborted -- which is how the Stop button works.
+ */
+export async function streamMessage(sessionId, content, { signal, onEvent }) {
+  let res;
+  try {
+    res = await fetch(`${API_URL}/chat/sessions/${sessionId}/messages/stream`, {
+      method: "POST",
+      credentials: "include",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content }),
+      signal,
+    });
+  } catch (e) {
+    throw networkFailure(e);
+  }
+
+  if (!res.ok) {
+    throw httpError(res.status, await res.json().catch(() => null));
+  }
+
+  const reader = res.body.getReader();
+  // `stream: true` holds back an incomplete UTF-8 sequence until its remaining
+  // bytes arrive, so an Arabic letter split across two network chunks is intact.
+  const decoder = new TextDecoder("utf-8");
+  const parser = createNdjsonParser();
+  try {
+    for (;;) {
+      let chunk;
+      try {
+        chunk = await reader.read();
+      } catch (e) {
+        throw networkFailure(e);
+      }
+      if (chunk.done) break;
+      for (const event of parser.push(decoder.decode(chunk.value, { stream: true }))) {
+        onEvent(event);
+      }
+    }
+    for (const event of parser.push(decoder.decode())) onEvent(event);
+    for (const event of parser.flush()) onEvent(event);
+  } finally {
+    // Closing the body is what tells the server to stop generating.
+    reader.cancel().catch(() => {});
+  }
+}
 
 export const startQuiz = (subjectId, questionCount, language) =>
   request("/quiz/start", {
