@@ -247,17 +247,20 @@ def test_warm_up_failure_is_not_fatal(monkeypatch, caplog):
         raise OSError("no network for the model download")
 
     monkeypatch.setattr(vector_store, "warm_up", boom)
+    monkeypatch.setattr(retrieval, "get_ranker", lambda: None)
+    monkeypatch.setattr(main.llm, "warm_chat_model", lambda: None)
     with caplog.at_level("WARNING"):
         main.warm_up_models()  # must not raise
-    assert "first request will retry" in caplog.text
+    assert "embedding model warm-up failed; the first request will retry" in caplog.text
 
 
-def test_warm_up_loads_embedder_and_reranker(monkeypatch):
+def test_warm_up_loads_embedder_reranker_and_chat_model(monkeypatch):
     loaded = []
     monkeypatch.setattr(vector_store, "warm_up", lambda: loaded.append("embedder"))
     monkeypatch.setattr(retrieval, "get_ranker", lambda: loaded.append("reranker"))
+    monkeypatch.setattr(main.llm, "warm_chat_model", lambda: loaded.append("chat"))
     main.warm_up_models()
-    assert loaded == ["embedder", "reranker"]
+    assert loaded == ["embedder", "reranker", "chat"]
 
 
 @pytest.mark.parametrize("enabled, expected_runs", [(True, 1), (False, 0)])

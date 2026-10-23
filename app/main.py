@@ -9,7 +9,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from app.config import settings
 from app.rate_limit import limiter, rate_limit_exceeded_handler
-from app.services import retrieval, vector_store
+from app.services import llm, retrieval, vector_store
 from app.routers import (
     auth,
     chat,
@@ -28,18 +28,30 @@ log = logging.getLogger(__name__)
 
 
 def warm_up_models() -> None:
-    """Load bge-m3 and the reranker now rather than on the first chat message.
+    """Load bge-m3, the reranker and the chat model before the first student.
 
-    Never raises: if Ollama-independent loading fails (no network for the first
-    download, a corrupt cache), the API still starts and the first request
-    retries the load -- neither loader caches a failure.
+    Never raises, and each step stands alone: a failure (no network for the first
+    download, Ollama not started yet) is logged and the others still run. The API
+    starts regardless and the first real request retries whatever failed, since
+    none of the loaders cache a failure.
     """
-    try:
-        vector_store.warm_up()
-        retrieval.get_ranker()
-        log.info("model warm-up complete")
-    except Exception:
-        log.warning("model warm-up failed; the first request will retry", exc_info=True)
+    steps = (
+        ("embedding model", vector_store.warm_up),
+        ("reranker", retrieval.get_ranker),
+        ("chat model", llm.warm_chat_model),
+    )
+    for name, step in steps:
+        try:
+            step()
+        except Exception:
+            log.warning("%s warm-up failed; the first request will retry", name, exc_info=True)
+    if settings.quiz_model != settings.chat_model:
+        log.info(
+            "QUIZ_MODEL (%s) differs from CHAT_MODEL (%s): it loads on first use, "
+            "and on a small GPU may evict the chat model",
+            settings.quiz_model, settings.chat_model,
+        )
+    log.info("model warm-up finished")
 
 
 @asynccontextmanager

@@ -13,7 +13,7 @@ import re
 from dataclasses import dataclass
 
 from app.config import settings
-from app.services.llm import LLM_ERRORS, LLMUnavailableError, get_client
+from app.services.llm import LLM_ERRORS, LLMUnavailableError, get_client, keep_alive
 from app.services.vector_store import get_collection, retry_if_stale
 
 log = logging.getLogger(__name__)
@@ -435,7 +435,12 @@ def _normalize(item) -> tuple[str, list[str], str] | None:
 def _ask_model(prompt: str, model: str) -> str:
     try:
         response = get_client().generate(
-            model=model, prompt=prompt, options=QUIZ_OPTIONS
+            model=model,
+            prompt=prompt,
+            options=QUIZ_OPTIONS,
+            # Same value as chat: if the two models are the same, a quiz must not
+            # reset the model's expiry to something shorter than chat set.
+            keep_alive=keep_alive(),
         )
     except LLM_ERRORS as exc:
         # Ollama down / hung / model missing: retrying the same call a dozen

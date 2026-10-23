@@ -60,6 +60,12 @@ class Settings(BaseSettings):
     chunk_overlap: int = Field(default=100, ge=0)
 
     # --- Ollama ---
+    # How long Ollama keeps a model in memory after its last request. Its own
+    # default is 5 minutes, so after a quiet spell the next student pays the model
+    # load. A Go duration ("30m", "1h30m"), a number of seconds, or "-1" (forever).
+    ollama_keep_alive: str = Field(
+        default="30m", pattern=r"^(-1|\d+(\.\d+)?|(\d+(\.\d+)?(ns|us|µs|ms|s|m|h))+)$"
+    )
     # Empty = the ollama library default, which honours the OLLAMA_HOST env var
     # (http://localhost:11434). Inside Docker point it at the host, e.g.
     # http://host.docker.internal:11434.

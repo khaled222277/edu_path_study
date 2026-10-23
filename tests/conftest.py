@@ -101,6 +101,7 @@ class FakeOllama:
         self.responses = list(responses or [])
         self.default = default
         self.calls = 0
+        self.kwargs: list[dict] = []  # arguments of every call, in order
 
     def _next(self):
         self.calls += 1
@@ -115,9 +116,11 @@ class FakeOllama:
         return item
 
     def chat(self, **kwargs):
+        self.kwargs.append(kwargs)
         return self._next()
 
     def generate(self, **kwargs):
+        self.kwargs.append(kwargs)
         return self._next()
 
 

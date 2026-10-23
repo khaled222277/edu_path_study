@@ -10,7 +10,7 @@ from app.config import settings
 from app.models.chat import ROLE_ASSISTANT, ROLE_USER, ChatMessage, ChatSession
 from app.models.subject import Subject
 from app.models.user import User
-from app.services.llm import get_client
+from app.services.llm import get_client, keep_alive
 from app.services.retrieval import RetrievedChunk, format_context, retrieve
 
 log = logging.getLogger(__name__)
@@ -170,7 +170,10 @@ def answer_question(
 
     try:
         response = get_client().chat(
-            model=model, messages=messages, options=CHAT_OPTIONS
+            model=model,
+            messages=messages,
+            options=CHAT_OPTIONS,
+            keep_alive=keep_alive(),
         )
     except Exception as exc:
         db.rollback()
