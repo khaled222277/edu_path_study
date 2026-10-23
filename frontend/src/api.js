@@ -1,4 +1,7 @@
-export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+import { kindForStatus } from "./errors.js";
+
+// Optional chaining so this module also loads under plain Node (the unit tests).
+export const API_URL = import.meta.env?.VITE_API_URL || "http://localhost:8000";
 
 /** fetch wrapper that always sends the httpOnly session cookie. */
 async function request(path, options = {}) {
@@ -14,6 +17,8 @@ async function request(path, options = {}) {
   if (!res.ok) {
     const err = new Error(body?.detail || `Request failed (${res.status})`);
     err.status = res.status;
+    // "rate_limited" (429) / "unavailable" (503) get a translated message in the UI.
+    err.kind = kindForStatus(res.status);
     throw err;
   }
   return body;

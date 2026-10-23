@@ -9,6 +9,7 @@ import {
   listSessions,
   sendMessage,
 } from "./api.js";
+import { friendlyError, guessLanguage, restoreDraft, withoutPending } from "./errors.js";
 
 export default function Chat({ user, initialSubject = null }) {
   const [subjects, setSubjects] = useState([]);
@@ -28,8 +29,8 @@ export default function Chat({ user, initialSubject = null }) {
   const bottomRef = useRef(null);
 
   useEffect(() => {
-    getMySubjects().then(setSubjects).catch((e) => setError(e.message));
-    listSessions().then(setSessions).catch((e) => setError(e.message));
+    getMySubjects().then(setSubjects).catch((e) => setError(friendlyError(e)));
+    listSessions().then(setSessions).catch((e) => setError(friendlyError(e)));
   }, []);
 
   // Arriving from a dashboard card goes straight into a session for that
@@ -61,7 +62,7 @@ export default function Chat({ user, initialSubject = null }) {
       setCitations({});
       setSessions(await listSessions());
     } catch (e) {
-      setError(e.message);
+      setError(friendlyError(e));
     }
   }
 
@@ -73,7 +74,7 @@ export default function Chat({ user, initialSubject = null }) {
       setMessages(detail.messages);
       setCitations({});
     } catch (e) {
-      setError(e.message);
+      setError(friendlyError(e));
     }
   }
 
@@ -82,21 +83,25 @@ export default function Chat({ user, initialSubject = null }) {
     const content = draft.trim();
     if (!content || sending) return;
 
+    const pendingId = `pending-${Date.now()}`;
     setDraft("");
     setSending(true);
     setError(null);
     // Optimistic echo so the student sees their question immediately.
-    setMessages((prev) => [
-      ...prev,
-      { id: `pending-${Date.now()}`, role: "user", content },
-    ]);
+    setMessages((prev) => [...prev, { id: pendingId, role: "user", content }]);
 
     try {
       const reply = await sendMessage(session.id, content);
       setMessages((prev) => [...prev, reply.message]);
       setCitations((prev) => ({ ...prev, [reply.message.id]: reply.citations }));
     } catch (e) {
-      setError(e.message);
+      // On 429 the request never reached the handler, and on 503 the server
+      // rolls the question back, so it was not stored: take the echo out and
+      // hand the text back to edit or resend. A failed send must not eat what
+      // the student typed.
+      setMessages((prev) => withoutPending(prev, pendingId));
+      setDraft((current) => restoreDraft(current, content));
+      setError(friendlyError(e, guessLanguage(content)));
     } finally {
       setSending(false);
     }

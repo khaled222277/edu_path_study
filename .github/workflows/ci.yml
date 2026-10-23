@@ -29,3 +29,17 @@ jobs:
       # No Postgres, Ollama or Chroma needed: the suite fakes all three.
       - name: Run tests
         run: pytest
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # Pure-logic tests on Node's built-in runner: no npm install needed.
+      - name: Run frontend tests
+        run: npm test
+        working-directory: frontend

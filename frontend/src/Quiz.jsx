@@ -6,6 +6,7 @@ import {
   getQuizResults,
   startQuiz,
 } from "./api.js";
+import { friendlyError } from "./errors.js";
 
 const QUESTION_COUNTS = [3, 5, 10];
 
@@ -32,7 +33,7 @@ export default function Quiz({ subject = null, onExit }) {
 
   useEffect(() => {
     if (subject) return;
-    getMySubjects().then(setSubjects).catch((e) => setError(e.message));
+    getMySubjects().then(setSubjects).catch((e) => setError(friendlyError(e, language)));
   }, [subject]);
 
   async function begin() {
@@ -46,7 +47,8 @@ export default function Quiz({ subject = null, onExit }) {
       setFeedback(null);
       setResults(null);
     } catch (e) {
-      setError(e.message);
+      // Message follows the quiz language the student picked.
+      setError(friendlyError(e, language));
     } finally {
       setBusy(false);
     }
@@ -55,11 +57,12 @@ export default function Quiz({ subject = null, onExit }) {
   async function choose(optionIndex) {
     if (feedback || busy) return;
     setBusy(true);
+    setError(null);
     try {
       const res = await answerQuestion(attemptId, questions[index].id, optionIndex);
       setFeedback({ ...res, chosen: optionIndex });
     } catch (e) {
-      setError(e.message);
+      setError(friendlyError(e, language));
     } finally {
       setBusy(false);
     }
@@ -72,10 +75,11 @@ export default function Quiz({ subject = null, onExit }) {
       return;
     }
     setBusy(true);
+    setError(null);
     try {
       setResults(await getQuizResults(attemptId));
     } catch (e) {
-      setError(e.message);
+      setError(friendlyError(e, language));
     } finally {
       setBusy(false);
     }
