@@ -1,0 +1,1128 @@
+{
+ "seeds": [
+  44,
+  45,
+  46,
+  47,
+  48,
+  49
+ ],
+ "model": "llama3.1:8b",
+ "results": [
+  {
+   "id": "q06",
+   "kind": "narrow",
+   "lang": "en",
+   "question": "Which measures are used to choose the best split in a decision tree?",
+   "chunks": [
+    "[kdd_lec06_classifacation_1.pdf, page 16]",
+    "[kdd_lec06_classifacation_1.pdf, page 14]",
+    "[kdd_lec08_classifacation_3.pdf, page 47]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "Not found in the lecture material.",
+      "prompt_tokens": 777,
+      "answer_tokens": 8,
+      "seconds": 0.36,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": false,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Not found in the lecture material.",
+      "prompt_tokens": 777,
+      "answer_tokens": 8,
+      "seconds": 0.15,
+      "seed": 45,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": false,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Not found in the lecture material.",
+      "prompt_tokens": 777,
+      "answer_tokens": 8,
+      "seconds": 0.15,
+      "seed": 46,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": false,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The measures used to choose the best split in a decision tree are not explicitly mentioned in the provided lecture material.",
+      "prompt_tokens": 777,
+      "answer_tokens": 23,
+      "seconds": 0.38,
+      "seed": 47,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Not found in the lecture material.",
+      "prompt_tokens": 777,
+      "answer_tokens": 8,
+      "seconds": 0.15,
+      "seed": 48,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": false,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Not found in the lecture material.",
+      "prompt_tokens": 777,
+      "answer_tokens": 8,
+      "seconds": 0.15,
+      "seed": 49,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": false,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "According to the lecture material, the measures used to choose the best split in a decision tree are not explicitly mentioned in the provided context. However, it is mentioned in [kdd_lec08_classifacation_3.pdf, page 47] that when creating decision trees from each bootstrap sample, the feature for the split is chosen from the training data, but the specific measures used for this choice are not specified.\n\nIn general, decision trees use various measures such as information gain, Gini impurity, or variance reduction to choose the best split. However, these measures are not mentioned in the provided context.\n\nTherefore, I must say that the specific measures used to choose the best split in a decision tree are \"not found in the lecture material\".",
+      "prompt_tokens": 763,
+      "answer_tokens": 153,
+      "seconds": 2.54,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": false,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material, the measures used to choose the best split in a decision tree are not explicitly mentioned in the provided context. However, it is mentioned that at each node in choosing the split feature, the decision tree from each bootstrap sample chooses among the M features [kdd_lec08_classifacation_3.pdf, page 47]. \n\nBut, this is not a direct answer to the question. Unfortunately, the lecture material does not provide a clear answer to this question.",
+      "prompt_tokens": 763,
+      "answer_tokens": 101,
+      "seconds": 1.55,
+      "seed": 45,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material [kdd_lec06_classifacation_1.pdf, page 14], a decision tree is a flowchart-like tree structure, where each internal node specifies a test of some attribute. However, the lecture does not explicitly mention the measures used to choose the best split in a decision tree.\n\nBut, according to [kdd_lec08_classifacation_3.pdf, page 47], when creating decision trees from bootstrap samples, the feature to split at each node is chosen from the training data, but the specific measures used for this choice are not mentioned.\n\nTherefore, I can only say that the lecture material does not explicitly mention the measures used to choose the best split in a decision tree.\n\nHowever, according to [kdd_lec06_classifacation_1.pdf, page 16], the lecture mentions that various algorithms have been developed to construct a reasonably accurate decision tree in a reasonable time, including ID3, C4.5, CART, and SPRINT. These algorithms might use different measures to choose the best split, but the lecture does not provide this information.\n\nSo, I can only say that the measures used to choose the best split in a decision tree are not explicitly mentioned in the lecture material.",
+      "prompt_tokens": 763,
+      "answer_tokens": 257,
+      "seconds": 3.89,
+      "seed": 46,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The lecture material does not specify which measures are used to choose the best split in a decision tree.",
+      "prompt_tokens": 763,
+      "answer_tokens": 21,
+      "seconds": 0.35,
+      "seed": 47,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material, the measures used to choose the best split in a decision tree are not explicitly mentioned in the provided context. However, it is mentioned in [kdd_lec08_classifacation_3.pdf, page 47] that at each node in choosing the split feature, the decision is made based on the bootstrap samples choosing only among M features from the training data.",
+      "prompt_tokens": 763,
+      "answer_tokens": 81,
+      "seconds": 1.24,
+      "seed": 48,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material, the measures used to choose the best split in a decision tree are not explicitly mentioned in the provided context. However, it is mentioned in the context of Random Forests [kdd_lec08_classifacation_3.pdf, page 47] that at each node, the split feature is chosen. \n\nBut, in the context of decision trees, it is not specified what measures are used to choose the best split.",
+      "prompt_tokens": 763,
+      "answer_tokens": 93,
+      "seconds": 1.43,
+      "seed": 49,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 2
+   }
+  },
+  {
+   "id": "q12",
+   "kind": "narrow",
+   "lang": "ar",
+   "question": "ما هو تعريف الثقة في قواعد الارتباط؟",
+   "chunks": [
+    "[kdd_lec04_association_rule.pdf, page 12]",
+    "[kdd_lec04_association_rule.pdf, page 15]",
+    "[kdd_lec04_association_rule.pdf, page 43]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "التعريف هو: الثقة هي نسبة transactions containing 𝐗 في D التي أيضا تحتوي على 𝐘. [kdd_lec04_association_rule.pdf, page 15]",
+      "prompt_tokens": 1124,
+      "answer_tokens": 41,
+      "seconds": 0.77,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": false,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف: الثقة في قواعد الارتباط هي مؤشر على ثقة الناتج من قاعدة الارتباط، وتعبر عن نسبة transactions containing X في D التي أيضا تحتوي على Y.\n\n[lecture.pdf, page 15]",
+      "prompt_tokens": 1124,
+      "answer_tokens": 55,
+      "seconds": 0.87,
+      "seed": 45,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف هو: الثقة هي مؤشر يقيّم ثقة الاستنتاج الذي يقدمه القاعدة، ويُعبّر عنها كجزء من transactions تحتوي على X و أيضًا تحتوي على Y. [kdd_lec04_association_rule.pdf, page 15]",
+      "prompt_tokens": 1124,
+      "answer_tokens": 63,
+      "seconds": 0.99,
+      "seed": 46,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف هو: الثقة هي مؤشر يقيّم ثقة الاستنتاج الذي يقدمه القاعدة، ويقاس عن طريق نسبة عدد المشتركات التي تحتوي على القاعدة إلى عدد المشتركات التي تحتوي على الأجزاء الأساسية للقاعدة. [kdd_lec04_association_rule.pdf, page 15]",
+      "prompt_tokens": 1124,
+      "answer_tokens": 74,
+      "seconds": 1.15,
+      "seed": 47,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف هو: الثقة في قواعد الارتباط هي نسبة transactions containing X في D التي أيضا تحتوي على Y [kdd_lec04_association_rule.pdf, page 15].",
+      "prompt_tokens": 1124,
+      "answer_tokens": 43,
+      "seconds": 0.69,
+      "seed": 48,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": false,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف: الثقة في قواعد الارتباط هي مؤشر على مدى ثقة الناتج في قاعدة البيانات. [kdd_lec04_association_rule.pdf, page 15]\n\nالتفاصيل: الثقة تعبر عن مدى ثقة الناتج في قاعدة البيانات، وتحسبها باستخدام المعادلة: 𝐂𝐗⇒𝐘= 𝐬𝐮𝐩𝐩𝐨𝐫𝐭_𝐜𝐨𝐮𝐧𝐭(𝐗∪𝐘) 𝐬𝐮𝐩𝐩𝐨𝐫𝐭_𝐜𝐨𝐮𝐧𝐭(𝐗) [kdd_lec04_association_rule.pdf, page 15].",
+      "prompt_tokens": 1124,
+      "answer_tokens": 192,
+      "seconds": 2.95,
+      "seed": 49,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "التعريف: الثقة (Confidence) هي مؤشر يقيّم ثقة القاعدة في قواعد الارتباط. [kdd_lec04_association_rule.pdf, page 15]\n\nالتفاصيل: الثقة تعبر عن نسبة المعاملات التي تحتوي على القاعدة (X) وتحتوي أيضًا على الناتج (Y). [kdd_lec04_association_rule.pdf, page 15]",
+      "prompt_tokens": 1109,
+      "answer_tokens": 93,
+      "seconds": 1.46,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف: الثقة (Confidence) هي مؤشر على ثقة القاعدة في قواعد الارتباط، و تعريفها هو: \"النسبة المئوية من المعاملات التي تحتوي على X في D التي أيضا تحتوي على Y\" [kdd_lec04_association_rule.pdf, page 15].\n\nفي مثال على ذلك، الثقة في القاعدة \"مilk, diaper → butter\" هي 67%، لأن 2 من 3 معاملات تحتوي على milk, diaper, و butter [kdd_lec04_association_rule.pdf, page 15].",
+      "prompt_tokens": 1109,
+      "answer_tokens": 129,
+      "seconds": 1.98,
+      "seed": 45,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف: الثقة هي مؤشر يقيّم ثقة القاعدة في قواعد الارتباط، ويُعرّفها في المادة [kdd_lec04_association_rule.pdf, page 15] على أنها \"مؤشر يقيّم ثقة الاستنتاج الذي يقدمه القاعدة\".\n\nالتفاصيل: الثقة تعبر عن مدى ثقة القاعدة في حدوث الناتج، وتُحسب كجزء من القاعدة، حيث يُقاسها من خلال النسبة المئوية من المعاملات التي تحتوي على القاعدة في البيانات.",
+      "prompt_tokens": 1109,
+      "answer_tokens": 129,
+      "seconds": 1.98,
+      "seed": 46,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف: الثقة هي مؤشر يقيّم ثقة الاستنتاج المقدم من القاعدة. [kdd_lec04_association_rule.pdf, page 15]\n\nالتفاصيل: الثقة تعبر عن نسبة المعاملات التي تحتوي على X و أيضًا تحتوي على Y، مقسومًا على نسبة المعاملات التي تحتوي على X فقط. [kdd_lec04_association_rule.pdf, page 15]",
+      "prompt_tokens": 1109,
+      "answer_tokens": 95,
+      "seconds": 1.49,
+      "seed": 47,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف: الثقة هي مؤشر يقيّم ثقة الاستنتاج المقدم من القاعدة. [kdd_lec04_association_rule.pdf, page 15]\n\nالتفاصيل: الثقة تعبر عن نسبة المعاملات التي تحتوي على X و أيضًا تحتوي على Y، مقسومة على عدد المعاملات التي تحتوي على X. [kdd_lec04_association_rule.pdf, page 15]",
+      "prompt_tokens": 1109,
+      "answer_tokens": 94,
+      "seconds": 1.47,
+      "seed": 48,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف: الثقة (Confidence) هي قياس لثقة النتيجة التي تترتب على قاعدة ارتباط. [kdd_lec04_association_rule.pdf, page 15]\n\nالتفاصيل: الثقة تعبر عن نسبة transactions تحتوي على X و أيضا تحتوي على Y. [kdd_lec04_association_rule.pdf, page 15]",
+      "prompt_tokens": 1109,
+      "answer_tokens": 81,
+      "seconds": 1.27,
+      "seed": 49,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 2
+   }
+  },
+  {
+   "id": "q18",
+   "kind": "unanswerable",
+   "lang": "ar",
+   "question": "ما هي عاصمة اليابان؟",
+   "chunks": [
+    "[ds_lec03_distributed_objects.pdf, page 14]",
+    "[ds_lec04_time.pdf, page 35]",
+    "[ds_lec03_distributed_objects.pdf, page 43]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "لم يتم ذكر اليابان أو عاصمتها في المادة الدراسية المقدمة.",
+      "prompt_tokens": 781,
+      "answer_tokens": 19,
+      "seconds": 0.51,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "لم يتم ذكر اليابان أو عاصمتها في المادة الدراسية المشار إليها.",
+      "prompt_tokens": 781,
+      "answer_tokens": 21,
+      "seconds": 0.35,
+      "seed": 45,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "لم يتم ذكر اليابان أو عاصمتها في المادة الدراسية المقدمة.",
+      "prompt_tokens": 781,
+      "answer_tokens": 19,
+      "seconds": 0.32,
+      "seed": 46,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "لم يتم ذكر اليابان أو عاصمتها في المادة الدراسية المقدمة.",
+      "prompt_tokens": 781,
+      "answer_tokens": 19,
+      "seconds": 0.32,
+      "seed": 47,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "لم يتم ذكر اليابان أو عاصمتها في المادة الدراسية المقدمة.",
+      "prompt_tokens": 781,
+      "answer_tokens": 19,
+      "seconds": 0.31,
+      "seed": 48,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "لم يتم ذكر اليابان أو عاصمتها في المادة الدراسية المشار إليها.",
+      "prompt_tokens": 781,
+      "answer_tokens": 21,
+      "seconds": 0.34,
+      "seed": 49,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "I cannot answer questions that are not related to the provided context. Is there something else I can help you with?",
+      "prompt_tokens": 772,
+      "answer_tokens": 24,
+      "seconds": 0.58,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": false,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "I cannot answer questions that are not related to the provided lecture material. Is there something else I can help you with?",
+      "prompt_tokens": 772,
+      "answer_tokens": 25,
+      "seconds": 0.4,
+      "seed": 45,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": false,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "I cannot answer questions that are not related to the provided context. Is there a question about Distributed Objects and Remote Invocation that I can help with?",
+      "prompt_tokens": 772,
+      "answer_tokens": 30,
+      "seconds": 0.48,
+      "seed": 46,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": false,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "not found in the lecture material",
+      "prompt_tokens": 772,
+      "answer_tokens": 7,
+      "seconds": 0.13,
+      "seed": 47,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": false,
+       "says_not_found": true,
+       "not_found_correct": true,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "I cannot answer questions that are not related to the provided context. Is there a specific question about distributed objects or remote invocation that I can help with?",
+      "prompt_tokens": 772,
+      "answer_tokens": 31,
+      "seconds": 0.5,
+      "seed": 48,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": false,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "I cannot answer questions that are not related to the provided context. Is there anything else I can help you with?",
+      "prompt_tokens": 772,
+      "answer_tokens": 24,
+      "seconds": 0.39,
+      "seed": 49,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": false,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 2
+   }
+  },
+  {
+   "id": "q19",
+   "kind": "followup",
+   "lang": "en",
+   "question": "Can you explain that again in simpler words?",
+   "chunks": [
+    "[kdd_lec05_regression.pdf, page 16]",
+    "[kdd_lec02_data.pdf, page 2]",
+    "[kdd_lec09_cluster_analyis.pdf, page 2]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "K-means clustering is a way to group similar things together. Imagine you have a bunch of points on a map, and you want to put them into groups based on where they are. K-means is a method that helps you do that by choosing a few special points (called centroids) and then grouping all the other points with the one that's closest to them. It keeps doing this until the groups don't change anymore. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 794,
+      "answer_tokens": 104,
+      "seconds": 1.83,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "K-means is a way to group similar things together. Imagine you have a bunch of points on a map, and you want to group them into clusters. K-means is like drawing a circle around each cluster, and then moving the circle's center to the middle of the points inside it. You keep doing this until the clusters don't change much. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 794,
+      "answer_tokens": 89,
+      "seconds": 1.36,
+      "seed": 45,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "K-means clustering is a way to group similar things together. Imagine you have a bunch of points on a map, and you want to put them into groups based on their location. K-means is a method that helps you do this by choosing a few special points (called centroids) and then grouping all the other points with the centroid that's closest to them. It keeps doing this until the groups don't change anymore. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 794,
+      "answer_tokens": 103,
+      "seconds": 1.57,
+      "seed": 46,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "K-means clustering is a way to group similar things together. Imagine you have a bunch of points on a map, and you want to put them into groups based on where they are. K-means is like drawing a circle around each group, and then finding the middle of each circle to be the center of that group. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 794,
+      "answer_tokens": 83,
+      "seconds": 1.27,
+      "seed": 47,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "K-means clustering is a way to group similar data points together. Imagine you have a bunch of points on a map, and you want to put them into groups based on their location. K-means starts by choosing some points as \"centers\" of the groups, then it puts each point into the group that's closest to its center. It keeps doing this until the groups don't change anymore. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 794,
+      "answer_tokens": 98,
+      "seconds": 1.5,
+      "seed": 48,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "K-means clustering is a way to group similar things together. Imagine you have a bunch of dots on a piece of paper, and you want to put them into groups based on how similar they are to each other. K-means is a method that helps you do this by finding the \"center\" of each group, and then putting all the dots that are close to that center into the same group. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 794,
+      "answer_tokens": 99,
+      "seconds": 1.51,
+      "seed": 49,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 5,
+    "after": [
+     {
+      "answer": "In simpler words, Simple Linear Regression is a model that tries to find the best line that fits our data points. This line has two parts: where it starts (called the intercept, W0) and how steep it is (called the slope, W1). We use this line to predict one attribute based on another attribute.",
+      "prompt_tokens": 785,
+      "answer_tokens": 67,
+      "seconds": 1.2,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/2",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "In simpler words, k-means clustering is a way to group similar data points together. It starts by choosing some initial groups, then it keeps moving the group centers (called centroids) until the groups don't change anymore. This helps us understand the structure of our data by grouping similar points together. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 785,
+      "answer_tokens": 77,
+      "seconds": 1.18,
+      "seed": 45,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "In simpler words, the Simple Linear Regression model is a way to find the best line that fits our data points, so we can use one attribute to predict the other. This line is defined by two unknown variables: the intercept (W0) and the slope (W1).",
+      "prompt_tokens": 785,
+      "answer_tokens": 57,
+      "seconds": 0.88,
+      "seed": 46,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/2",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The text describes Simple Linear Regression. It's a simple model that tries to find the best line that fits the data points. This line is defined by two unknown variables: an intercept (W0) and a slope (W1). The model is written in terms of these variables, while the fitted line has the actual values of these variables. [kdd_lec05_regression.pdf, page 16]",
+      "prompt_tokens": 785,
+      "answer_tokens": 83,
+      "seconds": 1.27,
+      "seed": 47,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/2",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "In simpler words, K-means is a way to group similar data points together. It starts by choosing some initial groups, then it keeps moving the groups' centers until the groups don't change anymore. This helps to find patterns in the data. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 785,
+      "answer_tokens": 67,
+      "seconds": 1.03,
+      "seed": 48,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "In simpler words, Simple Linear Regression is a way to find the best line that fits our data points, so we can use one attribute to predict another. This line is defined by two unknown variables: an intercept (W0) and a slope (W1). We can use this line to make predictions, for example, to predict the price of a house based on its size.",
+      "prompt_tokens": 785,
+      "answer_tokens": 78,
+      "seconds": 1.2,
+      "seed": 49,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/2",
+       "terms_all": false,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 4
+   }
+  },
+  {
+   "id": "q20",
+   "kind": "followup",
+   "lang": "ar",
+   "question": "هل يمكنك تبسيط ذلك أكثر؟",
+   "chunks": [
+    "[kdd_lec09_cluster_analyis.pdf, page 43]",
+    "[kdd_lec05_regression.pdf, page 16]",
+    "[kdd_lec04_association_rule.pdf, page 22]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "بالتأكيد. من الطرق المعروفة لتعامل البيانات الناقصة هي:\n\n1. تجاهل السجلات الناقصة [kdd_lec03_data_preprocessing.pdf, page 20]\n2. ملء القيمة الناقصة يدويًا [kdd_lec03_data_preprocessing.pdf, page 20]\n3. استبدالها بقيمة ثابتة أو المتوسط [kdd_lec03_data_preprocessing.pdf, page 20]\n\nهذه الطرق تعمل على تحسين جودة البيانات وتقليل تأثيرها على النتائج.",
+      "prompt_tokens": 826,
+      "answer_tokens": 127,
+      "seconds": 2.16,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد. من الطرق لتجاوز البيانات الناقصة هي: تجاهلها، أو ملؤها يدويًا، أو استبدالها بقيمة ثابتة. [kdd_lec03_data_preprocessing.pdf, page 20]",
+      "prompt_tokens": 826,
+      "answer_tokens": 58,
+      "seconds": 0.91,
+      "seed": 45,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد! من الطرق لتجاوز البيانات الناقصة في تحليل البيانات: \n\n1- تجاهل السجلات الناقصة.\n2- ملء القيمة الناقصة يدويًا.\n3- استبدالها بقيمة ثابتة أو المتوسط. [kdd_lec03_data_preprocessing.pdf, page 20]",
+      "prompt_tokens": 826,
+      "answer_tokens": 79,
+      "seconds": 1.23,
+      "seed": 46,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد! من الطرق لتجاوز البيانات الناقصة في المعالجة هي:\n\n1. تجاهل السجلات الناقصة.\n2. ملء القيمة الناقصة يدويًا.\n3. استبدالها بقيمة ثابتة أو المتوسط.\n\nهذه الطرق مبسطة من ما ذكرت سابقًا. [kdd_lec03_data_preprocessing.pdf, page 20]",
+      "prompt_tokens": 826,
+      "answer_tokens": 93,
+      "seconds": 1.45,
+      "seed": 47,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد! من الطرق لتreatment البيانات الناقصة هي:\n\n1. تجاهل السجلات الناقصة [kdd_lec03_data_preprocessing.pdf, page 20]\n2. ملء القيمة الناقصة يدويًا [kdd_lec03_data_preprocessing.pdf, page 20]\n3. استبدالها بقيمة ثابتة أو المتوسط [kdd_lec03_data_preprocessing.pdf, page 20]\n\nأو يمكننا القول: هناك ثلاث طرق لتreatment البيانات الناقصة: تجاهلها، ملءها، أو استبدالها.",
+      "prompt_tokens": 826,
+      "answer_tokens": 133,
+      "seconds": 2.05,
+      "seed": 48,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد. من الطرق المعروفة لتعامل البيانات الناقصة هي:\n\n1. تجاهل السجلات الناقصة.\n2. ملء القيمة الناقصة يدويًا.\n3. استبدالها بقيمة ثابتة أو المتوسط.\n\nهذه الطرق مبينة في [kdd_lec03_data_preprocessing.pdf, page 20].",
+      "prompt_tokens": 826,
+      "answer_tokens": 83,
+      "seconds": 1.28,
+      "seed": 49,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 5,
+    "after": [
+     {
+      "answer": "بالتأكيد. يمكننا استخدام الطريقة البسيطة لتجاهل السجلات الناقصة أو ملء القيمة الناقصة يدويًا أو استبدالها بقيمة ثابتة أو المتوسط. [kdd_lec03_data_preprocessing.pdf, page 20]",
+      "prompt_tokens": 816,
+      "answer_tokens": 63,
+      "seconds": 1.14,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد! يمكنني شرح ذلك بشكل أبسط.\n\nفيما يخص التحليل الهرمي (FIM Methods)، هناك طرق لخفض معاملات الحوسبة. يمكننا خفض عدد المجموعات المرشحة (M)، عدد المعاملات (N)، أو عدد المقارنات (NM). [kdd_lec04_association_rule.pdf, page 22]\n\nفيما يخص التحليل الهرمي، يمكننا استخدام خوارزمية Apriori. هذه الخوارزمية تعمل على تحديد المجموعات المرشحة (itemsets) من خلال استخدام المبدأ التالي: إذا كانت مجموعة {a, b} غير مرشحة، maka جميع المجموعات التي تحتوي على {a, b} كجزء منها تكون غير مرشحة أيضاً. [kdd_lec04_association_rule.pdf, page 23]\n\nفيما يخص التحليل الهرمي، يمكننا استخدام خوارزمية Apriori. هذه الخوارزمية تعمل على تحديد المجموعات المرشحة (itemsets) من خلال استخدام المبدأ التالي: إذا كانت مجموعة {a, b} غير مرشحة، maka جميع المجموعات التي تحتوي على {a, b} كجزء منها تكون غير مرشحة أيضاً. [kdd_lec04_association_rule.pdf, page 23]\n\nفيما يخص التحليل الهرمي، يمكننا استخدام خوارزمية Apriori. هذه الخوارزمية تعمل على تحديد المجموعات المرشحة (itemsets) من خلال استخدام المبدأ التالي: إذا كانت مجموعة {a, b} غير مرشحة، maka جميع المجموعات التي تحتوي على {a, b} كجزء منها تكون غير مرشحة أيضاً. [kdd_lec04_association_rule.pdf, page 23]\n\nفيما يخص التحليل الهرمي، يمكننا استخدام خوارزمية Apriori. هذه الخوارزمية تعمل على تحديد المجموعات المرشحة (itemsets) من خلال استخدام المبدأ التالي: إذا كانت مجموعة {a, b} غير مرشحة، maka جميع المجموعات التي تحتوي على {a, b} كجزء منها تكون غير مرشحة أيضاً. [kdd_lec04_association_rule.pdf, page 23]\n\nفيما يخص التحليل الهرمي، يمكننا استخدام خوارزمية Apriori. هذه الخوارزمية تعمل على تحديد المجموعات المرشحة (itemsets) من خلال استخدام المبدأ التالي: إذا كانت مجموعة {a, b} غير مرشحة، maka جميع المجموعات التي تحتوي على {a, b} كجزء منها تكون غير مرشحة أيضاً. [kdd_lec04_association_rule.pdf, page 23]\n\nفيما يخص التحليل الهرمي، يمكننا استخدام خوارزمية Apriori. هذه الخوارزمية تعمل على تحديد المجموعات المرشحة (itemsets) من خلال استخدام المبدأ التالي: إذا كانت مجموعة {a, b} غير مرشحة، maka جميع المجموعات التي تحتوي على {a, b} كجزء منها تكون غير مرشحة أيضاً. [kdd_lec04_association_rule.pdf, page 23]\n\nفيما يخص التحليل الهرمي، يمكننا استخدام خوارزمية Apriori. هذه الخوارزمية تعمل على تحديد المجموعات المرشحة (itemsets) من خلال استخدام المبدأ التالي: إذا كانت مجموعة {a, b} غير مرشحة، maka جميع المجموعات التي تحتوي على {a, b} كجزء منها تكون غير مرشحة أيضاً. [kdd_lec04_association",
+      "prompt_tokens": 816,
+      "answer_tokens": 800,
+      "seconds": 12.15,
+      "seed": 45,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد، يمكنني تبسيط ذلك أكثر.\n\nفيما يخص معالجة البيانات الناقصة، هناك ثلاث طرق رئيسية:\n\n1. تجاهل السجلات الناقصة: حيث ننظر فقط إلى السجلات التي لا تحتوي على قيم ناقصة.\n2. ملء القيمة الناقصة يدويًا: حيث نملأ القيمة الناقصة بنفس القيمة من السجلات الأخرى.\n3. استبدالها بقيمة ثابتة أو المتوسط: حيث نستبدل القيمة الناقصة بقيمة ثابتة أو المتوسط من السجلات الأخرى.\n\nهذه هي الطرق الرئيسية لتعامل مع البيانات الناقصة.",
+      "prompt_tokens": 816,
+      "answer_tokens": 152,
+      "seconds": 2.33,
+      "seed": 46,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد! يمكننا تبسيط ذلك أكثر.\n\nالطرق الرئيسية لتعامل البيانات الناقصة هي:\n\n1. تجاهل السجلات الناقصة [kdd_lec03_data_preprocessing.pdf, page 20]\n2. ملء القيمة الناقصة يدويًا\n3. استبدالها بقيمة ثابتة أو المتوسط [kdd_lec03_data_preprocessing.pdf, page 20]\n\nهذه هي الطرق الرئيسية، ولكن يمكننا استكشافها أكثر إذا كنت ترغب في ذلك.",
+      "prompt_tokens": 816,
+      "answer_tokens": 121,
+      "seconds": 1.87,
+      "seed": 47,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد! يمكننا تبسيط ذلك أكثر.\n\nالطرق الرئيسية لتعامل مع البيانات الناقصة هي:\n\n1. تجاهل السجلات الناقصة\n2. ملء القيمة الناقصة يدويًا\n3. استبدالها بقيمة ثابتة أو المتوسط.\n\nهذه الطرق تعتمد على السياق والبيانات الموجودة. [kdd_lec03_data_preprocessing.pdf, page 20]",
+      "prompt_tokens": 816,
+      "answer_tokens": 101,
+      "seconds": 1.56,
+      "seed": 48,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد. يمكننا استخدام الطريقة البسيطة لتجاهل السجلات الناقصة أو ملء القيمة الناقصة يدويًا أو استبدالها بقيمة ثابتة أو المتوسط. [kdd_lec03_data_preprocessing.pdf, page 20]",
+      "prompt_tokens": 816,
+      "answer_tokens": 63,
+      "seconds": 0.98,
+      "seed": 49,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 4
+   }
+  }
+ ]
+}

@@ -312,6 +312,7 @@ pytest
 | `test_vector_store.py` | embedder built once under concurrency, stale-client recovery, startup warm-up |
 | `test_quiz_trace.py` | quiz rejections are named, decisions unchanged, per-call timings and tokens |
 | `test_quiz_options.py` | quiz settings; the two-pass chunk budget never loosens a rule |
+| `test_chat_prompt.py` | pins the (deliberately duplicated) question in the chat prompt; see `eval/README.md` |
 | `test_quiz_concurrency.py` | parallel chunks: bounded by what is still needed, ordering, cancellation, outages |
 | `test_quiz_stream.py` | streamed quiz: event order, storage, partial results, Stop, answering mid-generation |
 | `test_ingestion_summary.py` | skipped/unclassified figures reported by lecture and page |
@@ -387,6 +388,12 @@ python scripts/bench_quiz.py --label mine --out bench_results/quiz_mine.json   #
 python scripts/bench_quiz.py --variants "base;fp0=quiz_first_pass_attempts:0"  # interleaved A/B
 python scripts/bench_quiz.py --compare bench_results/quiz_baseline.json bench_results/quiz_mine.json
 ```
+
+### Judging prompt changes
+
+`eval/` holds a fixed set of 20 questions and `scripts/eval_chat_prompt.py`, which compares two versions of the chat
+prompt on the real model (answers side by side, exact token counts, quality checks). It was used to decide
+that the question sent twice in the prompt should stay: `eval/README.md`.
 
 ### Streaming answers
 

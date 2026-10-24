@@ -1,0 +1,41 @@
+{
+  "description": "Fixed question set for judging changes to the chat prompt. Subject 7 = data mining (KDD lectures), subject 6 = distributed systems. Topics were checked to appear in the ingested corpus. `kind`: narrow = one fact, broad = needs several chunks, unanswerable = not in the material (the model must say so), followup = a second turn that depends on the history. `expect_terms` are a weak automatic signal only (any of the alternatives counts); a human reads the answers.",
+  "questions": [
+    {"id": "q01", "subject_id": 7, "lang": "en", "kind": "narrow", "question": "How is the confidence of an association rule defined?", "expect_terms": [["confidence"], ["support"]]},
+    {"id": "q02", "subject_id": 7, "lang": "en", "kind": "narrow", "question": "How does the Apriori principle reduce the number of candidate itemsets?", "expect_terms": [["apriori"], ["subset", "frequent"]]},
+    {"id": "q03", "subject_id": 7, "lang": "en", "kind": "narrow", "question": "How does the k-means algorithm assign points to clusters?", "expect_terms": [["centroid", "mean", "center"], ["cluster"]]},
+    {"id": "q04", "subject_id": 7, "lang": "en", "kind": "narrow", "question": "What is overfitting and how can it be avoided?", "expect_terms": [["overfit"], ["tree", "training", "prun"]]},
+    {"id": "q05", "subject_id": 7, "lang": "en", "kind": "narrow", "question": "How can missing data values be handled?", "expect_terms": [["missing"], ["ignore", "estimate", "replace", "remove", "fill"]]},
+    {"id": "q06", "subject_id": 7, "lang": "en", "kind": "narrow", "question": "Which measures are used to choose the best split in a decision tree?", "expect_terms": [["entropy", "gini", "information gain"]]},
+    {"id": "q07", "subject_id": 7, "lang": "en", "kind": "narrow", "question": "What is the difference between bagging and boosting?", "expect_terms": [["bagging"], ["boosting"]]},
+    {"id": "q08", "subject_id": 7, "lang": "en", "kind": "broad", "question": "Compare the main classification techniques covered in the lectures.", "expect_terms": [["decision tree"], ["nearest neighbo", "bayes", "ensemble"]]},
+    {"id": "q09", "subject_id": 7, "lang": "en", "kind": "broad", "question": "Give me an overview of what data preprocessing involves.", "expect_terms": [["clean", "normali", "sampling", "reduction", "transform"]]},
+    {"id": "q10", "subject_id": 7, "lang": "ar", "kind": "narrow", "question": "ما هي طرق معالجة البيانات الناقصة؟", "expect_terms": [["ناقص", "missing"]]},
+    {"id": "q11", "subject_id": 7, "lang": "ar", "kind": "narrow", "question": "كيف تعمل خوارزمية k-means؟", "expect_terms": [["k-means", "means"], ["مركز", "centroid", "عنقود", "cluster"]]},
+    {"id": "q12", "subject_id": 7, "lang": "ar", "kind": "narrow", "question": "ما هو تعريف الثقة في قواعد الارتباط؟", "expect_terms": [["ثقة", "confidence"]]},
+    {"id": "q13", "subject_id": 7, "lang": "ar", "kind": "broad", "question": "اشرح لي تقنيات التصنيف المذكورة في المحاضرات.", "expect_terms": [["تصنيف", "classification"]]},
+    {"id": "q14", "subject_id": 6, "lang": "en", "kind": "narrow", "question": "How does Cristian's algorithm synchronize clocks?", "expect_terms": [["cristian"], ["time server", "server", "round"]]},
+    {"id": "q15", "subject_id": 6, "lang": "en", "kind": "broad", "question": "What is middleware and what services does it provide?", "expect_terms": [["middleware"]]},
+    {"id": "q16", "subject_id": 6, "lang": "ar", "kind": "narrow", "question": "ما هي الشفافية في الأنظمة الموزعة؟", "expect_terms": [["شفافية", "transparency"]]},
+    {"id": "q17", "subject_id": 7, "lang": "en", "kind": "unanswerable", "question": "Who won the football World Cup in 2018?", "expect_terms": []},
+    {"id": "q18", "subject_id": 6, "lang": "ar", "kind": "unanswerable", "question": "ما هي عاصمة اليابان؟", "expect_terms": []},
+    {
+      "id": "q19", "subject_id": 7, "lang": "en", "kind": "followup",
+      "history": [
+        {"role": "user", "content": "What is k-means clustering?"},
+        {"role": "assistant", "content": "K-means is a partitional clustering method: it picks K initial centroids, assigns every point to its closest centroid, then recomputes each centroid as the mean of its cluster, repeating until the assignments stop changing. [kdd_lec09_cluster_analyis.pdf, page 12]"}
+      ],
+      "question": "Can you explain that again in simpler words?",
+      "expect_terms": [["centroid", "center", "mean"], ["cluster", "group"]]
+    },
+    {
+      "id": "q20", "subject_id": 7, "lang": "ar", "kind": "followup",
+      "history": [
+        {"role": "user", "content": "ما هي طرق معالجة البيانات الناقصة؟"},
+        {"role": "assistant", "content": "من الطرق: تجاهل السجلات الناقصة، أو ملء القيمة الناقصة يدويًا، أو استبدالها بقيمة ثابتة أو بالمتوسط. [kdd_lec03_data_preprocessing.pdf, page 20]"}
+      ],
+      "question": "هل يمكنك تبسيط ذلك أكثر؟",
+      "expect_terms": [["ناقص", "قيمة", "missing"]]
+    }
+  ]
+}
