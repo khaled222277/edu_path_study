@@ -12,6 +12,7 @@ import random
 import re
 import threading
 import time
+import unicodedata
 from collections.abc import Callable, Iterator
 from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
 from dataclasses import dataclass, field
@@ -264,11 +265,25 @@ def sample_chunks(
 
 # --- validation (ported from V1, thresholds unchanged) --------------------
 
-# Keep Arabic, Arabic-Indic digits, basic Latin, digits, whitespace and common
-# punctuation. Drops Chinese/Cyrillic/garbled characters the model sometimes
-# leaks.
+# What survives cleaning: Arabic (and its supplement / extended-A blocks), digits,
+# Latin including accented letters, Greek (it is formula notation in these lectures:
+# "learning rate (η)"), whitespace, ordinary punctuation, and the quote and
+# arithmetic characters formulas need ("y = 3x + 1", "'Regression'", "≥"). Anything
+# else -- emoji, stray symbols, control characters -- is dropped.
+#
+# Letters from a *foreign script* (Cyrillic, Chinese, ...) are NOT cleaned out any
+# more: deleting a word from the middle of a sentence leaves a garbled question that
+# can still pass validation, so such an item is rejected instead (see
+# foreign_script_letters and _normalize_ex).
 _CLEAN_RE = re.compile(
-    r"[^؀-ۿ٠-٩a-zA-Z0-9\s\.,!?؟،؛\(\)\[\]\-_/:%]"
+    r"[^\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF"  # Arabic, supplement, extended-A
+    r"a-zA-Z0-9"
+    r"\u00C0-\u024F"  # accented Latin
+    r"\u0370-\u03FF"  # Greek
+    r"\s"
+    r"\.,!?؟،؛\(\)\[\]\-_/:%"
+    r"=+*<>^'\"\u2018\u2019\u201C\u201D\u2013\u2014"
+    r"\u2265\u2264\u2260\u00B1\u00D7\u00F7\u2192\u00B0\u00B7]"
 )
 _WHITESPACE_RE = re.compile(r"\s+")
 # "Option 4", "Choice2", "الخيار 3", "خيار 1" -- not a general heuristic.
@@ -278,7 +293,7 @@ _PLACEHOLDER_RE = re.compile(
 _BRACKETED_RE = re.compile(r"[\(\[].*?[\)\]]")
 _BRACKETED_CAPTURE_RE = re.compile(r"[\(\[]([^)\]]+)[\)\]]")
 _ARABIC_RE = re.compile(r"[؀-ۿ]")
-_LATIN_RE = re.compile(r"[A-Za-z]")
+_LATIN_RE = re.compile(r"[A-Za-z\u00C0-\u024F]")  # accented letters count as Latin too
 _FENCE_RE = re.compile(r"```(?:json)?|```")
 
 MAX_BRACKETED_LATIN = 10  # "(SQL)" is fine, a whole English clause is not
@@ -350,8 +365,26 @@ def contains_arabic(text: str) -> bool:
     return bool(_ARABIC_RE.search(str(text)))
 
 
+def normalize_text(value) -> str:
+    """NFKC, so look-alike forms collapse to the plain character ("𝑊" -> "W",
+    "²" -> "2", Arabic presentation forms -> ordinary letters) before they are judged."""
+    return unicodedata.normalize("NFKC", str(value or ""))
+
+
+def foreign_script_letters(value) -> list[str]:
+    """Letters that are neither Arabic, Latin nor Greek -- Cyrillic, CJK, Devanagari...
+
+    A model asked for Arabic sometimes drops one of these into a sentence.
+    """
+    found = []
+    for ch in normalize_text(value):
+        if ch.isalpha() and not unicodedata.name(ch, "").startswith(("ARABIC", "LATIN", "GREEK")):
+            found.append(ch)
+    return found
+
+
 def clean_text(value) -> str:
-    text = str(value or "").strip()
+    text = normalize_text(value).strip()
     text = _CLEAN_RE.sub("", text)
     return _WHITESPACE_RE.sub(" ", text).strip()
 
@@ -374,6 +407,7 @@ REASON_NO_ARABIC = "no_arabic"
 REASON_MALFORMED = "malformed_json"
 REASON_EMPTY = "empty_response"
 REASON_BAD_ITEM = "bad_item_shape"
+REASON_FOREIGN = "foreign_script"
 
 
 def arabic_violation(text) -> str | None:
@@ -547,12 +581,19 @@ def _normalize_ex(item) -> tuple[tuple[str, list[str], str] | None, str | None]:
     if not isinstance(item, dict):
         return None, REASON_BAD_ITEM
 
-    question = clean_text(_first_key(item, _QUESTION_KEYS, ""))
+    raw_question = _first_key(item, _QUESTION_KEYS, "")
     raw_options = _first_key(item, _OPTION_KEYS, []) or []
     if not isinstance(raw_options, list):
         return None, REASON_OPTION_COUNT
+    raw_answer = _first_key(item, _ANSWER_KEYS, "")
+
+    # Judged on the raw text, before cleaning could hide it.
+    if any(foreign_script_letters(t) for t in (raw_question, *raw_options, raw_answer)):
+        return None, REASON_FOREIGN
+
+    question = clean_text(raw_question)
     options = [clean_text(o) for o in raw_options if clean_text(o)]
-    answer = clean_text(_first_key(item, _ANSWER_KEYS, ""))
+    answer = clean_text(raw_answer)
 
     if len(options) != 4:
         return None, REASON_OPTION_COUNT
