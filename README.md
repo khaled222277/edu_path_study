@@ -243,6 +243,7 @@ need it, but it defaults to off.
 | POST | `/chat/sessions/{id}/messages` | ask a question, get a grounded answer + citations |
 | POST | `/chat/sessions/{id}/messages/stream` | same turn, streamed as NDJSON events (below) |
 | POST | `/quiz/start` | generate a quiz; answers withheld until answered |
+| POST | `/quiz/start/stream` | same quiz, delivered question by question as NDJSON events (below) |
 | POST | `/quiz/{id}/answer` | record an answer, reveal correctness |
 | POST | `/quiz/{id}/complete` | close an attempt early |
 | GET | `/quiz/{id}/results` | full review once complete |
@@ -309,6 +310,9 @@ pytest
 | `test_error_handling.py` | clean 503s when Ollama/Chroma fail; rate limiting |
 | `test_config.py` | production startup refuses placeholder secrets and insecure cookies |
 | `test_vector_store.py` | embedder built once under concurrency, stale-client recovery, startup warm-up |
+| `test_quiz_trace.py` | quiz rejections are named, decisions unchanged, per-call timings and tokens |
+| `test_quiz_options.py` | quiz settings; the two-pass chunk budget never loosens a rule |
+| `test_quiz_stream.py` | streamed quiz: event order, storage, partial results, Stop, answering mid-generation |
 | `test_ingestion_summary.py` | skipped/unclassified figures reported by lecture and page |
 | `test_chat_stream.py` | streaming route: event order, errors, auth, rate limit, disconnect cleanup, no thread starvation |
 | `test_keep_alive.py` | model residency: keep-alive on every call, warm-up steps independent |
@@ -318,6 +322,15 @@ Frontend (pure logic, Node's built-in runner, no install needed):
 
 ```bash
 cd frontend && npm test
+```
+
+The quiz screen's React wiring has an opt-in DOM test (`jsdom` + Testing Library, which are
+deliberately not project dependencies):
+
+```bash
+cd frontend
+npm install --no-save jsdom @testing-library/react @testing-library/dom
+npm run test:ui
 ```
 
 ### Benchmark
@@ -331,6 +344,44 @@ python scripts/bench_chat.py --subject-id 7 --cold-llm        # evict the chat m
 Times retrieval stage by stage (cold vs warm), then streamed chat turns: time to the
 first token (what a student waits for before text appears) and the total. It never
 writes to Postgres.
+
+### Streaming quizzes
+
+`POST /quiz/start/stream` takes the same body as `/quiz/start` and shares its rate-limit
+allowance, but sends the quiz as it is written (`application/x-ndjson`):
+
+| Event | Meaning |
+| --- | --- |
+| `{"type":"start","attempt_id","subject_id","language","requested"}` | the quiz exists; sent with the first question |
+| `{"type":"question","index","question":{id,question_text,options,source_citation}}` | one per validated question |
+| `{"type":"done","attempt_id","total_questions","requested","partial"}` | finished; `partial` if fewer than `requested` could be written |
+| `{"type":"error","detail","attempt_id","total_questions","partial":true}` | broke off part-way; the questions already sent are kept |
+
+Each question is stored the moment it validates, so the student can answer question 1
+(`POST /quiz/{id}/answer`) while question 4 is still being written. While that happens
+the attempt's `total_questions` is the number *requested*; it becomes the number actually
+produced when the stream ends. A failure on one question never discards the earlier ones.
+Failures before the first question (Ollama or Chroma down, no usable material) are the
+same HTTP 503 / 422 as `/quiz/start`, and leave nothing behind. If the student stops or
+disconnects, the quiz keeps the questions already sent; a quiz nobody received is deleted.
+
+`/quiz/{id}/answer` and `/complete` take a row lock (`SELECT ... FOR UPDATE`) so they cannot
+interleave with the end-of-stream bookkeeping. SQLite ignores `FOR UPDATE`, so that part is
+exercised only on Postgres.
+
+### Quiz speed and quality
+
+`scripts/bench_quiz.py` measures quiz generation against the real Ollama and Chroma and
+`bench_results/` holds the raw data and what each experiment concluded
+(`bench_results/README.md`). The short version: model calls are 99.8% of quiz time; English
+already passes on the first call 94% of the time; Arabic wastes about 40% of its calls. Tuning
+knobs (`QUIZ_FIRST_PASS_ATTEMPTS`, `QUIZ_TEMPERATURE`, ...) are in `.env.example`.
+
+```bash
+python scripts/bench_quiz.py --label mine --out bench_results/quiz_mine.json   # 10 quizzes per language
+python scripts/bench_quiz.py --variants "base;fp0=quiz_first_pass_attempts:0"  # interleaved A/B
+python scripts/bench_quiz.py --compare bench_results/quiz_baseline.json bench_results/quiz_mine.json
+```
 
 ### Streaming answers
 

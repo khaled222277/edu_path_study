@@ -1057,6 +1057,31 @@ button:disabled {
   margin-bottom: 14px;
 }
 
+/* "Writing question 3 of 5..." while the rest of the quiz is still being made. */
+.quiz-generating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+/* Why a quiz has fewer questions than were asked for. */
+.quiz-note {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+}
+
+.quiz-note-muted {
+  color: var(--text-muted);
+}
+
+.quiz-note-error {
+  color: var(--danger);
+}
+
 .quiz-progress-label {
   font-size: 13px;
   font-weight: 700;

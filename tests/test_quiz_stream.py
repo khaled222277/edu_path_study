@@ -540,3 +540,76 @@ def test_cancelling_between_chunks_does_not_even_start_the_next_one(model):
     cancel.set()
     assert list(gen) == []
     assert [c.citation for c in trace.chunks] == ["A.pdf, page 1"]
+
+
+# --- cancelling while the first question is still being written --------------------------------
+
+
+async def _drive_gone(path, cookie, body):
+    """Raw ASGI where the client has already hung up by the time the handler asks."""
+    from .test_chat_stream import _scope
+
+    sent, delivered = [], False
+
+    async def receive():
+        nonlocal delivered
+        if not delivered:
+            delivered = True
+            return {"type": "http.request", "body": body, "more_body": False}
+        return {"type": "http.disconnect"}
+
+    async def send(message):
+        sent.append(message)
+
+    from app.main import app
+
+    await app(_scope(path, cookie, body), receive, send)
+    return sent
+
+
+def test_cancelling_before_the_first_question_leaves_nothing_behind(client, world, quiz_db, model):
+    calls = model({"A": [good("A")], "B": [good("B")]})
+    sent = asyncio.run(_drive_gone(
+        "/quiz/start/stream", _cookie(world["alice"]),
+        json.dumps({"subject_id": world["subject"].id, "question_count": 2, "language": "en"}).encode(),
+    ))
+    start = next(m for m in sent if m["type"] == "http.response.start")
+    assert start["status"] == 204, "no stream is started for a client that is gone"
+    assert not any(m.get("body") for m in sent if m["type"] == "http.response.body")
+    assert attempts(quiz_db) == [] and items(quiz_db) == [], "no stub quiz in the student's history"
+    assert calls == ["A"], "and the model is not asked for more"
+
+
+# --- closing a quiz that was still being written --------------------------------------------------
+
+
+def test_closing_a_half_written_quiz_settles_its_total_to_what_exists(world, quiz_db, model):
+    """So 'See results' right after Stop can never report '1 of 5' for a quiz of 1."""
+    model({"A": [good("A")], "B": [good("B")]})
+    started = qc.begin_streamed_quiz(quiz_db, world["alice"], world["subject"].id, 5, "en")
+    (attempt,) = attempts(quiz_db)
+    assert attempt.total_questions == 5
+
+    qc.complete_quiz(quiz_db, attempt)
+    quiz_db.expire_all()
+    assert attempt.total_questions == 1 and attempt.completed_at is not None
+    assert qc.add_streamed_item(started.attempt_id, next(started.questions)) is None
+
+
+def test_closing_an_ordinary_quiz_leaves_its_total_alone(client, world, quiz_db, model):
+    model({"A": [good("A")], "B": [good("B")], "C": [good("C")]})
+    c = login(client, world["alice"])
+    body = {"subject_id": world["subject"].id, "question_count": 3, "language": "en"}
+    attempt_id = c.post("/quiz/start", json=body).json()["attempt_id"]
+    r = c.post(f"/quiz/{attempt_id}/complete")
+    assert r.status_code == 200 and r.json()["total_questions"] == 3
+
+
+def test_settling_first_or_closing_first_gives_the_same_total(world, quiz_db, model):
+    model({"A": [good("A")], "B": [good("B")]})
+    started = qc.begin_streamed_quiz(quiz_db, world["alice"], world["subject"].id, 5, "en")
+    (attempt,) = attempts(quiz_db)
+    qc.complete_quiz(quiz_db, attempt)              # the student gets there first...
+    assert qc.finish_streamed_quiz(started.attempt_id, 5) == (1, True)   # ...then the stream settles
+    quiz_db.expire_all()
+    assert attempt.total_questions == 1

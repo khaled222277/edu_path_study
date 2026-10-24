@@ -65,22 +65,22 @@ export const sendMessage = (sessionId, content) =>
   });
 
 /**
- * Ask a question and receive the answer as it is written.
+ * POST `body` as JSON and read the newline-delimited JSON events that come back.
  *
  * Calls `onEvent` for each event (see stream.js) and resolves when the stream
  * ends. Rejects with the same tagged errors as the other calls if the request is
- * refused (401, 403, 429, 503...) before any text; with an `unavailable` error if
+ * refused (401, 403, 429, 503...) before any event; with an `unavailable` error if
  * the connection drops part-way; and with the browser's AbortError if `signal`
- * is aborted -- which is how the Stop button works.
+ * is aborted -- which is how the Stop buttons work.
  */
-export async function streamMessage(sessionId, content, { signal, onEvent }) {
+async function streamNdjson(path, body, { signal, onEvent }) {
   let res;
   try {
-    res = await fetch(`${API_URL}/chat/sessions/${sessionId}/messages/stream`, {
+    res = await fetch(`${API_URL}${path}`, {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content }),
+      body: JSON.stringify(body),
       signal,
     });
   } catch (e) {
@@ -90,6 +90,8 @@ export async function streamMessage(sessionId, content, { signal, onEvent }) {
   if (!res.ok) {
     throw httpError(res.status, await res.json().catch(() => null));
   }
+  // No body means no events (the server answers 204 when it sees we already left).
+  if (res.status === 204 || !res.body) return;
 
   const reader = res.body.getReader();
   // `stream: true` holds back an incomplete UTF-8 sequence until its remaining
@@ -116,6 +118,21 @@ export async function streamMessage(sessionId, content, { signal, onEvent }) {
     reader.cancel().catch(() => {});
   }
 }
+
+/** Ask a question and receive the answer as it is written. */
+export const streamMessage = (sessionId, content, opts) =>
+  streamNdjson(`/chat/sessions/${sessionId}/messages/stream`, { content }, opts);
+
+/** Start a quiz and receive its questions one by one, as each is ready. */
+export const streamQuiz = (subjectId, questionCount, language, opts) =>
+  streamNdjson(
+    "/quiz/start/stream",
+    { subject_id: subjectId, question_count: questionCount, language },
+    opts,
+  );
+
+export const completeQuiz = (attemptId) =>
+  request(`/quiz/${attemptId}/complete`, { method: "POST" });
 
 export const startQuiz = (subjectId, questionCount, language) =>
   request("/quiz/start", {

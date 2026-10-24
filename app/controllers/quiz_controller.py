@@ -163,9 +163,18 @@ def submit_answer(
 
 
 def complete_quiz(db: Session, attempt: QuizAttempt) -> QuizAttempt:
-    """Close an attempt early; unanswered questions simply stay unanswered."""
+    """Close an attempt early; unanswered questions simply stay unanswered.
+
+    A quiz that was still being written has fewer stored questions than its total
+    (which then holds the number requested). Closing it settles the total to what
+    exists, so a result is never reported out of questions that were never made.
+    For an ordinary quiz the two are equal and nothing changes.
+    """
     if attempt.completed_at is None:
         attempt.completed_at = datetime.now(UTC)
+        stored = len(attempt.items)
+        if 0 < stored < attempt.total_questions:
+            attempt.total_questions = stored
         db.commit()
         db.refresh(attempt)
     return attempt

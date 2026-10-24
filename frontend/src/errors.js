@@ -23,6 +23,19 @@ const MESSAGES = {
     en: "The answer was interrupted. Please try again.",
     ar: "انقطعت الإجابة. يرجى المحاولة مرة أخرى.",
   },
+  // A streamed quiz that ended with fewer questions than were asked for.
+  quiz_partial: {
+    en: "Only {n} of {total} questions could be written from this material.",
+    ar: "تم إنشاء {n} من أصل {total} أسئلة فقط من هذه المادة.",
+  },
+  quiz_interrupted: {
+    en: "Some questions could not be generated. You can continue with the ones below.",
+    ar: "تعذّر إنشاء بعض الأسئلة. يمكنك المتابعة بالأسئلة المعروضة.",
+  },
+  quiz_stopped: {
+    en: "Generation stopped. You can answer the questions written so far.",
+    ar: "تم إيقاف الإنشاء. يمكنك الإجابة عن الأسئلة التي كُتبت حتى الآن.",
+  },
   // The student pressed Stop. Said plainly because the partial answer is shown
   // but was not saved: it will not be there after a reload.
   stopped: {
@@ -57,10 +70,16 @@ export function guessLanguage(text) {
   return isArabic(letters[0]) ? "ar" : "en";
 }
 
-/** The message to show for a failed request, in `lang` ("en" | "ar"). */
-export function friendlyError(err, lang = "en") {
+/**
+ * The message to show for a failed request, in `lang` ("en" | "ar"). `params`
+ * fills {placeholders} in the text, e.g. { n: 3, total: 5 }.
+ */
+export function friendlyError(err, lang = "en", params = {}) {
   const entry = MESSAGES[err?.kind];
-  if (entry) return entry[lang] ?? entry.en;
+  if (entry) {
+    const text = entry[lang] ?? entry.en;
+    return text.replace(/\{(\w+)\}/g, (match, key) => params[key] ?? match);
+  }
   return err?.message || "Something went wrong. Please try again.";
 }
 

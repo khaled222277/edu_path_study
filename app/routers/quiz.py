@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, Request, status
+from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from fastapi.concurrency import run_in_threadpool
 from sqlalchemy.orm import Session
 
@@ -88,6 +88,13 @@ async def start_quiz_stream(
         payload.language,
         payload.prompt,
     )
+    # The student may have cancelled while the first question was being written.
+    # Ask now, before a response exists and nothing else is reading the connection:
+    # once streaming starts, uvicorn silently swallows writes to a closed socket,
+    # so the stream could not tell and would keep a one-question stub.
+    if await request.is_disconnected():
+        await run_in_threadpool(started.close)  # nobody saw it: discards the attempt
+        return Response(status_code=status.HTTP_204_NO_CONTENT)
     return quiz_stream.streaming_response(started)
 
 

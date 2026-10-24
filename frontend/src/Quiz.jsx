@@ -1,12 +1,20 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import {
   answerQuestion,
+  completeQuiz,
   getMySubjects,
   getQuizResults,
-  startQuiz,
+  streamQuiz,
 } from "./api.js";
 import { friendlyError } from "./errors.js";
+import {
+  applyQuizEvent,
+  initialQuizState,
+  quizEndNote,
+  quizFailurePlan,
+  quizGenerating,
+} from "./stream.js";
 
 const QUESTION_COUNTS = [3, 5, 10];
 
@@ -26,6 +34,13 @@ export default function Quiz({ subject = null, onExit }) {
   const [language, setLanguage] = useState("en");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(null);
+  // Questions arrive one at a time. `generating` is true while more may come,
+  // `requested` is how many were asked for, and `note` says why a quiz has fewer.
+  const [generating, setGenerating] = useState(false);
+  const [requested, setRequested] = useState(0);
+  const [note, setNote] = useState(null);
+  // The AbortController of the quiz being written; null when none is.
+  const abortRef = useRef(null);
 
   // The subject actually being quizzed: the prop when routed from a card,
   // otherwise whatever the picker selected.
@@ -36,22 +51,77 @@ export default function Quiz({ subject = null, onExit }) {
     getMySubjects().then(setSubjects).catch((e) => setError(friendlyError(e, language)));
   }, [subject]);
 
+  // Leaving the page stops the quiz being written: closing the request tells the
+  // server to stop, and what was already written stays as a shorter quiz.
+  useEffect(
+    () => () => {
+      const controller = abortRef.current;
+      abortRef.current = null;
+      controller?.abort();
+    },
+    [],
+  );
+
   async function begin() {
+    if (busy) return;
+    const controller = new AbortController();
+    abortRef.current = controller;
     setBusy(true);
     setError(null);
+    setNote(null);
+
+    let state = initialQuizState();
+    let shown = false;
+    const isCurrent = () => abortRef.current === controller;
+    const noteFor = (kind, params, tone) =>
+      setNote({ text: friendlyError({ kind }, language, params), tone });
+
     try {
-      const quiz = await startQuiz(active.id, count, language);
-      setAttemptId(quiz.attempt_id);
-      setQuestions(quiz.questions);
-      setIndex(0);
-      setFeedback(null);
-      setResults(null);
+      await streamQuiz(active.id, count, language, {
+        signal: controller.signal,
+        onEvent: (ev) => {
+          if (!isCurrent()) return;
+          state = applyQuizEvent(state, ev);
+          setRequested(state.requested);
+          setGenerating(quizGenerating(state));
+          if (state.attemptId !== null) setAttemptId(state.attemptId);
+          if (state.questions.length === 0) return;
+          setQuestions(state.questions);
+          if (!shown) {
+            // The first question is ready: start the quiz. The rest keep arriving.
+            shown = true;
+            setIndex(0);
+            setFeedback(null);
+            setResults(null);
+            setBusy(false);
+          }
+        },
+      });
+      if (!isCurrent()) return;
+      const end = quizEndNote(state);
+      if (end) noteFor(end.kind, end.params, end.tone);
     } catch (e) {
-      // Message follows the quiz language the student picked.
-      setError(friendlyError(e, language));
+      if (!isCurrent()) return;
+      const plan = quizFailurePlan(e, state);
+      if (plan.keep) {
+        noteFor(plan.cause.kind, plan.params, plan.tone);
+      } else {
+        // Nothing arrived: back to the setup screen. Message follows the quiz
+        // language the student picked.
+        setQuestions(null);
+        if (plan.banner) setError(friendlyError(plan.cause, language));
+      }
     } finally {
-      setBusy(false);
+      if (isCurrent()) {
+        abortRef.current = null;
+        setGenerating(false);
+        setBusy(false);
+      }
     }
+  }
+
+  function stopGenerating() {
+    abortRef.current?.abort();
   }
 
   async function choose(optionIndex) {
@@ -69,6 +139,7 @@ export default function Quiz({ subject = null, onExit }) {
   }
 
   async function next() {
+    if (index + 1 >= questions.length && generating) return; // the next one is still coming
     if (index + 1 < questions.length) {
       setIndex(index + 1);
       setFeedback(null);
@@ -77,6 +148,10 @@ export default function Quiz({ subject = null, onExit }) {
     setBusy(true);
     setError(null);
     try {
+      // Normally the last answer already closed the quiz. If it did not -- the
+      // student stopped generation, or answered everything before the server
+      // finished settling -- close it now so the results can be read.
+      if (!feedback?.is_complete) await completeQuiz(attemptId);
       setResults(await getQuizResults(attemptId));
     } catch (e) {
       setError(friendlyError(e, language));
@@ -237,12 +312,18 @@ export default function Quiz({ subject = null, onExit }) {
             </button>
             {/* Came in via the picker? Back returns there rather than
                 dropping the student all the way out to the dashboard. */}
-            <button
-              className="btn-secondary"
-              onClick={() => (subject ? onExit() : setPicked(null))}
-            >
-              Back
-            </button>
+            {busy ? (
+              <button className="btn-secondary" onClick={stopGenerating}>
+                Cancel
+              </button>
+            ) : (
+              <button
+                className="btn-secondary"
+                onClick={() => (subject ? onExit() : setPicked(null))}
+              >
+                Back
+              </button>
+            )}
           </div>
 
           {busy && (
@@ -257,14 +338,18 @@ export default function Quiz({ subject = null, onExit }) {
 
   // --- question screen ---
   const question = questions[index];
-  const progress = ((index + (feedback ? 1 : 0)) / questions.length) * 100;
+  // While questions are still being written the quiz is `requested` long; once
+  // the writing stops it is as long as it turned out to be.
+  const total = generating ? Math.max(requested, questions.length) : questions.length;
+  const progress = ((index + (feedback ? 1 : 0)) / total) * 100;
+  const atLastWritten = index + 1 >= questions.length;
 
   return (
     <div className="quiz">
       <header className="quiz-header">
         <div>
           <div className="quiz-progress-label">
-            Question {index + 1} of {questions.length}
+            Question {index + 1} of {total}
           </div>
           <div className="quiz-subject" dir="auto">
             {active.name}
@@ -278,6 +363,18 @@ export default function Quiz({ subject = null, onExit }) {
       <div className="meter quiz-meter">
         <div className="meter-fill" style={{ width: `${progress}%` }} />
       </div>
+
+      {generating && (
+        <p className="quiz-generating" role="status">
+          <span>
+            Writing question {Math.min(questions.length + 1, total)} of {total}…
+          </span>
+          <button className="btn-small" onClick={stopGenerating}>
+            Stop
+          </button>
+        </p>
+      )}
+      {note && <p className={`quiz-note quiz-note-${note.tone}`}>{note.text}</p>}
 
       <p className="question-text lead" dir="auto">
         {question.question_text}
@@ -330,8 +427,12 @@ export default function Quiz({ subject = null, onExit }) {
           <div className="cite" dir="auto">
             {feedback.source_citation}
           </div>
-          <button onClick={next} disabled={busy}>
-            {index + 1 < questions.length ? "Next question" : "See results"}
+          <button onClick={next} disabled={busy || (atLastWritten && generating)}>
+            {!atLastWritten
+              ? "Next question"
+              : generating
+                ? "Writing the next question…"
+                : "See results"}
           </button>
         </div>
       )}

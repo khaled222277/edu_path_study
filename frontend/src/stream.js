@@ -127,3 +127,86 @@ export function upsertAnswer(messages, id, state, extra = {}) {
   next[i] = answer;
   return next;
 }
+
+// --- a quiz written question by question -----------------------------------------
+//
+// Events (see app/controllers/quiz_stream.py):
+//   {"type":"start","attempt_id","subject_id","language","requested"}
+//   {"type":"question","index","question":{id,question_text,options,source_citation}}
+//   {"type":"done","total_questions","requested","partial"}
+//   {"type":"error","detail","total_questions","partial":true}   it broke off part-way
+
+export const initialQuizState = () => ({
+  attemptId: null,
+  requested: 0,
+  questions: [],
+  done: false, // a `done` event arrived
+  failed: false, // an `error` event arrived
+  partial: false, // fewer questions than requested
+  totalQuestions: null, // how many there will be, once known
+});
+
+/** Fold one quiz event into the state. Unknown events are ignored. */
+export function applyQuizEvent(state, event) {
+  switch (event?.type) {
+    case "start":
+      return { ...state, attemptId: event.attempt_id, requested: event.requested ?? 0 };
+    case "question": {
+      const q = event.question;
+      // A repeated id is a duplicate delivery, not a new question.
+      if (!q || state.questions.some((x) => x.id === q.id)) return state;
+      return { ...state, questions: [...state.questions, q] };
+    }
+    case "done":
+      return {
+        ...state,
+        done: true,
+        partial: !!event.partial,
+        totalQuestions: event.total_questions ?? state.questions.length,
+      };
+    case "error":
+      return {
+        ...state,
+        failed: true,
+        partial: true,
+        totalQuestions: event.total_questions ?? state.questions.length,
+      };
+    default:
+      return state;
+  }
+}
+
+/** True while more questions may still arrive. */
+export const quizGenerating = (state) => !state.done && !state.failed;
+
+/**
+ * The note to show under a quiz whose stream ended on its own, or null when it
+ * ended cleanly with every question. `params` are for the {n} / {total} text.
+ */
+export function quizEndNote(state) {
+  const params = { n: state.questions.length, total: state.requested };
+  if (state.failed) return { kind: "quiz_interrupted", tone: "error", params };
+  if (!state.done) return { kind: "quiz_interrupted", tone: "error", params }; // closed with no verdict
+  if (state.partial) return { kind: "quiz_partial", tone: "muted", params };
+  return null;
+}
+
+/**
+ * What to do when the request itself failed or was stopped (as opposed to the
+ * server reporting a clean end or an `error` event).
+ *
+ *   keep    questions are on screen: leave them, add a note, let the student carry on
+ *   !keep   nothing arrived: back to the setup screen
+ *   banner  show `cause` in the error banner (never for Stop: the student asked)
+ *   cause   what to translate: { kind: "quiz_stopped" } for an abort, else the error
+ */
+export function quizFailurePlan(error, state) {
+  const aborted = error?.name === "AbortError";
+  const params = { n: state.questions.length, total: state.requested };
+  if (state.questions.length > 0) {
+    return aborted
+      ? { keep: true, banner: false, cause: { kind: "quiz_stopped" }, tone: "muted", params }
+      : { keep: true, banner: false, cause: { kind: "quiz_interrupted" }, tone: "error", params };
+  }
+  return { keep: false, banner: !aborted, cause: error ?? { kind: "interrupted" }, tone: null, params };
+}
