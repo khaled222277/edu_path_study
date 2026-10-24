@@ -110,6 +110,7 @@ OVERRIDABLE = {
     "quiz_strict_attempts": int,
     "quiz_relaxed_attempts": int,
     "quiz_first_pass_attempts": int,
+    "quiz_concurrency": int,
 }
 
 

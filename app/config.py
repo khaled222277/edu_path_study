@@ -61,6 +61,11 @@ class Settings(BaseSettings):
     # the relaxed rules -- only if the quiz is still short, so no rule is loosened.
     # 0 turns this off: each chunk gets its full budget in turn.
     quiz_first_pass_attempts: int = Field(default=2, ge=0, le=20)
+    # Chunks generated at the same time. Only useful if Ollama itself runs requests
+    # in parallel (OLLAMA_NUM_PARALLEL > 1, which is not the case by default on small
+    # GPUs): with Ollama serving one request at a time, extra callers just queue and
+    # nothing gets faster. Never more are in flight than questions still needed.
+    quiz_concurrency: int = Field(default=1, ge=1, le=8)
 
     # --- Retrieval ---
     # Chunks pulled from Chroma, then reranked down to `top_k` for the prompt.

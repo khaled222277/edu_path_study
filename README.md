@@ -312,6 +312,7 @@ pytest
 | `test_vector_store.py` | embedder built once under concurrency, stale-client recovery, startup warm-up |
 | `test_quiz_trace.py` | quiz rejections are named, decisions unchanged, per-call timings and tokens |
 | `test_quiz_options.py` | quiz settings; the two-pass chunk budget never loosens a rule |
+| `test_quiz_concurrency.py` | parallel chunks: bounded by what is still needed, ordering, cancellation, outages |
 | `test_quiz_stream.py` | streamed quiz: event order, storage, partial results, Stop, answering mid-generation |
 | `test_ingestion_summary.py` | skipped/unclassified figures reported by lecture and page |
 | `test_chat_stream.py` | streaming route: event order, errors, auth, rate limit, disconnect cleanup, no thread starvation |
@@ -376,6 +377,10 @@ exercised only on Postgres.
 (`bench_results/README.md`). The short version: model calls are 99.8% of quiz time; English
 already passes on the first call 94% of the time; Arabic wastes about 40% of its calls. Tuning
 knobs (`QUIZ_FIRST_PASS_ATTEMPTS`, `QUIZ_TEMPERATURE`, ...) are in `.env.example`.
+
+`QUIZ_CONCURRENCY` (default 1) writes several questions at once, but only pays off if Ollama
+is set to serve requests in parallel (`OLLAMA_NUM_PARALLEL=3`); against a default Ollama it
+makes Arabic quizzes slower. Measurements and how to enable it: `bench_results/README.md`.
 
 ```bash
 python scripts/bench_quiz.py --label mine --out bench_results/quiz_mine.json   # 10 quizzes per language

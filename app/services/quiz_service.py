@@ -12,8 +12,11 @@ import random
 import re
 import threading
 import time
-from collections.abc import Iterator
+from collections.abc import Callable, Iterator
+from concurrent.futures import FIRST_COMPLETED, Future, ThreadPoolExecutor, wait
 from dataclasses import dataclass, field
+from functools import partial
+from typing import Any
 
 import httpx
 
@@ -40,7 +43,10 @@ QUIZ_OPTIONS = {"temperature": settings.quiz_temperature, "num_predict": 700}
 
 def experiment_config() -> dict:
     """The quiz settings that change behaviour, for the benchmark's result files."""
-    return {"first_pass_attempts": settings.quiz_first_pass_attempts}
+    return {
+        "first_pass_attempts": settings.quiz_first_pass_attempts,
+        "concurrency": settings.quiz_concurrency,
+    }
 
 
 # Short chunks (slide titles, stray fragments) cannot support a fair question
@@ -754,6 +760,66 @@ def _generate_one(
         )
 
 
+class _EitherSet:
+    """Reads as set when either the caller's cancel event or our own is."""
+
+    def __init__(self, outer: threading.Event | None, inner: threading.Event) -> None:
+        self.outer, self.inner = outer, inner
+
+    def is_set(self) -> bool:
+        return self.inner.is_set() or (self.outer is not None and self.outer.is_set())
+
+
+def _run_jobs(
+    jobs: Iterator[tuple[Any, Callable[[], GeneratedQuestion | None]]],
+    needed: Callable[[], int],
+    concurrency: int,
+    stop: Callable[[], bool],
+    halt: threading.Event,
+) -> Iterator[tuple[Any, GeneratedQuestion | None]]:
+    """Run `jobs`, yielding (tag, result) as each one finishes.
+
+    At most `concurrency` run at once, and never more than `needed()` -- the number
+    of questions still wanted -- so concurrency cannot make the quiz generate more
+    than it asked for. `needed()` is re-read as results are consumed. With
+    concurrency 1 this is a plain loop on the calling thread: exactly the old
+    behaviour, order included. `halt` is set when this stops, so jobs still in
+    flight make no further model calls.
+    """
+    queue = iter(jobs)
+
+    if concurrency <= 1:
+        while needed() > 0 and not stop():
+            job = next(queue, None)
+            if job is None:
+                return
+            tag, run = job
+            yield tag, run()
+        return
+
+    pool = ThreadPoolExecutor(max_workers=concurrency, thread_name_prefix="quiz")
+    inflight: dict[Future, Any] = {}
+    exhausted = False
+    try:
+        while True:
+            while not exhausted and not stop() and len(inflight) < min(concurrency, needed()):
+                job = next(queue, None)
+                if job is None:
+                    exhausted = True
+                    break
+                tag, run = job
+                inflight[pool.submit(run)] = tag
+            if not inflight:
+                return
+            finished, _ = wait(inflight, return_when=FIRST_COMPLETED)
+            for future in finished:
+                tag = inflight.pop(future)
+                yield tag, future.result()  # re-raises an outage or a cancellation
+    finally:
+        halt.set()
+        pool.shutdown(wait=False, cancel_futures=True)
+
+
 def iter_quiz(
     subject_id: int,
     count: int = DEFAULT_QUESTION_COUNT,
@@ -773,6 +839,9 @@ def iter_quiz(
     `cancel`, once set, ends the run before the next model call. A call already
     in flight cannot be interrupted, so it finishes and its result is dropped.
     `trace`, if given, is filled with timings and rejection reasons.
+
+    With QUIZ_CONCURRENCY > 1, questions come in the order they finish, not the
+    order the chunks were drawn.
     """
     in_arabic = (language or LANG_EN) == LANG_AR
     trace = trace if trace is not None else QuizTrace()
@@ -780,9 +849,22 @@ def iter_quiz(
     trace.requested = count
     started = time.perf_counter()
     produced = 0
+    concurrency = settings.quiz_concurrency
+    # One "halt" flag per pass, set when that pass stops so its stragglers make no
+    # further model calls. They must not be shared: ending pass 1 would otherwise
+    # cancel every pass-2 job before it started.
+    halts: list[threading.Event] = []
+
+    def new_scope() -> tuple[threading.Event, _EitherSet]:
+        halt = threading.Event()
+        halts.append(halt)
+        return halt, _EitherSet(cancel, halt)
 
     def cancelled() -> bool:
         return cancel is not None and cancel.is_set()
+
+    def needed() -> int:
+        return count - produced
 
     try:
         # Over-sample so chunks that never yield a valid question can be replaced.
@@ -798,42 +880,59 @@ def iter_quiz(
         # Pass 1: a few attempts per chunk, then on to the next. A chunk that has
         # already failed is a worse bet than a fresh one, and the sample holds twice
         # as many chunks as the quiz needs.
-        for chunk in chunks:
-            if produced >= count or cancelled():
-                break
-            log.info("generating question from %s", chunk.citation)
-            chunk_trace = ChunkTrace(chunk.citation)
-            trace.chunks.append(chunk_trace)  # before generating, so a crash keeps it
-            if first_pass > 0:
-                question = _generate_one(
-                    chunk, in_arabic, model, chunk_trace,
-                    strict_attempts=first_pass, relaxed_attempts=0, final=False, cancel=cancel,
-                )
-                if question is None:
-                    deferred.append((chunk, chunk_trace))
+        halt, either = new_scope()
+
+        def first_pass_jobs():
+            for chunk in chunks:
+                log.info("generating question from %s", chunk.citation)
+                chunk_trace = ChunkTrace(chunk.citation)
+                trace.chunks.append(chunk_trace)  # before generating, so a crash keeps it
+                if first_pass > 0:
+                    run = partial(
+                        _generate_one, chunk, in_arabic, model, chunk_trace,
+                        strict_attempts=first_pass, relaxed_attempts=0, final=False, cancel=either,
+                    )
+                else:
+                    run = partial(_generate_one, chunk, in_arabic, model, chunk_trace, cancel=either)
+                yield (chunk, chunk_trace), run
+
+        for tag, question in _run_jobs(first_pass_jobs(), needed, concurrency, cancelled, halt):
+            if cancelled():
+                break  # a call that finishes after Stop is dropped, not delivered
+            if question is None:
+                if first_pass > 0:
+                    deferred.append(tag)
             else:
-                question = _generate_one(chunk, in_arabic, model, chunk_trace, cancel=cancel)
-            if question is not None:
                 produced += 1
                 trace.produced = produced
                 yield question
+            if produced >= count:
+                break
 
         # Pass 2, only if still short: give the hard chunks the rest of their budget,
         # including the relaxed Arabic rules. Nothing is accepted here that would not
         # have been accepted before; it just happens later, and only when needed.
-        for chunk, chunk_trace in deferred:
-            if produced >= count or cancelled():
-                break
-            strict_done = sum(1 for a in chunk_trace.attempts if a.phase == PHASE_STRICT)
-            question = _generate_one(
-                chunk, in_arabic, model, chunk_trace,
-                strict_attempts=max(STRICT_ATTEMPTS - strict_done, 0),
-                relaxed_attempts=RELAXED_ATTEMPTS, cancel=cancel,
-            )
-            if question is not None:
-                produced += 1
-                trace.produced = produced
-                yield question
+        halt2, either2 = new_scope()
+
+        def second_pass_jobs():
+            for chunk, chunk_trace in deferred:
+                strict_done = sum(1 for a in chunk_trace.attempts if a.phase == PHASE_STRICT)
+                yield (chunk, chunk_trace), partial(
+                    _generate_one, chunk, in_arabic, model, chunk_trace,
+                    strict_attempts=max(STRICT_ATTEMPTS - strict_done, 0),
+                    relaxed_attempts=RELAXED_ATTEMPTS, cancel=either2,
+                )
+
+        if produced < count:
+            for _, question in _run_jobs(second_pass_jobs(), needed, concurrency, cancelled, halt2):
+                if cancelled():
+                    break
+                if question is not None:
+                    produced += 1
+                    trace.produced = produced
+                    yield question
+                if produced >= count:
+                    break
 
         log.info(
             "generated %s/%s questions for subject %s (%s)",
@@ -852,6 +951,8 @@ def iter_quiz(
         trace.error = _unavailable_kind(exc)
         raise
     finally:
+        for flag in halts:
+            flag.set()
         trace.total_s = time.perf_counter() - started
         _log_event(
             "quiz_summary",
@@ -862,6 +963,7 @@ def iter_quiz(
             total_s=round(trace.total_s, 3),
             sampling_s=round(trace.sampling_s, 3),
             calls=sum(c.calls for c in trace.chunks),
+            concurrency=concurrency,
             error=trace.error,
         )
 
