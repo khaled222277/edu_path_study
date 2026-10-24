@@ -1,0 +1,812 @@
+{
+ "version": 1,
+ "description": "Evaluation questions over the ingested lectures (subject 7 = data mining / KDD lectures 1-9, subject 6 = distributed systems lectures 1-4). Gold is the (file, page) of the slides that contain the answer, the unit the app cites. A retrieval hit means at least one retrieved chunk comes from a gold page. out_of_scope items have no gold and must be refused.",
+ "how_gold_was_chosen": "Questions were drafted from the lecture topics. The app's own retrieval then proposed candidate chunks and every chunk used as gold was read in full and kept only if it really contains the answer. This is retrieval-assisted annotation, so gold is biased towards pages the retriever can find; one case where it missed the right page (lecture 2 p9 for 'four attribute types') was added by hand. Items I was unsure about carry uncertain=true and a reason.",
+ "limits": [
+  "All Arabic phrasing was written by a model and has NOT been checked by a native speaker; treat Arabic wording as unverified until the human review.",
+  "The lectures are English slides (with some Arabic headers), so Arabic questions are cross-lingual. Expected answers are in English for that reason.",
+  "Only the previous QUESTION of a follow-up is given; the evaluation first answers it with the same model to build the history.",
+  "45 questions is small: it can show large effects and gross bugs, not differences of a few percent."
+ ],
+ "items": [
+  {
+   "id": "e01",
+   "lang": "en",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "What are the steps of the KDD process?",
+   "gold": [
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 10
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 9
+    }
+   ],
+   "expected_answer": "Data cleaning, data integration, data selection, data transformation, data mining, evaluation of the patterns, and knowledge presentation.",
+   "uncertain": false
+  },
+  {
+   "id": "e02",
+   "lang": "en",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "What are the four types of attributes in a dataset?",
+   "gold": [
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 9
+    }
+   ],
+   "expected_answer": "Nominal, ordinal, interval and ratio.",
+   "uncertain": false
+  },
+  {
+   "id": "e03",
+   "lang": "en",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "How does min-max normalization transform a value?",
+   "gold": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 42
+    }
+   ],
+   "expected_answer": "Linearly: v' = (v - minA)/(maxA - minA) x (new_max - new_min) + new_min, e.g. $73,600 with min 12,000 and max 98,000 becomes 0.716 in [0,1].",
+   "uncertain": false
+  },
+  {
+   "id": "e04",
+   "lang": "en",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "When is z-score normalization useful?",
+   "gold": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 43
+    }
+   ],
+   "expected_answer": "When the actual minimum and maximum of the attribute are unknown, or outliers dominate min-max normalization; v' = (v - mean)/standard deviation.",
+   "uncertain": false
+  },
+  {
+   "id": "e05",
+   "lang": "en",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "How does binning smooth noisy data?",
+   "gold": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 19
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 20
+    }
+   ],
+   "expected_answer": "Values are sorted and partitioned into bins, and each value is smoothed locally using its neighbourhood (its bin).",
+   "uncertain": true,
+   "uncertain_why": "Slides were read only as far as 'sorted, partitioned, local smoothing'; the specific smoothing variants (bin means / boundaries) were not verified."
+  },
+  {
+   "id": "e06",
+   "lang": "en",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "What does the lift of an association rule tell you?",
+   "gold": [
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 46
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 47
+    }
+   ],
+   "expected_answer": "lift = P(X u Y) / (P(X) P(Y)): 1 means X and Y are independent, below 1 negatively correlated, above 1 positively correlated; it filters misleading strong rules.",
+   "uncertain": false
+  },
+  {
+   "id": "e07",
+   "lang": "en",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "What is a strong association rule?",
+   "gold": [
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 12
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 17
+    }
+   ],
+   "expected_answer": "A rule that satisfies both the minimum support threshold and the minimum confidence threshold.",
+   "uncertain": false
+  },
+  {
+   "id": "e08",
+   "lang": "en",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "How is entropy calculated and what does it measure?",
+   "gold": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 21
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 22
+    }
+   ],
+   "expected_answer": "Entropy(S) = -sum p_i log2(p_i); it measures the impurity of a set of examples (e.g. [9+,5-] gives 0.94).",
+   "uncertain": false
+  },
+  {
+   "id": "e09",
+   "lang": "en",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "What do TP, TN, FP and FN mean in a confusion matrix?",
+   "gold": [
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 6
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 7
+    }
+   ],
+   "expected_answer": "TP/TN: positive/negative tuples correctly labelled; FP: negatives wrongly labelled positive; FN: positives wrongly labelled negative.",
+   "uncertain": false
+  },
+  {
+   "id": "e10",
+   "lang": "en",
+   "kind": "broad",
+   "subject_id": 7,
+   "question": "Give me an overview of ensemble methods for classification.",
+   "gold": [
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 24
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 29
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 26
+    }
+   ],
+   "expected_answer": "An ensemble combines k base classifiers into a composite model that is usually more accurate than any one of them; the methods covered are bagging, boosting (AdaBoost) and random forests.",
+   "uncertain": false
+  },
+  {
+   "id": "e11",
+   "lang": "en",
+   "kind": "broad",
+   "subject_id": 6,
+   "question": "What are the main challenges in designing distributed systems?",
+   "gold": [
+    {
+     "file": "ds_lec01_characterization.pdf",
+     "page": 14
+    },
+    {
+     "file": "ds_lec01_characterization.pdf",
+     "page": 15
+    },
+    {
+     "file": "ds_lec01_characterization.pdf",
+     "page": 16
+    },
+    {
+     "file": "ds_lec01_characterization.pdf",
+     "page": 17
+    },
+    {
+     "file": "ds_lec01_characterization.pdf",
+     "page": 18
+    },
+    {
+     "file": "ds_lec01_characterization.pdf",
+     "page": 19
+    }
+   ],
+   "expected_answer": "Openness, security, scalability, failure handling, concurrency and transparency, among others.",
+   "uncertain": true,
+   "uncertain_why": "Page 18 was not read; it is included because it sits between two challenge slides. 'Concurrency' in the expected answer is inferred, not read."
+  },
+  {
+   "id": "e12",
+   "lang": "en",
+   "kind": "narrow",
+   "subject_id": 6,
+   "question": "How does Cristian's algorithm synchronize clocks?",
+   "gold": [
+    {
+     "file": "ds_lec04_time.pdf",
+     "page": 13
+    },
+    {
+     "file": "ds_lec04_time.pdf",
+     "page": 15
+    }
+   ],
+   "expected_answer": "A process asks a time server for the time and sets its clock to the server's time t plus half the measured round-trip time (Tround/2); it suits cases where the round trip is short compared with the required accuracy.",
+   "uncertain": false
+  },
+  {
+   "id": "e13",
+   "lang": "en",
+   "kind": "figure",
+   "subject_id": 7,
+   "question": "What does the diagram of under-fitting, balanced and over-fitting models show?",
+   "gold": [
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 49
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 54
+    }
+   ],
+   "expected_answer": "The same data fitted three ways: a flat line that underfits, a balanced curve, and a highly wiggly curve that overfits.",
+   "uncertain": false
+  },
+  {
+   "id": "e14",
+   "lang": "en",
+   "kind": "figure",
+   "subject_id": 7,
+   "question": "What does the diagram of the Apriori algorithm illustrate?",
+   "gold": [
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 39
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 40
+    }
+   ],
+   "expected_answer": "A step-by-step Apriori run over a transaction database: candidate itemsets C1, C2 and frequent itemsets L1, L2, L3 found by scanning and pruning.",
+   "uncertain": false
+  },
+  {
+   "id": "e15",
+   "lang": "en",
+   "kind": "follow_up",
+   "subject_id": 7,
+   "question": "Can you give me an example?",
+   "previous": "What is the Apriori principle?",
+   "gold": [
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 34
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 37
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 24
+    }
+   ],
+   "expected_answer": "A worked Apriori example on a small transaction database with min_sup = 2, generating candidates, joining and pruning to reach the frequent itemsets.",
+   "uncertain": true,
+   "uncertain_why": "The slides contain several Apriori examples (p24-29, p34-40); which one a student means is ambiguous, so gold lists three pages."
+  },
+  {
+   "id": "e16",
+   "lang": "en",
+   "kind": "out_of_scope",
+   "subject_id": 7,
+   "question": "Who won the football World Cup in 2018?",
+   "gold": [],
+   "expected_answer": "Should be refused: not in the lecture material.",
+   "uncertain": false
+  },
+  {
+   "id": "e17",
+   "lang": "en",
+   "kind": "out_of_scope",
+   "subject_id": 6,
+   "question": "What is the recipe for chocolate cake?",
+   "gold": [],
+   "expected_answer": "Should be refused: not in the lecture material.",
+   "uncertain": false
+  },
+  {
+   "id": "e18",
+   "lang": "en",
+   "kind": "out_of_scope",
+   "subject_id": 6,
+   "question": "How do I configure a PostgreSQL read replica?",
+   "gold": [],
+   "expected_answer": "Should be refused: not in the lecture material.",
+   "uncertain": false
+  },
+  {
+   "id": "a01",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "ما هي خطوات عملية اكتشاف المعرفة من قواعد البيانات (KDD)؟",
+   "gold": [
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 10
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 9
+    }
+   ],
+   "expected_answer": "Data cleaning, data integration, data selection, data transformation, data mining, evaluation of the patterns, and knowledge presentation.",
+   "uncertain": false
+  },
+  {
+   "id": "a02",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "ما هي أنواع الخصائص الأربعة في البيانات؟",
+   "gold": [
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 9
+    }
+   ],
+   "expected_answer": "Nominal, ordinal, interval and ratio.",
+   "uncertain": false
+  },
+  {
+   "id": "a03",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "كيف تعمل عملية التطبيع بطريقة الحد الأدنى والحد الأقصى (min-max)؟",
+   "gold": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 42
+    }
+   ],
+   "expected_answer": "Linearly: v' = (v - minA)/(maxA - minA) x (new_max - new_min) + new_min.",
+   "uncertain": false
+  },
+  {
+   "id": "a04",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "متى نستخدم التطبيع بالدرجة المعيارية (z-score)؟",
+   "gold": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 43
+    }
+   ],
+   "expected_answer": "When the actual minimum and maximum are unknown, or outliers dominate min-max normalization.",
+   "uncertain": false
+  },
+  {
+   "id": "a05",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "كيف يمكن معالجة القيم الناقصة في البيانات؟",
+   "gold": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 10
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 12
+    }
+   ],
+   "expected_answer": "Ignore the tuple, ignore the missing value inside the mining method, or fill it in (by hand, with a global constant, or with a measure of central tendency such as the mean).",
+   "uncertain": true,
+   "uncertain_why": "The list of methods spans pages 10-12 but page 11 has no text chunk in the corpus (no gold there); items 3-4 of the list were therefore not read."
+  },
+  {
+   "id": "a06",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "ما هي خاصية أبريوري (Apriori) في استخراج الأنماط المتكررة؟",
+   "gold": [
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 22
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 23
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 24
+    }
+   ],
+   "expected_answer": "If an itemset is infrequent then all of its supersets are infrequent, so candidates with an infrequent subset can be pruned.",
+   "uncertain": true,
+   "uncertain_why": "Arabic phrasing of 'Apriori property' not verified by a native speaker."
+  },
+  {
+   "id": "a07",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "ما هو الإنتروبيا وكيف تُحسب؟",
+   "gold": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 21
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 22
+    }
+   ],
+   "expected_answer": "Entropy(S) = -sum p_i log2(p_i); a measure of impurity of the data.",
+   "uncertain": false
+  },
+  {
+   "id": "a08",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "ما هو الإفراط في التكيّف (overfitting) وكيف نتجنبه؟",
+   "gold": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 33
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 35
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 36
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 37
+    }
+   ],
+   "expected_answer": "A model too complex for the data fits the training set (low training error) but generalises badly; avoid it with regularization, feature selection, more data and, for decision trees, pre- or post-pruning.",
+   "uncertain": true,
+   "uncertain_why": "Arabic phrasing 'الإفراط في التكيّف' not verified by a native speaker."
+  },
+  {
+   "id": "a09",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "ما الفرق بين التجميع (bagging) والتعزيز (boosting)؟",
+   "gold": [
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 30
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 35
+    }
+   ],
+   "expected_answer": "Bagging trains models on bootstrap samples with equally weighted votes and resists overfitting on noisy data; boosting reweights tuples iteratively and weights each vote by accuracy, usually more accurate but may overfit.",
+   "uncertain": true,
+   "uncertain_why": "'التجميع' is also used for clustering; the question is deliberately ambiguous in Arabic (the English term is given)."
+  },
+  {
+   "id": "a10",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "كيف تعمل خوارزمية k-means؟",
+   "gold": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 26
+    }
+   ],
+   "expected_answer": "Choose k initial centers, assign each point to the nearest center, recompute each center as its cluster's mean, and repeat until the centers stop changing, the cost stops improving, or a maximum number of iterations is reached.",
+   "uncertain": false
+  },
+  {
+   "id": "a11",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "ما هي مصفوفة الارتباك (confusion matrix)؟",
+   "gold": [
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 6
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 7
+    }
+   ],
+   "expected_answer": "A table built from test-set predictions showing TP, TN, FP and FN, used to analyse how well a classifier performs.",
+   "uncertain": false
+  },
+  {
+   "id": "a12",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "كيف تعمل خوارزمية الجار الأقرب (kNN)؟",
+   "gold": [
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 25
+    }
+   ],
+   "expected_answer": "Given a training set, a distance measure and k, compute the distance from the new instance to the training records and give it the class of (the majority of) its k nearest neighbours.",
+   "uncertain": false
+  },
+  {
+   "id": "a13",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 7,
+   "question": "ما هو الافتراض الذي يقوم عليه مصنّف بايز البسيط (Naive Bayes)؟",
+   "gold": [
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 11
+    }
+   ],
+   "expected_answer": "The attribute values are conditionally independent of one another given the class label.",
+   "uncertain": false
+  },
+  {
+   "id": "a14",
+   "lang": "ar",
+   "kind": "broad",
+   "subject_id": 7,
+   "question": "اشرح لي المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات.",
+   "gold": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 9
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 10
+    }
+   ],
+   "expected_answer": "Data cleaning, data integration, data reduction and data transformation.",
+   "uncertain": false
+  },
+  {
+   "id": "a15",
+   "lang": "ar",
+   "kind": "broad",
+   "subject_id": 7,
+   "question": "ما هي مهام التنقيب في البيانات (data mining tasks)؟",
+   "gold": [
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 22
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 23
+    }
+   ],
+   "expected_answer": "Two categories: predictive tasks (e.g. classification, regression) and descriptive tasks (e.g. association rules, clustering, outlier detection).",
+   "uncertain": true,
+   "uncertain_why": "Which tasks sit under which category was inferred from the lecture outline, not read slide by slide."
+  },
+  {
+   "id": "a16",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 6,
+   "question": "ما هي الشفافية في الأنظمة الموزعة؟",
+   "gold": [
+    {
+     "file": "ds_lec01_characterization.pdf",
+     "page": 19
+    }
+   ],
+   "expected_answer": "Hiding the separation of components from the user and the application programmer, so the system is perceived as a whole rather than a collection of independent components.",
+   "uncertain": false
+  },
+  {
+   "id": "a17",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 6,
+   "question": "ما الفرق بين النظام الموزع المتزامن وغير المتزامن؟",
+   "gold": [
+    {
+     "file": "ds_lec02_system_model.pdf",
+     "page": 32
+    },
+    {
+     "file": "ds_lec02_system_model.pdf",
+     "page": 33
+    }
+   ],
+   "expected_answer": "Synchronous: known bounds on process execution time, message delay and clock drift. Asynchronous: no bounds on any of them.",
+   "uncertain": false
+  },
+  {
+   "id": "a18",
+   "lang": "ar",
+   "kind": "narrow",
+   "subject_id": 6,
+   "question": "كيف تعمل خوارزمية كريستيان لمزامنة الساعات؟",
+   "gold": [
+    {
+     "file": "ds_lec04_time.pdf",
+     "page": 13
+    },
+    {
+     "file": "ds_lec04_time.pdf",
+     "page": 15
+    }
+   ],
+   "expected_answer": "A process asks a time server for the time and sets its clock to the server's time plus half the measured round-trip time.",
+   "uncertain": false
+  },
+  {
+   "id": "a19",
+   "lang": "ar",
+   "kind": "follow_up",
+   "subject_id": 7,
+   "question": "هل يمكنك إعطائي مثالاً؟",
+   "previous": "ما هي طرق معالجة البيانات الناقصة؟",
+   "gold": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 10
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 12
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 14
+    }
+   ],
+   "expected_answer": "An example of handling missing data, e.g. values encoded as '?' are converted to missing and then ignored or filled in.",
+   "uncertain": true,
+   "uncertain_why": "Which example the student wants is ambiguous; the page-14 example (missing values encoded as '?') is a guess."
+  },
+  {
+   "id": "a20",
+   "lang": "ar",
+   "kind": "follow_up",
+   "subject_id": 7,
+   "question": "وما هي عيوبها؟",
+   "previous": "كيف تعمل خوارزمية k-means؟",
+   "gold": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 32
+    }
+   ],
+   "expected_answer": "It needs the number of clusters k in advance and is sensitive to outliers.",
+   "uncertain": false
+  },
+  {
+   "id": "a21",
+   "lang": "ar",
+   "kind": "follow_up",
+   "subject_id": 6,
+   "question": "وما هي حدودها؟",
+   "previous": "كيف تعمل خوارزمية كريستيان لمزامنة الساعات؟",
+   "gold": [
+    {
+     "file": "ds_lec04_time.pdf",
+     "page": 13
+    },
+    {
+     "file": "ds_lec04_time.pdf",
+     "page": 15
+    }
+   ],
+   "expected_answer": "It is meant for cases where the round-trip time is short compared with the required accuracy.",
+   "uncertain": true,
+   "uncertain_why": "The slides state the applying circumstance but no explicit list of limitations; the expected answer is inferred."
+  },
+  {
+   "id": "a22",
+   "lang": "ar",
+   "kind": "figure",
+   "subject_id": 7,
+   "question": "ماذا يوضح الشكل الخاص بخطوات خوارزمية k-means؟",
+   "gold": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 27
+    }
+   ],
+   "expected_answer": "Four steps: initial centers chosen, points assigned to clusters, centers recomputed, assignment redone.",
+   "uncertain": false
+  },
+  {
+   "id": "a23",
+   "lang": "ar",
+   "kind": "figure",
+   "subject_id": 7,
+   "question": "ماذا توضح الرسوم عن النموذج ناقص التكيّف والنموذج المفرط التكيّف؟",
+   "gold": [
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 49
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 54
+    }
+   ],
+   "expected_answer": "Underfitting is a flat fit, overfitting a wiggly one; the balanced fit lies between, and error curves show the trade-off with model complexity.",
+   "uncertain": true,
+   "uncertain_why": "Arabic phrasing 'ناقص التكيّف / المفرط التكيّف' not verified by a native speaker."
+  },
+  {
+   "id": "a24",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "subject_id": 7,
+   "question": "ما هي عاصمة اليابان؟",
+   "gold": [],
+   "expected_answer": "Should be refused: not in the lecture material.",
+   "uncertain": false
+  },
+  {
+   "id": "a25",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "subject_id": 6,
+   "question": "كيف أطبخ الكبسة؟",
+   "gold": [],
+   "expected_answer": "Should be refused: not in the lecture material.",
+   "uncertain": false
+  },
+  {
+   "id": "a26",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "subject_id": 7,
+   "question": "من هو مخترع الهاتف؟",
+   "gold": [],
+   "expected_answer": "Should be refused: not in the lecture material.",
+   "uncertain": false
+  },
+  {
+   "id": "a27",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "subject_id": 6,
+   "question": "ما هو أفضل هاتف ذكي في السوق حاليًا؟",
+   "gold": [],
+   "expected_answer": "Should be refused: not in the lecture material.",
+   "uncertain": false
+  }
+ ]
+}

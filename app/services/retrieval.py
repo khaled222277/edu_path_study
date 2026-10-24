@@ -76,20 +76,40 @@ def get_ranker() -> Ranker:
     return Ranker(model_name=RERANKER_MODEL, cache_dir=str(RERANKER_CACHE))
 
 
-def retrieve(
+@dataclass
+class RetrievalTrace:
+    """Every stage of one retrieval, for evaluation. `final` is what the prompt gets."""
+
+    candidates: list[RetrievedChunk]  # vector order, best first (score = 1 - distance)
+    reranked: list[RetrievedChunk]  # cross-encoder order (score = rerank score)
+    final: list[RetrievedChunk]
+    strategy: str  # "reranked" | "vector-order (reranker unconfident)" | "empty"
+    top_score: float  # best cross-encoder score
+
+
+def _to_chunk(text: str, meta: dict, score: float) -> RetrievedChunk:
+    return RetrievedChunk(
+        text=text,
+        source_filename=meta.get("source_filename", "unknown"),
+        page_number=int(meta.get("page_number", 0)),
+        content_type=meta.get("content_type", "text"),
+        lecture_id=int(meta.get("lecture_id", 0)),
+        subject_id=int(meta.get("subject_id", 0)),
+        score=score,
+        image_path=meta.get("image_path") or None,
+    )
+
+
+def retrieve_detailed(
     query: str,
     subject_id: int,
     candidate_k: int = CANDIDATE_K,
     top_k: int = TOP_K,
-) -> list[RetrievedChunk]:
-    """Top `top_k` chunks for `query`, scoped to one subject.
-
-    The query is embedded by the collection's own embedding function (bge-m3,
-    unprefixed) -- the same convention used at ingestion, so query and passage
-    vectors share a space.
-    """
+) -> RetrievalTrace:
+    """Like retrieve(), but returns the candidate list and the reranked list as well."""
+    empty = RetrievalTrace([], [], [], "empty", 0.0)
     if not query.strip():
-        return []
+        return empty
 
     result = retry_if_stale(
         lambda: get_collection().query(
@@ -104,45 +124,46 @@ def retrieve(
     metadatas = result["metadatas"][0]
     distances = result["distances"][0]
     if not documents:
-        return []
+        return empty
 
+    candidates = [
+        _to_chunk(doc, meta, 1.0 - float(dist))
+        for doc, meta, dist in zip(documents, metadatas, distances)
+    ]
     passages = [
         {"id": i, "text": doc, "meta": meta}
         for i, (doc, meta) in enumerate(zip(documents, metadatas))
     ]
     ranked = get_ranker().rerank(RerankRequest(query=query, passages=passages))
     top_score = max((r["score"] for r in ranked), default=0.0)
+    reranked = [_to_chunk(r["text"], r["meta"], float(r["score"])) for r in ranked]
 
     if top_score >= RERANK_MIN_CONFIDENCE:
-        selected = [(r["text"], r["meta"], float(r["score"])) for r in ranked[:top_k]]
-        strategy = "reranked"
+        final, strategy = reranked[:top_k], "reranked"
     else:
         # Cross-encoder has no signal here; keep bge-m3's ordering.
-        selected = [
-            (documents[i], metadatas[i], 1.0 - float(distances[i]))
-            for i in range(min(top_k, len(documents)))
-        ]
-        strategy = "vector-order (reranker unconfident)"
-
-    chunks = [
-        RetrievedChunk(
-            text=text,
-            source_filename=meta.get("source_filename", "unknown"),
-            page_number=int(meta.get("page_number", 0)),
-            content_type=meta.get("content_type", "text"),
-            lecture_id=int(meta.get("lecture_id", 0)),
-            subject_id=int(meta.get("subject_id", 0)),
-            score=score,
-            image_path=meta.get("image_path") or None,
-        )
-        for text, meta, score in selected
-    ]
+        final, strategy = candidates[:top_k], "vector-order (reranker unconfident)"
 
     log.info(
         "subject %s: %s candidates -> %s via %s (rerank top=%.5f)",
-        subject_id, len(documents), len(chunks), strategy, top_score,
+        subject_id, len(documents), len(final), strategy, top_score,
     )
-    return chunks
+    return RetrievalTrace(candidates, reranked, final, strategy, float(top_score))
+
+
+def retrieve(
+    query: str,
+    subject_id: int,
+    candidate_k: int = CANDIDATE_K,
+    top_k: int = TOP_K,
+) -> list[RetrievedChunk]:
+    """Top `top_k` chunks for `query`, scoped to one subject.
+
+    The query is embedded by the collection's own embedding function (bge-m3,
+    unprefixed) -- the same convention used at ingestion, so query and passage
+    vectors share a space.
+    """
+    return retrieve_detailed(query, subject_id, candidate_k, top_k).final
 
 
 def format_context(chunks: list[RetrievedChunk]) -> str:

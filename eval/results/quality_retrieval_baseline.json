@@ -1,0 +1,1146 @@
+{
+ "meta": {
+  "mode": "retrieval",
+  "label": "baseline",
+  "commit": "a623d6e",
+  "date": "2026-10-24 19:20",
+  "top_k": 3,
+  "candidate_k": 10,
+  "min_confidence": 0.1,
+  "rewrite": true,
+  "reranker": "flashrank"
+ },
+ "summary": {
+  "ar": {
+   "n": 23,
+   "hit_cand3": 0.9130434782608695,
+   "hit_cand5": 0.9130434782608695,
+   "hit_cand10": 1.0,
+   "hit_reranked3": 0.6521739130434783,
+   "hit_final": 0.782608695652174,
+   "mrr_candidates": 0.8801242236024845
+  },
+  "en": {
+   "n": 15,
+   "hit_cand3": 0.9333333333333333,
+   "hit_cand5": 1.0,
+   "hit_cand10": 1.0,
+   "hit_reranked3": 0.9333333333333333,
+   "hit_final": 0.9333333333333333,
+   "mrr_candidates": 0.8833333333333333
+  },
+  "all": {
+   "n": 38,
+   "hit_cand3": 0.9210526315789473,
+   "hit_cand5": 0.9473684210526315,
+   "hit_cand10": 1.0,
+   "hit_reranked3": 0.7631578947368421,
+   "hit_final": 0.8421052631578947,
+   "mrr_candidates": 0.881390977443609
+  }
+ },
+ "rows": [
+  {
+   "id": "e01",
+   "lang": "en",
+   "kind": "narrow",
+   "query": "What are the steps of the KDD process?",
+   "strategy": "reranked",
+   "top_score": 0.99945,
+   "final_pages": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e02",
+   "lang": "en",
+   "kind": "narrow",
+   "query": "What are the four types of attributes in a dataset?",
+   "strategy": "reranked",
+   "top_score": 0.99958,
+   "final_pages": [
+    [
+     "kdd_lec02_data.pdf",
+     5
+    ],
+    [
+     "kdd_lec02_data.pdf",
+     17
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     22
+    ]
+   ],
+   "hit_final": false,
+   "hit_reranked3": false,
+   "rank_candidates": 1,
+   "rank_reranked": 9,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e03",
+   "lang": "en",
+   "kind": "narrow",
+   "query": "How does min-max normalization transform a value?",
+   "strategy": "reranked",
+   "top_score": 0.99975,
+   "final_pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     44
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e04",
+   "lang": "en",
+   "kind": "narrow",
+   "query": "When is z-score normalization useful?",
+   "strategy": "reranked",
+   "top_score": 0.99976,
+   "final_pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     41
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e05",
+   "lang": "en",
+   "kind": "narrow",
+   "query": "How does binning smooth noisy data?",
+   "strategy": "reranked",
+   "top_score": 0.99931,
+   "final_pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     17
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     20
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     19
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 2,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e06",
+   "lang": "en",
+   "kind": "narrow",
+   "query": "What does the lift of an association rule tell you?",
+   "strategy": "reranked",
+   "top_score": 0.99944,
+   "final_pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     46
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     14
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     47
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e07",
+   "lang": "en",
+   "kind": "narrow",
+   "query": "What is a strong association rule?",
+   "strategy": "reranked",
+   "top_score": 0.99954,
+   "final_pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     14
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     12
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     44
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 2,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e08",
+   "lang": "en",
+   "kind": "narrow",
+   "query": "How is entropy calculated and what does it measure?",
+   "strategy": "reranked",
+   "top_score": 0.99894,
+   "final_pages": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 3,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e09",
+   "lang": "en",
+   "kind": "narrow",
+   "query": "What do TP, TN, FP and FN mean in a confusion matrix?",
+   "strategy": "reranked",
+   "top_score": 0.9994,
+   "final_pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e10",
+   "lang": "en",
+   "kind": "broad",
+   "query": "Give me an overview of ensemble methods for classification.",
+   "strategy": "reranked",
+   "top_score": 0.99846,
+   "final_pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     24
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     29
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     31
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 4,
+   "rank_reranked": 1,
+   "hit_cand3": false,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e11",
+   "lang": "en",
+   "kind": "broad",
+   "query": "What are the main challenges in designing distributed systems?",
+   "strategy": "reranked",
+   "top_score": 0.99962,
+   "final_pages": [
+    [
+     "ds_lec01_characterization.pdf",
+     19
+    ],
+    [
+     "ds_lec01_characterization.pdf",
+     14
+    ],
+    [
+     "ds_lec01_characterization.pdf",
+     16
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 2,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e12",
+   "lang": "en",
+   "kind": "narrow",
+   "query": "How does Cristian's algorithm synchronize clocks?",
+   "strategy": "reranked",
+   "top_score": 0.99906,
+   "final_pages": [
+    [
+     "ds_lec04_time.pdf",
+     9
+    ],
+    [
+     "ds_lec04_time.pdf",
+     16
+    ],
+    [
+     "ds_lec04_time.pdf",
+     13
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 3,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e13",
+   "lang": "en",
+   "kind": "figure",
+   "query": "What does the diagram of under-fitting, balanced and over-fitting models show?",
+   "strategy": "reranked",
+   "top_score": 0.99895,
+   "final_pages": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     19
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     54
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     49
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 2,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e14",
+   "lang": "en",
+   "kind": "figure",
+   "query": "What does the diagram of the Apriori algorithm illustrate?",
+   "strategy": "reranked",
+   "top_score": 0.99941,
+   "final_pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     39
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     32
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     40
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "e15",
+   "lang": "en",
+   "kind": "follow_up",
+   "query": "What is an example of the Apriori principle?",
+   "strategy": "reranked",
+   "top_score": 0.99919,
+   "final_pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     24
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     39
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     28
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 2,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a01",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "ما هي خطوات عملية اكتشاف المعرفة من قواعد البيانات (KDD)؟",
+   "strategy": "reranked",
+   "top_score": 0.99963,
+   "final_pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     1
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     1
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     1
+    ]
+   ],
+   "hit_final": false,
+   "hit_reranked3": false,
+   "rank_candidates": 2,
+   "rank_reranked": 7,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a02",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "ما هي أنواع الخصائص الأربعة في البيانات؟",
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00086,
+   "final_pages": [
+    [
+     "kdd_lec02_data.pdf",
+     9
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     42
+    ],
+    [
+     "kdd_lec02_data.pdf",
+     4
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": false,
+   "rank_candidates": 1,
+   "rank_reranked": 8,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a03",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "كيف تعمل عملية التطبيع بطريقة الحد الأدنى والحد الأقصى (min-max)؟",
+   "strategy": "reranked",
+   "top_score": 0.99897,
+   "final_pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     17
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     38
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a04",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "متى نستخدم التطبيع بالدرجة المعيارية (z-score)؟",
+   "strategy": "reranked",
+   "top_score": 0.99923,
+   "final_pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     16
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     24
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a05",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "كيف يمكن معالجة القيم الناقصة في البيانات؟",
+   "strategy": "reranked",
+   "top_score": 0.99956,
+   "final_pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     6
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     12
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 3,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a06",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "ما هي خاصية أبريوري (Apriori) في استخراج الأنماط المتكررة؟",
+   "strategy": "reranked",
+   "top_score": 0.96926,
+   "final_pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     37
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     39
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     39
+    ]
+   ],
+   "hit_final": false,
+   "hit_reranked3": false,
+   "rank_candidates": 10,
+   "rank_reranked": 6,
+   "hit_cand3": false,
+   "hit_cand5": false,
+   "hit_cand10": true
+  },
+  {
+   "id": "a07",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "ما هو الإنتروبيا وكيف تُحسب؟",
+   "strategy": "reranked",
+   "top_score": 0.31771,
+   "final_pages": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     22
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     22
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 2,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a08",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "ما هو الإفراط في التكيّف (overfitting) وكيف نتجنبه؟",
+   "strategy": "reranked",
+   "top_score": 0.97288,
+   "final_pages": [
+    [
+     "kdd_lec05_regression.pdf",
+     48
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 2,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a09",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "ما الفرق بين التجميع (bagging) والتعزيز (boosting)؟",
+   "strategy": "reranked",
+   "top_score": 0.99393,
+   "final_pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     35
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     37
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     50
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a10",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "كيف تعمل خوارزمية k-means؟",
+   "strategy": "reranked",
+   "top_score": 0.97398,
+   "final_pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "hit_final": false,
+   "hit_reranked3": false,
+   "rank_candidates": 2,
+   "rank_reranked": 4,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a11",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "ما هي مصفوفة الارتباك (confusion matrix)؟",
+   "strategy": "reranked",
+   "top_score": 0.99694,
+   "final_pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a12",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "كيف تعمل خوارزمية الجار الأقرب (kNN)؟",
+   "strategy": "reranked",
+   "top_score": 0.99766,
+   "final_pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     25
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     34
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     22
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a13",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "ما هو الافتراض الذي يقوم عليه مصنّف بايز البسيط (Naive Bayes)؟",
+   "strategy": "reranked",
+   "top_score": 0.99806,
+   "final_pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     7
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     21
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     9
+    ]
+   ],
+   "hit_final": false,
+   "hit_reranked3": false,
+   "rank_candidates": 7,
+   "rank_reranked": 5,
+   "hit_cand3": false,
+   "hit_cand5": false,
+   "hit_cand10": true
+  },
+  {
+   "id": "a14",
+   "lang": "ar",
+   "kind": "broad",
+   "query": "اشرح لي المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات.",
+   "strategy": "reranked",
+   "top_score": 0.99946,
+   "final_pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     9
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 3,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a15",
+   "lang": "ar",
+   "kind": "broad",
+   "query": "ما هي مهام التنقيب في البيانات (data mining tasks)؟",
+   "strategy": "reranked",
+   "top_score": 0.9985,
+   "final_pages": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     22
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     8
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     23
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a16",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "ما هي الشفافية في الأنظمة الموزعة؟",
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00072,
+   "final_pages": [
+    [
+     "ds_lec01_characterization.pdf",
+     19
+    ],
+    [
+     "ds_lec03_distributed_objects.pdf",
+     9
+    ],
+    [
+     "ds_lec01_characterization.pdf",
+     21
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 3,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a17",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "ما الفرق بين النظام الموزع المتزامن وغير المتزامن؟",
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00087,
+   "final_pages": [
+    [
+     "ds_lec02_system_model.pdf",
+     33
+    ],
+    [
+     "ds_lec04_time.pdf",
+     22
+    ],
+    [
+     "ds_lec04_time.pdf",
+     23
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 2,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a18",
+   "lang": "ar",
+   "kind": "narrow",
+   "query": "كيف تعمل خوارزمية كريستيان لمزامنة الساعات؟",
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00086,
+   "final_pages": [
+    [
+     "ds_lec04_time.pdf",
+     13
+    ],
+    [
+     "ds_lec04_time.pdf",
+     16
+    ],
+    [
+     "ds_lec04_time.pdf",
+     17
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 2,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a19",
+   "lang": "ar",
+   "kind": "follow_up",
+   "query": "هل يمكنك إعطائي مثال على طرق معالجة البيانات الناقصة؟",
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00116,
+   "final_pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     14
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     12
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     15
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": false,
+   "rank_candidates": 1,
+   "rank_reranked": 4,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a20",
+   "lang": "ar",
+   "kind": "follow_up",
+   "query": "ما هي عيوب خوارزمية k-means؟",
+   "strategy": "reranked",
+   "top_score": 0.99564,
+   "final_pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     26
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 1,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a21",
+   "lang": "ar",
+   "kind": "follow_up",
+   "query": "ما هي حدود خوارزمية كريستيان لمزامنة الساعات؟",
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00077,
+   "final_pages": [
+    [
+     "ds_lec04_time.pdf",
+     13
+    ],
+    [
+     "ds_lec04_time.pdf",
+     17
+    ],
+    [
+     "ds_lec04_time.pdf",
+     15
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": true,
+   "rank_candidates": 1,
+   "rank_reranked": 3,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a22",
+   "lang": "ar",
+   "kind": "figure",
+   "query": "ماذا يوضح الشكل الخاص بخطوات خوارزمية k-means؟",
+   "strategy": "reranked",
+   "top_score": 0.97987,
+   "final_pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     26
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     34
+    ]
+   ],
+   "hit_final": false,
+   "hit_reranked3": false,
+   "rank_candidates": 1,
+   "rank_reranked": 5,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  },
+  {
+   "id": "a23",
+   "lang": "ar",
+   "kind": "figure",
+   "query": "ماذا توضح الرسوم عن النموذج ناقص التكيّف والنموذج المفرط التكيّف؟",
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00122,
+   "final_pages": [
+    [
+     "kdd_lec05_regression.pdf",
+     54
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     33
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     31
+    ]
+   ],
+   "hit_final": true,
+   "hit_reranked3": false,
+   "rank_candidates": 1,
+   "rank_reranked": 4,
+   "hit_cand3": true,
+   "hit_cand5": true,
+   "hit_cand10": true
+  }
+ ]
+}

@@ -1,0 +1,1265 @@
+{
+ "meta": {
+  "mode": "quiz",
+  "label": "baseline",
+  "commit": "a623d6e",
+  "date": "2026-10-24 19:34",
+  "model": "llama3.1:8b"
+ },
+ "summary": {
+  "ar": {
+   "quizzes": 6,
+   "questions": 30,
+   "requested": 30,
+   "reply_validity": 0.5172413793103449,
+   "first_attempt_pass": 0.6190476190476191,
+   "calls_per_question": 1.9333333333333333,
+   "strict_valid": 1.0,
+   "duplicate_rate": 0.0,
+   "quizzes_with_duplicate": 0.0,
+   "answer_closest_to_source": 0.43333333333333335,
+   "mean_margin": 0.013120794205288699,
+   "lexical_support": null,
+   "mean_seconds": 19.85333333333333,
+   "rejections": {
+    "wrong_option_count": 1,
+    "duplicate_options": 3,
+    "malformed_json": 8,
+    "bad_item_shape": 10,
+    "latin_leakage": 4,
+    "foreign_script": 1,
+    "answer_not_in_options": 1
+   }
+  },
+  "en": {
+   "quizzes": 6,
+   "questions": 30,
+   "requested": 30,
+   "reply_validity": 0.8108108108108109,
+   "first_attempt_pass": 0.8064516129032258,
+   "calls_per_question": 1.2333333333333334,
+   "strict_valid": 1.0,
+   "duplicate_rate": 0.0,
+   "quizzes_with_duplicate": 0.0,
+   "answer_closest_to_source": 0.43333333333333335,
+   "mean_margin": 0.044903219143639074,
+   "lexical_support": 0.829047619047619,
+   "mean_seconds": 8.713333333333333,
+   "rejections": {
+    "references_figure": 5,
+    "answer_not_in_options": 2
+   }
+  }
+ },
+ "rows": [
+  {
+   "lang": "ar",
+   "quiz": 0,
+   "subject_id": 7,
+   "seed": 20000,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 7,
+   "accepted_calls": 5,
+   "first_attempt_ok": 5,
+   "chunks": 6,
+   "rejections": {
+    "wrong_option_count": 1,
+    "duplicate_options": 1
+   },
+   "duplicate_questions": 0,
+   "total_s": 26.91,
+   "items": [
+    {
+     "question": "ما يعني أن يصل إلى نفس التوزيع في كل مرة؟",
+     "options": [
+      "أن كل العناصر في المجموعات متساوية",
+      "أن المدارس متساوية",
+      "أن كل العناصر في المجموعات مختلفة",
+      "أن المجموعات تزداد عدد العناصر"
+     ],
+     "correct": 2,
+     "citation": "kdd_lec09_cluster_analyis.pdf, page 30",
+     "chunk": "An Example of K-Means Clustering 34 Cluster1: {(2,10), (4,9)} Cluster2: {(8,4),(5,8),(7,5),(6,4)} Cluster3: {(2,5),(1,2)} Re-compute the centroids: (3,9.5), (6.5,5.25),(1.5,3.5) Iteration 2: Iteration 3: Cluster1: {(2,10) ,(5,8), (4,9)} Cluster2: {(8,4),(7,5),(6,4)} Cluster3: {(2,5),(1,2)} Re-compute the centroids: (3.67,9), (7,4.3), (1.5,3.5) Cluster1: {(2,10), (4,9)} Cluster2: {(8,4),(5,8),(7,5),(6,4)} Cluster3: {(2,5),(1,2)} Re-compute the centroids: (3,9.5), (6.5,5.25),(1.5,3.5) Iteration 2: An Example of K-Means Clustering 35 Iteration 4: Cluster1: {(2,10) ,(5,8), (4,9)} Cluster2: {(8,4),(7,5),(6,4)} Cluster3: {(2,5),(1,2)} exactly get the same allocation that we got last time, => stop ",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.004272193711832795
+    },
+    {
+     "question": "ما هو مفهوم الفصل بين الفئات الضعيفة؟",
+     "options": [
+      "تجمع الفئات الضعيفة بشكل منفصل.",
+      "تتحد الفئات الضعيفة لتشكيل فئة نهائية.",
+      "تعمل الفئات الضعيفة بشكل مستقل عن بعضها.",
+      "يتم تجميع قرارات الفئات الضعيفة لتشكيل فئة نهائية."
+     ],
+     "correct": 1,
+     "citation": "kdd_lec08_classifacation_3.pdf, page 36",
+     "chunk": "This is a diagram. It shows red and blue circles (data points), dashed and solid lines (boundaries), and the text \"Final classifier is a combination of all weak classifiers\". The circles are positioned relative to the lines, illustrating how weak classifiers' decisions combine into a final classifier.",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.07229984562148051
+    },
+    {
+     "question": "ما يسمح به التصنيف؟",
+     "options": [
+      "تحويل الخاصية النوعية إلى نوعية تصنيفية",
+      "تحويل الخاصية النوعية إلى نوعية مقياسية",
+      "تحويل الخاصية النوعية إلى نوعية تصنيفية وتراكمي",
+      "تحويل الخاصية النوعية إلى نوعية مقياسية وتراكمي"
+     ],
+     "correct": 0,
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 48",
+     "chunk": "Discretization ▪Transform a numeric attribute into a categorical attribute: 1. Divide the range of a numeric attribute (e.g., age) into interval labels (e.g., 0–10, 11–20, etc.) or conceptual labels (e.g., youth, adult, senior) . 2. labels can then be used to replace actual data values. ▪ The labels, in turn, can be recursively organized into higher-level concepts, resulting in a concept hierarchy for the numeric attribute. 51 o Allows for mining at multiple abstraction levels. o More than one concept hierarchy can be defined for the same attribute to accommodate the various needs .",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.020272780971246185
+    },
+    {
+     "question": "ما هو العلاقة بين تعقيد النموذج ومؤشر أدائه؟",
+     "options": [
+      "الزيادة في التعقيد يؤدي إلى زيادة الأداء",
+      "الزيادة في التعقيد تؤدي إلى نقص الأداء",
+      "لا توجد علاقة بين التعقيد والأداء",
+      "زيادة التعقيد يؤدي إلى نقص الأداء في البيانات التدريبية"
+     ],
+     "correct": 1,
+     "citation": "kdd_lec06_classifacation_1.pdf, page 33",
+     "chunk": "This is a line chart. The x-axis shows \"Size of tree (number of nodes)\" (0–100), and the y-axis shows \"Accuracy\" (0.5–0.9). Two lines are plotted: solid for \"On training data\" and dashed for \"On test data\". A vertical arrow points to \"Best performance (~25 nodes)\" on the training data line. Below the chart, \"Model underfitting\" (left) and \"Model overfitting\" (right) are labeled, with explanatory text: \"The model has yet to learn the true structure from the training data\" under underfitting, and \"The model overspecializes to the training data\" under overfitting. The chart illustrates the trade-off between model complexity (tree size) and performance on training vs. test data, highlighting und",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.01071569647684717
+    },
+    {
+     "question": "ما هو دور البيان البياني في عملية استخراج البيانات؟",
+     "options": [
+      "تتضمن البيان البياني جميع الخطوات اللازمة لاستخراج البيانات",
+      "تتضمن البيان البياني فقط الخطوات المتعلقة بالبيانات",
+      "تتضمن البيان البياني جميع الخطوات اللازمة لاستخراج البيانات والتعلم",
+      "تتضمن البيان البياني فقط الخطوات المتعلقة بالتعلم"
+     ],
+     "correct": 2,
+     "citation": "kdd_lec01_Introduction.pdf, page 9",
+     "chunk": "This is a diagram illustrating the data mining process. Visible components include: \"Data Preparation\" (with sub-labels \"Data Sources,\" \"Data Cleaning,\" \"Data Integration,\" and \"Selection\"), \"Data Warehouse,\" \"Data Mining\" (with a pickaxe icon), and \"Pattern/Knowledge Evaluation\" (with a bar chart). Arrows indicate flow: Data Sources → Data Integration → Data Warehouse → Selection → Data Mining → Pattern/Knowledge Evaluation. The diagram shows sequential steps in data mining workflow, emphasizing data preparation, mining, and knowledge evaluation.",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.06862288726997723
+    }
+   ]
+  },
+  {
+   "lang": "ar",
+   "quiz": 1,
+   "subject_id": 6,
+   "seed": 20001,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 15,
+   "accepted_calls": 5,
+   "first_attempt_ok": 3,
+   "chunks": 9,
+   "rejections": {
+    "malformed_json": 4,
+    "bad_item_shape": 4,
+    "latin_leakage": 1,
+    "duplicate_options": 1
+   },
+   "duplicate_questions": 0,
+   "total_s": 32.68,
+   "items": [
+    {
+     "question": "ما هو مفهوم التوزيع في الأنظمة المتوزعة؟",
+     "options": [
+      "توزيع الموارد بين عدة أجهزة",
+      "توزيع العمل بين عدة أجهزة",
+      "توزيع البيانات بين عدة أجهزة",
+      "توزيع التحكم بين عدة أجهزة"
+     ],
+     "correct": 0,
+     "citation": "ds_lec01_characterization.pdf, page 1",
+     "chunk": "1 CHARACTERIZATION OF DISTRIBUTED SYSTEMS 30/3/2026 From Chapter 1 of Distributed Systems Concepts and Design, By G. Coulouris, J. Dollimore, T. Kindberg and G. Blair Published by Addison Wesley/Pearson Education Distributed Systems: Dr. Eng. Mohssen Abboud 2 Topics Defining Distributed Systems Problems to be addressed Examples of Distributed Systems Resource sharing Design Challenges of Distributed Systems CHARACTERIZATION OF DISTRIBUTED SYSTEMS Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.014608749126960419
+    },
+    {
+     "question": "ما يشكل بيئة تنفيذية؟",
+     "options": [
+      "مساحة عنوان",
+      "تزامن وتبادل إجراءات",
+      "مصادر أعلى المستوى",
+      "مصادر التزامن"
+     ],
+     "correct": 0,
+     "citation": "ds_lec05_operating_system.pdf, page 14",
+     "chunk": "OPERATING SYSTEM SUPPORT 14 Processes and Threads An execution environment consists of : An address space Thread synchronization and communication resources (e.g., semaphores, sockets) Higher-level resources (e.g., open files and windows). Execution environments are normally expensive to create and manage, but several threads can share them Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.07970119416734861
+    },
+    {
+     "question": "ما هو المفهوم الرئيسي الذي يتعامل معه نظام التوزيع فيما يتعلق بالزمن؟",
+     "options": [
+      "التوقيت الفعلي للآلات",
+      "التوقيت المنطقي والآلات المنطقية",
+      "التحكم في الساعات الفيزيائية",
+      "التحكم في الأحداث والآلات"
+     ],
+     "correct": 1,
+     "citation": "ds_lec04_time.pdf, page 1",
+     "chunk": "Time in distributed system 18/5/2026 From Chapter 14 of Distributed Systems Concepts and Design, By G. Coulouris, J. Dollimore, T. Kindberg and G. Blair Published by Addison Wesley/Pearson Education 1 Distributed Systems: Dr. Eng. Mohssen Abboud • Introduction • Clocks, events and process states • Synchronizing physical clocks • Logical time and logical clocks Time in distributed system 2 Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.06823686501148263
+    },
+    {
+     "question": "ما هي الفئات التي تكوّن طبقات التطبيق؟",
+     "options": [
+      "طبقة المستخدم",
+      "طبقة البيانات",
+      "طبقة معالجة",
+      "كلها"
+     ],
+     "correct": 3,
+     "citation": "ds_lec02_system_model.pdf, page 13",
+     "chunk": "This is a diagram with text elements. On the left, bullet points list \"Application layering\" with subpoints: \"User-interface level\", \"Processing level\", \"Data level\". On the right, a diagram shows \"Client\" and \"Server\" as horizontal lines. Arrows indicate \"Request\" from Client to Server, \"Provide service\" at Server, \"Reply\" from Server to Client, and \"Wait for result\" at Client. A \"Time\" axis runs horizontally. The diagram illustrates client-server communication flow, with the bullet points describing application layering concepts. Components relate by showing how layers (user-interface, processing, data) structure application layering, while the diagram depicts a request-reply cycle in clie",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.11091639906364276
+    },
+    {
+     "question": "ما هو المفهوم الرئيسي للتنظيمات الزمنية المنطقية؟",
+     "options": [
+      "التنظيم الزمني المحلي",
+      "التنظيم الزمني المنطقي",
+      "التنظيم الزمني الفيزيائي",
+      "التنظيم الزمني التوزيعي"
+     ],
+     "correct": 1,
+     "citation": "ds_lec04_time.pdf, page 29",
+     "chunk": "• e  e`  L(e) < L(e`) • L(e) < L(e`)  e  e` or e||e` Lamport timestamps algorithm (2) a b c d e f m1 m2 2 1 3 4 5 1 p1 p2 p3 Physical time 29 Distributed Systems: Dr. Eng. Mohssen Abboud • Useful in some applications Totally ordered logical clocks Assumption Ti : local timestamp of e that is an event occurring at pi Tj : local timestamp of e` that is an event occurring at pj Define the timestamps of e, e` are (Ti, i), (Tj, j) Define < (Ti, i) < (Tj, j) if Ti < Tj , or Ti = Tj and i < j 30 Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.03392000783991567
+    }
+   ]
+  },
+  {
+   "lang": "ar",
+   "quiz": 2,
+   "subject_id": 7,
+   "seed": 20002,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 8,
+   "accepted_calls": 5,
+   "first_attempt_ok": 4,
+   "chunks": 6,
+   "rejections": {
+    "latin_leakage": 1,
+    "bad_item_shape": 1,
+    "foreign_script": 1
+   },
+   "duplicate_questions": 0,
+   "total_s": 11.13,
+   "items": [
+    {
+     "question": "ما هو الهدف من استخدام أساليب المجموعة؟",
+     "options": [
+      "زيادة دقة النموذج",
+      "تحسين سرعة التخزين",
+      "زيادة عدد الممارسات",
+      "تحسين أداء التصنيف"
+     ],
+     "correct": 0,
+     "citation": "kdd_lec08_classifacation_3.pdf, page 49",
+     "chunk": "e®. Ensemble Methods clf = ensemble.AdaBoostClassifier(DecisionTreeClassifier(max_depth=maxdepth) ,n_estimators=numBaseClassifiers ) clf.fit(X_train, Y_train) Y_predTrain = clf.predict(X_train) Y_predTest = clf.predict(X_test) trainAcc.append(accuracy_score(Y_train, Y_predTrain) ) testAcc.append(accuracy_score(Y_test, Y_predTest) ) methods = ['Random Forest’, ‘Bagging’, ‘AdaBoost' | fig, (axl, ax2) = plt.subplots(1, 2, figsize=(12,6)) axl.bar({1.5,2.5,3.5], trainAcc) axl.set_xticks([1.5,2.5,3.5]) axl.set_xticklabels (methods ) ax2.bar({1.5,2.5,3.5], testAcc) ax2.set_xticks([1.5,2.5,3.5]) ax2.set_xticklabels (methods) 49 50 ه©١‎ Ensemble Methods Random Forest Bagging AdaBoost ) Random Forest ",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.0701137932190517
+    },
+    {
+     "question": "ما يعني أن الكائن حار الجسم؟",
+     "options": [
+      "يأتي من حيوانات يلد وزرائعه",
+      "يأتي من حيوانات لا يلد وزرائعه",
+      "ينبثق من بيض",
+      "ينبثق من حيوانات يلد وزرائعه"
+     ],
+     "correct": 0,
+     "citation": "kdd_lec06_classifacation_1.pdf, page 32",
+     "chunk": "This is a decision tree diagram. It shows a hierarchical flow starting with \"Body Temperature\" (oval), branching into \"Warm-blooded\" (left) and \"Cold-blooded\" (right). \"Warm-blooded\" leads to \"Gives Birth\" (oval), which branches \"Yes\" to \"Mammals\" (rectangle) and \"No\" to \"Non-mammals\" (rectangle). \"Cold-blooded\" directly leads to \"Non-mammals\" (rectangle). Below the tree, \"M₂\" is labeled, with \"Training error: 20%\" and \"Test error: 10%\". The diagram illustrates a classification process using body temperature and birth method to categorize mammals/non-mammals, with error rates indicating model performance.",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.025840922547165857
+    },
+    {
+     "question": "ما هو نوع من أنواع التعلم الآلي الذي يحتاج إلى تعليمات من قبل الإنسان؟",
+     "options": [
+      "التعلم العارض",
+      "التعلم بالتعزيز",
+      "التعلم المشترك",
+      "التعلم غير المشترك"
+     ],
+     "correct": 2,
+     "citation": "kdd_lec01_Introduction.pdf, page 18",
+     "chunk": "This is a diagram illustrating Machine Learning types. At the top, \"Machine Learning\" is centered, with three downward arrows labeled \"Supervised,\" \"Unsupervised,\" and \"Reinforcement.\" Under \"Supervised,\" two sub-components are shown: \"Classification\" (a scatter plot with red and green dots and a curve) and \"Regression\" (a scatter plot with blue curve and dots). Under \"Unsupervised,\" \"Clustering\" (a scatter plot with colored groups) is displayed. Under \"Reinforcement,\" an image of a game screen with \"049 21\" and text \"Skill acquisition Real time learning\" is visible. Additionally, \"Association Rule Learning\" is shown with icons (e.g., food items, wine, clothing, thumbs-up). The diagram categ",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.010213070578711458
+    },
+    {
+     "question": "ما هي الموجزات في الخوارزمية؟",
+     "options": [
+      "النقاط",
+      "المسافات",
+      "المدوحات",
+      "التكلفة"
+     ],
+     "correct": 2,
+     "citation": "kdd_lec09_cluster_analyis.pdf, page 42",
+     "chunk": "This is a step-by-step diagram illustrating the k-medoids clustering algorithm (k=2). It contains six grid panels with points (diamonds/squares) and text labels. Key elements: initial medoid selection (\"Arbitrary choose k object as initial medoids\"), assignment to nearest medoid (\"Assign each remaining object to nearest medoid\"), cost calculation (\"Total Cost = 19\" with \"Cost computed using Manhattan distance (L1)\"), medoid replacement (\"Randomly select a non-medoid object to replace a medoid\"), reassignment (\"Reassign points\"), and cost comparison (\"Total Cost = 26\", \"Swap if quality is improved. 26>19 don’t swap\"). The panels sequentially show the algorithm’s progression, with visual cues ",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.053513899162596246
+    },
+    {
+     "question": "ما هو الهدف من الجدول الذي تم وضعه؟",
+     "options": [
+      "كشف عن العلاقات بين عناصر البيانات",
+      "تحليل تكرار المجموعات المختلفة",
+      "تقييم دورة الحدوث",
+      "تحديد أهمية العناصر الفردية"
+     ],
+     "correct": 1,
+     "citation": "kdd_lec04_association_rule.pdf, page 37",
+     "chunk": "This is a table. It has a header \"L₃\" above the table. The table has two columns: \"Itemset\" and \"Sup. count\". Two rows list itemsets: {11, 12, 13} with \"Sup. count\" 2, and {11, 12, 15} with \"Sup. count\" 2. The table displays itemsets (sets of elements) and their support counts (frequency of occurrence). It illustrates frequent itemsets of size 3 (L₃), showing which combinations of items appear together in the dataset and how often they occur.",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.07540114994365316
+    }
+   ]
+  },
+  {
+   "lang": "ar",
+   "quiz": 3,
+   "subject_id": 6,
+   "seed": 20003,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 7,
+   "accepted_calls": 5,
+   "first_attempt_ok": 5,
+   "chunks": 6,
+   "rejections": {
+    "bad_item_shape": 1,
+    "duplicate_options": 1
+   },
+   "duplicate_questions": 0,
+   "total_s": 12.01,
+   "items": [
+    {
+     "question": "ما هو الغرض من استخدام الساعة في الكمبيوتر؟",
+     "options": [
+      "توقيت الأحداث في العملية",
+      "توليد الوقت الافتراضي",
+      "توليد الوقت الحقيقي",
+      "توليد الوقت الفعلي"
+     ],
+     "correct": 0,
+     "citation": "ds_lec04_time.pdf, page 7",
+     "chunk": "• How to timestamp the events at a process? • We need Clock • Clock is a device that count oscillations occurring in a crystal at a definite frequency • The OS reads the node’s Hardware time: Hi(t) to produce a Software time Ci(t). • We use this value to Timestamp any event at pi – Assign a date and time to the event Clock in computer 7 Distributed Systems: Dr. Eng. Mohssen Abboud • Clock drift –Crystal oscillate at different rate –Clock drift can not be avoided • Clock skew –The instantaneous difference between the readings of any two clocks Clock skew and clock drift Netw ork 8 Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.11623331151703498
+    },
+    {
+     "question": "ما هو المفهوم الذي يظهر في هذا الموضوع؟",
+     "options": [
+      "تفعيلات عن بُعد",
+      "نماذج للكائنات",
+      "تنفيذ وظائف",
+      "التنظيف من الكائنات"
+     ],
+     "correct": 3,
+     "citation": "ds_lec03_distributed_objects.pdf, page 43",
+     "chunk": "DISTRIBUTED OBJECTS AND REMOTE INVOCATION The object model Interfaces A definition of the signatures of a set of methods A class can implement several interfaces, e.g. Java Actions Initiated by an object invoking a method in another object Two affects Change the state of the receiver Further invocations on methods in other objects Garbage collection Freeing the space occupied by cancelled objects C++: collected by programmers Java: collected by JVM 43 Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.08488942236900404
+    },
+    {
+     "question": "ما هو تعريف نظام موزع؟",
+     "options": [
+      "نظام موزع هو نظام يحتوي على أجزاء متعددة متصلة ببعضها البعض.",
+      "نظام موزع هو نظام يتألف من أجزاء متعددة متصلة ببعضها البعض.",
+      "نظام موزع هو نظام يحتوي على أجزاء متعددة غير متصلة ببعضها البعض.",
+      "نظام موزع هو نظام يتألف من أجزاء متعددة متصلة ببعضها البعض عن طريق الرسائل."
+     ],
+     "correct": 3,
+     "citation": "ds_lec01_characterization.pdf, page 4",
+     "chunk": "4 Defining Distributed Systems In this course, we define distributed systems more precisely as : A distributed system is one in which hardware or software components located at networked computers communicate and coordinate their actions only by message passing. Definition above covers the entire range of distributed systems in which networked computers can usefully be deployed. CHARACTERIZATION OF DISTRIBUTED SYSTEMS Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.03494155675289945
+    },
+    {
+     "question": "النظام التشغيل يعتمد على",
+     "options": [
+      "البرمجيات الوسيطة",
+      "نظم تشغيل شبكة",
+      "البرمجيات الوسيطة والنظم التشغيلية",
+      "البرمجيات الوسيطة فقط"
+     ],
+     "correct": 2,
+     "citation": "ds_lec05_operating_system.pdf, page 7",
+     "chunk": "OPERATING SYSTEM SUPPORT 7 Introduction The combination of middleware and network operating systems provides an acceptance balance between the requirement of autonomy and network transparent resource access. The network operating systems allows users to run their favorite word processor and other standalone applications. Middleware enables users to take advantage of services that become available in their distributed system. Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.05465184366734366
+    },
+    {
+     "question": "ما يتم إرساله من قبل المولى إلى العبيد؟",
+     "options": [
+      "قيمة إيجابية أو سلبية",
+      "الوقت الصحيح",
+      "الوقت الخاطئ",
+      "الوقت المتأخر"
+     ],
+     "correct": 0,
+     "citation": "ds_lec04_time.pdf, page 17",
+     "chunk": "5. The master sends back to the slaves the amount that the slaves’ clocks should adjust by – Positive or negative value 6. Slave adjust its clock • The Berkeley algorithm eliminates readings from faulty clocks. • the master takes a fault-tolerant average (a subset is chosen of clocks that do not differ from one another by more than a specified amount, and the average is taken of readings from only these clocks. • If the master fail, then another can be elected to take over and function exactly as its predecessor. The Berkeley algorithms (2) 17 Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.013415378292269742
+    }
+   ]
+  },
+  {
+   "lang": "ar",
+   "quiz": 4,
+   "subject_id": 7,
+   "seed": 20004,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 7,
+   "accepted_calls": 5,
+   "first_attempt_ok": 5,
+   "chunks": 6,
+   "rejections": {
+    "malformed_json": 1,
+    "latin_leakage": 1
+   },
+   "duplicate_questions": 0,
+   "total_s": 12.8,
+   "items": [
+    {
+     "question": "هي طريقة لتوزيع القيم في مجال 'التراكم العضلي' في مجموعة البيانات للسرطان",
+     "options": [
+      "توزيع القيم في مجال 'التراكم العضلي' على نفس عدد الفئات",
+      "توزيع القيم في مجال 'التراكم العضلي' على نفس عدد المراتب",
+      "توزيع القيم في مجال 'التراكم العضلي' على نفس عدد الحالات",
+      "توزيع القيم في مجال 'التراكم العضلي' على نفس عدد الفواصل"
+     ],
+     "correct": 2,
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 49",
+     "chunk": "Discretization ▪two simple but widely-used discretization methods (equal width and equal depth) applied to the 'Clump Thickness' attribute of the breast cancer dataset 1. For the equal width method, we can apply the cut() function to discretize the attribute into 4 bins of similar interval widths. 2. For the equal frequency method, the qcut() function can be used to partition the values into 4 bins such that each bin has nearly the same number of instances. 52",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.005637282030511892
+    },
+    {
+     "question": "ما يُشير إلى التصنيف أو التصنيف من مصدر واحد إلى ثلاثة مجموعات مختلفة؟",
+     "options": [
+      "التصنيف باللون الأحمر",
+      "التصنيف باللون الأزرق",
+      "التصنيف باللون الأزرق الفاتح",
+      "التصنيف من مصدر واحد إلى ثلاثة مجموعات مختلفة"
+     ],
+     "correct": 3,
+     "citation": "kdd_lec09_cluster_analyis.pdf, page 8",
+     "chunk": "This is a diagram composed of colored human icons (red, blue, light blue) and arrows. The top section contains a cluster of red and blue icons. Three arrows—red, blue, and light blue—point downward from the top cluster to three distinct lower sections: a red group on the left, a blue group in the center, and a light blue group on the right. Each lower group consists of icons matching the arrow’s color. The diagram visually illustrates a flow or categorization from a source (top cluster) to three separate, color-coded groups. No text, numbers, or labels are visible.",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.025618080829121648
+    },
+    {
+     "question": "ما هو الغرض من تفرقة البيانات إلى 5 أجزاء للتدريب والمراجعة؟",
+     "options": [
+      "تقليل الوقت اللازم للتدريب",
+      "تحسين جودة النتائج",
+      "التعرف على العوامل المؤثرة",
+      "توفير 5 أنماط مختلفة للتدريب والمراجعة"
+     ],
+     "correct": 3,
+     "citation": "kdd_lec08_classifacation_3.pdf, page 21",
+     "chunk": "This is a diagram illustrating 5-fold cross-validation. It shows a top bar labeled \"100 patient records\", a downward arrow, and five horizontal bars. Each bar has a pink section labeled \"80 patient records\" and a teal section; the first bar’s teal section is labeled \"20\". The bottom text states: \"Model is trained on 5 different versions of training data, and evaluated on 5 different versions of the test data.\" The diagram visually represents splitting 100 patient records into 5 parts for training and testing.",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.1340996477896111
+    },
+    {
+     "question": "ما هو العلاقة بين القوائم في الرسوم التوضيحية؟",
+     "options": [
+      "النظير",
+      "المتماثل",
+      "المشتق",
+      "المستقل"
+     ],
+     "correct": 3,
+     "citation": "kdd_lec04_association_rule.pdf, page 24",
+     "chunk": "This is a hierarchical diagram showing set relationships. It features nodes labeled with set notations (e.g., {Beer:?, {Beer,Chips:?, {Beer,Chips,Pizza,Wine:?}) connected by arrows. The top node is { }?, with arrows pointing to four single-element sets ({Beer:?, {Chips:?, {Pizza:?, {Wine:?}), which connect to pairs, triples, and the full set {Beer,Chips,Pizza,Wine:?}. The diagram illustrates subset combinations, likely representing a power set structure where elements are included or excluded, with question marks indicating unknown status.",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.05067478350810278
+    },
+    {
+     "question": "ما هي العلاقة بين المساحة الداخلية للمنزل و سعر البيع له؟",
+     "options": [
+      "العلاقة هي خطية",
+      "العلاقة هي غير خطية",
+      "العلاقة هي علاقة تبادلية",
+      "العلاقة هي علاقة تنسبية"
+     ],
+     "correct": 1,
+     "citation": "kdd_lec05_regression.pdf, page 10",
+     "chunk": "Predicting House Prices 10 ▪To use all the collected observations, we have to understand the relationship between the square foot of the house and the house sales price. o i.e., Modeling the relationship between the house size and the house sales price. To do this, we're going to use regression. Regression fundamentals: Data, Model, Task",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.07284704568009365
+    }
+   ]
+  },
+  {
+   "lang": "ar",
+   "quiz": 5,
+   "subject_id": 6,
+   "seed": 20005,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 14,
+   "accepted_calls": 5,
+   "first_attempt_ok": 4,
+   "chunks": 9,
+   "rejections": {
+    "malformed_json": 3,
+    "bad_item_shape": 4,
+    "latin_leakage": 1,
+    "answer_not_in_options": 1
+   },
+   "duplicate_questions": 0,
+   "total_s": 23.59,
+   "items": [
+    {
+     "question": "ما يعني مصادرة الفشل؟",
+     "options": [
+      "إنشاء خدمات موثوقة من مكونات يظهر فيها الفشل.",
+      "التحكم في الفشل.",
+      "إخفاء الفشل أو تحويله إلى نوع آخر من الفشل.",
+      "إعادة توجيه الفشل إلى نوع أكثر قبولا."
+     ],
+     "correct": 2,
+     "citation": "ds_lec02_system_model.pdf, page 39",
+     "chunk": "39 Failure Model Masking failure It is possible to construct reliable services from components that exhibit failure. E.g. multiple servers that hold replicas of data can continue to provide a service when one of them crashes. A service masks a failure, either by hiding it altogether or by converting it into a more acceptable type of failure. E.g. checksums are used to mask corrupted messages- effectively converting an arbitrary failure into an omission failure. SYSTEM MODEL Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.0033421533668338554
+    },
+    {
+     "question": "يجب أن يكون التزامن الخارجي يلتزم بمقدار معين من التأخير.",
+     "options": [
+      "التزامن الداخلي يعتمد على التزامن الخارجي.",
+      "التزامن الخارجي يعتمد على التزامن الداخلي.",
+      "التزامن الخارجي يلتزم بمقدار معين من التأخير.",
+      "التزامن الداخلي لا يعتمد على التزامن الخارجي."
+     ],
+     "correct": 2,
+     "citation": "ds_lec04_time.pdf, page 9",
+     "chunk": "• Introduction • Clocks,events and process states • Synchronizing physical clocks • Logical time and logical clocks Time in distributed system 9 Distributed Systems: Dr. Eng. Mohssen Abboud • In order to know at what time events occur at the processes in our DS it is necessary to synchronize the process’ clocks • Ci : pi’s clock • I: an interval of real time • External synchronization –For a synchronization bound D > 0, and for a source S of time, |S(t)-Ci(t)| < D, for i = 1, 2, … N and for all real times t in I –Clocks Ci are accurate to within the bound D External & Internal synchronization 10 Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.020354753502408784
+    },
+    {
+     "question": "ما هو الهدف من تحويل البيانات إلى سلسلة من عناصر البايت قبل النقل؟",
+     "options": [
+      "تحويل البيانات إلى شكلة أخرى",
+      "تحويل البيانات إلى نظام آخر",
+      "تحويل البيانات إلى سلسلة من عناصر البايت",
+      "تحويل البيانات إلى شكلة نصية"
+     ],
+     "correct": 2,
+     "citation": "ds_lec03_distributed_objects.pdf, page 10",
+     "chunk": "DISTRIBUTED OBJECTS AND REMOTE INVOCATION 10 External Data Representation The information stored in running programs is represented as data structures, whereas the information in messages consists of sequences of bytes. Irrespective of the form of communication used, the data structure must be converted to a sequence of bytes before transmission and rebuilt on arrival. Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.024487064590127727
+    },
+    {
+     "question": "ما هو العامل الرئيسي الذي يحدد مدى افتحارش نظام توزيع",
+     "options": [
+      "القدرة على إضافة خدمات جديدة",
+      "قدرة النظام على التعلم",
+      "القدرة على إدراج المكونات الجديدة",
+      "قدرة النظام على التوسع"
+     ],
+     "correct": 0,
+     "citation": "ds_lec01_characterization.pdf, page 14",
+     "chunk": "14 Design Challenges of Distributed Systems Openness: Interfaces should allow components to be added or replaced. Openness of a computer system is the characteristic that determines whether the system can be extended and re-implemented in various ways. The openness of distributed systems is determined primarily by the degree to which new resource- sharing services can be added and be made available for use by a variety of client programs The first step in openness is publishing the documentation of software components and interfaces of the components to make them available to software developers. CHARACTERIZATION OF DISTRIBUTED SYSTEMS Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.013907228291310747
+    },
+    {
+     "question": "تقدّم نظام التشغيل البرنامج بمناهج معينة",
+     "options": [
+      "يقدّم البرنامج بالقرصيات",
+      "يقدّم البرنامج بالملفات",
+      "يقدّم البرنامج بالحواسيب",
+      "يقدّم البرنامج بالشبكات"
+     ],
+     "correct": 1,
+     "citation": "ds_lec05_operating_system.pdf, page 4",
+     "chunk": "OPERATING SYSTEM SUPPORT 4 Introduction  Below the middleware layer is the operating system (OS) layer.  An operating system such as UNIX (and its variants, such as Linux and Mac OS X) or Windows (and its variants, such Windows 10 and Windows 11) provides the programmer with, for example, files rather than disk blocks.  It takes over the physical resources on a single node and manages them to present these resource abstractions through the system-call interface.  Two operating system concepts have come about during the development of distributed systems: network operating systems and distributed operating systems. Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": null,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.02059471864018042
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "quiz": 0,
+   "subject_id": 7,
+   "seed": 20000,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 6,
+   "accepted_calls": 5,
+   "first_attempt_ok": 4,
+   "chunks": 5,
+   "rejections": {
+    "references_figure": 1
+   },
+   "duplicate_questions": 0,
+   "total_s": 8.64,
+   "items": [
+    {
+     "question": "What is the stopping criterion for K-Means Clustering?",
+     "options": [
+      "The number of iterations reaches a maximum value",
+      "The centroids remain the same between iterations",
+      "The clusters contain a minimum number of points",
+      "The algorithm runs for a fixed number of iterations"
+     ],
+     "correct": 1,
+     "citation": "kdd_lec09_cluster_analyis.pdf, page 30",
+     "chunk": "An Example of K-Means Clustering 34 Cluster1: {(2,10), (4,9)} Cluster2: {(8,4),(5,8),(7,5),(6,4)} Cluster3: {(2,5),(1,2)} Re-compute the centroids: (3,9.5), (6.5,5.25),(1.5,3.5) Iteration 2: Iteration 3: Cluster1: {(2,10) ,(5,8), (4,9)} Cluster2: {(8,4),(7,5),(6,4)} Cluster3: {(2,5),(1,2)} Re-compute the centroids: (3.67,9), (7,4.3), (1.5,3.5) Cluster1: {(2,10), (4,9)} Cluster2: {(8,4),(5,8),(7,5),(6,4)} Cluster3: {(2,5),(1,2)} Re-compute the centroids: (3,9.5), (6.5,5.25),(1.5,3.5) Iteration 2: An Example of K-Means Clustering 35 Iteration 4: Cluster1: {(2,10) ,(5,8), (4,9)} Cluster2: {(8,4),(7,5),(6,4)} Cluster3: {(2,5),(1,2)} exactly get the same allocation that we got last time, => stop ",
+     "strict_ok": true,
+     "lexical_support": 0.4,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.022524657074071697
+    },
+    {
+     "question": "What is the process being described for combining weak classifiers?",
+     "options": [
+      "a process of majority voting",
+      "a process of weighted voting",
+      "a process of combining all decisions",
+      "a process of eliminating weak classifiers"
+     ],
+     "correct": 2,
+     "citation": "kdd_lec08_classifacation_3.pdf, page 36",
+     "chunk": "This is a diagram. It shows red and blue circles (data points), dashed and solid lines (boundaries), and the text \"Final classifier is a combination of all weak classifiers\". The circles are positioned relative to the lines, illustrating how weak classifiers' decisions combine into a final classifier.",
+     "strict_ok": true,
+     "lexical_support": 0.3333333333333333,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.057638421496524705
+    },
+    {
+     "question": "What does the gradient of RSS depend on in linear regression?",
+     "options": [
+      "The value of the parameters w0 and w1",
+      "The value of the input features xi",
+      "The error terms (yi - (w0 + w1 * xi)) and input features (xi)",
+      "The summation limits (i = 1 to N)"
+     ],
+     "correct": 2,
+     "citation": "kdd_lec05_regression.pdf, page 34",
+     "chunk": "This is a mathematical expression showing the gradient of RSS (residual sum of squares) with respect to parameters \\(w_0\\) and \\(w_1\\). It features a gradient symbol (\\(\\nabla\\)), the function \\(\\text{RSS}(w_0, w_1)\\), and an equals sign leading to a two-row matrix. The first row contains \\(-2 \\sum_{i=1}^N [y_i - (w_0 + w_1 x_i)]\\), and the second row is the same sum multiplied by \\(x_i\\). The components are the gradient operator, summation notation, variables (\\(w_0\\), \\(w_1\\), \\(y_i\\), \\(x_i\\)), and the summation limits (\\(i=1\\) to \\(N\\)). The expression illustrates partial derivatives of RSS in linear regression, where the gradient depends on the error terms (\\(y_i - (w_0 + w_1 x_i)\\)) an",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.019747044980602868
+    },
+    {
+     "question": "What is one way to transform a numeric attribute into a categorical attribute?",
+     "options": [
+      "Divide the range of a numeric attribute into conceptual labels",
+      "Replace actual data values with interval labels",
+      "Organize labels into a concept hierarchy",
+      "Define multiple concept hierarchies for the same attribute"
+     ],
+     "correct": 0,
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 48",
+     "chunk": "Discretization ▪Transform a numeric attribute into a categorical attribute: 1. Divide the range of a numeric attribute (e.g., age) into interval labels (e.g., 0–10, 11–20, etc.) or conceptual labels (e.g., youth, adult, senior) . 2. labels can then be used to replace actual data values. ▪ The labels, in turn, can be recursively organized into higher-level concepts, resulting in a concept hierarchy for the numeric attribute. 51 o Allows for mining at multiple abstraction levels. o More than one concept hierarchy can be defined for the same attribute to accommodate the various needs .",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.1170383499182418
+    },
+    {
+     "question": "What is the trade-off being highlighted in this comparison?",
+     "options": [
+      "Model complexity and training data accuracy",
+      "Tree size and test data performance",
+      "Model underfitting and overfitting",
+      "Accuracy and number of nodes"
+     ],
+     "correct": 0,
+     "citation": "kdd_lec06_classifacation_1.pdf, page 33",
+     "chunk": "This is a line chart. The x-axis shows \"Size of tree (number of nodes)\" (0–100), and the y-axis shows \"Accuracy\" (0.5–0.9). Two lines are plotted: solid for \"On training data\" and dashed for \"On test data\". A vertical arrow points to \"Best performance (~25 nodes)\" on the training data line. Below the chart, \"Model underfitting\" (left) and \"Model overfitting\" (right) are labeled, with explanatory text: \"The model has yet to learn the true structure from the training data\" under underfitting, and \"The model overspecializes to the training data\" under overfitting. The chart illustrates the trade-off between model complexity (tree size) and performance on training vs. test data, highlighting und",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.020575329398263453
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "quiz": 1,
+   "subject_id": 6,
+   "seed": 20001,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 6,
+   "accepted_calls": 5,
+   "first_attempt_ok": 4,
+   "chunks": 5,
+   "rejections": {
+    "answer_not_in_options": 1
+   },
+   "duplicate_questions": 0,
+   "total_s": 9.03,
+   "items": [
+    {
+     "question": "What is a key challenge in designing distributed systems?",
+     "options": [
+      "Ensuring data consistency across all nodes",
+      "Managing network bandwidth and latency",
+      "Providing a single point of failure for the system",
+      "Implementing a centralized control mechanism"
+     ],
+     "correct": 2,
+     "citation": "ds_lec01_characterization.pdf, page 1",
+     "chunk": "1 CHARACTERIZATION OF DISTRIBUTED SYSTEMS 30/3/2026 From Chapter 1 of Distributed Systems Concepts and Design, By G. Coulouris, J. Dollimore, T. Kindberg and G. Blair Published by Addison Wesley/Pearson Education Distributed Systems: Dr. Eng. Mohssen Abboud 2 Topics Defining Distributed Systems Problems to be addressed Examples of Distributed Systems Resource sharing Design Challenges of Distributed Systems CHARACTERIZATION OF DISTRIBUTED SYSTEMS Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 0.2,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.0071694254770166554
+    },
+    {
+     "question": "What are some characteristics of an execution environment?",
+     "options": [
+      "An execution environment consists only of an address space.",
+      "An execution environment consists only of higher-level resources.",
+      "An execution environment consists of an address space, thread synchronization and communication resources, and higher-level resources.",
+      "An execution environment consists only of thread synchronization and communication resources."
+     ],
+     "correct": 2,
+     "citation": "ds_lec05_operating_system.pdf, page 14",
+     "chunk": "OPERATING SYSTEM SUPPORT 14 Processes and Threads An execution environment consists of : An address space Thread synchronization and communication resources (e.g., semaphores, sockets) Higher-level resources (e.g., open files and windows). Execution environments are normally expensive to create and manage, but several threads can share them Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.15726562197823413
+    },
+    {
+     "question": "What happens to computer clocks in a distributed system over time?",
+     "options": [
+      "They all stay perfectly synchronized.",
+      "Their clocks drift at the same rate.",
+      "Their clocks drift from a perfect reference clock at different rates.",
+      "They never need to be corrected."
+     ],
+     "correct": 2,
+     "citation": "ds_lec02_system_model.pdf, page 31",
+     "chunk": "31 Interaction Model-Computer Clock This is because computer clock drift from perfect time and their drift rates differ from one another. Clock drift rate refers to the relative amount that a computer clock differs from a perfect reference clock. Even if the clocks on all the computers in a distributed system are set to the same time initially, their clocks would eventually vary quite significantly unless corrections are applied. SYSTEM MODEL Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 0.8888888888888888,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.25955120283515076
+    },
+    {
+     "question": "What is a key concept in distributed systems that helps manage time across different nodes?",
+     "options": [
+      "Synchronizing physical clocks",
+      "Logical time and logical clocks",
+      "Clocks, events and process states",
+      "Introduction to distributed systems"
+     ],
+     "correct": 1,
+     "citation": "ds_lec04_time.pdf, page 1",
+     "chunk": "Time in distributed system 18/5/2026 From Chapter 14 of Distributed Systems Concepts and Design, By G. Coulouris, J. Dollimore, T. Kindberg and G. Blair Published by Addison Wesley/Pearson Education 1 Distributed Systems: Dr. Eng. Mohssen Abboud • Introduction • Clocks, events and process states • Synchronizing physical clocks • Logical time and logical clocks Time in distributed system 2 Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.029450128727097735
+    },
+    {
+     "question": "What is Remote Method Invocation (RMI) in distributed systems?",
+     "options": [
+      "A local object invokes methods of an object residing on a remote computer",
+      "A client calls a procedure implemented and executing on a remote computer",
+      "Objects receive asynchronous notifications of events happening on remote computers/processes",
+      "A distributed system is a collection of multiple computers working together"
+     ],
+     "correct": 0,
+     "citation": "ds_lec03_distributed_objects.pdf, page 5",
+     "chunk": "DISTRIBUTED OBJECTS AND REMOTE INVOCATION 5 Introduction Remote Procedure Call (RPC) Client calls a procedure implemented and executing on a remote computer Call as if it was a local procedure Remote Method Invocation (RMI) Local object invokes methods of an object residing on a remote computer Invocation as if it was a local method call Event-based Distributed Programming Objects receive asynchronous notifications of events happening on remote computers/processes Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.04783368847025138
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "quiz": 2,
+   "subject_id": 7,
+   "seed": 20002,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 6,
+   "accepted_calls": 5,
+   "first_attempt_ok": 4,
+   "chunks": 5,
+   "rejections": {
+    "references_figure": 1
+   },
+   "duplicate_questions": 0,
+   "total_s": 8.36,
+   "items": [
+    {
+     "question": "What is the main idea behind Ensemble Methods?",
+     "options": [
+      "Combining multiple models to improve accuracy",
+      "Using a single model to classify data",
+      "Selecting the best model from a group of models",
+      "Reducing the number of features in a dataset"
+     ],
+     "correct": 0,
+     "citation": "kdd_lec08_classifacation_3.pdf, page 49",
+     "chunk": "e®. Ensemble Methods clf = ensemble.AdaBoostClassifier(DecisionTreeClassifier(max_depth=maxdepth) ,n_estimators=numBaseClassifiers ) clf.fit(X_train, Y_train) Y_predTrain = clf.predict(X_train) Y_predTest = clf.predict(X_test) trainAcc.append(accuracy_score(Y_train, Y_predTrain) ) testAcc.append(accuracy_score(Y_test, Y_predTest) ) methods = ['Random Forest’, ‘Bagging’, ‘AdaBoost' | fig, (axl, ax2) = plt.subplots(1, 2, figsize=(12,6)) axl.bar({1.5,2.5,3.5], trainAcc) axl.set_xticks([1.5,2.5,3.5]) axl.set_xticklabels (methods ) ax2.bar({1.5,2.5,3.5], testAcc) ax2.set_xticks([1.5,2.5,3.5]) ax2.set_xticklabels (methods) 49 50 ه©١‎ Ensemble Methods Random Forest Bagging AdaBoost ) Random Forest ",
+     "strict_ok": true,
+     "lexical_support": 0.2,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.07117058077073202
+    },
+    {
+     "question": "What is one way to categorize mammals and non-mammals based on body temperature and birth method?",
+     "options": [
+      "Categorize by body temperature only",
+      "Categorize by birth method only",
+      "Categorize using body temperature and birth method",
+      "Categorize by the number of columns in the diagram"
+     ],
+     "correct": 2,
+     "citation": "kdd_lec06_classifacation_1.pdf, page 32",
+     "chunk": "This is a decision tree diagram. It shows a hierarchical flow starting with \"Body Temperature\" (oval), branching into \"Warm-blooded\" (left) and \"Cold-blooded\" (right). \"Warm-blooded\" leads to \"Gives Birth\" (oval), which branches \"Yes\" to \"Mammals\" (rectangle) and \"No\" to \"Non-mammals\" (rectangle). \"Cold-blooded\" directly leads to \"Non-mammals\" (rectangle). Below the tree, \"M₂\" is labeled, with \"Training error: 20%\" and \"Test error: 10%\". The diagram illustrates a classification process using body temperature and birth method to categorize mammals/non-mammals, with error rates indicating model performance.",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.08508527879844208
+    },
+    {
+     "question": "What is the purpose of the diagonal lines in a Cartesian coordinate system?",
+     "options": [
+      "They represent points of intersection between lines and axes.",
+      "They demonstrate the directional properties of lines in relation to the axes.",
+      "They show the relationship between lines and the origin of the coordinate system.",
+      "They are used to illustrate the concept of distance between points on the axes."
+     ],
+     "correct": 1,
+     "citation": "kdd_lec07_classifacation_2.pdf, page 46",
+     "chunk": "This is a diagram with a Cartesian coordinate system (x and y axes). Visible components include multiple diagonal lines: black solid lines, black dashed lines, and blue dashed lines. There are green square and circular shapes positioned at various points. A red circle with an arrow points to one of the black dashed lines. The green shapes and lines intersect the axes. The diagram illustrates geometric relationships between lines and coordinate axes, likely demonstrating intersections or directional properties. No text or numbers are labeled.",
+     "strict_ok": true,
+     "lexical_support": 0.7142857142857143,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.009320208187162171
+    },
+    {
+     "question": "What are the three main Machine Learning paradigms?",
+     "options": [
+      "Classification and Regression",
+      "Clustering and Association Rule Learning",
+      "Supervised, Unsupervised, and Reinforcement",
+      "Regression and Association Rule Learning"
+     ],
+     "correct": 2,
+     "citation": "kdd_lec01_Introduction.pdf, page 18",
+     "chunk": "This is a diagram illustrating Machine Learning types. At the top, \"Machine Learning\" is centered, with three downward arrows labeled \"Supervised,\" \"Unsupervised,\" and \"Reinforcement.\" Under \"Supervised,\" two sub-components are shown: \"Classification\" (a scatter plot with red and green dots and a curve) and \"Regression\" (a scatter plot with blue curve and dots). Under \"Unsupervised,\" \"Clustering\" (a scatter plot with colored groups) is displayed. Under \"Reinforcement,\" an image of a game screen with \"049 21\" and text \"Skill acquisition Real time learning\" is visible. Additionally, \"Association Rule Learning\" is shown with icons (e.g., food items, wine, clothing, thumbs-up). The diagram categ",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.06631849838550186
+    },
+    {
+     "question": "What is the purpose of replacing a medoid in the k-medoids clustering algorithm?",
+     "options": [
+      "To find a better initial medoid",
+      "To reduce the total cost",
+      "To improve the clustering quality",
+      "To assign objects to medoids"
+     ],
+     "correct": 2,
+     "citation": "kdd_lec09_cluster_analyis.pdf, page 42",
+     "chunk": "This is a step-by-step diagram illustrating the k-medoids clustering algorithm (k=2). It contains six grid panels with points (diamonds/squares) and text labels. Key elements: initial medoid selection (\"Arbitrary choose k object as initial medoids\"), assignment to nearest medoid (\"Assign each remaining object to nearest medoid\"), cost calculation (\"Total Cost = 19\" with \"Cost computed using Manhattan distance (L1)\"), medoid replacement (\"Randomly select a non-medoid object to replace a medoid\"), reassignment (\"Reassign points\"), and cost comparison (\"Total Cost = 26\", \"Swap if quality is improved. 26>19 don’t swap\"). The panels sequentially show the algorithm’s progression, with visual cues ",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.054925856540511186
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "quiz": 3,
+   "subject_id": 6,
+   "seed": 20003,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 6,
+   "accepted_calls": 5,
+   "first_attempt_ok": 4,
+   "chunks": 5,
+   "rejections": {
+    "answer_not_in_options": 1
+   },
+   "duplicate_questions": 0,
+   "total_s": 8.2,
+   "items": [
+    {
+     "question": "What is the purpose of a clock in a computer system?",
+     "options": [
+      "To assign a date and time to events",
+      "To measure the number of oscillations in a crystal",
+      "To count the number of nodes in a network",
+      "To measure the difference between the readings of two clocks"
+     ],
+     "correct": 0,
+     "citation": "ds_lec04_time.pdf, page 7",
+     "chunk": "• How to timestamp the events at a process? • We need Clock • Clock is a device that count oscillations occurring in a crystal at a definite frequency • The OS reads the node’s Hardware time: Hi(t) to produce a Software time Ci(t). • We use this value to Timestamp any event at pi – Assign a date and time to the event Clock in computer 7 Distributed Systems: Dr. Eng. Mohssen Abboud • Clock drift –Crystal oscillate at different rate –Clock drift can not be avoided • Clock skew –The instantaneous difference between the readings of any two clocks Clock skew and clock drift Netw ork 8 Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.0229621948487313
+    },
+    {
+     "question": "What is the purpose of an interface in the object model?",
+     "options": [
+      "To define the signatures of a set of methods",
+      "To initiate actions between objects",
+      "To free the space occupied by cancelled objects",
+      "To change the state of the receiver"
+     ],
+     "correct": 0,
+     "citation": "ds_lec03_distributed_objects.pdf, page 43",
+     "chunk": "DISTRIBUTED OBJECTS AND REMOTE INVOCATION The object model Interfaces A definition of the signatures of a set of methods A class can implement several interfaces, e.g. Java Actions Initiated by an object invoking a method in another object Two affects Change the state of the receiver Further invocations on methods in other objects Garbage collection Freeing the space occupied by cancelled objects C++: collected by programmers Java: collected by JVM 43 Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 0.6666666666666666,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.05675389803880093
+    },
+    {
+     "question": "What is a characteristic of a distributed system?",
+     "options": [
+      "Hardware components are located in the same computer.",
+      "Components communicate and coordinate actions through shared memory.",
+      "Hardware or software components communicate and coordinate actions only by message passing.",
+      "Networked computers can only be used for gaming."
+     ],
+     "correct": 2,
+     "citation": "ds_lec01_characterization.pdf, page 4",
+     "chunk": "4 Defining Distributed Systems In this course, we define distributed systems more precisely as : A distributed system is one in which hardware or software components located at networked computers communicate and coordinate their actions only by message passing. Definition above covers the entire range of distributed systems in which networked computers can usefully be deployed. CHARACTERIZATION OF DISTRIBUTED SYSTEMS Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.08219995389104862
+    },
+    {
+     "question": "What is provided by the combination of middleware and network operating systems?",
+     "options": [
+      "autonomy",
+      "resource access",
+      "standalone applications",
+      "distributed system services"
+     ],
+     "correct": 1,
+     "citation": "ds_lec05_operating_system.pdf, page 7",
+     "chunk": "OPERATING SYSTEM SUPPORT 7 Introduction The combination of middleware and network operating systems provides an acceptance balance between the requirement of autonomy and network transparent resource access. The network operating systems allows users to run their favorite word processor and other standalone applications. Middleware enables users to take advantage of services that become available in their distributed system. Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.026794188226973215
+    },
+    {
+     "question": "What happens when a client requests an applet from a web server?",
+     "options": [
+      "The client interacts with the applet",
+      "The client request results in the downloading of applet code",
+      "The web server interacts with the applet",
+      "The applet code interacts with the client"
+     ],
+     "correct": 1,
+     "citation": "ds_lec02_system_model.pdf, page 24",
+     "chunk": "24 Variants of Client Server Model Mobile code: the code that can be sent from one computer to another and run at the destination. Mobile codes such are a potential security threat to the local resources in the destination computer. SYSTEM MODEL Distributed Systems: Dr. Eng. Mohssen Abboud a) client request results in the dow nloading of applet code Web server Client Web server Applet Applet code Client b) client interacts w ith the applet Figure 8. Web applets (Figure 8)",
+     "strict_ok": true,
+     "lexical_support": 0.8333333333333334,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.03064256485663186
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "quiz": 4,
+   "subject_id": 7,
+   "seed": 20004,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 8,
+   "accepted_calls": 5,
+   "first_attempt_ok": 4,
+   "chunks": 6,
+   "rejections": {
+    "references_figure": 3
+   },
+   "duplicate_questions": 0,
+   "total_s": 11.18,
+   "items": [
+    {
+     "question": "What is a key characteristic of the equal frequency discretization method?",
+     "options": [
+      "It divides the data into bins of equal interval widths.",
+      "It partitions the values into bins with nearly the same number of instances.",
+      "It is only used for categorical attributes.",
+      "It is not used in data preprocessing."
+     ],
+     "correct": 1,
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 49",
+     "chunk": "Discretization ▪two simple but widely-used discretization methods (equal width and equal depth) applied to the 'Clump Thickness' attribute of the breast cancer dataset 1. For the equal width method, we can apply the cut() function to discretize the attribute into 4 bins of similar interval widths. 2. For the equal frequency method, the qcut() function can be used to partition the values into 4 bins such that each bin has nearly the same number of instances. 52",
+     "strict_ok": true,
+     "lexical_support": 0.7777777777777778,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.061931634037618366
+    },
+    {
+     "question": "What are the three values that split a sorted data set into four equal parts?",
+     "options": [
+      "The largest and the smallest values",
+      "The first and the third quartiles",
+      "The minimum and the maximum values",
+      "The median and the first and third quartiles"
+     ],
+     "correct": 1,
+     "citation": "kdd_lec02_data.pdf, page 38",
+     "chunk": "Measures Of Data Dispersion ▪The most common measures for data dispersion are: 1. Range: ✓The distance between the largest and the smallest values. 2. Inter-quartile range o Distance between the first and the third quartiles IQR=Q3-Q1 ogives the range covered by the middle half of the data. 3. Five number summary (min, Q1, median, Q3, max) o Q1: first Quartile. oQ3:third Quartile. o Median: second Quartile (Q2). o min= Q1-1.5 x IQR o max= Q3 + 1.5 x IQR 39 For Identifying Suspected Outliers quartiles are the three values that split the sorted data set into four equal parts",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.037416992166493024
+    },
+    {
+     "question": "What is the purpose of splitting patient records into 5 parts for training and testing?",
+     "options": [
+      "To evaluate the model on the same training data it was trained on",
+      "To train the model on 5 different versions of the training data",
+      "To test the model on the same data it was trained on",
+      "To train the model on the entire dataset and test it once"
+     ],
+     "correct": 1,
+     "citation": "kdd_lec08_classifacation_3.pdf, page 21",
+     "chunk": "This is a diagram illustrating 5-fold cross-validation. It shows a top bar labeled \"100 patient records\", a downward arrow, and five horizontal bars. Each bar has a pink section labeled \"80 patient records\" and a teal section; the first bar’s teal section is labeled \"20\". The bottom text states: \"Model is trained on 5 different versions of training data, and evaluated on 5 different versions of the test data.\" The diagram visually represents splitting 100 patient records into 5 parts for training and testing.",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.10936437367870999
+    },
+    {
+     "question": "What is a power set structure in set theory?",
+     "options": [
+      "A set of all possible subsets of a given set",
+      "A set of all possible superset relationships between sets",
+      "A set of all possible union operations between sets",
+      "A set of all possible intersection operations between sets"
+     ],
+     "correct": 0,
+     "citation": "kdd_lec04_association_rule.pdf, page 24",
+     "chunk": "This is a hierarchical diagram showing set relationships. It features nodes labeled with set notations (e.g., {Beer:?, {Beer,Chips:?, {Beer,Chips,Pizza,Wine:?}) connected by arrows. The top node is { }?, with arrows pointing to four single-element sets ({Beer:?, {Chips:?, {Pizza:?, {Wine:?}), which connect to pairs, triples, and the full set {Beer,Chips,Pizza,Wine:?}. The diagram illustrates subset combinations, likely representing a power set structure where elements are included or excluded, with question marks indicating unknown status.",
+     "strict_ok": true,
+     "lexical_support": 0.0,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.05426113145515077
+    },
+    {
+     "question": "What type of modeling is used to understand the relationship between house size and sales price?",
+     "options": [
+      "Classification",
+      "Clustering",
+      "Decision Trees",
+      "Regression"
+     ],
+     "correct": 3,
+     "citation": "kdd_lec05_regression.pdf, page 10",
+     "chunk": "Predicting House Prices 10 ▪To use all the collected observations, we have to understand the relationship between the square foot of the house and the house sales price. o i.e., Modeling the relationship between the house size and the house sales price. To do this, we're going to use regression. Regression fundamentals: Data, Model, Task",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.14813615498924254
+    }
+   ]
+  },
+  {
+   "lang": "en",
+   "quiz": 5,
+   "subject_id": 6,
+   "seed": 20005,
+   "model": "llama3.1:8b",
+   "requested": 5,
+   "produced": 5,
+   "calls": 5,
+   "accepted_calls": 5,
+   "first_attempt_ok": 5,
+   "chunks": 5,
+   "rejections": {},
+   "duplicate_questions": 0,
+   "total_s": 6.87,
+   "items": [
+    {
+     "question": "What is a way to construct reliable services from components that exhibit failure?",
+     "options": [
+      "Using a single server that holds all the data",
+      "Using multiple servers that hold replicas of data",
+      "Masking the failure by hiding it altogether",
+      "Converting the failure into a more acceptable type of failure"
+     ],
+     "correct": 1,
+     "citation": "ds_lec02_system_model.pdf, page 39",
+     "chunk": "39 Failure Model Masking failure It is possible to construct reliable services from components that exhibit failure. E.g. multiple servers that hold replicas of data can continue to provide a service when one of them crashes. A service masks a failure, either by hiding it altogether or by converting it into a more acceptable type of failure. E.g. checksums are used to mask corrupted messages- effectively converting an arbitrary failure into an omission failure. SYSTEM MODEL Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 0.8571428571428571,
+     "emb_correct_is_closest": false,
+     "emb_margin": 0.016845799397668948
+    },
+    {
+     "question": "What is a main motivation for constructing distributed systems?",
+     "options": [
+      "A collection of logically related data that is distributed over different processing nodes of computer network.",
+      "A collection of independent computers that appear to the users of the system as a single computer.",
+      "Sharing of resources is a main motivation for constructing distributed systems.",
+      "A collection of computers that are not logically related and are not distributed over a computer network."
+     ],
+     "correct": 2,
+     "citation": "ds_lec01_characterization.pdf, page 3",
+     "chunk": "3 Defining Distributed Systems Various definition of distributed systems have been given in the literature. A collection of logically related data that is distributed over different processing nodes of computer network. A collection of independent computers that appear to the users of the system as a single computer. With any definition, sharing of resources is a main motivation for constructing distributed systems. CHARACTERIZATION OF DISTRIBUTED SYSTEMS Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.03064379170530196
+    },
+    {
+     "question": "What is necessary to know the time of events at processes in a distributed system?",
+     "options": [
+      "Synchronizing the process' clocks",
+      "Using a single clock for all processes",
+      "Measuring the time of each process separately",
+      "Using a central time server"
+     ],
+     "correct": 0,
+     "citation": "ds_lec04_time.pdf, page 9",
+     "chunk": "• Introduction • Clocks,events and process states • Synchronizing physical clocks • Logical time and logical clocks Time in distributed system 9 Distributed Systems: Dr. Eng. Mohssen Abboud • In order to know at what time events occur at the processes in our DS it is necessary to synchronize the process’ clocks • Ci : pi’s clock • I: an interval of real time • External synchronization –For a synchronization bound D > 0, and for a source S of time, |S(t)-Ci(t)| < D, for i = 1, 2, … N and for all real times t in I –Clocks Ci are accurate to within the bound D External & Internal synchronization 10 Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.10485157930735345
+    },
+    {
+     "question": "What is the balance between autonomy and network transparent resource access provided by middleware and network operating systems?",
+     "options": [
+      "autonomy over resource access",
+      "resource access over autonomy",
+      "balance between autonomy and resource access",
+      "resource access without autonomy"
+     ],
+     "correct": 2,
+     "citation": "ds_lec05_operating_system.pdf, page 7",
+     "chunk": "OPERATING SYSTEM SUPPORT 7 Introduction The combination of middleware and network operating systems provides an acceptance balance between the requirement of autonomy and network transparent resource access. The network operating systems allows users to run their favorite word processor and other standalone applications. Middleware enables users to take advantage of services that become available in their distributed system. Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": true,
+     "emb_margin": 0.060603629148252736
+    },
+    {
+     "question": "What form of data is transmitted in messages?",
+     "options": [
+      "Data structures",
+      "Sequences of bytes",
+      "Running programs",
+      "External Data Representation"
+     ],
+     "correct": 1,
+     "citation": "ds_lec03_distributed_objects.pdf, page 10",
+     "chunk": "DISTRIBUTED OBJECTS AND REMOTE INVOCATION 10 External Data Representation The information stored in running programs is represented as data structures, whereas the information in messages consists of sequences of bytes. Irrespective of the form of communication used, the data structure must be converted to a sequence of bytes before transmission and rebuilt on arrival. Distributed Systems: Dr. Eng. Mohssen Abboud",
+     "strict_ok": true,
+     "lexical_support": 1.0,
+     "emb_correct_is_closest": false,
+     "emb_margin": -0.039711758162865096
+    }
+   ]
+  }
+ ]
+}
