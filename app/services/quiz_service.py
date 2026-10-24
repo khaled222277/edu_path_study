@@ -10,7 +10,10 @@ import json
 import logging
 import random
 import re
-from dataclasses import dataclass
+import time
+from dataclasses import dataclass, field
+
+import httpx
 
 from app.config import settings
 from app.services.llm import LLM_ERRORS, LLMUnavailableError, get_client, keep_alive
@@ -68,6 +71,62 @@ class SourceChunk:
     @property
     def citation(self) -> str:
         return f"{self.source_filename}, page {self.page_number}"
+
+
+# --- instrumentation ------------------------------------------------------
+#
+# Measurement only: nothing here changes what is generated or accepted. Every
+# model reply becomes one AttemptTrace, grouped per chunk and per quiz, so
+# scripts/bench_quiz.py (and the structured log lines below) can say where the
+# time goes and why replies are rejected.
+
+OUTCOME_ACCEPTED = "accepted"
+PHASE_STRICT = "strict"
+PHASE_RELAXED = "relaxed"
+
+
+@dataclass
+class AttemptTrace:
+    """One model call and what became of its reply."""
+
+    phase: str  # PHASE_STRICT | PHASE_RELAXED
+    model_s: float  # waiting on Ollama
+    check_s: float  # parsing, normalising and validating the reply
+    outcome: str  # OUTCOME_ACCEPTED, or the first rejection category
+    reasons: list[str] = field(default_factory=list)  # every rejected item's category
+
+
+@dataclass
+class ChunkTrace:
+    """Everything it took to turn one chunk into a question (or fail to)."""
+
+    citation: str
+    attempts: list[AttemptTrace] = field(default_factory=list)
+    accepted: bool = False
+    accepted_phase: str | None = None
+    wall_s: float = 0.0
+
+    @property
+    def calls(self) -> int:
+        return len(self.attempts)
+
+
+@dataclass
+class QuizTrace:
+    """One generate_quiz() call, end to end."""
+
+    language: str = ""
+    requested: int = 0
+    produced: int = 0
+    sampling_s: float = 0.0
+    total_s: float = 0.0
+    error: str | None = None  # "timeout" | "unavailable" | "no_valid_question" | None
+    chunks: list[ChunkTrace] = field(default_factory=list)
+
+
+def _log_event(name: str, **fields) -> None:
+    """One machine-readable log line: `quiz_item {...json...}`."""
+    log.info("%s %s", name, json.dumps(fields, ensure_ascii=False, default=str))
 
 
 def _is_arabic(ch: str) -> bool:
@@ -282,44 +341,96 @@ def is_bad_placeholder(option) -> bool:
     return bool(_PLACEHOLDER_RE.match(text))
 
 
+REASON_SHORT_QUESTION = "question_too_short"
+REASON_OPTION_COUNT = "wrong_option_count"
+REASON_DUPLICATES = "duplicate_options"
+REASON_PLACEHOLDER = "placeholder_option"
+REASON_ANSWER_MISSING = "answer_not_in_options"
+REASON_FIGURE = "references_figure"
+REASON_LATIN = "latin_leakage"
+REASON_NO_ARABIC = "no_arabic"
+REASON_MALFORMED = "malformed_json"
+REASON_EMPTY = "empty_response"
+REASON_BAD_ITEM = "bad_item_shape"
+
+
+def arabic_violation(text) -> str | None:
+    """Why `text` fails the Arabic-script purity check, or None if it passes.
+
+    Latin only inside short bracketed terms; and it must contain some Arabic.
+    """
+    value = str(text or "")
+    if not contains_arabic(value):
+        return REASON_NO_ARABIC
+    # Latin outside parentheses/brackets is leakage.
+    if _LATIN_RE.search(_BRACKETED_RE.sub("", value)):
+        return REASON_LATIN
+    # Inside them, only short tokens like "(SQL)" are tolerated.
+    for segment in _BRACKETED_CAPTURE_RE.findall(value):
+        if _LATIN_RE.search(segment) and len(segment.strip()) > MAX_BRACKETED_LATIN:
+            return REASON_LATIN
+    return None
+
+
 def is_all_arabic_required(text, in_arabic: bool) -> bool:
     """Arabic-script purity check: Latin only inside short bracketed terms."""
     if not in_arabic:
         return True
-    value = str(text or "")
-    if not contains_arabic(value):
-        return False
-    # Latin outside parentheses/brackets is leakage.
-    if _LATIN_RE.search(_BRACKETED_RE.sub("", value)):
-        return False
-    # Inside them, only short tokens like "(SQL)" are tolerated.
-    for segment in _BRACKETED_CAPTURE_RE.findall(value):
-        if _LATIN_RE.search(segment) and len(segment.strip()) > MAX_BRACKETED_LATIN:
-            return False
-    return True
+    return arabic_violation(text) is None
+
+
+def reject_reason(
+    question: str, options: list[str], answer: str, in_arabic: bool
+) -> str | None:
+    """Why the strict rules reject this item, or None if they accept it.
+
+    valid_item() is defined as `reject_reason(...) is None`, so the label can
+    never disagree with the decision.
+    """
+    if not question or len(question) < 3:
+        return REASON_SHORT_QUESTION
+    if len(options) != 4:
+        return REASON_OPTION_COUNT
+    if len({o.strip() for o in options}) != 4:
+        return REASON_DUPLICATES
+    if any(is_bad_placeholder(o) for o in options):
+        return REASON_PLACEHOLDER
+    if answer not in options:
+        return REASON_ANSWER_MISSING
+    if references_unseen_source(question):
+        return REASON_FIGURE
+    if in_arabic:
+        for text in (question, *options, answer):
+            problem = arabic_violation(text)
+            if problem is not None:
+                return problem
+    return None
 
 
 def valid_item(question: str, options: list[str], answer: str, in_arabic: bool) -> bool:
-    if not question or len(question) < 3:
-        return False
-    if len(options) != 4:
-        return False
-    if len({o.strip() for o in options}) != 4:
-        return False
+    return reject_reason(question, options, answer, in_arabic) is None
+
+
+def relaxed_reject_reason(question: str, options: list[str], answer: str) -> str | None:
+    """The relaxed (Arabic fallback) rules: only the Latin-script rule is dropped.
+
+    Still needs Arabic in the question, distinct non-placeholder options and a
+    matching answer. The deixis rule is a quality gate rather than a script rule,
+    so it holds here too; an unanswerable question is no better for being Arabic.
+    """
+    if not question:
+        return REASON_SHORT_QUESTION
+    if not contains_arabic(question):
+        return REASON_NO_ARABIC
     if any(is_bad_placeholder(o) for o in options):
-        return False
+        return REASON_PLACEHOLDER
+    if len({o.strip() for o in options}) != 4:
+        return REASON_DUPLICATES
     if answer not in options:
-        return False
+        return REASON_ANSWER_MISSING
     if references_unseen_source(question):
-        return False
-    if in_arabic:
-        if not is_all_arabic_required(question, True):
-            return False
-        if any(not is_all_arabic_required(o, True) for o in options):
-            return False
-        if not is_all_arabic_required(answer, True):
-            return False
-    return True
+        return REASON_FIGURE
+    return None
 
 
 # --- generation -----------------------------------------------------------
@@ -405,31 +516,35 @@ def _first_key(item: dict, keys: tuple[str, ...], default=None):
     return default
 
 
-def _normalize(item) -> tuple[str, list[str], str] | None:
-    """Clean one raw item into (question, options, answer), or None.
+def _normalize_ex(item) -> tuple[tuple[str, list[str], str] | None, str | None]:
+    """Clean one raw item into ((question, options, answer), None), or (None, reason).
 
     The model does not always return a list of objects -- it sometimes emits a
     list of bare strings -- so the shape is checked rather than assumed.
     """
     if not isinstance(item, dict):
-        return None
+        return None, REASON_BAD_ITEM
 
     question = clean_text(_first_key(item, _QUESTION_KEYS, ""))
     raw_options = _first_key(item, _OPTION_KEYS, []) or []
     if not isinstance(raw_options, list):
-        return None
+        return None, REASON_OPTION_COUNT
     options = [clean_text(o) for o in raw_options if clean_text(o)]
     answer = clean_text(_first_key(item, _ANSWER_KEYS, ""))
 
     if len(options) != 4:
-        return None
+        return None, REASON_OPTION_COUNT
     if answer not in options:
         # Models often answer with a letter instead of the option text.
         if answer.upper() in ("A", "B", "C", "D"):
             answer = options[("A", "B", "C", "D").index(answer.upper())]
         else:
-            return None
-    return question, options, answer
+            return None, REASON_ANSWER_MISSING
+    return (question, options, answer), None
+
+
+def _normalize(item) -> tuple[str, list[str], str] | None:
+    return _normalize_ex(item)[0]
 
 
 def _ask_model(prompt: str, model: str) -> str:
@@ -449,89 +564,137 @@ def _ask_model(prompt: str, model: str) -> str:
     return response.get("response") or ""
 
 
+def _unavailable_kind(exc: LLMUnavailableError) -> str:
+    return "timeout" if isinstance(exc.__cause__, httpx.TimeoutException) else "unavailable"
+
+
 def _generate_one(
-    chunk: SourceChunk, in_arabic: bool, model: str
+    chunk: SourceChunk,
+    in_arabic: bool,
+    model: str,
+    trace: ChunkTrace | None = None,
 ) -> GeneratedQuestion | None:
     """One validated question from one chunk, or None if every attempt failed."""
+    trace = trace if trace is not None else ChunkTrace(chunk.citation)
     prompt = _build_prompt(chunk.text, in_arabic)
     rejected = 0
 
     def attempt(strict: bool) -> GeneratedQuestion | None:
         nonlocal rejected
+        phase = PHASE_STRICT if strict else PHASE_RELAXED
+        t0 = time.perf_counter()
+        try:
+            raw = _ask_model(prompt, model)
+        except LLMUnavailableError as exc:
+            kind = _unavailable_kind(exc)
+            trace.attempts.append(
+                AttemptTrace(phase, time.perf_counter() - t0, 0.0, kind, [kind])
+            )
+            raise
+        t1 = time.perf_counter()
+
+        reasons: list[str] = []
+        result: GeneratedQuestion | None = None
         # V1 wrapped the whole attempt so any malformed response simply became
         # another retry; keep that, rather than letting one odd shape abort the
         # quiz mid-generation.
-        raw = _ask_model(prompt, model)  # LLMUnavailableError propagates
         try:
             items = _parse_items(raw)
         except Exception as exc:
             log.debug("quiz generation attempt failed to parse (%s)", exc)
             rejected += 1
-            return None
+            reasons.append(REASON_MALFORMED)
+            items = None
 
-        if not isinstance(items, list):
+        if items is not None and not isinstance(items, list):
             rejected += 1
-            return None
+            reasons.append(REASON_MALFORMED)
+            items = None
 
-        for item in items:
-            normalized = _normalize(item)
+        if items is not None and not items:
+            # Nothing usable: no JSON list at all, or an explicitly empty one.
+            reasons.append(REASON_EMPTY if "[" in raw and "]" in raw else REASON_MALFORMED)
+
+        for item in items or []:
+            normalized, why = _normalize_ex(item)
             if normalized is None:
                 rejected += 1
+                reasons.append(why)
                 continue
             question, options, answer = normalized
 
             if strict:
-                ok = valid_item(question, options, answer, in_arabic)
+                why = reject_reason(question, options, answer, in_arabic)
             else:
-                # Relaxed: still needs Arabic, distinct non-placeholder options
-                # and a matching answer -- only the Latin-script rule is dropped.
-                # The deixis rule is a quality gate rather than a script rule, so
-                # it holds here too; an unanswerable question is no better for
-                # being Arabic.
-                ok = (
-                    bool(question)
-                    and contains_arabic(question)
-                    and not any(is_bad_placeholder(o) for o in options)
-                    and len({o.strip() for o in options}) == 4
-                    and answer in options
-                    and not references_unseen_source(question)
-                )
-            if not ok:
+                why = relaxed_reject_reason(question, options, answer)
+            if why is not None:
                 rejected += 1
+                reasons.append(why)
                 continue
 
-            return GeneratedQuestion(
+            result = GeneratedQuestion(
                 question_text=question,
                 options=options,
                 correct_answer_index=options.index(answer),
                 source=chunk,
             )
-        return None
+            break
 
-    for _ in range(STRICT_ATTEMPTS):
-        result = attempt(strict=True)
-        if result is not None:
-            if rejected:
-                log.info(
-                    "  %s: accepted after %s rejected generation(s)",
-                    chunk.citation, rejected,
-                )
-            return result
-
-    # Strict Arabic-only kept failing; fall back to allowing bracketed Latin.
-    if in_arabic:
-        log.warning(
-            "  %s: strict Arabic validation failed %s times -- relaxing",
-            chunk.citation, STRICT_ATTEMPTS,
+        trace.attempts.append(
+            AttemptTrace(
+                phase,
+                t1 - t0,
+                time.perf_counter() - t1,
+                OUTCOME_ACCEPTED if result is not None else (reasons[0] if reasons else REASON_EMPTY),
+                reasons,
+            )
         )
-        for _ in range(RELAXED_ATTEMPTS):
-            result = attempt(strict=False)
+        return result
+
+    started = time.perf_counter()
+    result: GeneratedQuestion | None = None
+    try:
+        for _ in range(STRICT_ATTEMPTS):
+            result = attempt(strict=True)
             if result is not None:
-                log.info("  %s: accepted under relaxed validation", chunk.citation)
+                trace.accepted_phase = PHASE_STRICT
+                if rejected:
+                    log.info(
+                        "  %s: accepted after %s rejected generation(s)",
+                        chunk.citation, rejected,
+                    )
                 return result
 
-    log.warning("  %s: no valid question after all attempts", chunk.citation)
-    return None
+        # Strict Arabic-only kept failing; fall back to allowing bracketed Latin.
+        if in_arabic:
+            log.warning(
+                "  %s: strict Arabic validation failed %s times -- relaxing",
+                chunk.citation, STRICT_ATTEMPTS,
+            )
+            for _ in range(RELAXED_ATTEMPTS):
+                result = attempt(strict=False)
+                if result is not None:
+                    trace.accepted_phase = PHASE_RELAXED
+                    log.info("  %s: accepted under relaxed validation", chunk.citation)
+                    return result
+
+        log.warning("  %s: no valid question after all attempts", chunk.citation)
+        return None
+    finally:
+        trace.accepted = result is not None
+        trace.wall_s = time.perf_counter() - started
+        _log_event(
+            "quiz_item",
+            citation=chunk.citation,
+            lang="ar" if in_arabic else "en",
+            accepted=trace.accepted,
+            phase=trace.accepted_phase,
+            calls=trace.calls,
+            wall_s=round(trace.wall_s, 3),
+            model_s=round(sum(a.model_s for a in trace.attempts), 3),
+            check_s=round(sum(a.check_s for a in trace.attempts), 4),
+            outcomes=[a.outcome for a in trace.attempts],
+        )
 
 
 def generate_quiz(
@@ -540,30 +703,62 @@ def generate_quiz(
     language: str | None = None,
     seed: int | None = None,
     model: str = QUIZ_MODEL,
+    trace: QuizTrace | None = None,
 ) -> list[GeneratedQuestion]:
-    """Generate up to `count` validated MCQ items spread across the subject."""
+    """Generate up to `count` validated MCQ items spread across the subject.
+
+    `trace`, if given, is filled with timings and rejection reasons. It is
+    observation only: results are identical with or without it.
+    """
     in_arabic = (language or LANG_EN) == LANG_AR
+    trace = trace if trace is not None else QuizTrace()
+    trace.language = LANG_AR if in_arabic else LANG_EN
+    trace.requested = count
+    started = time.perf_counter()
 
-    # Over-sample so chunks that never yield a valid question can be replaced.
-    chunks = sample_chunks(subject_id, count=count * 2, seed=seed)
-    if not chunks:
-        return []
+    try:
+        # Over-sample so chunks that never yield a valid question can be replaced.
+        t0 = time.perf_counter()
+        chunks = sample_chunks(subject_id, count=count * 2, seed=seed)
+        trace.sampling_s = time.perf_counter() - t0
+        if not chunks:
+            return []
 
-    questions: list[GeneratedQuestion] = []
-    for chunk in chunks:
-        if len(questions) >= count:
-            break
-        log.info("generating question from %s", chunk.citation)
-        question = _generate_one(chunk, in_arabic, model)
-        if question is not None:
-            questions.append(question)
+        questions: list[GeneratedQuestion] = []
+        for chunk in chunks:
+            if len(questions) >= count:
+                break
+            log.info("generating question from %s", chunk.citation)
+            chunk_trace = ChunkTrace(chunk.citation)
+            trace.chunks.append(chunk_trace)  # before generating, so a crash keeps it
+            question = _generate_one(chunk, in_arabic, model, chunk_trace)
+            if question is not None:
+                questions.append(question)
+        trace.produced = len(questions)
 
-    log.info(
-        "generated %s/%s questions for subject %s (%s)",
-        len(questions), count, subject_id, "ar" if in_arabic else "en",
-    )
-    if not questions:
-        raise QuizGenerationError(
-            f"no valid question from {len(chunks)} chunk(s) after all retries"
+        log.info(
+            "generated %s/%s questions for subject %s (%s)",
+            len(questions), count, subject_id, "ar" if in_arabic else "en",
         )
-    return questions
+        if not questions:
+            trace.error = "no_valid_question"
+            raise QuizGenerationError(
+                f"no valid question from {len(chunks)} chunk(s) after all retries"
+            )
+        return questions
+    except LLMUnavailableError as exc:
+        trace.error = _unavailable_kind(exc)
+        raise
+    finally:
+        trace.total_s = time.perf_counter() - started
+        _log_event(
+            "quiz_summary",
+            subject_id=subject_id,
+            lang=trace.language,
+            requested=count,
+            produced=trace.produced,
+            total_s=round(trace.total_s, 3),
+            sampling_s=round(trace.sampling_s, 3),
+            calls=sum(c.calls for c in trace.chunks),
+            error=trace.error,
+        )
