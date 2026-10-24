@@ -20,6 +20,7 @@ alternating, 5 questions per quiz.
 | `quiz_structured_feedback.json` | both | 10 | 1000-1009 |
 | `quiz_t050.json` `quiz_t030.json` `quiz_t015.json` | temperature 0.5 / 0.3 / 0.15, **interleaved** | 12 | 1000-1011 |
 | `quiz_fp0.json` `quiz_fp2.json` | first-pass budget off / 2, **interleaved** | 12 | 5000-5011 (held out) |
+| `quiz_final_orig.json` `quiz_final_new.json` | confirmation on the finished code: original behaviour (`first_pass=0`) vs shipped defaults, **interleaved** | 12 | 9000-9011 (held out) |
 | `quiz_ser_c1/c2/c3.json` | `QUIZ_CONCURRENCY` 1 / 2 / 3 on Ollama **as configured** (`OLLAMA_NUM_PARALLEL=1`), interleaved | 8 | 7000-7007 |
 | `quiz_par3_c1/c2/c3.json` | the same against a temporary Ollama with `OLLAMA_NUM_PARALLEL=3`, interleaved | 8 | 7000-7007 |
 
@@ -44,7 +45,7 @@ size are not detectable.
 | Feedback on retry | 1.64 -> 1.86 calls per question; on the same hard chunks retries were accepted 17/30 with feedback vs 18/30 without (the model does not ramble: 92 vs 97 tokens) | no |
 | Temperature 0.3 | -8% calls, inside the noise; duplicates 11 -> 22 | no |
 | Temperature 0.15 | +17% calls; duplicates 11 -> 31, wrong option count 0 -> 8 | no |
-| **First-pass budget of 2 attempts per chunk** | **-11% calls, -15% mean / -26% p90 quiz time** on held-out chunks; questions accepted via the relaxed rules 1 -> 0 | **yes** (`QUIZ_FIRST_PASS_ATTEMPTS=2`) |
+| **First-pass budget of 2 attempts per chunk** | about **-10% model calls** and about -8% mean quiz time (pooled over two held-out interleaved runs, 24 quizzes); the tail is not reliably better; relaxed-rule acceptances 1 -> 0 each time. The first run alone looked better (-15% mean, -26% p90); the confirmation run did not repeat the time gain (below) | **yes**, a modest win (`QUIZ_FIRST_PASS_ATTEMPTS=2`) |
 
 Why the first-pass budget: per-call acceptance on pooled default-config data (110 Arabic
 chunks) was 68% for a fresh chunk, 46% on a chunk's 2nd strict attempt, 32% on its 3rd and
@@ -94,3 +95,25 @@ VRAM ran out and you should use 2 or go back to 1.
 
 These parallel numbers came from a separate temporary Ollama on another port; the Ollama that
 was already running was only asked to unload its model for the duration, and was reloaded after.
+
+## Confirmation on the finished code
+
+After streaming, cancellation and concurrency were added, the generation path was refactored, so the
+first-pass result was re-measured on fresh chunks (`quiz_final_*.json`, interleaved):
+
+| Arabic, 12 quizzes | first pass off | shipped default |
+| --- | --- | --- |
+| model calls per question | 2.05 | 1.85 (-10%) |
+| replies accepted | 48.8% | 54.1% |
+| mean quiz time | 17.5 s | 17.3 s (-1%) |
+| p90 quiz time | 23.0 s | 26.9 s (+17%; the p90 of 12 quizzes is one quiz) |
+| questions produced / accepted via relaxed rules | 60 / 1 | 60 / 0 |
+
+English: 1.13 -> 1.10 calls per question, time unchanged, 60/60 both.
+
+So the earlier simulation (-20% calls, -35% p90) and the first held-out run (-15% mean time) were
+optimistic. The honest summary over both held-out runs is about **10% fewer model calls and roughly
+8% less time on average, no loss of quality, and no reliable improvement of the tail**. With
+run-to-run noise this large (see the top of this file), a 12-quiz comparison cannot resolve more
+than that. Cutting wasted calls matters most with the streaming endpoint, where it shortens the wait
+for each next question, but the largest lever measured is `QUIZ_CONCURRENCY` with a parallel Ollama.
