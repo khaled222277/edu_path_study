@@ -41,8 +41,39 @@ def stub_session(history: list[dict]):
     return SimpleNamespace(messages=[SimpleNamespace(**m) for m in history])
 
 
-def build(case: dict, chunks, variant: str) -> list[dict]:
+_T = cc.REFUSAL_SENTINEL
+_TAIL = " Do not guess, and do not offer what you know from elsewhere. Never write that token in any other case."
+
+# Wordings of rule 3 that were tried (see eval/README.md). "shipped" is whatever the app
+# currently uses; the others are kept so the comparison can be repeated.
+CANDIDATE_RULES = {
+    "shipped": cc.REFUSAL_RULE_SENTINEL,
+    # The first wording tried. It made an English question be answered in Arabic.
+    "c1_students_language": (
+        "If the CONTEXT does not contain the answer, begin your reply with the exact token "
+        f"{_T} and then say, in the student's language and in one short sentence, that the "
+        "lecture material does not cover it." + _TAIL
+    ),
+    "c2_same_language_as_question": (
+        f"If the CONTEXT does not contain the answer, begin your reply with the exact token {_T}, "
+        "followed by one short sentence saying so, written in the same language as the question." + _TAIL
+    ),
+    "c3_no_language_clause": (
+        f"If the CONTEXT does not contain the answer, begin your reply with the exact token {_T}, "
+        "followed by one short sentence saying that the lecture material does not cover it." + _TAIL
+    ),
+}
+
+
+def build(case: dict, chunks, variant: str, vary: str = "question", after_rule: str = "shipped") -> list[dict]:
     prior = case.get("history", [])
+    if vary == "refusal":
+        # Same prompt shape as production; only rule 3 differs between the variants.
+        session = stub_session([*prior, {"role": "user", "content": case["question"]}])
+        messages = cc._build_messages(session, case["question"], chunks)
+        rule = cc.REFUSAL_RULE_LEGACY if variant == "before" else CANDIDATE_RULES[after_rule]
+        messages[0] = {"role": "system", "content": cc.build_system_prompt(rule)}
+        return messages
     if variant == "before":
         # What the old code did: the new question had already been added to the
         # session, so it reached the model once as a history turn ...
@@ -82,7 +113,7 @@ def checks(case: dict, answer: str, chunks) -> dict:
     files = {c.source_filename for c in chunks}
     letters = LETTER_RE.findall(answer)
     arabic_share = sum(bool(ARABIC_RE.match(ch)) for ch in letters) / len(letters) if letters else 0.0
-    not_found = cc.NOT_FOUND_MARKER.lower() in answer.lower()
+    not_found = cc.parse_reply(answer, case["lang"]).refused  # language-neutral: sentinel or legacy phrase
     terms = case.get("expect_terms", [])
     low = answer.lower()
     hit = sum(any(alt.lower() in low for alt in group) for group in terms)
@@ -124,6 +155,13 @@ def main() -> None:
     p.add_argument("--out", default=str(ROOT / "eval" / "results" / "duplicate_question.json"))
     p.add_argument("--seeds", type=int, nargs="+", default=[42, 43])
     p.add_argument("--only", nargs="+", metavar="ID", help="run just these question ids, e.g. q18 q20")
+    p.add_argument(
+        "--vary", choices=["question", "refusal"], default="question",
+        help="what BEFORE and AFTER differ in: the duplicated question (default), or the "
+             "refusal rule (BEFORE = English-phrase rule, AFTER = language-neutral token)",
+    )
+    p.add_argument("--after-rule", choices=sorted(CANDIDATE_RULES), default="shipped",
+                   help="with --vary refusal: which wording of rule 3 AFTER uses")
     p.add_argument("--report", metavar="RESULTS.json", help="render a saved run as markdown and exit")
     p.add_argument("--markdown", metavar="OUT.md", help="with --report: write here instead of stdout")
     args = p.parse_args()
@@ -147,7 +185,7 @@ def main() -> None:
         row = {"id": case["id"], "kind": case["kind"], "lang": case["lang"], "question": case["question"],
                "chunks": [c.citation for c in chunks], "runs": {}}
         for variant in ("before", "after"):
-            messages = build(case, chunks, variant)
+            messages = build(case, chunks, variant, args.vary, args.after_rule)
             row["runs"][variant] = []
             for seed in args.seeds:
                 out = ask(client, messages, seed)

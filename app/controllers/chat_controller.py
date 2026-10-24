@@ -13,6 +13,13 @@ from app.models.chat import ROLE_ASSISTANT, ROLE_USER, ChatMessage, ChatSession
 from app.models.subject import Subject
 from app.models.user import User
 from app.services.llm import get_client, keep_alive
+from app.services.quiz_service import detect_language
+from app.services.refusal import (
+    LEGACY_REFUSAL_PHRASE,
+    REFUSAL_SENTINEL,
+    ParsedReply,
+    parse_reply,
+)
 from app.services.retrieval import RetrievedChunk, format_context, retrieve
 
 log = logging.getLogger(__name__)
@@ -34,9 +41,33 @@ SEARCH_UNAVAILABLE_DETAIL = (
     "Lecture search is temporarily unavailable. Please try again shortly."
 )
 
-NOT_FOUND_MARKER = "not found in the lecture material"
+# Kept under its old name: a reply that still refuses in this English phrase is
+# recognised too (see app/services/refusal.py).
+NOT_FOUND_MARKER = LEGACY_REFUSAL_PHRASE
 
-SYSTEM_PROMPT = f"""\
+# Rule 3 in its two forms. The sentinel form is language-neutral: the model is asked
+# for a fixed token and writes the refusal sentence itself, in the student's language.
+# The legacy form (an English sentence, which an Arabic reply never matched) is kept so
+# the two can be compared by scripts/eval_quality.py.
+#
+# The wording matters more than it looks: "in the student's language" made the model
+# answer an English question in Arabic on every seed (language correct 55/60), while
+# "written in the same language as the question" did not (60/60). See eval/README.md.
+REFUSAL_RULE_SENTINEL = (
+    "If the CONTEXT does not contain the answer, begin your reply with the exact token "
+    f"{REFUSAL_SENTINEL}, followed by one short sentence saying so, written in the same "
+    "language as the question. Do not guess, and do not offer what you know from "
+    "elsewhere. Never write that token in any other case."
+)
+REFUSAL_RULE_LEGACY = (
+    f'If the CONTEXT does not contain the answer, reply that it is "{NOT_FOUND_MARKER}" '
+    "and say nothing further about the topic. Do not guess, and do not offer what you "
+    "know from elsewhere."
+)
+
+
+def build_system_prompt(refusal_rule: str = REFUSAL_RULE_SENTINEL) -> str:
+    return f"""\
 You are a study assistant for university students. You answer strictly from the \
 lecture material provided below.
 
@@ -46,9 +77,7 @@ if you are confident it is correct.
 2. Cite every claim with the source in square brackets exactly as given in the \
 context, e.g. [lecture.pdf, page 12]. Put the citation right after the sentence \
 it supports.
-3. If the CONTEXT does not contain the answer, reply that it is \
-"{NOT_FOUND_MARKER}" and say nothing further about the topic. Do not guess, and \
-do not offer what you know from elsewhere.
+3. {refusal_rule}
 4. Some context blocks are descriptions of figures, diagrams, or tables from the \
 slides. Treat them as valid evidence and cite them the same way.
 5. Answer in the SAME LANGUAGE the student used. If they ask in Arabic, answer \
@@ -57,6 +86,9 @@ original form where that is what the lecture uses.
 6. Be concise and explain like a tutor: define the term, then give the detail \
 the student asked for.
 """
+
+
+SYSTEM_PROMPT = build_system_prompt()
 
 USER_TEMPLATE = """\
 CONTEXT:
@@ -175,23 +207,23 @@ def _prepare(
     return chunks, _build_messages(chat_session, question, chunks)
 
 
-def finalize_answer(raw: str | None) -> str:
-    """The text that is stored and shown for a model reply."""
-    answer = (raw or "").strip()
-    if not answer:
-        answer = f"Sorry — I could not produce an answer. This may be {NOT_FOUND_MARKER}."
-    return answer
+def finalize_answer(raw: str | None, question: str = "") -> ParsedReply:
+    """What is stored and shown for a model reply, and whether it was a refusal.
 
-
-def visible_chunks(answer: str, chunks: list[RetrievedChunk]) -> list[RetrievedChunk]:
-    """The sources worth showing under `answer`.
-
-    Showing sources under "not found in the lecture material" contradicts the
-    answer -- the chunks were retrieved but none of them answered the question.
+    The refusal token is removed from the text; `refused` says the material did not
+    cover the question. `question` only picks the language of the stand-in text used
+    when the model wrote nothing but the token, or nothing at all.
     """
-    if NOT_FOUND_MARKER.lower() in answer.lower():
-        return []
-    return chunks
+    return parse_reply(raw, detect_language(question) if question else "en")
+
+
+def visible_chunks(refused: bool, chunks: list[RetrievedChunk]) -> list[RetrievedChunk]:
+    """The sources worth showing under a reply.
+
+    Sources under a refusal contradict it -- the chunks were retrieved but none of them
+    answered the question.
+    """
+    return [] if refused else chunks
 
 
 @dataclass
@@ -245,13 +277,13 @@ def answer_question(
             detail=MODEL_UNAVAILABLE_DETAIL,
         ) from exc
 
-    answer = finalize_answer(response.get("message", {}).get("content"))
+    parsed = finalize_answer(response.get("message", {}).get("content"), question)
 
     reply = ChatMessage(
-        session_id=chat_session.id, role=ROLE_ASSISTANT, content=answer
+        session_id=chat_session.id, role=ROLE_ASSISTANT, content=parsed.text
     )
     db.add(reply)
     db.commit()
     db.refresh(reply)
 
-    return reply, visible_chunks(answer, chunks)
+    return reply, visible_chunks(parsed.refused, chunks)

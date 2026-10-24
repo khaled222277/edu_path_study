@@ -68,3 +68,31 @@ are crude (e.g. "expected terms" misses valid paraphrases).
 - To save the tokens without losing the anchor, try moving the question to the *end* of the
   context block only (and keeping the bare turn), or shortening the system prompt (it is most
   of the 700 prompt tokens). Use this harness to check any such change.
+
+## The refusal rule (language-neutral "not covered" signal)
+
+The model used to be told to refuse with an English sentence ("not found in the lecture
+material") and the app detected that sentence to hide the sources under a refusal. In Arabic
+the model refused in Arabic, nothing matched, and the sources stayed. Now it is asked to begin
+a refusal with a fixed token, `<<NOT_IN_MATERIAL>>`, which the app detects and strips before
+the reply is shown or stored (`app/services/refusal.py`). The old English phrase is still
+honoured.
+
+`python scripts/eval_chat_prompt.py --vary refusal --after-rule <wording>` compares it with the
+old rule on the 20 questions (3 seeds). Three wordings of the new rule were tried:
+
+| Over 20 questions x 3 seeds | legacy rule (before) | "in the student's language" | **"same language as the question" (shipped)** | no language clause |
+| --- | --- | --- | --- | --- |
+| out-of-scope refusals recognised (6 asked) | 3/6 (never the Arabic one) | 6/6 | **6/6** | 6/6 |
+| answerable questions wrongly refused (54) | 2/54 | 2/54 | 3/54 | 2/54 |
+| answer in the question's language (60) | 58/60 | **55/60** | **60/60** | 59/60 |
+| answerable replies carrying a citation (54) | 45/54 | 48/54 | 51/54 | 48/54 |
+
+The first wording made the model answer the English question q08 in Arabic on every seed, so it
+was not shipped; the wording that was shipped is the one in the third column
+(`results/refusal_rule_shipped.md` has the answers side by side). The false-refusal difference
+(2 vs 3 of 54) is one answer, within noise. These are 3 seeds on 20 questions: enough to catch
+the Arabic refusal bug and the q08 language flip, not enough to rank small differences.
+
+Note that `results/duplicate_question*.json` were produced with the previous (English-phrase)
+prompt, before this change; re-running that experiment now would use the token prompt.

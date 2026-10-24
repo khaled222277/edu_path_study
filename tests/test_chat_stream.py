@@ -146,7 +146,7 @@ def test_an_empty_model_reply_gets_the_same_fallback_as_the_plain_route(
 ):
     fake_async_ollama(script=[])
     evs = events(post(client, world["alice"], chat_session))
-    fallback = cc.finalize_answer("")
+    fallback = cc.finalize_answer("", "what?").text
     assert [e["type"] for e in evs] == ["citations", "token", "done"]
     assert evs[1]["text"] == fallback
     assert stored(db)[-1].content == fallback

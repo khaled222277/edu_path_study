@@ -36,6 +36,7 @@ from starlette.responses import StreamingResponse
 
 from app.controllers import chat_controller as cc
 from app.schemas.chat import Citation, MessageOut
+from app.services.refusal import RefusalFilter
 from app.services.llm import get_async_client, keep_alive
 from app.services.retrieval import RetrievedChunk
 
@@ -121,29 +122,39 @@ async def stream_events(
     try:
         yield encode_event({"type": "citations", "citations": citation_payload(turn.chunks)})
 
-        pieces: list[str] = []
+        raw: list[str] = []
+        shown = RefusalFilter()  # keeps the refusal token off the screen, however it is split
+        emitted = False
         part = first_part
         while part is not None:
             text = _text_of(part)
             if text:
-                pieces.append(text)
-                yield encode_event({"type": "token", "text": text})
+                raw.append(text)
+                visible = shown.feed(text)
+                if visible:
+                    emitted = True
+                    yield encode_event({"type": "token", "text": visible})
             part = await anext(stream, None)
+        tail = shown.flush()
+        if tail:
+            emitted = True
+            yield encode_event({"type": "token", "text": tail})
 
-        answer = cc.finalize_answer("".join(pieces))
-        if not pieces:
-            # Same fallback text the plain route would store; show it too.
-            yield encode_event({"type": "token", "text": answer})
+        parsed = cc.finalize_answer("".join(raw), turn.question)
+        if not emitted:
+            # The model said nothing visible (no reply, or only the token): show the
+            # same stand-in text the plain route would store.
+            yield encode_event({"type": "token", "text": parsed.text})
 
         # Only now, with a complete answer, touch the database.
         reply = await run_in_threadpool(
-            cc.persist_exchange, turn.session_id, turn.question, answer
+            cc.persist_exchange, turn.session_id, turn.question, parsed.text
         )
         yield encode_event(
             {
                 "type": "done",
                 "message": MessageOut.model_validate(reply).model_dump(mode="json"),
-                "citations": citation_payload(cc.visible_chunks(answer, turn.chunks)),
+                "citations": citation_payload(cc.visible_chunks(parsed.refused, turn.chunks)),
             }
         )
     except asyncio.CancelledError:

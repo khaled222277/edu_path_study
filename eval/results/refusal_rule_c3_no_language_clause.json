@@ -1,0 +1,2430 @@
+{
+ "seeds": [
+  42,
+  43,
+  44
+ ],
+ "model": "llama3.1:8b",
+ "results": [
+  {
+   "id": "q01",
+   "kind": "narrow",
+   "lang": "en",
+   "question": "How is the confidence of an association rule defined?",
+   "chunks": [
+    "[kdd_lec04_association_rule.pdf, page 44]",
+    "[kdd_lec04_association_rule.pdf, page 14]",
+    "[kdd_lec04_association_rule.pdf, page 46]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "The confidence of an association rule is defined as the percentage of transactions in the dataset that contain the antecedent (𝒔) and also contain the consequent (𝒍−𝒔) [kdd_lec04_association_rule.pdf, page 14].",
+      "prompt_tokens": 1100,
+      "answer_tokens": 58,
+      "seconds": 0.91,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The confidence of an association rule is defined as the percentage of transactions in the dataset that contain the antecedent (𝒔) and also contain the consequent (𝒍−𝒔) [kdd_lec04_association_rule.pdf, page 14].",
+      "prompt_tokens": 1100,
+      "answer_tokens": 58,
+      "seconds": 0.92,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The confidence of an association rule is defined as the percentage of transactions in the dataset that contain the antecedent (𝒔) and also contain the consequent (𝒍−𝒔) [kdd_lec04_association_rule.pdf, page 14].",
+      "prompt_tokens": 1100,
+      "answer_tokens": 58,
+      "seconds": 0.91,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "The confidence of an association rule is defined as the percentage of transactions in the dataset that contain the antecedent (𝒔) and also contain the consequent (𝒍−𝒔) [kdd_lec04_association_rule.pdf, page 14].",
+      "prompt_tokens": 1116,
+      "answer_tokens": 58,
+      "seconds": 1.29,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The confidence of an association rule is defined as the percentage of transactions in the dataset that contain the antecedent (𝒔) and the consequent (𝒍−𝒔) [kdd_lec04_association_rule.pdf, page 14].",
+      "prompt_tokens": 1116,
+      "answer_tokens": 56,
+      "seconds": 0.89,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The confidence of an association rule is defined as the percentage of transactions in the dataset that contain the antecedent (𝒔) and also contain the consequent (𝒍−𝒔) [kdd_lec04_association_rule.pdf, page 14].",
+      "prompt_tokens": 1116,
+      "answer_tokens": 58,
+      "seconds": 0.92,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q02",
+   "kind": "narrow",
+   "lang": "en",
+   "question": "How does the Apriori principle reduce the number of candidate itemsets?",
+   "chunks": [
+    "[kdd_lec04_association_rule.pdf, page 39]",
+    "[kdd_lec04_association_rule.pdf, page 40]",
+    "[kdd_lec04_association_rule.pdf, page 22]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "The Apriori principle reduces the number of candidate itemsets by pruning supersets of an infrequent itemset. If an itemset {a, b} is infrequent, then all its supersets are also infrequent [kdd_lec04_association_rule.pdf, page 23].",
+      "prompt_tokens": 844,
+      "answer_tokens": 61,
+      "seconds": 1.23,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The Apriori principle reduces the number of candidate itemsets by pruning supersets of an infrequent itemset. If an itemset {a, b} is infrequent, then all its supersets are also infrequent [kdd_lec04_association_rule.pdf, page 23].",
+      "prompt_tokens": 844,
+      "answer_tokens": 61,
+      "seconds": 0.96,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The Apriori principle reduces the number of candidate itemsets by pruning supersets of an infrequent itemset. If an itemset {a, b} is infrequent, then all its supersets, such as {a, b, c} or {a, b, d}, are also infrequent [kdd_lec04_association_rule.pdf, page 23]. This property is used to eliminate non-frequent itemsets and their supersets from the candidate itemsets, thereby reducing the number of candidates.",
+      "prompt_tokens": 844,
+      "answer_tokens": 107,
+      "seconds": 1.65,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "The Apriori principle reduces the number of candidate itemsets by pruning supersets of infrequent itemsets [kdd_lec04_association_rule.pdf, page 23].",
+      "prompt_tokens": 860,
+      "answer_tokens": 37,
+      "seconds": 0.88,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The Apriori principle reduces the number of candidate itemsets by pruning supersets of infrequent itemsets [kdd_lec04_association_rule.pdf, page 23]. \n\nIn other words, if a subset of items is not frequent, then all possible combinations of that subset (its supersets) are also not frequent. This property is used to eliminate non-frequent itemsets and their supersets from the candidate itemsets, thus reducing the number of candidates.",
+      "prompt_tokens": 860,
+      "answer_tokens": 96,
+      "seconds": 1.48,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The Apriori principle reduces the number of candidate itemsets by pruning supersets of infrequent itemsets [kdd_lec04_association_rule.pdf, page 23].",
+      "prompt_tokens": 860,
+      "answer_tokens": 37,
+      "seconds": 0.59,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q03",
+   "kind": "narrow",
+   "lang": "en",
+   "question": "How does the k-means algorithm assign points to clusters?",
+   "chunks": [
+    "[kdd_lec09_cluster_analyis.pdf, page 26]",
+    "[kdd_lec09_cluster_analyis.pdf, page 32]",
+    "[kdd_lec09_cluster_analyis.pdf, page 40]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "The k-means algorithm assigns points to clusters by forming K clusters and then repeatedly assigning each point to its closest (most similar) centroid and re-computing the centroids of each cluster [kdd_lec09_cluster_analyis.pdf, page 26].",
+      "prompt_tokens": 793,
+      "answer_tokens": 54,
+      "seconds": 1.11,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The k-means algorithm assigns points to clusters by forming K clusters and assigning each point to its closest (most similar) centroid [kdd_lec09_cluster_analyis.pdf, page 26].",
+      "prompt_tokens": 793,
+      "answer_tokens": 42,
+      "seconds": 0.66,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The k-means algorithm assigns points to clusters by forming K clusters and assigning each point to its closest (most similar) centroid [kdd_lec09_cluster_analyis.pdf, page 26].",
+      "prompt_tokens": 793,
+      "answer_tokens": 42,
+      "seconds": 0.66,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "The k-means algorithm assigns points to clusters by forming K clusters and assigning each point to its closest (most similar) centroid [kdd_lec09_cluster_analyis.pdf, page 26].",
+      "prompt_tokens": 809,
+      "answer_tokens": 42,
+      "seconds": 0.86,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The k-means algorithm assigns points to clusters by forming K clusters and assigning each point to its closest (most similar) centroid [kdd_lec09_cluster_analyis.pdf, page 26].",
+      "prompt_tokens": 809,
+      "answer_tokens": 42,
+      "seconds": 0.66,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The k-means algorithm assigns points to clusters by forming K clusters and assigning each point to its closest (most similar) centroid [kdd_lec09_cluster_analyis.pdf, page 26].",
+      "prompt_tokens": 809,
+      "answer_tokens": 42,
+      "seconds": 0.66,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q04",
+   "kind": "narrow",
+   "lang": "en",
+   "question": "What is overfitting and how can it be avoided?",
+   "chunks": [
+    "[kdd_lec06_classifacation_1.pdf, page 35]",
+    "[kdd_lec06_classifacation_1.pdf, page 33]",
+    "[kdd_lec06_classifacation_1.pdf, page 31]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "Overfitting is when a model learns noise in the training data, leading to poor generalization [kdd_lec06_classifacation_1.pdf, page 31]. This can be seen in a complex decision tree, where excessive branching occurs [kdd_lec06_classifacation_1.pdf, page 31].\n\nTo avoid overfitting, many approaches can be used, including:\n\n* Regularization: Control model complexity by making the model simpler [kdd_lec06_classifacation_1.pdf, page 35].\n* Feature selection: Remove irrelevant features [kdd_lec06_classifacation_1.pdf, page 35].\n* More data: Sometimes the training set is not enough [kdd_lec06_classifacation_1.pdf, page 35].\n* Tree Pruning: Specifically for decision trees, to prevent overfitting [kdd_lec06_classifacation_1.pdf, page 35].\n\nNote that some models, like decision trees, have built-in feature selection mechanisms [kdd_lec06_classifacation_1.pdf, page 35].",
+      "prompt_tokens": 707,
+      "answer_tokens": 234,
+      "seconds": 3.76,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Overfitting is a phenomenon where a model learns noise in the training data, leading to poor generalization [kdd_lec06_classifacation_1.pdf, page 31]. This means that the model becomes too complex and starts to fit the training data too closely, resulting in high training error and high generalization error [kdd_lec06_classifacation_1.pdf, page 33].\n\nTo avoid overfitting, several approaches can be taken:\n\n1. Regularization: Control model complexity by making the model simpler [kdd_lec06_classifacation_1.pdf, page 35].\n2. Feature selection: Remove irrelevant features, which can be done using methods like decision trees that have built-in feature selection mechanisms [kdd_lec06_classifacation_1.pdf, page 35].\n3. More data: Sometimes, the training set is not enough, and collecting more data can help prevent overfitting [kdd_lec06_classifacation_1.pdf, page 35].\n4. Tree Pruning: For decision trees, tree pruning can be used to prevent overfitting [kdd_lec06_classifacation_1.pdf, page 35].\n\nThese methods can help prevent overfitting and improve the generalization of the model.",
+      "prompt_tokens": 707,
+      "answer_tokens": 269,
+      "seconds": 4.09,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Overfitting is when a model learns noise in the training data, leading to poor generalization [kdd_lec06_classifacation_1.pdf, page 31]. This can be seen in a complex decision tree, where excessive branching occurs [kdd_lec06_classifacation_1.pdf, page 31].\n\nTo avoid overfitting, many approaches can be used, including:\n\n* Regularization: Control model complexity by making the model simpler [kdd_lec06_classifacation_1.pdf, page 35].\n* Feature selection: Remove irrelevant features, some models like decision trees have built-in feature selection mechanisms [kdd_lec06_classifacation_1.pdf, page 35].\n* More data: Sometimes the training set is not enough [kdd_lec06_classifacation_1.pdf, page 35].\n* Tree Pruning: Specifically for decision trees, to prevent overfitting [kdd_lec06_classifacation_1.pdf, page 35].",
+      "prompt_tokens": 707,
+      "answer_tokens": 213,
+      "seconds": 3.24,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "Overfitting is a phenomenon where a model learns noise in the training data, leading to poor generalization [kdd_lec06_classifacation_1.pdf, page 31]. This occurs when a complex model is used to fit the training data too closely, resulting in a high training error but a high generalization error [kdd_lec06_classifacation_1.pdf, page 33].\n\nTo avoid overfitting, several approaches can be taken. In general, many methods can be used, including:\n\n* Regularization: Control model complexity by making the model simpler [kdd_lec06_classifacation_1.pdf, page 35].\n* Feature selection: Remove irrelevant features [kdd_lec06_classifacation_1.pdf, page 35].\n* More data: Sometimes, the training set is not enough [kdd_lec06_classifacation_1.pdf, page 35].\n* Tree Pruning: For decision trees, tree pruning can be used to prevent overfitting [kdd_lec06_classifacation_1.pdf, page 35].\n\nThese methods can help prevent overfitting and improve the generalization of the model.",
+      "prompt_tokens": 723,
+      "answer_tokens": 248,
+      "seconds": 3.95,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Overfitting is when a model learns noise in the training data, leading to poor generalization [kdd_lec06_classifacation_1.pdf, page 31]. It can be avoided by controlling model complexity through regularization [kdd_lec06_classifacation_1.pdf, page 35], removing irrelevant features through feature selection [kdd_lec06_classifacation_1.pdf, page 35], or using more data [kdd_lec06_classifacation_1.pdf, page 35]. For decision trees specifically, tree pruning can be used to prevent overfitting [kdd_lec06_classifacation_1.pdf, page 35].",
+      "prompt_tokens": 723,
+      "answer_tokens": 145,
+      "seconds": 2.23,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Overfitting is a phenomenon where a model learns noise in the training data, leading to poor generalization [kdd_lec06_classifacation_1.pdf, page 31]. This occurs when a model is too complex and starts to fit the training data too closely, resulting in high training error and high generalization error [kdd_lec06_classifacation_1.pdf, page 33].\n\nTo avoid overfitting, several approaches can be taken:\n\n1. Regularization: Control model complexity by making the model simpler [kdd_lec06_classifacation_1.pdf, page 35].\n2. Feature selection: Remove irrelevant features, which can be done using built-in feature selection mechanisms in some models like decision trees [kdd_lec06_classifacation_1.pdf, page 35].\n3. More data: Sometimes, the training set is not enough, and collecting more data can help prevent overfitting [kdd_lec06_classifacation_1.pdf, page 35].\n4. Tree Pruning: For decision trees, tree pruning can be used to prevent overfitting [kdd_lec06_classifacation_1.pdf, page 35].\n\nThese approaches can help prevent overfitting and improve the generalization of the model.",
+      "prompt_tokens": 723,
+      "answer_tokens": 269,
+      "seconds": 4.1,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q05",
+   "kind": "narrow",
+   "lang": "en",
+   "question": "How can missing data values be handled?",
+   "chunks": [
+    "[kdd_lec03_data_preprocessing.pdf, page 12]",
+    "[kdd_lec03_data_preprocessing.pdf, page 10]",
+    "[kdd_lec03_data_preprocessing.pdf, page 14]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "According to the lecture material, missing data values can be handled in the following ways:\n\n1. Ignore the tuple: usually done when the class label is missing (for classification task) [kdd_lec03_data_preprocessing.pdf, page 10].\n2. Ignore the missing Value: by modifying the DM approaches to ignore missing values [kdd_lec03_data_preprocessing.pdf, page 10].\n3. Eliminate attributes that have missing values: This should be done with caution, since the eliminated attributes may be the ones that are critical to the analysis task [kdd_lec03_data_preprocessing.pdf, page 10].\n4. Fill in the missing value automatically with a global constant, e.g., “unknown” [kdd_lec03_data_preprocessing.pdf, page 12].\n5. Fill in the missing value automatically with a measure of central tendency for the attribute, e.g., mean, median, mode, ... [kdd_lec03_data_preprocessing.pdf, page 12].\n6. Fill in the missing value automatically with the most probable value, which may be determined with regression, or decision tree, ... [kdd_lec03_data_preprocessing.pdf, page 12].\n7. Fill in the missing value manually [kdd_lec03_data_preprocessing.pdf, page 10].\n8. Convert the missing values to NaNs (NaN is commonly used in data analysis to indicate missing data) [kdd_lec03_data_preprocessing.pdf, page 14].\n9. Count the number of missing values in each column of the data [kdd_lec03_data_preprocessing.pdf, page 14].\n10. Replace missing values with the median value of the column [kdd_lec03_data_preprocessing.pdf, page 16].\n11. Discard the data points that contain missing values [kdd_lec03_data_preprocessing.pdf, page 16].",
+      "prompt_tokens": 784,
+      "answer_tokens": 390,
+      "seconds": 5.98,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material, missing data values can be handled in several ways:\n\n1. Ignore the tuple: usually done when the class label is missing (for classification task) [kdd_lec03_data_preprocessing.pdf, page 10].\n2. Ignore the missing Value: by modifying the DM approaches to ignore missing values [kdd_lec03_data_preprocessing.pdf, page 10].\n3. Eliminate attributes that have missing values: This should be done with caution, since the eliminated attributes may be the ones that are critical to the analysis task [kdd_lec03_data_preprocessing.pdf, page 10].\n4. Fill in the missing value automatically with a global constant (e.g., “unknown”) [kdd_lec03_data_preprocessing.pdf, page 12].\n5. Fill in the missing value automatically with a measure of central tendency for the attribute (e.g., mean, median, mode) [kdd_lec03_data_preprocessing.pdf, page 12].\n6. Fill in the missing value automatically with the most probable value, which may be determined with regression or decision tree [kdd_lec03_data_preprocessing.pdf, page 12].\n7. Fill in the missing value manually [kdd_lec03_data_preprocessing.pdf, page 10].\n8. Convert the missing values to NaNs (NaN is commonly used in data analysis to indicate missing data) [kdd_lec03_data_preprocessing.pdf, page 14].\n9. Count the number of missing values in each column of the data [kdd_lec03_data_preprocessing.pdf, page 14].\n10. Replace missing values with the median value of that column (Method1) [kdd_lec03_data_preprocessing.pdf, page 16].\n11. Discard the data points that contain missing values (Method2) [kdd_lec03_data_preprocessing.pdf, page 16].",
+      "prompt_tokens": 784,
+      "answer_tokens": 393,
+      "seconds": 5.98,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material, missing data values can be handled in the following ways:\n\n1. Ignore the tuple: usually done when the class label is missing (for classification task) [kdd_lec03_data_preprocessing.pdf, page 10].\n2. Ignore the missing Value: by modifying the DM approaches to ignore missing values [kdd_lec03_data_preprocessing.pdf, page 10].\n3. Eliminate attributes that have missing values: This should be done with caution, since the eliminated attributes may be the ones that are critical to the analysis task [kdd_lec03_data_preprocessing.pdf, page 10].\n4. Fill in the missing value automatically with a global constant (e.g., “unknown”) [kdd_lec03_data_preprocessing.pdf, page 12].\n5. Fill in the missing value automatically with a measure of central tendency for the attribute (e.g., mean, median, mode) [kdd_lec03_data_preprocessing.pdf, page 12].\n6. Fill in the missing value automatically with the most probable value, which may be determined with regression or decision tree [kdd_lec03_data_preprocessing.pdf, page 12].\n7. Fill in the missing value manually [kdd_lec03_data_preprocessing.pdf, page 10].\n8. Convert the missing values to NaNs (NaN is commonly used in data analysis to indicate missing data) [kdd_lec03_data_preprocessing.pdf, page 14].\n9. Count the number of missing values in each column of the data [kdd_lec03_data_preprocessing.pdf, page 14].\n10. Replace missing values with the median value of the column [kdd_lec03_data_preprocessing.pdf, page 16].\n11. Discard the data points that contain missing values [kdd_lec03_data_preprocessing.pdf, page 16].",
+      "prompt_tokens": 784,
+      "answer_tokens": 386,
+      "seconds": 5.87,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "According to the lecture material, missing data values can be handled in several ways:\n\n1. Ignore the tuple: usually done when the class label is missing (for classification task) [kdd_lec03_data_preprocessing.pdf, page 10].\n2. Ignore the missing Value: by modifying the DM approaches to ignore missing values [kdd_lec03_data_preprocessing.pdf, page 10].\n3. Eliminate attributes that have missing values: This should be done with caution, since the eliminated attributes may be the ones that are critical to the analysis task [kdd_lec03_data_preprocessing.pdf, page 10].\n4. Fill in the missing value automatically with a global constant, a measure of central tendency, or the most probable value [kdd_lec03_data_preprocessing.pdf, page 12].\n5. Fill in the missing value manually [kdd_lec03_data_preprocessing.pdf, page 10].\n\nAdditionally, the lecture material mentions that ideally, each attribute should have one or more rules to specify whether or not nulls are allowed and how such values should be handled [kdd_lec03_data_preprocessing.pdf, page 12].",
+      "prompt_tokens": 800,
+      "answer_tokens": 239,
+      "seconds": 3.84,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material, missing data values can be handled in the following ways:\n\n1. Ignore the tuple: usually done when the class label is missing (for classification task) [kdd_lec03_data_preprocessing.pdf, page 10].\n2. Ignore the missing Value: by modifying the DM approaches to ignore missing values [kdd_lec03_data_preprocessing.pdf, page 10].\n3. Eliminate attributes that have missing values: This should be done with caution, since the eliminated attributes may be the ones that are critical to the analysis task [kdd_lec03_data_preprocessing.pdf, page 10].\n4. Fill in the missing value automatically with a global constant (e.g., “unknown”) [kdd_lec03_data_preprocessing.pdf, page 12].\n5. Fill in the missing value automatically with a measure of central tendency for the attribute (e.g., mean, median, mode) [kdd_lec03_data_preprocessing.pdf, page 12].\n6. Fill in the missing value automatically with the most probable value, which may be determined with regression or decision tree [kdd_lec03_data_preprocessing.pdf, page 12].\n7. Fill in the missing value manually [kdd_lec03_data_preprocessing.pdf, page 10].\n8. Convert the missing values to NaNs (NaN is commonly used in data analysis to indicate missing data) [kdd_lec03_data_preprocessing.pdf, page 14].\n9. Count the number of missing values in each column of the data [kdd_lec03_data_preprocessing.pdf, page 14].\n10. Replace missing values with the median value of that column [kdd_lec03_data_preprocessing.pdf, page 16].\n11. Discard the data points that contain missing values [kdd_lec03_data_preprocessing.pdf, page 16].",
+      "prompt_tokens": 800,
+      "answer_tokens": 386,
+      "seconds": 5.85,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material, missing data values can be handled in several ways:\n\n1. Ignore the tuple: usually done when the class label is missing (for classification task) [kdd_lec03_data_preprocessing.pdf, page 10].\n2. Ignore the missing Value: by modifying the DM approaches to ignore missing values [kdd_lec03_data_preprocessing.pdf, page 10].\n3. Eliminate attributes that have missing values: This should be done with caution, since the eliminated attributes may be the ones that are critical to the analysis task [kdd_lec03_data_preprocessing.pdf, page 10].\n4. Fill in the missing value automatically with a global constant, a measure of central tendency, or the most probable value [kdd_lec03_data_preprocessing.pdf, page 12].\n5. Fill in the missing value manually [kdd_lec03_data_preprocessing.pdf, page 10].\n6. Convert the missing values to NaNs [kdd_lec03_data_preprocessing.pdf, page 14].\n7. Replace missing values with the median value of that column [kdd_lec03_data_preprocessing.pdf, page 16].\n8. Discard the data points that contain missing values [kdd_lec03_data_preprocessing.pdf, page 16].",
+      "prompt_tokens": 800,
+      "answer_tokens": 268,
+      "seconds": 4.06,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q06",
+   "kind": "narrow",
+   "lang": "en",
+   "question": "Which measures are used to choose the best split in a decision tree?",
+   "chunks": [
+    "[kdd_lec06_classifacation_1.pdf, page 16]",
+    "[kdd_lec06_classifacation_1.pdf, page 14]",
+    "[kdd_lec08_classifacation_3.pdf, page 47]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "The lecture material does not explicitly mention the measures used to choose the best split in a decision tree. However, it does mention that various algorithms have been developed to construct a reasonably accurate decision tree in a reasonable time, such as ID3, C4.5, CART, and SPRINT. \n\nIt is \"not found in the lecture material\".",
+      "prompt_tokens": 777,
+      "answer_tokens": 71,
+      "seconds": 1.34,
+      "seed": 42,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": false,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Not found in the lecture material.",
+      "prompt_tokens": 777,
+      "answer_tokens": 8,
+      "seconds": 0.15,
+      "seed": 43,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": false,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Not found in the lecture material.",
+      "prompt_tokens": 777,
+      "answer_tokens": 8,
+      "seconds": 0.15,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": false,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "The measures used to choose the best split in a decision tree are not explicitly mentioned in the provided context. However, it is mentioned that various algorithms have been developed to construct a reasonably accurate decision tree in a reasonable time, such as ID3, C4.5, CART, and SPRINT [kdd_lec06_classifacation_1.pdf, page 16].\n\n<<NOT_IN_MATERIAL>> The lecture material does not cover the specific measures used to choose the best split in a decision tree.",
+      "prompt_tokens": 793,
+      "answer_tokens": 103,
+      "seconds": 1.84,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": false,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material, the measures used to choose the best split in a decision tree are not explicitly mentioned in the provided context. However, it is mentioned that various algorithms have been developed to construct a reasonably accurate decision tree in a reasonable time, such as ID3, C4.5, CART, and SPRINT [kdd_lec06_classifacation_1.pdf, page 16].\n\nBut, in the context of Random Forests, it is mentioned that at each node in choosing the split feature, the algorithm creates bootstrap samples and chooses only among M features from the training data [kdd_lec08_classifacation_3.pdf, page 47]. \n\nHowever, the specific measures used to choose the best split in a decision tree are not explicitly mentioned in the provided context.",
+      "prompt_tokens": 793,
+      "answer_tokens": 165,
+      "seconds": 2.51,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material, the measures used to choose the best split in a decision tree are not explicitly mentioned. However, it is mentioned that various algorithms have been developed to construct a reasonably accurate decision tree, such as ID3, C4.5, CART, and SPRINT. \n\nBut, in the context of Random Forests, it is mentioned that at each node, the split feature is chosen from the training data, but the specific measures used for this choice are not specified. \n\nTherefore, the answer is: <<NOT_IN_MATERIAL>> The lecture material does not cover the specific measures used to choose the best split in a decision tree.",
+      "prompt_tokens": 793,
+      "answer_tokens": 132,
+      "seconds": 2.02,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": false,
+       "terms_hit": "0/1",
+       "terms_all": false,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q07",
+   "kind": "narrow",
+   "lang": "en",
+   "question": "What is the difference between bagging and boosting?",
+   "chunks": [
+    "[kdd_lec08_classifacation_3.pdf, page 35]",
+    "[kdd_lec08_classifacation_3.pdf, page 35]",
+    "[kdd_lec08_classifacation_3.pdf, page 30]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "Bagging and boosting are two ensemble learning methods. The main difference between them is how they combine the predictions of individual classifiers and how they handle the weights of each classifier's vote.\n\nBagging [kdd_lec08_classifacation_3.pdf, page 30] combines the predictions of individual classifiers using a majority vote, where each model gives an equally weighted prediction. On the other hand, boosting [kdd_lec08_classifacation_3.pdf, page 35] combines the votes of each individual classifier, where the weight of each classifier's vote is a function of its accuracy.\n\nAdditionally, bagging [kdd_lec08_classifacation_3.pdf, page 30] does not focus on any particular instance of the training data, making it less susceptible to model overfitting when applied to noisy data. Boosting, on the other hand, tends to have greater accuracy but risks overfitting the model to misclassified data [kdd_lec08_classifacation_3.pdf, page 35].",
+      "prompt_tokens": 722,
+      "answer_tokens": 215,
+      "seconds": 3.47,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material, the main difference between bagging and boosting is:\n\nBagging tends to be less susceptible to model overfitting when applied to noisy data, as it assigns equal weights to each prediction [kdd_lec08_classifacation_3.pdf, page 30]. On the other hand, Boosting tends to have greater accuracy but risks overfitting the model to misclassified data [kdd_lec08_classifacation_3.pdf, page 35].\n\nIn other words, bagging focuses on reducing overfitting by not focusing on any particular instance of the training data, whereas boosting focuses on improving accuracy but may lead to overfitting.",
+      "prompt_tokens": 722,
+      "answer_tokens": 140,
+      "seconds": 2.15,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "According to the lecture material, the main difference between bagging and boosting is:\n\nBagging tends to be less susceptible to model overfitting when applied to noisy data, whereas Boosting tends to have greater accuracy but also risks overfitting the model to misclassified data [kdd_lec08_classifacation_3.pdf, page 35].\n\nIn bagging, each model gives an equally weighted prediction, whereas in boosting, the weight of each classifier's vote is a function of its accuracy [kdd_lec08_classifacation_3.pdf, page 35].",
+      "prompt_tokens": 722,
+      "answer_tokens": 120,
+      "seconds": 1.84,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "Bagging and boosting are two ensemble learning methods. The main difference between them is how they combine the predictions of individual classifiers and how they handle the weights of each classifier's vote.\n\nBagging [kdd_lec08_classifacation_3.pdf, page 30] combines the predictions using a majority vote, where each model gives an equally weighted prediction. On the other hand, boosting [kdd_lec08_classifacation_3.pdf, page 35] combines the votes of each individual classifier, where the weight of each classifier's vote is a function of its accuracy.\n\nIn other words, bagging focuses on creating a diverse set of models and combining their predictions equally, while boosting focuses on creating a strong model by iteratively learning and combining the predictions of individual classifiers, with more weight given to the classifiers that have performed well on the training data.",
+      "prompt_tokens": 738,
+      "answer_tokens": 177,
+      "seconds": 2.89,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Bagging and boosting are two ensemble learning methods used to improve the accuracy of classification models. The main difference between them is how they combine the predictions of individual classifiers and how they handle the weights of each classifier's vote.\n\nBagging, as described in [kdd_lec08_classifacation_3.pdf, page 30], creates an ensemble of classification models where each model gives an equally weighted prediction. The final diagnosis is made based on a majority vote, and bagging is less susceptible to model overfitting when applied to noisy data.\n\nBoosting, on the other hand, as described in [kdd_lec08_classifacation_3.pdf, page 35], assigns weights to the value of each doctor's diagnosis, based on the accuracies of previous diagnoses they have made. The final diagnosis is then a combination of the weighted diagnoses. In boosting, weights are also assigned to each training tuple, and a series of classifiers is iteratively learned, with the weights updated after each classifier to allow the subsequent classifier to pay more attention to the training tuples that were misclassified by the previous classifier.\n\nIn summary, bagging gives equal weight to each classifier's vote, while boosting assigns weights based on the accuracy of each classifier. Boosting tends to have greater accuracy but risks overfitting the model to misclassified data.",
+      "prompt_tokens": 738,
+      "answer_tokens": 272,
+      "seconds": 4.15,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Bagging and boosting are two ensemble learning techniques used to improve the accuracy of classification models. The main difference between them is how they combine the predictions of individual classifiers and how they handle misclassified data.\n\nBagging, as described in [kdd_lec08_classifacation_3.pdf, page 30], creates an ensemble of classification models where each model gives an equally weighted prediction. The final diagnosis is made based on a majority vote. Bagging is less susceptible to model overfitting when applied to noisy data.\n\nBoosting, on the other hand, tends to have greater accuracy but risks overfitting the model to misclassified data [kdd_lec08_classifacation_3.pdf, page 35]. Boosting works by assigning weights to the value of each doctor's diagnosis, based on the accuracies of previous diagnoses they have made. The final diagnosis is then a combination of the weighted diagnoses. In boosting, weights are also assigned to each training tuple, and a series of classifiers is iteratively learned, with the weights updated after each classifier to allow the subsequent classifier to pay more attention to the training tuples that were misclassified by the previous classifier [kdd_lec08_classifacation_3.pdf, page 35].",
+      "prompt_tokens": 738,
+      "answer_tokens": 256,
+      "seconds": 3.91,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q08",
+   "kind": "broad",
+   "lang": "en",
+   "question": "Compare the main classification techniques covered in the lectures.",
+   "chunks": [
+    "[kdd_lec07_classifacation_2.pdf, page 1]",
+    "[kdd_lec01_Introduction.pdf, page 12]",
+    "[kdd_lec02_data.pdf, page 1]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "The main classification techniques covered in the lectures are:\n\n1. Bayes Classification Methods [kdd_lec07_classifacation_2.pdf, page 1]\n2. Nearest-neighbor [kdd_lec07_classifacation_2.pdf, page 1]\n3. Support Vector Machines [kdd_lec07_classifacation_2.pdf, page 1]\n4. Rule-Based Classification [kdd_lec07_classifacation_2.pdf, page 1]\n\nThese techniques are mentioned as part of the \"Basic Techniques For Data Classification\" in the lecture index [kdd_lec07_classifacation_2.pdf, page 1].",
+      "prompt_tokens": 744,
+      "answer_tokens": 142,
+      "seconds": 2.39,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The main classification techniques covered in the lectures are:\n\n1. Bayes Classification Methods [kdd_lec07_classifacation_2.pdf, page 1]\n2. Nearest-neighbor [kdd_lec07_classifacation_2.pdf, page 1]\n3. Support Vector Machines [kdd_lec07_classifacation_2.pdf, page 1]\n4. Rule-Based Classification [kdd_lec07_classifacation_2.pdf, page 1]\n\nThese techniques are listed under the \"Basic Techniques For Data Classification\" section in the lecture index.",
+      "prompt_tokens": 744,
+      "answer_tokens": 124,
+      "seconds": 1.9,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The main classification techniques covered in the lectures are:\n\n1. Bayes Classification Methods [kdd_lec07_classifacation_2.pdf, page 1]\n2. Nearest-neighbor [kdd_lec07_classifacation_2.pdf, page 1]\n3. Support Vector Machines [kdd_lec07_classifacation_2.pdf, page 1]\n4. Rule-Based Classification [kdd_lec07_classifacation_2.pdf, page 1]\n\nThese techniques are mentioned in the lecture index of Lecture-7: Classification (part-2) as the main classification techniques covered in the lectures.",
+      "prompt_tokens": 744,
+      "answer_tokens": 134,
+      "seconds": 2.04,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "The main classification techniques covered in the lectures are:\n\n1. Bayes Classification Methods [kdd_lec07_classifacation_2.pdf, page 1]\n2. Nearest-neighbor [kdd_lec07_classifacation_2.pdf, page 1]\n3. Support Vector Machines [kdd_lec07_classifacation_2.pdf, page 1]\n4. Rule-Based Classification [kdd_lec07_classifacation_2.pdf, page 1]\n\nThese techniques are discussed in the lecture notes under the section \"Basic Techniques For Data Classification\" [kdd_lec07_classifacation_2.pdf, page 1].",
+      "prompt_tokens": 760,
+      "answer_tokens": 141,
+      "seconds": 2.32,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The main classification techniques covered in the lectures are:\n\n1. Bayes Classification Methods [kdd_lec07_classifacation_2.pdf, page 1]\n2. Nearest-neighbor [kdd_lec07_classifacation_2.pdf, page 1]\n3. Support Vector Machines [kdd_lec07_classifacation_2.pdf, page 1]\n4. Rule-Based Classification [kdd_lec07_classifacation_2.pdf, page 1]\n\nThese techniques are discussed in the lecture notes under the section \"Basic Techniques For Data Classification\" [kdd_lec07_classifacation_2.pdf, page 1].",
+      "prompt_tokens": 760,
+      "answer_tokens": 141,
+      "seconds": 2.15,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     },
+     {
+      "answer": "The main classification techniques covered in the lectures are:\n\n1. Bayes Classification Methods [kdd_lec07_classifacation_2.pdf, page 1]\n2. Nearest-neighbor [kdd_lec07_classifacation_2.pdf, page 1]\n3. Support Vector Machines [kdd_lec07_classifacation_2.pdf, page 1]\n4. Rule-Based Classification [kdd_lec07_classifacation_2.pdf, page 1]\n\nThese techniques are listed under the \"Basic Techniques For Data Classification\" section in the lecture index.",
+      "prompt_tokens": 760,
+      "answer_tokens": 124,
+      "seconds": 1.89,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/2",
+       "terms_all": false,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q09",
+   "kind": "broad",
+   "lang": "en",
+   "question": "Give me an overview of what data preprocessing involves.",
+   "chunks": [
+    "[kdd_lec03_data_preprocessing.pdf, page 8]",
+    "[kdd_lec03_data_preprocessing.pdf, page 9]",
+    "[kdd_lec03_data_preprocessing.pdf, page 7]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "Data preprocessing involves several major tasks to transform raw data into a suitable format for analysis. These tasks include:\n\n1. Data cleaning: This involves filling in missing values, smoothing noisy data, identifying or removing outliers, and resolving inconsistencies.\n2. Data integration: This involves integrating multiple data sources, which can cause inconsistencies and redundancies.\n3. Data reduction: This obtains a reduced representation of the data in volume, but produces the same or similar analytical results.\n4. Data transformation: This involves normalization, data discretization, and other techniques to transform the data into a more suitable format for analysis.\n\nThese tasks are necessary to handle the \"dirty\" real-world data that is often inaccurate, noisy, incomplete, or inconsistent, making it difficult to analyze using data mining techniques.",
+      "prompt_tokens": 703,
+      "answer_tokens": 155,
+      "seconds": 2.52,
+      "seed": 42,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Data preprocessing involves several major tasks to transform raw data into a clean and usable format for analysis. These tasks include:\n\n1. Data cleaning: This involves filling in missing values, smoothing noisy data, identifying or removing outliers, and resolving inconsistencies.\n2. Data integration: This involves integrating multiple data sources, which may cause inconsistencies and redundancies.\n3. Data reduction: This involves obtaining a reduced representation of the data in volume, but producing the same or similar analytical results.\n4. Data transformation: This involves transforming the data into a more suitable format for analysis, including normalization and data discretization.\n\nThese tasks are necessary to handle the \"dirty\" nature of real-world data, which is often inaccurate, noisy, incomplete, or inconsistent.",
+      "prompt_tokens": 703,
+      "answer_tokens": 148,
+      "seconds": 2.25,
+      "seed": 43,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Data preprocessing involves several major tasks to transform raw data into a clean and usable format for analysis. These tasks include:\n\n1. Data cleaning: This involves filling in missing values, smoothing noisy data, identifying or removing outliers, and resolving inconsistencies.\n2. Data integration: This involves integrating multiple data sources, which can cause inconsistencies and redundancies.\n3. Data reduction: This involves obtaining a reduced representation of the data in volume, while producing the same or similar analytical results.\n4. Data transformation: This involves transforming the data into a more suitable format for analysis, including normalization and data discretization.\n\nThese tasks are essential to ensure that the data is accurate, complete, and consistent, and can be used effectively for data mining and analysis.",
+      "prompt_tokens": 703,
+      "answer_tokens": 148,
+      "seconds": 2.25,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "Data preprocessing involves several major tasks to transform raw data into a clean and suitable format for analysis. These tasks include [kdd_lec03_data_preprocessing.pdf, page 8] data cleaning, data integration, data reduction, and data transformation. Data cleaning involves filling in missing values, smoothing noisy data, identifying or removing outliers, and resolving inconsistencies [kdd_lec03_data_preprocessing.pdf, page 9]. Data integration involves combining multiple data sources, which can cause inconsistencies and redundancies. Data reduction aims to obtain a reduced representation of the data in volume while producing the same or similar analytical results. Data transformation involves normalization, data discretization, and other techniques to transform the data into a suitable format for analysis.",
+      "prompt_tokens": 719,
+      "answer_tokens": 147,
+      "seconds": 2.4,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Data preprocessing involves several major tasks to transform raw data into a clean and consistent format suitable for analysis. These tasks include:\n\n1. Data cleaning: This involves filling in missing values, smoothing noisy data, identifying or removing outliers, and resolving inconsistencies [kdd_lec03_data_preprocessing.pdf, page 9].\n2. Data integration: This involves integrating multiple data sources, which can cause inconsistencies and redundancies [kdd_lec03_data_preprocessing.pdf, page 9].\n3. Data reduction: This obtains a reduced representation in volume but produces the same or similar analytical results [kdd_lec03_data_preprocessing.pdf, page 9].\n4. Data transformation: This includes normalization and data discretization, among other techniques [kdd_lec03_data_preprocessing.pdf, page 9].\n\nThese tasks aim to address the issues of dirty data, including inaccuracies, noise, incompleteness, and inconsistencies, to prepare the data for analysis by data mining techniques [kdd_lec03_data_preprocessing.pdf, page 8].",
+      "prompt_tokens": 719,
+      "answer_tokens": 213,
+      "seconds": 3.22,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Data preprocessing involves several major tasks to transform raw data into a clean and usable format for analysis. These tasks include:\n\n1. Data cleaning: This involves filling in missing values, smoothing noisy data, identifying or removing outliers, and resolving inconsistencies.\n2. Data integration: This involves integrating multiple data sources, which can cause inconsistencies and redundancies.\n3. Data reduction: This obtains a reduced representation of the data in volume, but produces the same or similar analytical results.\n4. Data transformation: This involves normalization, data discretization, and other techniques to transform the data into a suitable format for analysis.\n\nThese tasks aim to address the common issues found in real-world data, such as inaccuracies, noise, incompleteness, and inconsistencies, to ensure that the data is reliable and suitable for data mining techniques. [kdd_lec03_data_preprocessing.pdf, page 8]",
+      "prompt_tokens": 719,
+      "answer_tokens": 178,
+      "seconds": 2.71,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q10",
+   "kind": "narrow",
+   "lang": "ar",
+   "question": "ما هي طرق معالجة البيانات الناقصة؟",
+   "chunks": [
+    "[kdd_lec03_data_preprocessing.pdf, page 12]",
+    "[kdd_lec03_data_preprocessing.pdf, page 14]",
+    "[kdd_lec03_data_preprocessing.pdf, page 15]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "هناك عدة طرق لتعامل مع البيانات الناقصة، ومنها:\n\n1. تعيين قيمة ثابتة عالمية مثل \"غير معروف\".\n2. استخدام قياس المركزية مثل المتوسط أو الوسط أو النمط.\n3. استخدام قياس المركزية لكل عينة تعود إلى نفس الفئة.\n4. تعيين القيمة الأكثر احتمالاً باستخدام تقنيات مثل التحليل العاملي أو القرار الشجري.\n5. تعريف قواعد لتحديد ما إذا كانت القيم الناقصة مسموح بها أو لا، وإن كانت مسموح بها فكيفية التعامل معها.\n\n[كتاب دروس كي دي دي، صفحة 12]",
+      "prompt_tokens": 810,
+      "answer_tokens": 156,
+      "seconds": 2.6,
+      "seed": 42,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "هناك طرق عديدة لتعامل مع البيانات الناقصة، ومنها:\n\n1. تعيين قيمة ثابتة عالمية، مثل \"غير معروف\".\n2. استخدام قياس المركزية مثل المتوسط أو الوسط أو النمط.\n3. استخدام قياس المركزية للجميع عينات التابعة للفئة نفسها.\n4. تعيين القيمة الأكثر احتمالاً، والتي يمكن تحديدها باستخدام الاستدلال أو الشجرة القرارية، إلخ.\n\nكما يمكن استخدام قواعد لتحديد ما إذا كانت القيم الناقصة مسموحة أو لا، وكيفية التعامل معها.\n\n[كتاب دروس كي دي دي، صفحة 12]",
+      "prompt_tokens": 810,
+      "answer_tokens": 157,
+      "seconds": 2.41,
+      "seed": 43,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "هناك طرق عديدة لتعامل مع البيانات الناقصة، ومنها:\n\n1. تعيين قيمة ثابتة عالمية، مثل \"غير معروف\".\n2. استخدام قياس وسطي للجسم، مثل المتوسط أو الوسط أو النمط.\n3. استخدام قياس وسطي للجسم لكل مجموعة من البيانات.\n4. تعيين القيمة الأكثر احتمالاً، التي يمكن تحديدها باستخدام التحليل الإحصائي أو القرارات الغير محددة.\n\nكما يُظهر المثال في الصفحة 16 من المادة التعليمية، يمكن استبدال القيم الناقصة في عمود \"Bare Nuclei\" بالمتوسط الحسابي لذلك العمود، أو يمكن إسقاط البيانات الناقصة عن طريق تطبيق الدالة dropna() على الإطار البياني.",
+      "prompt_tokens": 810,
+      "answer_tokens": 182,
+      "seconds": 2.78,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "هناك عدة طرق لتعامل مع البيانات الناقصة، ومنها:\n- تعيين قيمة ثابتة عالمية مثل \"مجهول\".\n- استخدام قياس المركزية مثل المتوسط أو الوسط أو النمط.\n- استخدام قيمة محددة حسب الفئة.\n- استخدام القيمة الأكثر احتمالاً، والتي يمكن تحديدها باستخدام تقنيات مثل التحليل الإحصائي أو الخريطة القرار.\n- تعريف قواعد لتحديد ما إذا كانت القيم الناقصة مسموح بها أو لا، وكيفية التعامل معها.\n\n[كتاب دروس كيد، صفحة 12]",
+      "prompt_tokens": 826,
+      "answer_tokens": 143,
+      "seconds": 2.38,
+      "seed": 42,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "هناك طرق عديدة لتعامل مع البيانات الناقصة، ومنها:\n- تعيين قيمة ثابتة عالمية مثل \"غير معروف\".\n- استخدام قياس التباين المركزي للصفة، مثل المتوسط أو الوسط أو النمط.\n- استخدام قيمة محددة من التباين المركزي لكل مجموعة من البيانات.\n- تعيين القيمة الأكثر احتمالاً، والتي يمكن تحديدها باستخدام تقنيات مثل التحليل الإحصائي أو الأشجار القرارية.\n\n[كتاب دروس الكشف عن المعرفة، صفحة 12]",
+      "prompt_tokens": 826,
+      "answer_tokens": 131,
+      "seconds": 2.0,
+      "seed": 43,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "هناك طرق عديدة لتعامل مع البيانات الناقصة، ومنها:\n- تعيين قيمة ثابتة عالمية، مثل \"غير معروف\".\n- استخدام قياس التendency المركزية للسمة، مثل المتوسط أو الوسط أو النمط.\n- استخدام قياس التendency المركزية لجميع عينات التصنيف نفسه.\n- تعيين القيمة الأكثر احتمالاً باستخدام تقنيات مثل الانحدار أو القرار.\n- تعيين قواعد لتحديد ما إذا كان يجب السماح بالقيم الناقصة أو التعامل معها بشكل معين.\n\n[كتاب دروس كيد، صفحة 12]",
+      "prompt_tokens": 826,
+      "answer_tokens": 143,
+      "seconds": 2.18,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q11",
+   "kind": "narrow",
+   "lang": "ar",
+   "question": "كيف تعمل خوارزمية k-means؟",
+   "chunks": [
+    "[kdd_lec09_cluster_analyis.pdf, page 32]",
+    "[kdd_lec09_cluster_analyis.pdf, page 40]",
+    "[kdd_lec09_cluster_analyis.pdf, page 33]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "خوارزمية k-means هي خوارزمية تصنيفية تعمل على تقسيم مجموعة من البيانات إلى كلاسترات (مجموعات) منفصلة. تعمل الخوارزمية على تحديد مركزي لكل كلاستر، والذي يُعرف بالمركز (centroid) أو الوسيط (mean) للكلاستر.\n\nفي البداية، يتم اختيار عدد الكلاسترات (k) بشكل يدوي، ثم يتم اختيار مراكز الكلاسترات بشكل عشوائي. بعد ذلك، يتم تخصيص كل بياناتة إلى الكلاستر الذي يحتوي على المركز الأقرب إليه. ثم يتم تحديث مراكز الكلاسترات بشكل دوري حتى يصل الخوارزمية إلى حالة الاستقرار، حيث لا يزال المراكز نفسها.\n\n[كتاب دروس KDD, صفحة 32]",
+      "prompt_tokens": 706,
+      "answer_tokens": 194,
+      "seconds": 3.14,
+      "seed": 42,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "خوارزمية k-means هي خوارزمية تُستخدم في تحليل المجموعات. تعمل على تقسيم مجموعة من البيانات إلى كتل (clusters) من عدد معين من العناصر (k). تعمل الخوارزمية على التالي:\n\n1. تحديد نقطة بداية (centroid) لكل مجموعة من المجموعات.\n2. تخصيص كل عنصر من العناصر إلى المجموعة التي تتوافق معها أكثر.\n3. تحديث نقطة البداية لكل مجموعة من المجموعات.\n4. تكرار الخطوات السابقة حتى يصل إلى نقطة استقرار.\n\n[كد_ل_lec09_مجموعات_تحليل.pdf, صفحة 32]",
+      "prompt_tokens": 706,
+      "answer_tokens": 158,
+      "seconds": 2.41,
+      "seed": 43,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "خوارزمية k-means هي خوارزمية تجميعية تعمل على تقسيم مجموعة من البيانات إلى كتل (clusters) منفصلة. تعمل الخوارزمية على تحديد مركزي كل كتلة (centroid) وتمثيلها بمتوسط القيم الموجودة في الكتلة. \n\nتعمل الخوارزمية على التالي:\n1- تحديد المراكز (centroids) للكتل (clusters) الأولية.\n2- تخصيص كل بياناتة إلى الكتلة التي تتوافق معها أكثر.\n3- تحديث المراكز (centroids) للكتل (clusters) باستخدام المتوسطات الجديدة.\n4- التكرار من الخطوات 2 و3 حتى تصل إلى الاستقرار.\n\n[كتاب دروس, صفحة 32]",
+      "prompt_tokens": 706,
+      "answer_tokens": 181,
+      "seconds": 2.76,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "تعتمد خوارزمية k-means على تحديد عدد القطع (k) في advance، ثم تحديد نقطة مرجعية (mean) لكل قطعة من خلال حساب المتوسط الحسابي للخصائص النمطية للعناصر الموجودة في القطعة. \n\n[kdd_lec09_cluster_analyis.pdf, page 32]",
+      "prompt_tokens": 722,
+      "answer_tokens": 80,
+      "seconds": 1.4,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "خوارزمية k-means هي خوارزمية تجمع البيانات في مجموعات (clusters) بناءً على تشابهها. تعمل على التالي: \n\n1. تحديد عدد المجموعات (k) التي تريد أن تجمع البيانات فيها.\n2. اختيار نقطة مرجعية (centroid) للكلaster الأول بشكل عشوائي.\n3. تخصيص كل البيانات إلى الكلاستر الذي يحتوي على نقطة مرجعية أقرب له.\n4. تحديث نقطة المرجعية للكلستر الذي تحتوي عليه البيانات المخصصة له.\n5. استمرار الخطوات 3 و 4 حتى تصل إلى عدد التكرار المحدد (t).\n\n[كد_ل_ك_09_م_ن_ل_ن_س_ف_ب_د_ف, صفحة 32]",
+      "prompt_tokens": 722,
+      "answer_tokens": 189,
+      "seconds": 2.87,
+      "seed": 43,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "خوارزمية k-means هي خوارزمية تجميعية تعمل على تقسيم مجموعة من البيانات إلى كتل (clusters) منفصلة، وتتميز بفعاليتها وسرعتها في التعامل مع البيانات الضخمة. تعمل الخوارزمية على تحديد مراكز الكتل (centroids) من خلال حساب متوسط القيم للخصائص (attributes) في كل كتلة، ثم تُستخدم هذه المراكز لتحديد الأعضاء في كل كتلة.\n\n[كتاب دروس KDD, صفحة 32]",
+      "prompt_tokens": 722,
+      "answer_tokens": 129,
+      "seconds": 1.96,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q12",
+   "kind": "narrow",
+   "lang": "ar",
+   "question": "ما هو تعريف الثقة في قواعد الارتباط؟",
+   "chunks": [
+    "[kdd_lec04_association_rule.pdf, page 12]",
+    "[kdd_lec04_association_rule.pdf, page 15]",
+    "[kdd_lec04_association_rule.pdf, page 43]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "التعريف هو: الثقة هي مؤشر يقيّم ثقة الاستنتاج الذي يقدمه القاعدة، ويقاس عبر النسبة المئوية للمشتريات التي تحتوي على X و أيضًا تحتوي على Y [kdd_lec04_association_rule.pdf, page 15].",
+      "prompt_tokens": 1124,
+      "answer_tokens": 64,
+      "seconds": 1.02,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف هو: الثقة هي مؤشر يقيّم مدى ثقة قاعدة الارتباط في أن يحدث الناتج (consequent) إذا حدث المسبق (antecedent). [kdd_lec04_association_rule.pdf, page 15]",
+      "prompt_tokens": 1124,
+      "answer_tokens": 60,
+      "seconds": 0.94,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف هو: الثقة هي نسبة transactions containing 𝐗 في D التي أيضا تحتوي على 𝐘. [kdd_lec04_association_rule.pdf, page 15]",
+      "prompt_tokens": 1124,
+      "answer_tokens": 41,
+      "seconds": 0.65,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": false,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "التعريف: الثقة في قواعد الارتباط هي نسبة transactions containing X في D التي أيضا تحتوي على Y [kdd_lec04_association_rule.pdf, page 15].",
+      "prompt_tokens": 1140,
+      "answer_tokens": 42,
+      "seconds": 0.97,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": false,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف: الثقة في قواعد الارتباط هي مؤشر على مدى ثقة الناتج في أن يحدث الاقتران بين العناصر المذكورة في القاعدة. [kdd_lec04_association_rule.pdf, page 15]\n\nالمواصفات: الثقة تعبر عن نسبة transactions تحتوي على X و أيضا تحتوي على Y. [kdd_lec04_association_rule.pdf, page 15]\n\nمثال: الثقة في القاعدة (مilk, diaper) → butter هي 67%، مما يعني أن 67% من المشترين الذين اشتروا الحليب والطفل أيضا اشتروا الزبدة. [kdd_lec04_association_rule.pdf, page 15]",
+      "prompt_tokens": 1140,
+      "answer_tokens": 162,
+      "seconds": 2.49,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "التعريف: الثقة هي مؤشر يقيّم ثقة الاستنتاج الذي يقدمه القاعدة، ويقيس مدى ثقة القاعدة في أن الحدث الثاني يحدث عندما يحدث الحدث الأول. [kdd_lec04_association_rule.pdf, page 15]",
+      "prompt_tokens": 1140,
+      "answer_tokens": 62,
+      "seconds": 0.98,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q13",
+   "kind": "broad",
+   "lang": "ar",
+   "question": "اشرح لي تقنيات التصنيف المذكورة في المحاضرات.",
+   "chunks": [
+    "[kdd_lec02_data.pdf, page 1]",
+    "[kdd_lec06_classifacation_1.pdf, page 1]",
+    "[kdd_lec05_regression.pdf, page 1]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "حسناً. تقنيات التصنيف المذكورة في المحاضرات هي:\n\n* التصنيف (Classification) [kdd_lec06_classifacation_1.pdf, page 1]\n* التصنيف هو عملية تحديد الفئة أو الفئة التي ينتمي إليها عنصر من عناصر البيانات بناءً على خصائصها [kdd_lec06_classifacation_1.pdf, page 1].\n\nهذه هي التقنية الأساسية للتصنيف، وستتناول في المحاضرات القادمة تفاصيل أكثر عن هذه التقنية.",
+      "prompt_tokens": 843,
+      "answer_tokens": 131,
+      "seconds": 2.08,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد، سأشرح لك تقنيات التصنيف المذكورة في المحاضرات.\n\nالتقنيات المذكورة في المحاضرات هي:\n\n1. **تصنيف**: يُعد تصنيف أحد أهم مهام علم البيانات، حيث يتم استخدامها لتحديد فئة أو نوع من البيانات. [kdd_lec06_classifacation_1.pdf, page 1]\n2. **تصنيف متعدد**: يُستخدم تصنيف متعدد لتحديد فئات متعددة من البيانات. [kdd_lec06_classifacation_1.pdf, page 1]\n3. **تصنيف غير خطي**: يُستخدم تصنيف غير خطي لتحديد فئات غير خطية من البيانات. [kdd_lec06_classifacation_1.pdf, page 1]\n\nهذه هي التقنيات الأساسية المذكورة في المحاضرات. إذا كنت ترغب في مزيد من التفاصيل، يُرجى الإشارة إلى المحاضرة المحددة.",
+      "prompt_tokens": 843,
+      "answer_tokens": 237,
+      "seconds": 3.59,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد. تقنيات التصنيف المذكورة في المحاضرات هي:\n\n* تصنيف (Classification) [kdd_lec06_classifacation_1.pdf, page 1]\n* تصنيف هو عملية تحديد الفئة أو التصنيف الذي ينتمي إليه عنصر من عناصر البيانات بناءً على خصائصها [kdd_lec06_classifacation_1.pdf, page 1].\n\nهذه هي التكنيكات المذكورة في المحاضرات.",
+      "prompt_tokens": 843,
+      "answer_tokens": 115,
+      "seconds": 1.75,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "حسناً. تقنيات التصنيف المذكورة في المحاضرات هي:\n\n*   التصنيف (Classification) [kdd_lec06_classifacation_1.pdf, page 1]\n*   التصنيف هو عملية تحديد الفئة أو الفئة التي ينتمي إليها عنصر من عناصر البيانات [kdd_lec06_classifacation_1.pdf, page 1].\n*   يتم استخدام التصنيف في العديد من التطبيقات مثل تحديد الفئة التي ينتمي إليها مستخدم على الإنترنت [kdd_lec06_classifacation_1.pdf, page 1].\n\nهذه هي تقنيات التصنيف المذكورة في المحاضرات.",
+      "prompt_tokens": 859,
+      "answer_tokens": 158,
+      "seconds": 2.69,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد، سأشرح لك تقنيات التصنيف المذكورة في المحاضرات.\n\nالتقنيات المذكورة في المحاضرات هي:\n\n1. **تصنيف**: يُعد تصنيف أحد أهم تقنيات التعلم الآلي، ويهدف إلى تصنيف البيانات إلى فئات أو تصنيفات مختلفة. [kdd_lec06_classifacation_1.pdf, page 1]\n2. **التصنيف الدقيق**: يُعد تصنيف الدقة تقنية تصنيف تعتمد على استخدام تقنيات التعلم الآلي لتحسين دقة التصنيف. [kdd_lec06_classifacation_1.pdf, page 3]\n3. **التصنيف غير الدقيق**: يُعد تصنيف غير الدقيق تقنية تصنيف تعتمد على استخدام تقنيات التعلم الآلي لتحسين سرعة التصنيف. [kdd_lec06_classifacation_1.pdf, page 4]\n\nهذه هي التقنيات الرئيسية المذكورة في المحاضرات.",
+      "prompt_tokens": 859,
+      "answer_tokens": 245,
+      "seconds": 3.73,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "حسناً. تقنيات التصنيف المذكورة في المحاضرات هي:\n\n* تصنيف بالاستفادة من البيانات الموجودة في المحاضرة [kdd_lec06_classifacation_1.pdf, page 1]، حيث يتم استخدام تصنيف بالاستفادة من البيانات لتحديد الفئات أو التصنيفات.\n* تصنيف بالاستفادة من النماذج الرياضية المذكورة في المحاضرة [kdd_lec05_regression.pdf, page 1]، حيث يتم استخدام النماذج الرياضية لتحديد الفئات أو التصنيفات.\n\nومن الملاحظ أن المحاضرة لا تذكر تقنيات تصنيف أخرى.",
+      "prompt_tokens": 859,
+      "answer_tokens": 162,
+      "seconds": 2.46,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q14",
+   "kind": "narrow",
+   "lang": "en",
+   "question": "How does Cristian's algorithm synchronize clocks?",
+   "chunks": [
+    "[ds_lec04_time.pdf, page 9]",
+    "[ds_lec04_time.pdf, page 16]",
+    "[ds_lec04_time.pdf, page 13]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "Cristian's algorithm synchronizes clocks by using a time server to synchronize computers externally. The time server is used to estimate the slaves' clocks by round-trip time, and then the master averages the slaves' clock values, including its own clock's reading, to cancel out the individual clock's tendencies to run fast or slow [ds_lec04_time.pdf, page 14].",
+      "prompt_tokens": 754,
+      "answer_tokens": 79,
+      "seconds": 1.45,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Cristian's algorithm synchronizes clocks by using a time server to synchronize computers externally. The time server is used to estimate the slaves' clocks by round-trip time, and then the master averages the slaves' clock values, including its own clock's reading, to cancel out the individual clock's tendencies to run fast or slow [ds_lec04_time.pdf, page 14].",
+      "prompt_tokens": 754,
+      "answer_tokens": 79,
+      "seconds": 1.22,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Cristian's algorithm synchronizes clocks by using a time server to synchronize computers externally. The time server is used to estimate the slaves' clocks by round-trip time [ds_lec04_time.pdf, page 14].",
+      "prompt_tokens": 754,
+      "answer_tokens": 47,
+      "seconds": 0.73,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "Cristian's algorithm synchronizes clocks by using a time server to synchronize computers externally, where the round-trip time is short compared with the required accuracy [ds_lec04_time.pdf, page 14].",
+      "prompt_tokens": 770,
+      "answer_tokens": 44,
+      "seconds": 0.87,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Cristian's algorithm synchronizes clocks by using a time server to synchronize computers externally, where the round-trip time is short compared with the required accuracy [ds_lec04_time.pdf, page 14].",
+      "prompt_tokens": 770,
+      "answer_tokens": 44,
+      "seconds": 0.69,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Cristian's algorithm synchronizes clocks by using a time server to synchronize computers externally, where the round-trip time is short compared with the required accuracy [ds_lec04_time.pdf, page 14].",
+      "prompt_tokens": 770,
+      "answer_tokens": 44,
+      "seconds": 0.69,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q15",
+   "kind": "broad",
+   "lang": "en",
+   "question": "What is middleware and what services does it provide?",
+   "chunks": [
+    "[ds_lec03_distributed_objects.pdf, page 6]",
+    "[ds_lec03_distributed_objects.pdf, page 9]",
+    "[ds_lec03_distributed_objects.pdf, page 7]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "Middleware is software that provides a programming model above the basic building blocks of processes and message passing [ds_lec03_distributed_objects.pdf, page 6]. It uses protocols based on messages between processes to provide higher-level abstractions such as remote invocation and events [ds_lec03_distributed_objects.pdf, page 6]. Middleware provides several services, including:\n\n1. Location transparency: allowing clients to call procedures/methods without knowledge of their location [ds_lec03_distributed_objects.pdf, page 8].\n2. Transport protocol transparency: enabling the use of different transport protocols, such as UDP or TCP, for request/reply protocols [ds_lec03_distributed_objects.pdf, page 8].\n3. Transparency of computer hardware: hiding differences due to hardware architectures, such as byte ordering [ds_lec03_distributed_objects.pdf, page 9].\n4. Transparency of operating system: providing independency of the underlying operating system [ds_lec03_distributed_objects.pdf, page 9].\n5. Transparency of programming language: allowing distributed applications to use more than one programming language, such as CORBA using an Interface Definition Language (IDL) to define interfaces [ds_lec03_distributed_objects.pdf, page 9].",
+      "prompt_tokens": 768,
+      "answer_tokens": 252,
+      "seconds": 3.85,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Middleware is software that provides a programming model above the basic building blocks of processes and message passing [ds_lec03_distributed_objects.pdf, page 6]. It uses protocols based on messages between processes to provide higher-level abstractions such as remote invocation and events [ds_lec03_distributed_objects.pdf, page 6].\n\nMiddleware provides several services, including:\n\n* Location transparency: allowing clients to call procedures/methods without knowledge of their location [ds_lec03_distributed_objects.pdf, page 8].\n* Transport protocol transparency: allowing the use of different transport protocols, such as UDP or TCP, for request/reply protocols [ds_lec03_distributed_objects.pdf, page 8].\n* Transparency of computer hardware: hiding differences due to hardware architectures, such as byte ordering [ds_lec03_distributed_objects.pdf, page 9].\n* Transparency of operating system: providing independency of the underlying operating system [ds_lec03_distributed_objects.pdf, page 9].\n* Transparency of programming language: allowing distributed applications to use more than one programming language, such as CORBA using an Interface Definition Language (IDL) to define interfaces [ds_lec03_distributed_objects.pdf, page 9].",
+      "prompt_tokens": 768,
+      "answer_tokens": 247,
+      "seconds": 3.74,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Middleware is software that provides a programming model above the basic building blocks of processes and message passing [ds_lec03_distributed_objects.pdf, page 6]. It uses protocols based on messages between processes to provide higher-level abstractions such as remote invocation and events [ds_lec03_distributed_objects.pdf, page 6]. Middleware provides several services, including:\n\n1. Location transparency: allowing clients to call procedures/methods without knowledge of their location [ds_lec03_distributed_objects.pdf, page 8].\n2. Transport protocol transparency: allowing the use of different transport protocols, such as UDP or TCP, for request/reply protocols [ds_lec03_distributed_objects.pdf, page 8].\n3. Transparency of computer hardware: hiding differences due to hardware architectures, such as byte ordering [ds_lec03_distributed_objects.pdf, page 9].\n4. Transparency of operating system: providing independency of the underlying operating system [ds_lec03_distributed_objects.pdf, page 9].\n5. Transparency of programming language: allowing distributed applications to use more than one programming language, such as CORBA using an Interface Definition Language (IDL) to define interfaces [ds_lec03_distributed_objects.pdf, page 9].",
+      "prompt_tokens": 768,
+      "answer_tokens": 252,
+      "seconds": 3.81,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "Middleware is software that provides a programming model above the basic building blocks of processes and message passing [ds_lec03_distributed_objects.pdf, page 6]. It provides several services, including:\n\n* Location transparency: allowing clients to call procedures/methods without knowledge of their location [ds_lec03_distributed_objects.pdf, page 8].\n* Transport protocol transparency: allowing the use of different transport protocols, such as UDP or TCP, for request/reply protocols [ds_lec03_distributed_objects.pdf, page 8].\n* Transparency of computer hardware: hiding differences due to hardware architectures, such as byte ordering [ds_lec03_distributed_objects.pdf, page 9].\n* Transparency of operating system: providing independency of the underlying operating system [ds_lec03_distributed_objects.pdf, page 9].\n* Transparency of programming language: allowing distributed applications to use more than one programming language, such as CORBA using an Interface Definition Language (IDL) to define interfaces [ds_lec03_distributed_objects.pdf, page 9].",
+      "prompt_tokens": 784,
+      "answer_tokens": 213,
+      "seconds": 3.41,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Middleware is software that provides a programming model above the basic building blocks of processes and message passing [ds_lec03_distributed_objects.pdf, page 6]. It provides several services, including:\n\n1. Location transparency: allowing clients to call procedures/methods without knowledge of their location [ds_lec03_distributed_objects.pdf, page 8].\n2. Transport protocol transparency: enabling the use of different transport protocols, such as request/reply protocol using either UDP or TCP [ds_lec03_distributed_objects.pdf, page 8].\n3. Marshalling and external data representation: converting data into a format that can be transmitted over a network [ds_lec03_distributed_objects.pdf, page 7].\n4. Independence from the details of communication protocols, OS, and computer HW [ds_lec03_distributed_objects.pdf, page 6].\n5. Independence from programming languages: allowing distributed applications to use multiple programming languages, such as CORBA using an Interface Definition Language (IDL) to define interfaces [ds_lec03_distributed_objects.pdf, page 9].",
+      "prompt_tokens": 784,
+      "answer_tokens": 219,
+      "seconds": 3.32,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Middleware is software that provides a programming model above the basic building blocks of processes and message passing [ds_lec03_distributed_objects.pdf, page 6]. It provides several services, including:\n\n* Location transparency: allowing clients to call procedures/methods without knowledge of their location [ds_lec03_distributed_objects.pdf, page 8].\n* Transport protocol transparency: allowing the use of different protocols, such as request/reply protocol using either UDP or TCP [ds_lec03_distributed_objects.pdf, page 8].\n* Transparency of computer hardware: hiding differences due to hardware architectures, such as byte ordering [ds_lec03_distributed_objects.pdf, page 9].\n* Transparency of operating system: providing independency of the underlying operating system [ds_lec03_distributed_objects.pdf, page 9].\n* Transparency of programming language: allowing distributed applications to use more than one programming language [ds_lec03_distributed_objects.pdf, page 9].\n\nMiddleware also provides higher-level abstractions such as remote invocation and events, and uses protocols based on messages between processes [ds_lec03_distributed_objects.pdf, page 6].",
+      "prompt_tokens": 784,
+      "answer_tokens": 232,
+      "seconds": 3.51,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q16",
+   "kind": "narrow",
+   "lang": "ar",
+   "question": "ما هي الشفافية في الأنظمة الموزعة؟",
+   "chunks": [
+    "[ds_lec01_characterization.pdf, page 19]",
+    "[ds_lec03_distributed_objects.pdf, page 9]",
+    "[ds_lec01_characterization.pdf, page 21]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "الشفافية في الأنظمة الموزعة هي إخفاء التمييز بين المكونات في النظام الموزع من المستخدم والمبرمج. [ds_lec01_characterization.pdf, page 19]",
+      "prompt_tokens": 711,
+      "answer_tokens": 46,
+      "seconds": 0.79,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "الشفافية في الأنظمة الموزعة هي إخفاء الفصل بين المكونات في النظام الموزع من المستخدم والمبرمج. [ds_lec01_characterization.pdf, page 19]",
+      "prompt_tokens": 711,
+      "answer_tokens": 45,
+      "seconds": 0.7,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "الشفافية في الأنظمة الموزعة هي إخفاء التمايز بين المكونات في النظام الموزع من المستخدم والمبرمج. [ds_lec01_characterization.pdf, page 19]\n\nوتشمل الشفافية إخفاء التمايز بسبب الأجهزة hardware [ds_lec03_distributed_objects.pdf, page 9]، والإخفاء من التمايز بسبب نظام التشغيل [ds_lec03_distributed_objects.pdf, page 9]، والإخفاء من التمايز بسبب اللغة البرمجية [ds_lec03_distributed_objects.pdf, page 9].\n\nكما تشمل الشفافية ثلاثة أنواع رئيسية: شفافية التكرار، وشفافية الفشل، وشفافية السلوك. [ds_lec01_characterization.pdf, page 21]\n\n* شفافية التكرار: تمكين استخدام عدة Instances من الموارد لزيادة الثقة والصلاحية دون علم المستخدم أو المبرمج بالتكرارات.\n* شفافية الفشل: تمكين إخفاء الأخطاء، مما يسمح للمستخدم والمبرمج بإكمال مهامهم رغم فشل مكونات hardware أو software.\n* شفافية السلوك: تمكين حركة الموارد والعملاء داخل النظام دون تأثير على عمل المستخدم أو البرنامج. [ds_lec01_characterization.pdf, page 21]",
+      "prompt_tokens": 711,
+      "answer_tokens": 308,
+      "seconds": 4.64,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "الشفافية في الأنظمة الموزعة هي إخفاء التمييز بين المكونات في النظام الموزع من المستخدم والمبرمج. [ds_lec01_characterization.pdf, page 19]",
+      "prompt_tokens": 727,
+      "answer_tokens": 46,
+      "seconds": 0.89,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "الشفافية في الأنظمة الموزعة هي إخفاء الفرق بين المكونات المستقلة في النظام الموزع من المستخدم والمبرمج. [ds_lec01_characterization.pdf, page 19]",
+      "prompt_tokens": 727,
+      "answer_tokens": 48,
+      "seconds": 0.75,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "الشفافية في الأنظمة الموزعة هي إخفاء التمايز بين المكونات في النظام الموزع من المستخدم والمبرمج. [ds_lec01_characterization.pdf, page 19]",
+      "prompt_tokens": 727,
+      "answer_tokens": 47,
+      "seconds": 0.73,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q17",
+   "kind": "unanswerable",
+   "lang": "en",
+   "question": "Who won the football World Cup in 2018?",
+   "chunks": [
+    "[kdd_lec02_data.pdf, page 24]",
+    "[kdd_lec05_regression.pdf, page 5]",
+    "[kdd_lec01_Introduction.pdf, page 25]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "Not found in the lecture material.",
+      "prompt_tokens": 640,
+      "answer_tokens": 8,
+      "seconds": 0.32,
+      "seed": 42,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": true,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Not found in the lecture material.",
+      "prompt_tokens": 640,
+      "answer_tokens": 8,
+      "seconds": 0.15,
+      "seed": 43,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": true,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "Not found in the lecture material.",
+      "prompt_tokens": 640,
+      "answer_tokens": 8,
+      "seconds": 0.15,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": true,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "<<NOT_IN_MATERIAL>> The lecture material does not cover the topic of football World Cup winners.",
+      "prompt_tokens": 656,
+      "answer_tokens": 20,
+      "seconds": 0.47,
+      "seed": 42,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": true,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "<<NOT_IN_MATERIAL>> The lecture material does not cover the winner of the football World Cup in 2018.",
+      "prompt_tokens": 656,
+      "answer_tokens": 24,
+      "seconds": 0.38,
+      "seed": 43,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": true,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "<<NOT_IN_MATERIAL>> The lecture material does not cover the winner of the football World Cup in 2018.",
+      "prompt_tokens": 656,
+      "answer_tokens": 24,
+      "seconds": 0.38,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": true,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q18",
+   "kind": "unanswerable",
+   "lang": "ar",
+   "question": "ما هي عاصمة اليابان؟",
+   "chunks": [
+    "[ds_lec03_distributed_objects.pdf, page 14]",
+    "[ds_lec04_time.pdf, page 35]",
+    "[ds_lec03_distributed_objects.pdf, page 43]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "لم يتم ذكر اليابان أو عاصمتها في المادة الدراسية المقدمة.",
+      "prompt_tokens": 781,
+      "answer_tokens": 19,
+      "seconds": 0.56,
+      "seed": 42,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "لم يتم ذكر اليابان أو عاصمتها في المادة التعليمية المقدمة.",
+      "prompt_tokens": 781,
+      "answer_tokens": 19,
+      "seconds": 0.31,
+      "seed": 43,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "لم يتم ذكر اليابان أو عاصمتها في المادة الدراسية المقدمة.",
+      "prompt_tokens": 781,
+      "answer_tokens": 19,
+      "seconds": 0.31,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": false,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 3,
+    "after": [
+     {
+      "answer": "<<NOT_IN_MATERIAL>> \nاللغة المستخدمة في المادة الدراسية هي الإنجليزية، وبالتالي لا يوجد ذكر لاسم اليابان أو عاصمتها في المادة.",
+      "prompt_tokens": 797,
+      "answer_tokens": 43,
+      "seconds": 0.86,
+      "seed": 42,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": true,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "<<NOT_IN_MATERIAL>> \nاللغة المستخدمة في المحاضرات لا تذكر عاصمة اليابان.",
+      "prompt_tokens": 797,
+      "answer_tokens": 26,
+      "seconds": 0.42,
+      "seed": 43,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": true,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     },
+     {
+      "answer": "<<NOT_IN_MATERIAL>> \nلم يتم ذكر المعلومات عن عاصمة اليابان في المادة الدراسية.",
+      "prompt_tokens": 797,
+      "answer_tokens": 23,
+      "seconds": 0.37,
+      "seed": 44,
+      "checks": {
+       "cites": false,
+       "citations_real": null,
+       "language_ok": true,
+       "says_not_found": true,
+       "not_found_correct": true,
+       "terms_hit": "n/a",
+       "terms_all": null,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 3
+   }
+  },
+  {
+   "id": "q19",
+   "kind": "followup",
+   "lang": "en",
+   "question": "Can you explain that again in simpler words?",
+   "chunks": [
+    "[kdd_lec03_data_preprocessing.pdf, page 2]",
+    "[kdd_lec02_data.pdf, page 2]",
+    "[kdd_lec09_cluster_analyis.pdf, page 2]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "K-means clustering is a way to group similar data points together. Imagine you have a bunch of points on a map, and you want to put them into groups based on their location. K-means is a method that helps you do this by:\n\n1. Choosing a few points as \"centers\" for each group.\n2. Assigning each point to the group that is closest to its center.\n3. Updating the center of each group to be the average of all the points in that group.\n4. Repeating steps 2-3 until the groups don't change much anymore.\n\nThis way, you end up with groups of points that are similar to each other. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 687,
+      "answer_tokens": 153,
+      "seconds": 2.49,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "K-means clustering is a way to group similar data points together. It starts by choosing some initial groups, then it keeps moving the groups' centers to the middle of their points, until the groups don't change much anymore. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 687,
+      "answer_tokens": 63,
+      "seconds": 0.97,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "K-means clustering is a way to group similar data points together. It starts by choosing some initial groups, then it keeps moving the center of each group to the middle of the points in that group, until the groups don't change anymore. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 687,
+      "answer_tokens": 66,
+      "seconds": 1.01,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 5,
+    "after": [
+     {
+      "answer": "K-means clustering is a way to group similar data points together. Imagine you have a bunch of points on a map, and you want to put them into groups based on their location. K-means starts by picking some points as the center of each group, then it moves each point to the group that is closest to it, and finally it updates the center of each group to be the average of all the points in it. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 703,
+      "answer_tokens": 104,
+      "seconds": 1.74,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "K-means clustering is a way to group similar data points together. It starts by picking some initial groups, then it keeps moving the groups' centers to the middle of their points, until the groups don't change much anymore. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 703,
+      "answer_tokens": 63,
+      "seconds": 0.97,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "K-means clustering is a way to group similar things together. It starts by picking some groups, then moves things to the group they're most like, and keeps doing that until the groups don't change much anymore. [kdd_lec09_cluster_analyis.pdf, page 12]",
+      "prompt_tokens": 703,
+      "answer_tokens": 61,
+      "seconds": 0.94,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": true,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "2/2",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 5
+   }
+  },
+  {
+   "id": "q20",
+   "kind": "followup",
+   "lang": "ar",
+   "question": "هل يمكنك تبسيط ذلك أكثر؟",
+   "chunks": [
+    "[kdd_lec09_cluster_analyis.pdf, page 43]",
+    "[kdd_lec05_regression.pdf, page 16]",
+    "[kdd_lec04_association_rule.pdf, page 22]"
+   ],
+   "runs": {
+    "before": [
+     {
+      "answer": "بالتأكيد. من الطرق لتreatment البيانات الناقصة: تجاهلها، أو ملؤها يدويًا، أو استبدالها بقيمة ثابتة أو المتوسط. [kdd_lec03_data_preprocessing.pdf, page 20]",
+      "prompt_tokens": 826,
+      "answer_tokens": 58,
+      "seconds": 1.14,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد. من الطرق لتعامل مع البيانات الناقصة: تجاهلها، أو ملؤها يدويًا، أو استبدالها بقيمة ثابتة أو المتوسط. [kdd_lec03_data_preprocessing.pdf, page 20]",
+      "prompt_tokens": 826,
+      "answer_tokens": 60,
+      "seconds": 0.93,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد. من الطرق المعروفة لتعامل البيانات الناقصة هي:\n\n1. تجاهل السجلات الناقصة [kdd_lec03_data_preprocessing.pdf, page 20]\n2. ملء القيمة الناقصة يدويًا [kdd_lec03_data_preprocessing.pdf, page 20]\n3. استبدالها بقيمة ثابتة أو المتوسط [kdd_lec03_data_preprocessing.pdf, page 20]\n\nهذه هي الطرق الأساسية.",
+      "prompt_tokens": 826,
+      "answer_tokens": 111,
+      "seconds": 1.7,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "before_messages": 5,
+    "after": [
+     {
+      "answer": "بالتأكيد. من الطرق لتreatment البيانات الناقصة: تجاهل السجلات الناقصة، أو ملء القيمة الناقصة يدويًا، أو استبدالها بقيمة ثابتة أو بالمتوسط. [kdd_lec03_data_preprocessing.pdf, page 20]",
+      "prompt_tokens": 842,
+      "answer_tokens": 68,
+      "seconds": 1.26,
+      "seed": 42,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد. من الطرق لتعامل البيانات الناقصة: تجاهلها، أو ملؤها يدويًا، أو استبدالها بقيمة ثابتة أو المتوسط. [kdd_lec03_data_preprocessing.pdf, page 20]",
+      "prompt_tokens": 842,
+      "answer_tokens": 59,
+      "seconds": 0.92,
+      "seed": 43,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     },
+     {
+      "answer": "بالتأكيد. من الطرق المعروفة لتعامل البيانات الناقصة هي: تجاهلها، ملؤها يدويًا، أو استبدالها بقيمة ثابتة أو المتوسط. [kdd_lec03_data_preprocessing.pdf, page 20]",
+      "prompt_tokens": 842,
+      "answer_tokens": 62,
+      "seconds": 0.96,
+      "seed": 44,
+      "checks": {
+       "cites": true,
+       "citations_real": false,
+       "language_ok": true,
+       "says_not_found": false,
+       "not_found_correct": true,
+       "terms_hit": "1/1",
+       "terms_all": true,
+       "empty": false
+      }
+     }
+    ],
+    "after_messages": 5
+   }
+  }
+ ]
+}
