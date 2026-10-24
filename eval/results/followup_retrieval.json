@@ -1,0 +1,994 @@
+{
+ "rows": [
+  {
+   "id": "f01",
+   "kind": "follow_up",
+   "lang": "en",
+   "question": "Can you explain that again in simpler words?",
+   "previous": "What is k-means clustering?",
+   "results": {
+    "current only (before)": {
+     "query": "Can you explain that again in simpler words?",
+     "hit": false,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p2",
+      "kdd_lec02_data.pdf p2",
+      "kdd_lec09_cluster_analyis.pdf p2"
+     ]
+    },
+    "always add previous": {
+     "query": "What is k-means clustering?\nCan you explain that again in simpler words?",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p34",
+      "kdd_lec09_cluster_analyis.pdf p40"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "Can you explain that again in simpler words?\nCan you explain that again in simpler words?\nWhat is k-means clustering?",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p23",
+      "kdd_lec09_cluster_analyis.pdf p40"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "What is k-means clustering in simpler words?",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p23",
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p27"
+     ]
+    }
+   }
+  },
+  {
+   "id": "f02",
+   "kind": "follow_up",
+   "lang": "en",
+   "question": "Why does that work?",
+   "previous": "How does the Apriori principle reduce the number of candidate itemsets?",
+   "results": {
+    "current only (before)": {
+     "query": "Why does that work?",
+     "hit": false,
+     "top3": [
+      "kdd_lec08_classifacation_3.pdf p26",
+      "kdd_lec03_data_preprocessing.pdf p4",
+      "kdd_lec08_classifacation_3.pdf p35"
+     ]
+    },
+    "always add previous": {
+     "query": "How does the Apriori principle reduce the number of candidate itemsets?\nWhy does that work?",
+     "hit": true,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p39",
+      "kdd_lec04_association_rule.pdf p22",
+      "kdd_lec04_association_rule.pdf p32"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "Why does that work?\nWhy does that work?\nHow does the Apriori principle reduce the number of candidate itemsets?",
+     "hit": true,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p22",
+      "kdd_lec04_association_rule.pdf p32",
+      "kdd_lec04_association_rule.pdf p40"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "How does the Apriori principle reduce the number of candidate itemsets?",
+     "hit": true,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p39",
+      "kdd_lec04_association_rule.pdf p40",
+      "kdd_lec04_association_rule.pdf p22"
+     ]
+    }
+   }
+  },
+  {
+   "id": "f03",
+   "kind": "follow_up",
+   "lang": "en",
+   "question": "How can I avoid it?",
+   "previous": "What is overfitting?",
+   "results": {
+    "current only (before)": {
+     "query": "How can I avoid it?",
+     "hit": true,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p18",
+      "kdd_lec06_classifacation_1.pdf p35",
+      "kdd_lec07_classifacation_2.pdf p43"
+     ]
+    },
+    "always add previous": {
+     "query": "What is overfitting?\nHow can I avoid it?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p35",
+      "kdd_lec06_classifacation_1.pdf p33",
+      "kdd_lec05_regression.pdf p48"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "How can I avoid it?\nHow can I avoid it?\nWhat is overfitting?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p35",
+      "kdd_lec06_classifacation_1.pdf p33",
+      "kdd_lec05_regression.pdf p48"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "How can I avoid overfitting?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p35",
+      "kdd_lec06_classifacation_1.pdf p33",
+      "kdd_lec05_regression.pdf p48"
+     ]
+    }
+   }
+  },
+  {
+   "id": "f04",
+   "kind": "follow_up",
+   "lang": "en",
+   "question": "And how is it pruned?",
+   "previous": "What is a decision tree?",
+   "results": {
+    "current only (before)": {
+     "query": "And how is it pruned?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p36",
+      "kdd_lec04_association_rule.pdf p39",
+      "kdd_lec06_classifacation_1.pdf p37"
+     ]
+    },
+    "always add previous": {
+     "query": "What is a decision tree?\nAnd how is it pruned?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p37",
+      "kdd_lec06_classifacation_1.pdf p36",
+      "kdd_lec06_classifacation_1.pdf p13"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "And how is it pruned?\nAnd how is it pruned?\nWhat is a decision tree?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p36",
+      "kdd_lec06_classifacation_1.pdf p37",
+      "kdd_lec06_classifacation_1.pdf p13"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "How is a decision tree pruned?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p37",
+      "kdd_lec06_classifacation_1.pdf p13",
+      "kdd_lec06_classifacation_1.pdf p36"
+     ]
+    }
+   }
+  },
+  {
+   "id": "f05",
+   "kind": "follow_up",
+   "lang": "en",
+   "question": "Which of those is the simplest?",
+   "previous": "How can missing values be handled?",
+   "results": {
+    "current only (before)": {
+     "query": "Which of those is the simplest?",
+     "hit": false,
+     "top3": [
+      "kdd_lec05_regression.pdf p16",
+      "kdd_lec09_cluster_analyis.pdf p23",
+      "kdd_lec05_regression.pdf p25"
+     ]
+    },
+    "always add previous": {
+     "query": "How can missing values be handled?\nWhich of those is the simplest?",
+     "hit": true,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p12",
+      "kdd_lec03_data_preprocessing.pdf p17",
+      "kdd_lec03_data_preprocessing.pdf p10"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "Which of those is the simplest?\nWhich of those is the simplest?\nHow can missing values be handled?",
+     "hit": true,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p12",
+      "kdd_lec03_data_preprocessing.pdf p10",
+      "kdd_lec03_data_preprocessing.pdf p14"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "Which of the methods for handling missing values is the simplest?",
+     "hit": true,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p10",
+      "kdd_lec03_data_preprocessing.pdf p12",
+      "kdd_lec03_data_preprocessing.pdf p14"
+     ]
+    }
+   }
+  },
+  {
+   "id": "f06",
+   "kind": "follow_up",
+   "lang": "ar",
+   "question": "هل يمكنك تبسيط ذلك أكثر؟",
+   "previous": "ما هي طرق معالجة البيانات الناقصة؟",
+   "results": {
+    "current only (before)": {
+     "query": "هل يمكنك تبسيط ذلك أكثر؟",
+     "hit": false,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p43",
+      "kdd_lec05_regression.pdf p16",
+      "kdd_lec04_association_rule.pdf p22"
+     ]
+    },
+    "always add previous": {
+     "query": "ما هي طرق معالجة البيانات الناقصة؟\nهل يمكنك تبسيط ذلك أكثر؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p14",
+      "kdd_lec03_data_preprocessing.pdf p12",
+      "kdd_lec03_data_preprocessing.pdf p10"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "هل يمكنك تبسيط ذلك أكثر؟\nهل يمكنك تبسيط ذلك أكثر؟\nما هي طرق معالجة البيانات الناقصة؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p12",
+      "kdd_lec03_data_preprocessing.pdf p8",
+      "kdd_lec03_data_preprocessing.pdf p14"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "هل يمكنك شرح طرق معالجة البيانات الناقصة بشكل أسهل؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p1",
+      "kdd_lec03_data_preprocessing.pdf p10",
+      "kdd_lec03_data_preprocessing.pdf p12"
+     ]
+    }
+   }
+  },
+  {
+   "id": "f07",
+   "kind": "follow_up",
+   "lang": "ar",
+   "question": "وما هي عيوبها؟",
+   "previous": "كيف تعمل خوارزمية k-means؟",
+   "results": {
+    "current only (before)": {
+     "query": "وما هي عيوبها؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p32",
+      "kdd_lec05_regression.pdf p52",
+      "kdd_lec05_regression.pdf p44"
+     ]
+    },
+    "always add previous": {
+     "query": "كيف تعمل خوارزمية k-means؟\nوما هي عيوبها؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p34",
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p27"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "وما هي عيوبها؟\nوما هي عيوبها؟\nكيف تعمل خوارزمية k-means؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p40",
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p34"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "ما هي عيوب خوارزمية k-means؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p32",
+      "kdd_lec09_cluster_analyis.pdf p40",
+      "kdd_lec09_cluster_analyis.pdf p26"
+     ]
+    }
+   }
+  },
+  {
+   "id": "f08",
+   "kind": "follow_up",
+   "lang": "en",
+   "question": "Give me an example.",
+   "previous": "How is the confidence of an association rule defined?",
+   "results": {
+    "current only (before)": {
+     "query": "Give me an example.",
+     "hit": false,
+     "top3": [
+      "kdd_lec08_classifacation_3.pdf p39",
+      "kdd_lec05_regression.pdf p29",
+      "kdd_lec01_Introduction.pdf p24"
+     ]
+    },
+    "always add previous": {
+     "query": "How is the confidence of an association rule defined?\nGive me an example.",
+     "hit": true,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p44",
+      "kdd_lec04_association_rule.pdf p14",
+      "kdd_lec04_association_rule.pdf p45"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "Give me an example.\nGive me an example.\nHow is the confidence of an association rule defined?",
+     "hit": true,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p45",
+      "kdd_lec04_association_rule.pdf p44",
+      "kdd_lec04_association_rule.pdf p14"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "What is an example of the confidence of an association rule?",
+     "hit": true,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p46",
+      "kdd_lec04_association_rule.pdf p14",
+      "kdd_lec04_association_rule.pdf p15"
+     ]
+    }
+   }
+  },
+  {
+   "id": "f09",
+   "kind": "follow_up",
+   "lang": "en",
+   "question": "What are its limitations?",
+   "previous": "How does Cristian's algorithm synchronize clocks?",
+   "results": {
+    "current only (before)": {
+     "query": "What are its limitations?",
+     "hit": false,
+     "top3": [
+      "ds_lec01_characterization.pdf p6",
+      "ds_lec01_characterization.pdf p8",
+      "ds_lec01_characterization.pdf p7"
+     ]
+    },
+    "always add previous": {
+     "query": "How does Cristian's algorithm synchronize clocks?\nWhat are its limitations?",
+     "hit": true,
+     "top3": [
+      "ds_lec04_time.pdf p3",
+      "ds_lec04_time.pdf p13",
+      "ds_lec04_time.pdf p16"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "What are its limitations?\nWhat are its limitations?\nHow does Cristian's algorithm synchronize clocks?",
+     "hit": false,
+     "top3": [
+      "ds_lec04_time.pdf p3",
+      "ds_lec01_characterization.pdf p7",
+      "ds_lec04_time.pdf p16"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "What are the limitations of Cristian's algorithm?",
+     "hit": true,
+     "top3": [
+      "ds_lec01_characterization.pdf p7",
+      "ds_lec04_time.pdf p22",
+      "ds_lec04_time.pdf p13"
+     ]
+    }
+   }
+  },
+  {
+   "id": "f10",
+   "kind": "follow_up",
+   "lang": "en",
+   "question": "How is that different from boosting?",
+   "previous": "What is bagging?",
+   "results": {
+    "current only (before)": {
+     "query": "How is that different from boosting?",
+     "hit": true,
+     "top3": [
+      "kdd_lec08_classifacation_3.pdf p35",
+      "kdd_lec08_classifacation_3.pdf p36",
+      "kdd_lec08_classifacation_3.pdf p35"
+     ]
+    },
+    "always add previous": {
+     "query": "What is bagging?\nHow is that different from boosting?",
+     "hit": true,
+     "top3": [
+      "kdd_lec08_classifacation_3.pdf p35",
+      "kdd_lec08_classifacation_3.pdf p35",
+      "kdd_lec08_classifacation_3.pdf p30"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "How is that different from boosting?\nHow is that different from boosting?\nWhat is bagging?",
+     "hit": true,
+     "top3": [
+      "kdd_lec08_classifacation_3.pdf p35",
+      "kdd_lec08_classifacation_3.pdf p35",
+      "kdd_lec08_classifacation_3.pdf p30"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "How is bagging different from boosting?",
+     "hit": true,
+     "top3": [
+      "kdd_lec08_classifacation_3.pdf p35",
+      "kdd_lec08_classifacation_3.pdf p35",
+      "kdd_lec08_classifacation_3.pdf p30"
+     ]
+    }
+   }
+  },
+  {
+   "id": "f11",
+   "kind": "follow_up",
+   "lang": "en",
+   "question": "Can you give the formula?",
+   "previous": "What is entropy in a decision tree?",
+   "results": {
+    "current only (before)": {
+     "query": "Can you give the formula?",
+     "hit": false,
+     "top3": [
+      "kdd_lec07_classifacation_2.pdf p27",
+      "kdd_lec05_regression.pdf p34",
+      "kdd_lec08_classifacation_3.pdf p11"
+     ]
+    },
+    "always add previous": {
+     "query": "What is entropy in a decision tree?\nCan you give the formula?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p14",
+      "kdd_lec06_classifacation_1.pdf p23",
+      "kdd_lec06_classifacation_1.pdf p23"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "Can you give the formula?\nCan you give the formula?\nWhat is entropy in a decision tree?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p14",
+      "kdd_lec06_classifacation_1.pdf p23",
+      "kdd_lec06_classifacation_1.pdf p42"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "What is the formula for entropy in a decision tree?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p14",
+      "kdd_lec06_classifacation_1.pdf p21",
+      "kdd_lec06_classifacation_1.pdf p23"
+     ]
+    }
+   }
+  },
+  {
+   "id": "f12",
+   "kind": "follow_up",
+   "lang": "ar",
+   "question": "وكيف أتجنبه؟",
+   "previous": "ما هو الـ overfitting؟",
+   "results": {
+    "current only (before)": {
+     "query": "وكيف أتجنبه؟",
+     "hit": false,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p42",
+      "kdd_lec04_association_rule.pdf p22",
+      "kdd_lec07_classifacation_2.pdf p43"
+     ]
+    },
+    "always add previous": {
+     "query": "ما هو الـ overfitting؟\nوكيف أتجنبه؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec05_regression.pdf p48",
+      "kdd_lec06_classifacation_1.pdf p33",
+      "kdd_lec06_classifacation_1.pdf p30"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "وكيف أتجنبه؟\nوكيف أتجنبه؟\nما هو الـ overfitting؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p33",
+      "kdd_lec06_classifacation_1.pdf p30",
+      "kdd_lec06_classifacation_1.pdf p35"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "كيف أتجنب الـ overfitting؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p35",
+      "kdd_lec06_classifacation_1.pdf p33",
+      "kdd_lec05_regression.pdf p49"
+     ]
+    }
+   }
+  },
+  {
+   "id": "t01",
+   "kind": "topic_change",
+   "lang": "en",
+   "question": "What is the Apriori principle?",
+   "previous": "What is k-means clustering?",
+   "results": {
+    "current only (before)": {
+     "query": "What is the Apriori principle?",
+     "hit": true,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p40",
+      "kdd_lec04_association_rule.pdf p39",
+      "kdd_lec04_association_rule.pdf p28"
+     ]
+    },
+    "always add previous": {
+     "query": "What is k-means clustering?\nWhat is the Apriori principle?",
+     "hit": false,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p27",
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p34"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "What is the Apriori principle?\nWhat is the Apriori principle?\nWhat is k-means clustering?",
+     "hit": false,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p34",
+      "kdd_lec09_cluster_analyis.pdf p40"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "What is the Apriori principle?",
+     "hit": true,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p40",
+      "kdd_lec04_association_rule.pdf p39",
+      "kdd_lec04_association_rule.pdf p28"
+     ]
+    }
+   }
+  },
+  {
+   "id": "t02",
+   "kind": "topic_change",
+   "lang": "en",
+   "question": "How does the k-means algorithm assign points to clusters?",
+   "previous": "What is overfitting?",
+   "results": {
+    "current only (before)": {
+     "query": "How does the k-means algorithm assign points to clusters?",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p32",
+      "kdd_lec09_cluster_analyis.pdf p40"
+     ]
+    },
+    "always add previous": {
+     "query": "What is overfitting?\nHow does the k-means algorithm assign points to clusters?",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p27",
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p40"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "How does the k-means algorithm assign points to clusters?\nHow does the k-means algorithm assign points to clusters?\nWhat is overfitting?",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p27",
+      "kdd_lec09_cluster_analyis.pdf p32"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "How does the k-means algorithm assign points to clusters?",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p32",
+      "kdd_lec09_cluster_analyis.pdf p40"
+     ]
+    }
+   }
+  },
+  {
+   "id": "t03",
+   "kind": "topic_change",
+   "lang": "en",
+   "question": "What is entropy in decision trees?",
+   "previous": "How can missing values be handled?",
+   "results": {
+    "current only (before)": {
+     "query": "What is entropy in decision trees?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p23",
+      "kdd_lec06_classifacation_1.pdf p15",
+      "kdd_lec06_classifacation_1.pdf p22"
+     ]
+    },
+    "always add previous": {
+     "query": "How can missing values be handled?\nWhat is entropy in decision trees?",
+     "hit": true,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p12",
+      "kdd_lec03_data_preprocessing.pdf p10",
+      "kdd_lec06_classifacation_1.pdf p23"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "What is entropy in decision trees?\nWhat is entropy in decision trees?\nHow can missing values be handled?",
+     "hit": false,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p12",
+      "kdd_lec06_classifacation_1.pdf p36",
+      "kdd_lec06_classifacation_1.pdf p15"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "What is entropy in decision trees?",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p23",
+      "kdd_lec06_classifacation_1.pdf p15",
+      "kdd_lec06_classifacation_1.pdf p22"
+     ]
+    }
+   }
+  },
+  {
+   "id": "t04",
+   "kind": "topic_change",
+   "lang": "ar",
+   "question": "ما هي الثقة في قواعد الارتباط؟",
+   "previous": "ما هي طرق معالجة البيانات الناقصة؟",
+   "results": {
+    "current only (before)": {
+     "query": "ما هي الثقة في قواعد الارتباط؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec05_regression.pdf p1",
+      "kdd_lec04_association_rule.pdf p43",
+      "kdd_lec04_association_rule.pdf p45"
+     ]
+    },
+    "always add previous": {
+     "query": "ما هي طرق معالجة البيانات الناقصة؟\nما هي الثقة في قواعد الارتباط؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec05_regression.pdf p1",
+      "kdd_lec04_association_rule.pdf p1",
+      "kdd_lec01_Introduction.pdf p10"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "ما هي الثقة في قواعد الارتباط؟\nما هي الثقة في قواعد الارتباط؟\nما هي طرق معالجة البيانات الناقصة؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p1",
+      "kdd_lec05_regression.pdf p1",
+      "kdd_lec04_association_rule.pdf p17"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "ما هي الثقة في قواعد الارتباط؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec05_regression.pdf p1",
+      "kdd_lec04_association_rule.pdf p43",
+      "kdd_lec04_association_rule.pdf p45"
+     ]
+    }
+   }
+  },
+  {
+   "id": "t05",
+   "kind": "topic_change",
+   "lang": "en",
+   "question": "What is a dendrogram?",
+   "previous": "How does the Apriori principle reduce the number of candidate itemsets?",
+   "results": {
+    "current only (before)": {
+     "query": "What is a dendrogram?",
+     "hit": false,
+     "top3": [
+      "kdd_lec02_data.pdf p22",
+      "kdd_lec09_cluster_analyis.pdf p30",
+      "kdd_lec06_classifacation_1.pdf p27"
+     ]
+    },
+    "always add previous": {
+     "query": "How does the Apriori principle reduce the number of candidate itemsets?\nWhat is a dendrogram?",
+     "hit": false,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p40",
+      "kdd_lec04_association_rule.pdf p39",
+      "kdd_lec04_association_rule.pdf p32"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "What is a dendrogram?\nWhat is a dendrogram?\nHow does the Apriori principle reduce the number of candidate itemsets?",
+     "hit": false,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p39",
+      "kdd_lec04_association_rule.pdf p40",
+      "kdd_lec04_association_rule.pdf p32"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "What is a dendrogram?",
+     "hit": false,
+     "top3": [
+      "kdd_lec02_data.pdf p22",
+      "kdd_lec09_cluster_analyis.pdf p30",
+      "kdd_lec06_classifacation_1.pdf p27"
+     ]
+    }
+   }
+  },
+  {
+   "id": "t06",
+   "kind": "topic_change",
+   "lang": "en",
+   "question": "How are outliers detected?",
+   "previous": "What is bagging?",
+   "results": {
+    "current only (before)": {
+     "query": "How are outliers detected?",
+     "hit": true,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p17",
+      "kdd_lec02_data.pdf p33",
+      "kdd_lec01_Introduction.pdf p30"
+     ]
+    },
+    "always add previous": {
+     "query": "What is bagging?\nHow are outliers detected?",
+     "hit": true,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p17",
+      "kdd_lec08_classifacation_3.pdf p33",
+      "kdd_lec08_classifacation_3.pdf p32"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "How are outliers detected?\nHow are outliers detected?\nWhat is bagging?",
+     "hit": true,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p17",
+      "kdd_lec01_Introduction.pdf p30",
+      "kdd_lec08_classifacation_3.pdf p32"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "How are outliers detected in the context of bagging?",
+     "hit": true,
+     "top3": [
+      "kdd_lec03_data_preprocessing.pdf p17",
+      "kdd_lec01_Introduction.pdf p30",
+      "kdd_lec08_classifacation_3.pdf p32"
+     ]
+    }
+   }
+  },
+  {
+   "id": "t07",
+   "kind": "topic_change",
+   "lang": "en",
+   "question": "What is middleware?",
+   "previous": "How does Cristian's algorithm synchronize clocks?",
+   "results": {
+    "current only (before)": {
+     "query": "What is middleware?",
+     "hit": true,
+     "top3": [
+      "ds_lec03_distributed_objects.pdf p6",
+      "ds_lec03_distributed_objects.pdf p9",
+      "ds_lec05_operating_system.pdf p4"
+     ]
+    },
+    "always add previous": {
+     "query": "How does Cristian's algorithm synchronize clocks?\nWhat is middleware?",
+     "hit": false,
+     "top3": [
+      "ds_lec04_time.pdf p9",
+      "ds_lec04_time.pdf p13",
+      "ds_lec04_time.pdf p16"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "What is middleware?\nWhat is middleware?\nHow does Cristian's algorithm synchronize clocks?",
+     "hit": false,
+     "top3": [
+      "ds_lec04_time.pdf p16",
+      "ds_lec04_time.pdf p13",
+      "ds_lec04_time.pdf p22"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "What is middleware?",
+     "hit": true,
+     "top3": [
+      "ds_lec03_distributed_objects.pdf p6",
+      "ds_lec03_distributed_objects.pdf p9",
+      "ds_lec05_operating_system.pdf p4"
+     ]
+    }
+   }
+  },
+  {
+   "id": "t08",
+   "kind": "topic_change",
+   "lang": "ar",
+   "question": "ما هو الـ overfitting؟",
+   "previous": "كيف تعمل خوارزمية k-means؟",
+   "results": {
+    "current only (before)": {
+     "query": "ما هو الـ overfitting؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p33",
+      "kdd_lec06_classifacation_1.pdf p35",
+      "kdd_lec05_regression.pdf p48"
+     ]
+    },
+    "always add previous": {
+     "query": "كيف تعمل خوارزمية k-means؟\nما هو الـ overfitting؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p33",
+      "kdd_lec09_cluster_analyis.pdf p34",
+      "kdd_lec09_cluster_analyis.pdf p26"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "ما هو الـ overfitting؟\nما هو الـ overfitting؟\nكيف تعمل خوارزمية k-means؟",
+     "hit": false,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p26",
+      "kdd_lec09_cluster_analyis.pdf p32",
+      "kdd_lec09_cluster_analyis.pdf p40"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "ما هو الـ overfitting في خوارزمية k-means؟",
+     "hit": true,
+     "top3": [
+      "kdd_lec09_cluster_analyis.pdf p32",
+      "kdd_lec09_cluster_analyis.pdf p40",
+      "kdd_lec06_classifacation_1.pdf p33"
+     ]
+    }
+   }
+  },
+  {
+   "id": "t09",
+   "kind": "topic_change",
+   "lang": "en",
+   "question": "How does Naive Bayes classify a record?",
+   "previous": "What is a decision tree?",
+   "results": {
+    "current only (before)": {
+     "query": "How does Naive Bayes classify a record?",
+     "hit": true,
+     "top3": [
+      "kdd_lec07_classifacation_2.pdf p11",
+      "kdd_lec07_classifacation_2.pdf p18",
+      "kdd_lec07_classifacation_2.pdf p3"
+     ]
+    },
+    "always add previous": {
+     "query": "What is a decision tree?\nHow does Naive Bayes classify a record?",
+     "hit": false,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p14",
+      "kdd_lec06_classifacation_1.pdf p28",
+      "kdd_lec08_classifacation_3.pdf p48"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "How does Naive Bayes classify a record?\nHow does Naive Bayes classify a record?\nWhat is a decision tree?",
+     "hit": false,
+     "top3": [
+      "kdd_lec06_classifacation_1.pdf p14",
+      "kdd_lec06_classifacation_1.pdf p15",
+      "kdd_lec06_classifacation_1.pdf p28"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "How does Naive Bayes classify a record?",
+     "hit": true,
+     "top3": [
+      "kdd_lec07_classifacation_2.pdf p11",
+      "kdd_lec07_classifacation_2.pdf p18",
+      "kdd_lec07_classifacation_2.pdf p3"
+     ]
+    }
+   }
+  },
+  {
+   "id": "t10",
+   "kind": "topic_change",
+   "lang": "en",
+   "question": "What is cross-validation?",
+   "previous": "How is the confidence of an association rule defined?",
+   "results": {
+    "current only (before)": {
+     "query": "What is cross-validation?",
+     "hit": true,
+     "top3": [
+      "kdd_lec08_classifacation_3.pdf p20",
+      "kdd_lec08_classifacation_3.pdf p21",
+      "kdd_lec08_classifacation_3.pdf p21"
+     ]
+    },
+    "always add previous": {
+     "query": "How is the confidence of an association rule defined?\nWhat is cross-validation?",
+     "hit": false,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p14",
+      "kdd_lec04_association_rule.pdf p44",
+      "kdd_lec04_association_rule.pdf p15"
+     ]
+    },
+    "weighted (q, q, previous)": {
+     "query": "What is cross-validation?\nWhat is cross-validation?\nHow is the confidence of an association rule defined?",
+     "hit": false,
+     "top3": [
+      "kdd_lec04_association_rule.pdf p14",
+      "kdd_lec04_association_rule.pdf p15",
+      "kdd_lec04_association_rule.pdf p12"
+     ]
+    },
+    "shipped (model rewrite)": {
+     "query": "What is cross-validation?",
+     "hit": true,
+     "top3": [
+      "kdd_lec08_classifacation_3.pdf p20",
+      "kdd_lec08_classifacation_3.pdf p21",
+      "kdd_lec08_classifacation_3.pdf p21"
+     ]
+    }
+   }
+  }
+ ]
+}

@@ -76,6 +76,10 @@ class Settings(BaseSettings):
     quiz_concurrency: int = Field(default=1, ge=1, le=8)
 
     # --- Retrieval ---
+    # Search for what a follow-up ("explain that again") means, using the model to turn it
+    # into a standalone question first. Costs one short model call (~0.35 s) per turn that
+    # has a previous question; falls back to the question as asked if it fails.
+    chat_followup_rewrite: bool = True
     # Chunks pulled from Chroma, then reranked down to `top_k` for the prompt.
     candidate_k: int = Field(default=10, ge=1, le=200)
     top_k: int = Field(default=3, ge=1, le=50)

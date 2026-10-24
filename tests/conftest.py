@@ -19,6 +19,7 @@ os.environ.update(
         "RATE_LIMIT_ENABLED": "false",
         "WARMUP_ON_STARTUP": "false",
         "QUIZ_SWEEP_ENABLED": "false",
+        "CHAT_FOLLOWUP_REWRITE": "false",  # tests that exercise it switch it on
         "COOKIE_SECURE": "false",
     }
 )

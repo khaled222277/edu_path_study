@@ -1,0 +1,28 @@
+{
+  "description": "Retrieval check for the second question of a conversation. `follow_up` cases refer back to the previous question ('explain that again', 'what are its limits?'), so the right chunks are about the PREVIOUS question's topic. `topic_change` cases only look like they are in a conversation: the right chunks are about the NEW question's topic, and blending in the previous question must not hurt. A case counts as a hit if any of the top-3 chunks contains any of `topic_terms` (case-insensitive). This is a coarse proxy for 'the right chunk was found'; the gold-chunk metrics in qa_set.json are the stricter version.",
+  "cases": [
+    {"id": "f01", "kind": "follow_up", "subject_id": 7, "lang": "en", "previous": "What is k-means clustering?", "question": "Can you explain that again in simpler words?", "topic_terms": ["k-means", "centroid"]},
+    {"id": "f02", "kind": "follow_up", "subject_id": 7, "lang": "en", "previous": "How does the Apriori principle reduce the number of candidate itemsets?", "question": "Why does that work?", "topic_terms": ["apriori", "frequent itemset", "subset"]},
+    {"id": "f03", "kind": "follow_up", "subject_id": 7, "lang": "en", "previous": "What is overfitting?", "question": "How can I avoid it?", "topic_terms": ["overfit"]},
+    {"id": "f04", "kind": "follow_up", "subject_id": 7, "lang": "en", "previous": "What is a decision tree?", "question": "And how is it pruned?", "topic_terms": ["prun"]},
+    {"id": "f05", "kind": "follow_up", "subject_id": 7, "lang": "en", "previous": "How can missing values be handled?", "question": "Which of those is the simplest?", "topic_terms": ["missing"]},
+    {"id": "f06", "kind": "follow_up", "subject_id": 7, "lang": "ar", "previous": "ما هي طرق معالجة البيانات الناقصة؟", "question": "هل يمكنك تبسيط ذلك أكثر؟", "topic_terms": ["missing", "ناقص"]},
+    {"id": "f07", "kind": "follow_up", "subject_id": 7, "lang": "ar", "previous": "كيف تعمل خوارزمية k-means؟", "question": "وما هي عيوبها؟", "topic_terms": ["k-means", "kmeans"]},
+    {"id": "f08", "kind": "follow_up", "subject_id": 7, "lang": "en", "previous": "How is the confidence of an association rule defined?", "question": "Give me an example.", "topic_terms": ["confidence"]},
+    {"id": "f09", "kind": "follow_up", "subject_id": 6, "lang": "en", "previous": "How does Cristian's algorithm synchronize clocks?", "question": "What are its limitations?", "topic_terms": ["cristian"]},
+    {"id": "f10", "kind": "follow_up", "subject_id": 7, "lang": "en", "previous": "What is bagging?", "question": "How is that different from boosting?", "topic_terms": ["bagging"]},
+    {"id": "f11", "kind": "follow_up", "subject_id": 7, "lang": "en", "previous": "What is entropy in a decision tree?", "question": "Can you give the formula?", "topic_terms": ["entropy"]},
+    {"id": "f12", "kind": "follow_up", "subject_id": 7, "lang": "ar", "previous": "ما هو الـ overfitting؟", "question": "وكيف أتجنبه؟", "topic_terms": ["overfit"]},
+
+    {"id": "t01", "kind": "topic_change", "subject_id": 7, "lang": "en", "previous": "What is k-means clustering?", "question": "What is the Apriori principle?", "topic_terms": ["apriori"]},
+    {"id": "t02", "kind": "topic_change", "subject_id": 7, "lang": "en", "previous": "What is overfitting?", "question": "How does the k-means algorithm assign points to clusters?", "topic_terms": ["k-means", "centroid"]},
+    {"id": "t03", "kind": "topic_change", "subject_id": 7, "lang": "en", "previous": "How can missing values be handled?", "question": "What is entropy in decision trees?", "topic_terms": ["entropy"]},
+    {"id": "t04", "kind": "topic_change", "subject_id": 7, "lang": "ar", "previous": "ما هي طرق معالجة البيانات الناقصة؟", "question": "ما هي الثقة في قواعد الارتباط؟", "topic_terms": ["confidence", "ثقة"]},
+    {"id": "t05", "kind": "topic_change", "subject_id": 7, "lang": "en", "previous": "How does the Apriori principle reduce the number of candidate itemsets?", "question": "What is a dendrogram?", "topic_terms": ["dendrogram"]},
+    {"id": "t06", "kind": "topic_change", "subject_id": 7, "lang": "en", "previous": "What is bagging?", "question": "How are outliers detected?", "topic_terms": ["outlier"]},
+    {"id": "t07", "kind": "topic_change", "subject_id": 6, "lang": "en", "previous": "How does Cristian's algorithm synchronize clocks?", "question": "What is middleware?", "topic_terms": ["middleware"]},
+    {"id": "t08", "kind": "topic_change", "subject_id": 7, "lang": "ar", "previous": "كيف تعمل خوارزمية k-means؟", "question": "ما هو الـ overfitting؟", "topic_terms": ["overfit"]},
+    {"id": "t09", "kind": "topic_change", "subject_id": 7, "lang": "en", "previous": "What is a decision tree?", "question": "How does Naive Bayes classify a record?", "topic_terms": ["bayes"]},
+    {"id": "t10", "kind": "topic_change", "subject_id": 7, "lang": "en", "previous": "How is the confidence of an association rule defined?", "question": "What is cross-validation?", "topic_terms": ["cross-validation", "cross validation"]}
+  ]
+}

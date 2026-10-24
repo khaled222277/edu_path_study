@@ -13,6 +13,7 @@ from app.models.chat import ROLE_ASSISTANT, ROLE_USER, ChatMessage, ChatSession
 from app.models.subject import Subject
 from app.models.user import User
 from app.services.llm import get_client, keep_alive
+from app.services.query_rewrite import retrieval_query
 from app.services.quiz_service import detect_language
 from app.services.refusal import (
     LEGACY_REFUSAL_PHRASE,
@@ -182,6 +183,16 @@ def _build_messages(
     ]
 
 
+def previous_user_question(chat_session: ChatSession) -> str | None:
+    """The student's question before the one being answered, if there was one.
+
+    The question being answered has already been added to the session when this is
+    called, so it is the last message and is skipped.
+    """
+    earlier = [m for m in chat_session.messages[:-1] if m.role == ROLE_USER]
+    return earlier[-1].content if earlier else None
+
+
 def _prepare(
     db: Session, chat_session: ChatSession, question: str
 ) -> tuple[list[RetrievedChunk], list[dict]]:
@@ -195,7 +206,10 @@ def _prepare(
     db.refresh(chat_session)
 
     try:
-        chunks = retrieve(question, chat_session.subject_id)
+        chunks = retrieve(
+            retrieval_query(previous_user_question(chat_session), question),
+            chat_session.subject_id,
+        )
     except Exception as exc:
         # Chroma unreadable, embedding model or reranker failed to load, etc.
         db.rollback()

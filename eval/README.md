@@ -69,6 +69,35 @@ are crude (e.g. "expected terms" misses valid paraphrases).
   context block only (and keeping the bare turn), or shortening the system prompt (it is most
   of the 700 prompt tokens). Use this harness to check any such change.
 
+## Follow-up questions (retrieval)
+
+"Can you explain that again in simpler words?" retrieved *nothing about the topic* (the topic is
+in the previous turn): the top chunks were three "This is a logo" figure descriptions. Searching
+with the previous question added fixes that but breaks genuine topic changes, so the options
+were measured (`python scripts/eval_followups.py`, 12 follow-ups and 10 topic changes in
+`followups.json`; "hit" = one of the top 3 chunks is about the right topic):
+
+| Query used for the search | follow-ups | topic changes | right chunks of 3 (follow-up / topic change) |
+| --- | --- | --- | --- |
+| the question as asked (before) | 4/12 | 9/10 | 0.50 / 2.50 |
+| previous question + question | 12/12 | **5/10** | 2.25 / 0.70 |
+| question, question, previous (weighted) | 11/12 | **3/10** | 2.33 / 0.70 |
+| both retrievals interleaved | 9/12 | 9/10 | 1.08 / 1.80 |
+| **model rewrites it as a standalone question (shipped)** | **12/12** | **9/10** | **2.42 / 2.30** |
+
+Retrieval confidence does not separate the two kinds (best cosine distance 0.33-0.57 for
+follow-ups, 0.23-0.57 for topic changes; the reranker scores everything ~0.99) and neither does
+question length, so a rule cannot decide when to blend. The model can: it rewrites a dependent
+question and returns an independent one unchanged. The rewrite is used only as the search query;
+the answer prompt still contains the student's own words. It costs one short call on the loaded
+model (0.35 s mean, 0.49 s max, 20 s timeout) per turn that has a previous question, and any
+failure falls back to the question as asked. `CHAT_FOLLOWUP_REWRITE=false` turns it off.
+
+Limits: 22 cases and a coarse "right topic" check, not gold chunks (that is `qa_set.json`). The
+rewrite sometimes adds context that was not asked for (t06 "...in the context of bagging"); it
+still retrieved correctly here. t05 ("What is a dendrogram?") misses under every strategy, so it
+is a retrieval problem independent of this change.
+
 ## The refusal rule (language-neutral "not covered" signal)
 
 The model used to be told to refuse with an English sentence ("not found in the lecture
