@@ -37,6 +37,14 @@ class Settings(BaseSettings):
     # first user request does not pay ~30 s for it. Failure is logged, not fatal.
     warmup_on_startup: bool = True
 
+    # Repair quizzes a crash left half-written (see app/services/quiz_sweeper.py): their
+    # total says "10 questions" but fewer were stored. Runs at startup and then every
+    # SWEEP_INTERVAL minutes (0 = only at startup). Only attempts older than STALE_AFTER
+    # are touched, so a quiz still being written is never interfered with.
+    quiz_sweep_enabled: bool = True
+    quiz_stale_after_minutes: int = Field(default=60, ge=5, le=10080)
+    quiz_sweep_interval_minutes: int = Field(default=30, ge=0, le=10080)
+
     # --- Models (Ollama tags) ---
     chat_model: str = "llama3.1:8b"
     quiz_model: str = "llama3.1:8b"

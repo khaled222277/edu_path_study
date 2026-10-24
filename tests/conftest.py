@@ -18,6 +18,7 @@ os.environ.update(
         "GOOGLE_CLIENT_SECRET": "",
         "RATE_LIMIT_ENABLED": "false",
         "WARMUP_ON_STARTUP": "false",
+        "QUIZ_SWEEP_ENABLED": "false",
         "COOKIE_SECURE": "false",
     }
 )

@@ -1,6 +1,7 @@
 import logging
 import threading
 from contextlib import asynccontextmanager
+from datetime import timedelta
 
 from fastapi import FastAPI
 from slowapi.errors import RateLimitExceeded
@@ -10,6 +11,7 @@ from starlette.middleware.sessions import SessionMiddleware
 from app.config import settings
 from app.rate_limit import limiter, rate_limit_exceeded_handler
 from app.services import llm, retrieval, vector_store
+from app.services.quiz_sweeper import QuizSweeper
 from app.routers import (
     auth,
     chat,
@@ -61,7 +63,18 @@ async def lifespan(_: FastAPI):
         # and a request that lands mid-load waits on the same lock instead of
         # loading the model a second time.
         threading.Thread(target=warm_up_models, name="model-warmup", daemon=True).start()
-    yield
+    sweeper = None
+    if settings.quiz_sweep_enabled:
+        sweeper = QuizSweeper(
+            timedelta(minutes=settings.quiz_stale_after_minutes),
+            settings.quiz_sweep_interval_minutes,
+        )
+        sweeper.start()
+    try:
+        yield
+    finally:
+        if sweeper is not None:
+            sweeper.stop()
 
 
 app = FastAPI(title="EduPath Study V2 API", version="0.1.0", lifespan=lifespan)
