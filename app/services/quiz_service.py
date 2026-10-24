@@ -12,6 +12,7 @@ import random
 import re
 import threading
 import time
+from collections.abc import Iterator
 from dataclasses import dataclass, field
 
 import httpx
@@ -48,6 +49,10 @@ MIN_CHUNK_CHARS = 220
 
 LANG_AR = "ar"
 LANG_EN = "en"
+
+
+class GenerationCancelled(Exception):
+    """The caller no longer wants this quiz (the student pressed Stop or left)."""
 
 
 class QuizGenerationError(Exception):
@@ -604,6 +609,7 @@ def _generate_one(
     strict_attempts: int | None = None,
     relaxed_attempts: int | None = None,
     final: bool = True,
+    cancel: threading.Event | None = None,
 ) -> GeneratedQuestion | None:
     """One validated question from one chunk, or None if the attempts ran out.
 
@@ -621,6 +627,8 @@ def _generate_one(
 
     def attempt(strict: bool) -> GeneratedQuestion | None:
         nonlocal rejected
+        if cancel is not None and cancel.is_set():
+            raise GenerationCancelled()  # checked before every model call
         phase = PHASE_STRICT if strict else PHASE_RELAXED
         t0 = time.perf_counter()
         _take_call_stats()  # drop anything left from an earlier call
@@ -746,24 +754,35 @@ def _generate_one(
         )
 
 
-def generate_quiz(
+def iter_quiz(
     subject_id: int,
     count: int = DEFAULT_QUESTION_COUNT,
     language: str | None = None,
     seed: int | None = None,
     model: str = QUIZ_MODEL,
     trace: QuizTrace | None = None,
-) -> list[GeneratedQuestion]:
-    """Generate up to `count` validated MCQ items spread across the subject.
+    cancel: threading.Event | None = None,
+) -> Iterator[GeneratedQuestion]:
+    """Yield up to `count` validated MCQ items, each as soon as it is ready.
 
-    `trace`, if given, is filled with timings and rejection reasons. It is
-    observation only: results are identical with or without it.
+    Same sampling, budgets and rules as generate_quiz (which is this, collected).
+    Raises QuizGenerationError if the whole run produced nothing, and
+    LLMUnavailableError if Ollama goes away -- including after some questions have
+    already been yielded, so a caller that streams keeps what it has.
+
+    `cancel`, once set, ends the run before the next model call. A call already
+    in flight cannot be interrupted, so it finishes and its result is dropped.
+    `trace`, if given, is filled with timings and rejection reasons.
     """
     in_arabic = (language or LANG_EN) == LANG_AR
     trace = trace if trace is not None else QuizTrace()
     trace.language = LANG_AR if in_arabic else LANG_EN
     trace.requested = count
     started = time.perf_counter()
+    produced = 0
+
+    def cancelled() -> bool:
+        return cancel is not None and cancel.is_set()
 
     try:
         # Over-sample so chunks that never yield a valid question can be replaced.
@@ -771,17 +790,16 @@ def generate_quiz(
         chunks = sample_chunks(subject_id, count=count * 2, seed=seed)
         trace.sampling_s = time.perf_counter() - t0
         if not chunks:
-            return []
+            return
 
         first_pass = min(settings.quiz_first_pass_attempts, STRICT_ATTEMPTS)
-        questions: list[GeneratedQuestion] = []
         deferred: list[tuple[SourceChunk, ChunkTrace]] = []
 
         # Pass 1: a few attempts per chunk, then on to the next. A chunk that has
         # already failed is a worse bet than a fresh one, and the sample holds twice
         # as many chunks as the quiz needs.
         for chunk in chunks:
-            if len(questions) >= count:
+            if produced >= count or cancelled():
                 break
             log.info("generating question from %s", chunk.citation)
             chunk_trace = ChunkTrace(chunk.citation)
@@ -789,41 +807,47 @@ def generate_quiz(
             if first_pass > 0:
                 question = _generate_one(
                     chunk, in_arabic, model, chunk_trace,
-                    strict_attempts=first_pass, relaxed_attempts=0, final=False,
+                    strict_attempts=first_pass, relaxed_attempts=0, final=False, cancel=cancel,
                 )
                 if question is None:
                     deferred.append((chunk, chunk_trace))
             else:
-                question = _generate_one(chunk, in_arabic, model, chunk_trace)
+                question = _generate_one(chunk, in_arabic, model, chunk_trace, cancel=cancel)
             if question is not None:
-                questions.append(question)
+                produced += 1
+                trace.produced = produced
+                yield question
 
         # Pass 2, only if still short: give the hard chunks the rest of their budget,
         # including the relaxed Arabic rules. Nothing is accepted here that would not
         # have been accepted before; it just happens later, and only when needed.
         for chunk, chunk_trace in deferred:
-            if len(questions) >= count:
+            if produced >= count or cancelled():
                 break
             strict_done = sum(1 for a in chunk_trace.attempts if a.phase == PHASE_STRICT)
             question = _generate_one(
                 chunk, in_arabic, model, chunk_trace,
                 strict_attempts=max(STRICT_ATTEMPTS - strict_done, 0),
-                relaxed_attempts=RELAXED_ATTEMPTS,
+                relaxed_attempts=RELAXED_ATTEMPTS, cancel=cancel,
             )
             if question is not None:
-                questions.append(question)
-        trace.produced = len(questions)
+                produced += 1
+                trace.produced = produced
+                yield question
 
         log.info(
             "generated %s/%s questions for subject %s (%s)",
-            len(questions), count, subject_id, "ar" if in_arabic else "en",
+            produced, count, subject_id, "ar" if in_arabic else "en",
         )
-        if not questions:
+        if cancelled():
+            trace.error = "cancelled"
+        if produced == 0 and not cancelled():
             trace.error = "no_valid_question"
             raise QuizGenerationError(
                 f"no valid question from {len(chunks)} chunk(s) after all retries"
             )
-        return questions
+    except GenerationCancelled:
+        trace.error = "cancelled"
     except LLMUnavailableError as exc:
         trace.error = _unavailable_kind(exc)
         raise
@@ -840,3 +864,18 @@ def generate_quiz(
             calls=sum(c.calls for c in trace.chunks),
             error=trace.error,
         )
+
+
+def generate_quiz(
+    subject_id: int,
+    count: int = DEFAULT_QUESTION_COUNT,
+    language: str | None = None,
+    seed: int | None = None,
+    model: str = QUIZ_MODEL,
+    trace: QuizTrace | None = None,
+) -> list[GeneratedQuestion]:
+    """Generate up to `count` validated MCQ items spread across the subject.
+
+    iter_quiz, collected: the student gets them all at once.
+    """
+    return list(iter_quiz(subject_id, count, language, seed, model, trace))

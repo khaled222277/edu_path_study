@@ -163,16 +163,29 @@ class ClosingStreamingResponse(StreamingResponse):
     while the generator is suspended at a `yield` the generator never sees the
     cancellation, and its cleanup (which releases the Ollama call) would wait for
     garbage collection. Closing it here makes the release deterministic.
+
+    `on_close`, if given, runs once the body has ended however it ended. It exists
+    for work that must happen even when the body generator never started (a client
+    that disconnects before the first chunk leaves an unstarted generator, whose own
+    cleanup code never runs).
     """
+
+    def __init__(self, *args, on_close=None, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
+        self.on_close = on_close
 
     async def stream_response(self, send) -> None:
         try:
             await super().stream_response(send)
         finally:
             aclose = getattr(self.body_iterator, "aclose", None)
-            if aclose is not None:
-                with anyio.CancelScope(shield=True), contextlib.suppress(Exception):
-                    await aclose()
+            with anyio.CancelScope(shield=True):
+                if aclose is not None:
+                    with contextlib.suppress(Exception):
+                        await aclose()
+                if self.on_close is not None:
+                    with contextlib.suppress(Exception):
+                        await self.on_close()
 
 
 def streaming_response(turn: cc.PreparedTurn, stream, first_part) -> ClosingStreamingResponse:

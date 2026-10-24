@@ -1,8 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, Request, status
+from fastapi.concurrency import run_in_threadpool
 from sqlalchemy.orm import Session
 
 from app.auth.dependencies import get_current_user
-from app.controllers import quiz_controller
+from app.controllers import quiz_controller, quiz_stream
 from app.config import settings
 from app.db.session import get_db
 from app.models.user import User
@@ -22,7 +23,7 @@ router = APIRouter(prefix="/quiz", tags=["quiz"])
 
 
 @router.post("/start", response_model=QuizStartOut, status_code=status.HTTP_201_CREATED)
-@limiter.limit(settings.rate_limit_quiz)
+@limiter.shared_limit(settings.rate_limit_quiz, scope="quiz")
 def start_quiz(
     request: Request,
     payload: QuizStart,
@@ -59,6 +60,37 @@ def start_quiz(
     )
 
 
+@router.post("/start/stream")
+@limiter.shared_limit(settings.rate_limit_quiz, scope="quiz")
+async def start_quiz_stream(
+    request: Request,
+    payload: QuizStart,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Same quiz as `start_quiz`, delivered question by question as NDJSON events.
+
+    Events: `start`, one `question` per validated question, then `done` (or `error`
+    if generation broke off -- the questions already sent stay valid). See
+    app/controllers/quiz_stream.py. Nothing is sent until the first question
+    exists, so Ollama being down is the same HTTP 503 as the plain route; the quiz
+    shares that route's rate-limit allowance.
+
+    `async def`, with the blocking work pushed to the threadpool, for the same
+    reason as the chat stream: a long-lived stream must not hold a worker thread.
+    """
+    started = await run_in_threadpool(
+        quiz_controller.begin_streamed_quiz,
+        db,
+        user,
+        payload.subject_id,
+        payload.question_count,
+        payload.language,
+        payload.prompt,
+    )
+    return quiz_stream.streaming_response(started)
+
+
 @router.post("/{attempt_id}/answer", response_model=AnswerOut)
 def answer_question(
     attempt_id: int,
@@ -67,7 +99,7 @@ def answer_question(
     db: Session = Depends(get_db),
 ):
     """Record an answer and reveal whether it was right."""
-    attempt = quiz_controller.get_attempt_or_404(db, attempt_id, user)
+    attempt = quiz_controller.get_attempt_or_404(db, attempt_id, user, lock=True)
     item, answered = quiz_controller.submit_answer(
         db, attempt, payload.item_id, payload.chosen_answer_index
     )
@@ -89,7 +121,7 @@ def complete_quiz(
     db: Session = Depends(get_db),
 ):
     """Close an attempt early, leaving unanswered questions unanswered."""
-    attempt = quiz_controller.get_attempt_or_404(db, attempt_id, user)
+    attempt = quiz_controller.get_attempt_or_404(db, attempt_id, user, lock=True)
     quiz_controller.complete_quiz(db, attempt)
     return _results(attempt)
 
