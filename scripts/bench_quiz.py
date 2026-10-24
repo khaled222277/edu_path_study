@@ -79,6 +79,9 @@ def trace_to_run(trace: qs.QuizTrace, subject_id: int, seed: int) -> dict:
                         "check_s": round(a.check_s, 5),
                         "outcome": a.outcome,
                         "reasons": a.reasons,
+                        "tokens_out": a.tokens_out,
+                        "tokens_in": a.tokens_in,
+                        "gen_s": None if a.gen_s is None else round(a.gen_s, 4),
                     }
                     for a in c.attempts
                 ],
@@ -99,6 +102,119 @@ def config_snapshot() -> dict:
         "keep_alive": settings.ollama_keep_alive,
         **getattr(qs, "experiment_config", lambda: {})(),
     }
+
+
+# Settings a variant may override, and how to read them from the command line.
+OVERRIDABLE = {
+    "quiz_temperature": float,
+    "quiz_strict_attempts": int,
+    "quiz_relaxed_attempts": int,
+    "quiz_first_pass_attempts": int,
+}
+
+
+def parse_variants(spec: str) -> list[tuple[str, dict]]:
+    """'base;fp0=quiz_first_pass_attempts:0;cool=quiz_temperature:0.3'."""
+    variants = []
+    for part in filter(None, (p.strip() for p in spec.split(";"))):
+        name, _, pairs = part.partition("=")
+        overrides = {}
+        for pair in filter(None, pairs.split(",")):
+            key, _, value = pair.partition(":")
+            if key not in OVERRIDABLE:
+                raise SystemExit(f"cannot override {key!r}; choose from {sorted(OVERRIDABLE)}")
+            overrides[key] = OVERRIDABLE[key](value)
+        variants.append((name, overrides))
+    return variants
+
+
+class applied:
+    """Temporarily apply setting overrides, including the module constants built from them."""
+
+    def __init__(self, overrides: dict):
+        self.overrides = overrides
+
+    def __enter__(self):
+        self.saved = (
+            {k: getattr(settings, k) for k in self.overrides},
+            dict(qs.QUIZ_OPTIONS), qs.STRICT_ATTEMPTS, qs.RELAXED_ATTEMPTS,
+        )
+        for key, value in self.overrides.items():
+            setattr(settings, key, value)
+        if "quiz_temperature" in self.overrides:
+            qs.QUIZ_OPTIONS["temperature"] = self.overrides["quiz_temperature"]
+        if "quiz_strict_attempts" in self.overrides:
+            qs.STRICT_ATTEMPTS = self.overrides["quiz_strict_attempts"]
+        if "quiz_relaxed_attempts" in self.overrides:
+            qs.RELAXED_ATTEMPTS = self.overrides["quiz_relaxed_attempts"]
+        return self
+
+    def __exit__(self, *exc):
+        values, options, strict, relaxed = self.saved
+        for key, value in values.items():
+            setattr(settings, key, value)
+        qs.QUIZ_OPTIONS.clear()
+        qs.QUIZ_OPTIONS.update(options)
+        qs.STRICT_ATTEMPTS, qs.RELAXED_ATTEMPTS = strict, relaxed
+
+
+def run_ab(args) -> None:
+    """Run several variants interleaved, quiz by quiz, in rotating order.
+
+    The laptop this was built on throttles unpredictably, so separate runs cannot
+    be compared on seconds. Interleaving makes any slowdown hit every variant
+    alike. Each variant is saved to bench_results/quiz_<name>.json.
+    """
+    variants = parse_variants(args.variants)
+    subjects = [int(x) for x in args.subjects.split(",")]
+    languages = args.languages.split(",")
+    out_dir = Path(args.out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    files, data = {}, {}
+    for name, overrides in variants:
+        files[name] = out_dir / f"quiz_{name}.json"
+        if args.resume and files[name].exists():
+            data[name] = json.loads(files[name].read_text(encoding="utf-8"))
+        else:
+            with applied(overrides):
+                cfg = config_snapshot()
+            data[name] = {
+                "meta": {
+                    "label": name, "started_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                    "git_commit": git_commit(), "ollama_version": ollama_version(),
+                    "count": args.count, "runs_per_language": args.runs, "subjects": subjects,
+                    "seed_base": args.seed_base, "config": cfg, "overrides": overrides,
+                    "interleaved_with": [n for n, _ in variants],
+                },
+                "runs": [],
+            }
+
+    print("warming up ...", flush=True)
+    from app import main as app_main
+
+    app_main.warm_up_models()
+
+    for lang in languages:
+        for i in range(args.runs):
+            subject, seed = subjects[i % len(subjects)], args.seed_base + i
+            order = variants[i % len(variants):] + variants[: i % len(variants)]
+            for name, overrides in order:
+                done = {(r["language"], r["subject_id"], r["seed"]) for r in data[name]["runs"]}
+                if (lang, subject, seed) in done:
+                    continue
+                trace = qs.QuizTrace()
+                with applied(overrides):
+                    try:
+                        qs.generate_quiz(subject, args.count, lang, seed=seed, trace=trace)
+                    except (qs.QuizGenerationError, LLMUnavailableError) as exc:
+                        print(f"  ! {name} {lang} #{i}: {type(exc).__name__}", flush=True)
+                run = trace_to_run(trace, subject, seed)
+                data[name]["runs"].append(run)
+                files[name].write_text(json.dumps(data[name], ensure_ascii=False, indent=1), encoding="utf-8")
+                calls = sum(c["calls"] for c in run["chunks"])
+                print(f"{lang} #{i:<2} {name:<14} {run['produced']}/{args.count} q, {calls:>2} calls, {run['total_s']:5.1f}s", flush=True)
+    print("\nsaved:", ", ".join(str(f) for f in files.values()))
 
 
 def run_bench(args) -> None:
@@ -211,6 +327,9 @@ def summarize(runs: list[dict], language: str) -> dict | None:
         "model_s": model_s,
         "check_s": check_s,
         "accepted_wall_s": [c["wall_s"] for c in accepted_chunks],
+        "tokens_out": sum(a.get("tokens_out") or 0 for a in attempts),
+        "gen_s": sum(a.get("gen_s") or 0 for a in attempts),
+        "tokens_in": sum(a.get("tokens_in") or 0 for a in attempts),
     }
 
 
@@ -260,6 +379,11 @@ def print_summary(label: str, runs: list[dict], language: str) -> None:
     )
     if s["calls"]:
         print(f"                     {s['model_s'] / s['calls']:.2f}s per model call; validation {1000 * s['check_s'] / s['calls']:.2f} ms per reply")
+    if s["gen_s"]:
+        print(
+            f"tokens             : {s['tokens_out'] / s['calls']:.0f} generated per call, {s['tokens_in'] / s['calls']:.0f} prompt; "
+            f"Ollama generated at {s['tokens_out'] / s['gen_s']:.0f} tok/s"
+        )
 
 
 def report(paths: list[Path]) -> None:
@@ -284,6 +408,8 @@ def compare(a_path: str, b_path: str) -> None:
         ("replies accepted (%)", lambda s: 100 * s["chunks_accepted"] / max(s["calls"], 1), "{:.1f}"),
         ("chunks abandoned", lambda s: s["chunks"] - s["chunks_accepted"], "{}"),
         ("seconds per model call", lambda s: s["model_s"] / max(s["calls"], 1), "{:.2f}"),
+        ("tokens generated per call", lambda s: s["tokens_out"] / max(s["calls"], 1), "{:.0f}"),
+        ("generation speed (tok/s)", lambda s: s["tokens_out"] / s["gen_s"] if s["gen_s"] else 0, "{:.0f}"),
     ]
     for lang in ("en", "ar"):
         sa, sb = summarize(a["runs"], lang), summarize(b["runs"], lang)
@@ -317,6 +443,8 @@ def main() -> None:
     p.add_argument("--languages", default="en,ar")
     p.add_argument("--seed-base", type=int, default=1000)
     p.add_argument("--resume", action="store_true", help="continue an existing --out file")
+    p.add_argument("--variants", help="interleave variants, e.g. 'base;fp0=quiz_first_pass_attempts:0'; writes --out-dir/quiz_<name>.json")
+    p.add_argument("--out-dir", default="bench_results")
     p.add_argument("--report", metavar="FILE", help="print the report for FILE and exit")
     p.add_argument("--compare", nargs=2, metavar=("A", "B"), help="compare two result files and exit")
     args = p.parse_args()
@@ -325,6 +453,8 @@ def main() -> None:
         report([Path(args.report)])
     elif args.compare:
         compare(*args.compare)
+    elif args.variants:
+        run_ab(args)
     else:
         run_bench(args)
 

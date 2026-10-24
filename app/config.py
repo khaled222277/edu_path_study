@@ -45,6 +45,23 @@ class Settings(BaseSettings):
     vision_model: str = "qwen3-vl:4b"
     fallback_vision_model: str = "qwen3-vl:8b"
 
+    # --- Quiz generation ---
+    # Sampling temperature for quiz calls only. Retries need some variation, so
+    # this should not be 0.
+    quiz_temperature: float = Field(default=0.5, ge=0.0, le=2.0)
+    # Model calls per chunk under the full rules, then (Arabic only) under the
+    # relaxed rules. When the strict budget runs out the relaxed phase accepts
+    # Latin script in Arabic questions, so lowering it can lower quality.
+    quiz_strict_attempts: int = Field(default=8, ge=1, le=20)
+    quiz_relaxed_attempts: int = Field(default=4, ge=0, le=20)
+    # Model calls to spend on a chunk before moving on to the next one. A chunk
+    # that has failed twice is a worse bet than a fresh one (measured: 46% then 32%
+    # per call, against 68% for a fresh chunk), so the first pass gives up early.
+    # Chunks given up on are revisited -- with their remaining strict attempts, then
+    # the relaxed rules -- only if the quiz is still short, so no rule is loosened.
+    # 0 turns this off: each chunk gets its full budget in turn.
+    quiz_first_pass_attempts: int = Field(default=2, ge=0, le=20)
+
     # --- Retrieval ---
     # Chunks pulled from Chroma, then reranked down to `top_k` for the prompt.
     candidate_k: int = Field(default=10, ge=1, le=200)

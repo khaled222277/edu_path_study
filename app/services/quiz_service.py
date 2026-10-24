@@ -10,6 +10,7 @@ import json
 import logging
 import random
 import re
+import threading
 import time
 from dataclasses import dataclass, field
 
@@ -29,12 +30,17 @@ QUIZ_MODEL = settings.quiz_model
 # options into Arabic quizzes often enough that generation has to be validated
 # and retried rather than trusted. Strict pass first, then a relaxed pass that
 # only loosens the Latin-script rule, and only for Arabic.
-STRICT_ATTEMPTS = 8
-RELAXED_ATTEMPTS = 4
+STRICT_ATTEMPTS = settings.quiz_strict_attempts
+RELAXED_ATTEMPTS = settings.quiz_relaxed_attempts
 
 # Retries only help if sampling varies between them -- at temperature 0 all
 # eight attempts would return the same rejected output.
-QUIZ_OPTIONS = {"temperature": 0.5, "num_predict": 700}
+QUIZ_OPTIONS = {"temperature": settings.quiz_temperature, "num_predict": 700}
+
+def experiment_config() -> dict:
+    """The quiz settings that change behaviour, for the benchmark's result files."""
+    return {"first_pass_attempts": settings.quiz_first_pass_attempts}
+
 
 # Short chunks (slide titles, stray fragments) cannot support a fair question
 # with four plausible options.
@@ -94,6 +100,11 @@ class AttemptTrace:
     check_s: float  # parsing, normalising and validating the reply
     outcome: str  # OUTCOME_ACCEPTED, or the first rejection category
     reasons: list[str] = field(default_factory=list)  # every rejected item's category
+    # From Ollama's own counters, so "the model wrote more" can be told apart from
+    # "the GPU got slower". None when the call did not report them.
+    tokens_out: int | None = None
+    tokens_in: int | None = None
+    gen_s: float | None = None  # time Ollama spent generating tokens
 
 
 @dataclass
@@ -547,6 +558,16 @@ def _normalize(item) -> tuple[str, list[str], str] | None:
     return _normalize_ex(item)[0]
 
 
+# Ollama's counters for the call just made on this thread, picked up by the trace.
+_call_stats = threading.local()
+
+
+def _take_call_stats() -> tuple[int | None, int | None, float | None]:
+    value = getattr(_call_stats, "value", None)
+    _call_stats.value = None
+    return value or (None, None, None)
+
+
 def _ask_model(prompt: str, model: str) -> str:
     try:
         response = get_client().generate(
@@ -561,6 +582,12 @@ def _ask_model(prompt: str, model: str) -> str:
         # Ollama down / hung / model missing: retrying the same call a dozen
         # more times per chunk cannot help, so surface it instead of "rejecting".
         raise LLMUnavailableError(str(exc)) from exc
+    eval_ns = response.get("eval_duration")
+    _call_stats.value = (
+        response.get("eval_count"),
+        response.get("prompt_eval_count"),
+        eval_ns / 1e9 if eval_ns else None,
+    )
     return response.get("response") or ""
 
 
@@ -573,9 +600,22 @@ def _generate_one(
     in_arabic: bool,
     model: str,
     trace: ChunkTrace | None = None,
+    *,
+    strict_attempts: int | None = None,
+    relaxed_attempts: int | None = None,
+    final: bool = True,
 ) -> GeneratedQuestion | None:
-    """One validated question from one chunk, or None if every attempt failed."""
+    """One validated question from one chunk, or None if the attempts ran out.
+
+    By default the chunk gets its whole budget (STRICT_ATTEMPTS under the full
+    rules, then, for Arabic, RELAXED_ATTEMPTS under the relaxed ones). Passing
+    smaller budgets lets generate_quiz make a cheap first pass over the chunks and
+    come back later; `trace` then carries the earlier attempts, and `final` says
+    whether giving up here is the end of the chunk or only a deferral.
+    """
     trace = trace if trace is not None else ChunkTrace(chunk.citation)
+    strict_n = STRICT_ATTEMPTS if strict_attempts is None else strict_attempts
+    relaxed_n = RELAXED_ATTEMPTS if relaxed_attempts is None else relaxed_attempts
     prompt = _build_prompt(chunk.text, in_arabic)
     rejected = 0
 
@@ -583,6 +623,7 @@ def _generate_one(
         nonlocal rejected
         phase = PHASE_STRICT if strict else PHASE_RELAXED
         t0 = time.perf_counter()
+        _take_call_stats()  # drop anything left from an earlier call
         try:
             raw = _ask_model(prompt, model)
         except LLMUnavailableError as exc:
@@ -592,6 +633,7 @@ def _generate_one(
             )
             raise
         t1 = time.perf_counter()
+        tokens_out, tokens_in, gen_s = _take_call_stats()
 
         reasons: list[str] = []
         result: GeneratedQuestion | None = None
@@ -647,6 +689,9 @@ def _generate_one(
                 time.perf_counter() - t1,
                 OUTCOME_ACCEPTED if result is not None else (reasons[0] if reasons else REASON_EMPTY),
                 reasons,
+                tokens_out,
+                tokens_in,
+                gen_s,
             )
         )
         return result
@@ -654,7 +699,7 @@ def _generate_one(
     started = time.perf_counter()
     result: GeneratedQuestion | None = None
     try:
-        for _ in range(STRICT_ATTEMPTS):
+        for _ in range(strict_n):
             result = attempt(strict=True)
             if result is not None:
                 trace.accepted_phase = PHASE_STRICT
@@ -666,29 +711,33 @@ def _generate_one(
                 return result
 
         # Strict Arabic-only kept failing; fall back to allowing bracketed Latin.
-        if in_arabic:
+        if in_arabic and relaxed_n > 0:
             log.warning(
                 "  %s: strict Arabic validation failed %s times -- relaxing",
-                chunk.citation, STRICT_ATTEMPTS,
+                chunk.citation, sum(1 for a in trace.attempts if a.phase == PHASE_STRICT),
             )
-            for _ in range(RELAXED_ATTEMPTS):
+            for _ in range(relaxed_n):
                 result = attempt(strict=False)
                 if result is not None:
                     trace.accepted_phase = PHASE_RELAXED
                     log.info("  %s: accepted under relaxed validation", chunk.citation)
                     return result
 
-        log.warning("  %s: no valid question after all attempts", chunk.citation)
+        if final:
+            log.warning("  %s: no valid question after all attempts", chunk.citation)
+        else:
+            log.info("  %s: no valid question yet -- trying another chunk first", chunk.citation)
         return None
     finally:
         trace.accepted = result is not None
-        trace.wall_s = time.perf_counter() - started
+        trace.wall_s += time.perf_counter() - started
         _log_event(
             "quiz_item",
             citation=chunk.citation,
             lang="ar" if in_arabic else "en",
             accepted=trace.accepted,
             phase=trace.accepted_phase,
+            final=final or trace.accepted,
             calls=trace.calls,
             wall_s=round(trace.wall_s, 3),
             model_s=round(sum(a.model_s for a in trace.attempts), 3),
@@ -724,14 +773,43 @@ def generate_quiz(
         if not chunks:
             return []
 
+        first_pass = min(settings.quiz_first_pass_attempts, STRICT_ATTEMPTS)
         questions: list[GeneratedQuestion] = []
+        deferred: list[tuple[SourceChunk, ChunkTrace]] = []
+
+        # Pass 1: a few attempts per chunk, then on to the next. A chunk that has
+        # already failed is a worse bet than a fresh one, and the sample holds twice
+        # as many chunks as the quiz needs.
         for chunk in chunks:
             if len(questions) >= count:
                 break
             log.info("generating question from %s", chunk.citation)
             chunk_trace = ChunkTrace(chunk.citation)
             trace.chunks.append(chunk_trace)  # before generating, so a crash keeps it
-            question = _generate_one(chunk, in_arabic, model, chunk_trace)
+            if first_pass > 0:
+                question = _generate_one(
+                    chunk, in_arabic, model, chunk_trace,
+                    strict_attempts=first_pass, relaxed_attempts=0, final=False,
+                )
+                if question is None:
+                    deferred.append((chunk, chunk_trace))
+            else:
+                question = _generate_one(chunk, in_arabic, model, chunk_trace)
+            if question is not None:
+                questions.append(question)
+
+        # Pass 2, only if still short: give the hard chunks the rest of their budget,
+        # including the relaxed Arabic rules. Nothing is accepted here that would not
+        # have been accepted before; it just happens later, and only when needed.
+        for chunk, chunk_trace in deferred:
+            if len(questions) >= count:
+                break
+            strict_done = sum(1 for a in chunk_trace.attempts if a.phase == PHASE_STRICT)
+            question = _generate_one(
+                chunk, in_arabic, model, chunk_trace,
+                strict_attempts=max(STRICT_ATTEMPTS - strict_done, 0),
+                relaxed_attempts=RELAXED_ATTEMPTS,
+            )
             if question is not None:
                 questions.append(question)
         trace.produced = len(questions)

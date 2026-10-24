@@ -1,0 +1,3666 @@
+{
+ "meta": {
+  "label": "t050",
+  "started_at": "2026-10-24T07:44:06+00:00",
+  "git_commit": "c0a7afd",
+  "ollama_version": "0.40.7",
+  "count": 5,
+  "runs_per_language": 12,
+  "subjects": [
+   7,
+   6
+  ],
+  "seed_base": 1000,
+  "config": {
+   "quiz_model": "llama3.1:8b",
+   "quiz_options": {
+    "temperature": 0.5,
+    "num_predict": 700
+   },
+   "strict_attempts": 8,
+   "relaxed_attempts": 4,
+   "min_chunk_chars": 220,
+   "keep_alive": "30m",
+   "structured_output": false,
+   "feedback": false
+  },
+  "overrides": {},
+  "interleaved_with": [
+   "t050",
+   "t030",
+   "t015"
+  ]
+ },
+ "runs": [
+  {
+   "language": "en",
+   "subject_id": 7,
+   "seed": 1000,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 10.0528,
+   "sampling_s": 0.0501,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec06_classifacation_1.pdf, page 3",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 3.4676,
+     "calls": 2,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.9407,
+       "check_s": 7e-05,
+       "outcome": "references_figure",
+       "reasons": [
+        "references_figure"
+       ],
+       "tokens_out": 124,
+       "tokens_in": 568,
+       "gen_s": 1.8193
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.5267,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 102,
+       "tokens_in": 568,
+       "gen_s": 1.5006
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec07_classifacation_2.pdf, page 18",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.6913,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6912,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 108,
+       "tokens_in": 592,
+       "gen_s": 1.5951
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec02_data.pdf, page 39",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5638,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5637,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 99,
+       "tokens_in": 626,
+       "gen_s": 1.458
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec08_classifacation_3.pdf, page 21",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.6282,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6281,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 105,
+       "tokens_in": 525,
+       "gen_s": 1.5505
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec09_cluster_analyis.pdf, page 42",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.6512,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6511,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 106,
+       "tokens_in": 567,
+       "gen_s": 1.5644
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "subject_id": 6,
+   "seed": 1001,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 7.6482,
+   "sampling_s": 0.0046,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec01_characterization.pdf, page 6",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.6532,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6531,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 107,
+       "tokens_in": 502,
+       "gen_s": 1.5928
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec02_system_model.pdf, page 14",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.6684,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6683,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 107,
+       "tokens_in": 558,
+       "gen_s": 1.5797
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec04_time.pdf, page 25",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4747,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4746,
+       "check_s": 8e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 94,
+       "tokens_in": 563,
+       "gen_s": 1.3855
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 6",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5055,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5055,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 96,
+       "tokens_in": 554,
+       "gen_s": 1.4169
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 51",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3413,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3413,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 85,
+       "tokens_in": 562,
+       "gen_s": 1.2507
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "subject_id": 7,
+   "seed": 1002,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 6.6733,
+   "sampling_s": 0.0219,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 18",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.185,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.1849,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 76,
+       "tokens_in": 519,
+       "gen_s": 1.1194
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec04_association_rule.pdf, page 11",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5512,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5511,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 101,
+       "tokens_in": 498,
+       "gen_s": 1.4914
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec07_classifacation_2.pdf, page 51",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3254,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3253,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 86,
+       "tokens_in": 502,
+       "gen_s": 1.2671
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec06_classifacation_1.pdf, page 19",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.1065,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.1064,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 72,
+       "tokens_in": 471,
+       "gen_s": 1.0574
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec02_data.pdf, page 32",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4827,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4827,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 95,
+       "tokens_in": 525,
+       "gen_s": 1.4037
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "subject_id": 6,
+   "seed": 1003,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 6.4124,
+   "sampling_s": 0.0043,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec02_system_model.pdf, page 11",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3292,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3291,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 86,
+       "tokens_in": 490,
+       "gen_s": 1.2713
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 17",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4494,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4493,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 92,
+       "tokens_in": 583,
+       "gen_s": 1.3608
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec04_time.pdf, page 13",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.0665,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.0665,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 68,
+       "tokens_in": 519,
+       "gen_s": 1.0021
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec01_characterization.pdf, page 11",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.1095,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.1095,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 70,
+       "tokens_in": 535,
+       "gen_s": 1.0298
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 30",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4528,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4527,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 93,
+       "tokens_in": 543,
+       "gen_s": 1.3726
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "subject_id": 7,
+   "seed": 1004,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 15.125,
+   "sampling_s": 0.0245,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec06_classifacation_1.pdf, page 13",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4211,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.421,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 92,
+       "tokens_in": 503,
+       "gen_s": 1.3604
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec01_Introduction.pdf, page 23",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4563,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4562,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 95,
+       "tokens_in": 485,
+       "gen_s": 1.4016
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec09_cluster_analyis.pdf, page 21",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 7.9899,
+     "calls": 5,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6868,
+       "check_s": 5e-05,
+       "outcome": "references_figure",
+       "reasons": [
+        "references_figure"
+       ],
+       "tokens_out": 107,
+       "tokens_in": 636,
+       "gen_s": 1.5796
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.0679,
+       "check_s": 6e-05,
+       "outcome": "references_figure",
+       "reasons": [
+        "references_figure"
+       ],
+       "tokens_out": 138,
+       "tokens_in": 636,
+       "gen_s": 2.0422
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.1169,
+       "check_s": 4e-05,
+       "outcome": "references_figure",
+       "reasons": [
+        "references_figure"
+       ],
+       "tokens_out": 74,
+       "tokens_in": 636,
+       "gen_s": 1.0897
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.4078,
+       "check_s": 4e-05,
+       "outcome": "references_figure",
+       "reasons": [
+        "references_figure"
+       ],
+       "tokens_out": 94,
+       "tokens_in": 636,
+       "gen_s": 1.3817
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.7102,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 114,
+       "tokens_in": 636,
+       "gen_s": 1.6855
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec05_regression.pdf, page 45",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 3.2072,
+     "calls": 2,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.2577,
+       "check_s": 4e-05,
+       "outcome": "references_figure",
+       "reasons": [
+        "references_figure"
+       ],
+       "tokens_out": 80,
+       "tokens_in": 525,
+       "gen_s": 1.1788
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.9493,
+       "check_s": 7e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 130,
+       "tokens_in": 525,
+       "gen_s": 1.9254
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 17",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.0256,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.0255,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 64,
+       "tokens_in": 521,
+       "gen_s": 0.9463
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "subject_id": 6,
+   "seed": 1005,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 7.7913,
+   "sampling_s": 0.0101,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec01_characterization.pdf, page 6",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.8118,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.8117,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 118,
+       "tokens_in": 502,
+       "gen_s": 1.751
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec02_system_model.pdf, page 28",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.473,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.473,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 94,
+       "tokens_in": 542,
+       "gen_s": 1.3907
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 35",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.7188,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.7188,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 110,
+       "tokens_in": 582,
+       "gen_s": 1.6288
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 17",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3911,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3911,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 88,
+       "tokens_in": 583,
+       "gen_s": 1.2994
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec04_time.pdf, page 7",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.386,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3859,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 88,
+       "tokens_in": 564,
+       "gen_s": 1.2978
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "subject_id": 7,
+   "seed": 1006,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 12.9586,
+   "sampling_s": 0.0238,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec02_data.pdf, page 15",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.471,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.471,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 96,
+       "tokens_in": 470,
+       "gen_s": 1.4194
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec01_Introduction.pdf, page 16",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5888,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5888,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 102,
+       "tokens_in": 552,
+       "gen_s": 1.5072
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec06_classifacation_1.pdf, page 1",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5421,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5421,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 99,
+       "tokens_in": 541,
+       "gen_s": 1.4608
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 26",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 2.1648,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 2.1648,
+       "check_s": 7e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 142,
+       "tokens_in": 490,
+       "gen_s": 2.1062
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec05_regression.pdf, page 9",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 6.1674,
+     "calls": 4,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6008,
+       "check_s": 5e-05,
+       "outcome": "references_figure",
+       "reasons": [
+        "references_figure"
+       ],
+       "tokens_out": 104,
+       "tokens_in": 496,
+       "gen_s": 1.5412
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.5332,
+       "check_s": 5e-05,
+       "outcome": "references_figure",
+       "reasons": [
+        "references_figure"
+       ],
+       "tokens_out": 102,
+       "tokens_in": 496,
+       "gen_s": 1.5059
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.5029,
+       "check_s": 5e-05,
+       "outcome": "references_figure",
+       "reasons": [
+        "references_figure"
+       ],
+       "tokens_out": 100,
+       "tokens_in": 496,
+       "gen_s": 1.4754
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.5303,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 102,
+       "tokens_in": 496,
+       "gen_s": 1.5037
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "subject_id": 6,
+   "seed": 1007,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 8.078,
+   "sampling_s": 0.0043,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec02_system_model.pdf, page 35",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.8277,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.8276,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 118,
+       "tokens_in": 547,
+       "gen_s": 1.7469
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 15",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4777,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4776,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 96,
+       "tokens_in": 497,
+       "gen_s": 1.4179
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec04_time.pdf, page 9",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5623,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5622,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 100,
+       "tokens_in": 575,
+       "gen_s": 1.4738
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 48",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4083,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4083,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 90,
+       "tokens_in": 548,
+       "gen_s": 1.327
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec01_characterization.pdf, page 18",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.7973,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.7972,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 116,
+       "tokens_in": 542,
+       "gen_s": 1.7175
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "subject_id": 7,
+   "seed": 1008,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 9.7143,
+   "sampling_s": 0.0249,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec02_data.pdf, page 4",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.531,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.531,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 98,
+       "tokens_in": 539,
+       "gen_s": 1.451
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec08_classifacation_3.pdf, page 26",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 2.2026,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 2.2026,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 140,
+       "tokens_in": 657,
+       "gen_s": 2.0806
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec01_Introduction.pdf, page 23",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 2.3387,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 2.3387,
+       "check_s": 7e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 150,
+       "tokens_in": 542,
+       "gen_s": 2.2223
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec05_regression.pdf, page 23",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5434,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5434,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 98,
+       "tokens_in": 590,
+       "gen_s": 1.4463
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec07_classifacation_2.pdf, page 48",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 2.073,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 2.0729,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 134,
+       "tokens_in": 561,
+       "gen_s": 1.9847
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "subject_id": 6,
+   "seed": 1009,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 8.2814,
+   "sampling_s": 0.0046,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec02_system_model.pdf, page 39",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5864,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5864,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 102,
+       "tokens_in": 528,
+       "gen_s": 1.5066
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec04_time.pdf, page 17",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5841,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.584,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 102,
+       "tokens_in": 537,
+       "gen_s": 1.5046
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 21",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4163,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4163,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 90,
+       "tokens_in": 574,
+       "gen_s": 1.3271
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec01_characterization.pdf, page 11",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5861,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5861,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 102,
+       "tokens_in": 535,
+       "gen_s": 1.506
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 17",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 2.1033,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 2.1032,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 137,
+       "tokens_in": 535,
+       "gen_s": 2.0228
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "subject_id": 7,
+   "seed": 1010,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 7.1957,
+   "sampling_s": 0.0207,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 7",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3652,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3651,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 87,
+       "tokens_in": 525,
+       "gen_s": 1.2862
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec04_association_rule.pdf, page 3",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.2659,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.2659,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 82,
+       "tokens_in": 477,
+       "gen_s": 1.2112
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec09_cluster_analyis.pdf, page 43",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.6998,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6997,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 108,
+       "tokens_in": 628,
+       "gen_s": 1.5939
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec07_classifacation_2.pdf, page 44",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.6138,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6137,
+       "check_s": 7e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 104,
+       "tokens_in": 534,
+       "gen_s": 1.5353
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec02_data.pdf, page 15",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.2298,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.2297,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 77,
+       "tokens_in": 591,
+       "gen_s": 1.1336
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "en",
+   "subject_id": 6,
+   "seed": 1011,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 7.0311,
+   "sampling_s": 0.0045,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec04_time.pdf, page 15",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3946,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3945,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 89,
+       "tokens_in": 527,
+       "gen_s": 1.3152
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec02_system_model.pdf, page 24",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4068,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4068,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 90,
+       "tokens_in": 528,
+       "gen_s": 1.3271
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec01_characterization.pdf, page 8",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5826,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5825,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 102,
+       "tokens_in": 529,
+       "gen_s": 1.5023
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 16",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3017,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3017,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 83,
+       "tokens_in": 523,
+       "gen_s": 1.2227
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 31",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3405,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3404,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 85,
+       "tokens_in": 563,
+       "gen_s": 1.2529
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 7,
+   "seed": 1000,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 36.3373,
+   "sampling_s": 0.0204,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec06_classifacation_1.pdf, page 3",
+     "accepted": true,
+     "accepted_phase": "relaxed",
+     "wall_s": 27.5551,
+     "calls": 12,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 3.0604,
+       "check_s": 5e-05,
+       "outcome": "duplicate_options",
+       "reasons": [
+        "duplicate_options"
+       ],
+       "tokens_out": 195,
+       "tokens_in": 607,
+       "gen_s": 2.9018
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.2277,
+       "check_s": 5e-05,
+       "outcome": "duplicate_options",
+       "reasons": [
+        "duplicate_options"
+       ],
+       "tokens_out": 149,
+       "tokens_in": 607,
+       "gen_s": 2.2002
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.6009,
+       "check_s": 4e-05,
+       "outcome": "answer_not_in_options",
+       "reasons": [
+        "answer_not_in_options"
+       ],
+       "tokens_out": 174,
+       "tokens_in": 607,
+       "gen_s": 2.5758
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.4279,
+       "check_s": 8e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 162,
+       "tokens_in": 607,
+       "gen_s": 2.3989
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.9581,
+       "check_s": 2e-05,
+       "outcome": "bad_item_shape",
+       "reasons": [
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape"
+       ],
+       "tokens_out": 131,
+       "tokens_in": 607,
+       "gen_s": 1.9331
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.995,
+       "check_s": 8e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 200,
+       "tokens_in": 607,
+       "gen_s": 2.969
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.9107,
+       "check_s": 8e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 194,
+       "tokens_in": 607,
+       "gen_s": 2.8833
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.248,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 83,
+       "tokens_in": 607,
+       "gen_s": 1.2216
+      },
+      {
+       "phase": "relaxed",
+       "model_s": 1.5594,
+       "check_s": 1e-05,
+       "outcome": "bad_item_shape",
+       "reasons": [
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape"
+       ],
+       "tokens_out": 104,
+       "tokens_in": 607,
+       "gen_s": 1.5319
+      },
+      {
+       "phase": "relaxed",
+       "model_s": 2.0799,
+       "check_s": 5e-05,
+       "outcome": "malformed_json",
+       "reasons": [
+        "malformed_json"
+       ],
+       "tokens_out": 139,
+       "tokens_in": 607,
+       "gen_s": 2.0535
+      },
+      {
+       "phase": "relaxed",
+       "model_s": 2.1651,
+       "check_s": 5e-05,
+       "outcome": "duplicate_options",
+       "reasons": [
+        "duplicate_options"
+       ],
+       "tokens_out": 145,
+       "tokens_in": 607,
+       "gen_s": 2.1389
+      },
+      {
+       "phase": "relaxed",
+       "model_s": 2.3212,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 155,
+       "tokens_in": 607,
+       "gen_s": 2.2958
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec07_classifacation_2.pdf, page 18",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 2.8128,
+     "calls": 2,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5775,
+       "check_s": 3e-05,
+       "outcome": "duplicate_options",
+       "reasons": [
+        "duplicate_options"
+       ],
+       "tokens_out": 100,
+       "tokens_in": 631,
+       "gen_s": 1.4795
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.2352,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 82,
+       "tokens_in": 631,
+       "gen_s": 1.2094
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec02_data.pdf, page 39",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 2.2042,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 2.204,
+       "check_s": 0.00019,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 140,
+       "tokens_in": 665,
+       "gen_s": 2.0951
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec08_classifacation_3.pdf, page 21",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3266,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3266,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 84,
+       "tokens_in": 564,
+       "gen_s": 1.2464
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec09_cluster_analyis.pdf, page 42",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 2.4175,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 2.4175,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 157,
+       "tokens_in": 606,
+       "gen_s": 2.3289
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 6,
+   "seed": 1001,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 16.4785,
+   "sampling_s": 0.0049,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec01_characterization.pdf, page 6",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.704,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.7039,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 111,
+       "tokens_in": 541,
+       "gen_s": 1.643
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec02_system_model.pdf, page 14",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5248,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5247,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 97,
+       "tokens_in": 597,
+       "gen_s": 1.4361
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec04_time.pdf, page 25",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3471,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3471,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 85,
+       "tokens_in": 602,
+       "gen_s": 1.2583
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 6",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3333,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3332,
+       "check_s": 7e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 84,
+       "tokens_in": 593,
+       "gen_s": 1.2414
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 51",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 10.5639,
+     "calls": 8,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 0.9557,
+       "check_s": 3e-05,
+       "outcome": "duplicate_options",
+       "reasons": [
+        "duplicate_options"
+       ],
+       "tokens_out": 59,
+       "tokens_in": 601,
+       "gen_s": 0.8669
+      },
+      {
+       "phase": "strict",
+       "model_s": 0.8727,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 58,
+       "tokens_in": 601,
+       "gen_s": 0.8488
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.9306,
+       "check_s": 6e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 128,
+       "tokens_in": 601,
+       "gen_s": 1.9071
+      },
+      {
+       "phase": "strict",
+       "model_s": 0.9954,
+       "check_s": 4e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 66,
+       "tokens_in": 601,
+       "gen_s": 0.9701
+      },
+      {
+       "phase": "strict",
+       "model_s": 0.8142,
+       "check_s": 4e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 54,
+       "tokens_in": 601,
+       "gen_s": 0.7899
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.0461,
+       "check_s": 3e-05,
+       "outcome": "malformed_json",
+       "reasons": [
+        "malformed_json"
+       ],
+       "tokens_out": 136,
+       "tokens_in": 601,
+       "gen_s": 2.0223
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.3708,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 91,
+       "tokens_in": 601,
+       "gen_s": 1.3461
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.5779,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 105,
+       "tokens_in": 601,
+       "gen_s": 1.5533
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 7,
+   "seed": 1002,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 20.0302,
+   "sampling_s": 0.0443,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 18",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 2.643,
+     "calls": 2,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5148,
+       "check_s": 6e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 97,
+       "tokens_in": 558,
+       "gen_s": 1.446
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.1281,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 75,
+       "tokens_in": 558,
+       "gen_s": 1.1038
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec04_association_rule.pdf, page 11",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.2027,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.2027,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 77,
+       "tokens_in": 537,
+       "gen_s": 1.1415
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec07_classifacation_2.pdf, page 51",
+     "accepted": true,
+     "accepted_phase": "relaxed",
+     "wall_s": 13.0729,
+     "calls": 9,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.1408,
+       "check_s": 4e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 72,
+       "tokens_in": 541,
+       "gen_s": 1.0787
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.3818,
+       "check_s": 6e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 92,
+       "tokens_in": 541,
+       "gen_s": 1.3578
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.6536,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 110,
+       "tokens_in": 541,
+       "gen_s": 1.6285
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.2059,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 80,
+       "tokens_in": 541,
+       "gen_s": 1.1811
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.2836,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 85,
+       "tokens_in": 541,
+       "gen_s": 1.259
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.7005,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 112,
+       "tokens_in": 541,
+       "gen_s": 1.6752
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.4791,
+       "check_s": 6e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 97,
+       "tokens_in": 541,
+       "gen_s": 1.4524
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.0383,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 134,
+       "tokens_in": 541,
+       "gen_s": 2.0089
+      },
+      {
+       "phase": "relaxed",
+       "model_s": 1.1888,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 79,
+       "tokens_in": 541,
+       "gen_s": 1.1635
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec06_classifacation_1.pdf, page 19",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.369,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.369,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 89,
+       "tokens_in": 510,
+       "gen_s": 1.3184
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec02_data.pdf, page 32",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.6976,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6976,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 109,
+       "tokens_in": 564,
+       "gen_s": 1.6191
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 6,
+   "seed": 1003,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 13.4962,
+   "sampling_s": 0.0046,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec02_system_model.pdf, page 11",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3744,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3744,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 88,
+       "tokens_in": 529,
+       "gen_s": 1.3138
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 17",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.8206,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.8205,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 116,
+       "tokens_in": 622,
+       "gen_s": 1.7308
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec04_time.pdf, page 13",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4683,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4682,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 94,
+       "tokens_in": 558,
+       "gen_s": 1.3998
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec01_characterization.pdf, page 11",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.1924,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.1924,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 75,
+       "tokens_in": 574,
+       "gen_s": 1.112
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 30",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 7.6354,
+     "calls": 5,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6574,
+       "check_s": 5e-05,
+       "outcome": "duplicate_options",
+       "reasons": [
+        "duplicate_options"
+       ],
+       "tokens_out": 106,
+       "tokens_in": 582,
+       "gen_s": 1.5749
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.7038,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 113,
+       "tokens_in": 582,
+       "gen_s": 1.6764
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.4041,
+       "check_s": 1e-05,
+       "outcome": "bad_item_shape",
+       "reasons": [
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape"
+       ],
+       "tokens_out": 93,
+       "tokens_in": 582,
+       "gen_s": 1.3766
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.4618,
+       "check_s": 6e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 97,
+       "tokens_in": 582,
+       "gen_s": 1.4373
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.408,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 93,
+       "tokens_in": 582,
+       "gen_s": 1.3804
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 7,
+   "seed": 1004,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 9.6301,
+   "sampling_s": 0.0258,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec06_classifacation_1.pdf, page 13",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.0759,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.0758,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 68,
+       "tokens_in": 542,
+       "gen_s": 1.0142
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec01_Introduction.pdf, page 23",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3826,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3826,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 89,
+       "tokens_in": 524,
+       "gen_s": 1.3286
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec09_cluster_analyis.pdf, page 21",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 4.0835,
+     "calls": 2,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 2.7228,
+       "check_s": 4e-05,
+       "outcome": "duplicate_options",
+       "reasons": [
+        "duplicate_options"
+       ],
+       "tokens_out": 174,
+       "tokens_in": 675,
+       "gen_s": 2.6153
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.3605,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 90,
+       "tokens_in": 675,
+       "gen_s": 1.3326
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec05_regression.pdf, page 45",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4721,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4721,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 94,
+       "tokens_in": 564,
+       "gen_s": 1.3913
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 17",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5898,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5897,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 102,
+       "tokens_in": 560,
+       "gen_s": 1.5101
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 6,
+   "seed": 1005,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 22.6798,
+   "sampling_s": 0.0047,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec01_characterization.pdf, page 6",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.0205,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.0205,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 65,
+       "tokens_in": 541,
+       "gen_s": 0.9599
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec02_system_model.pdf, page 28",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5074,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5073,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 96,
+       "tokens_in": 581,
+       "gen_s": 1.4267
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 35",
+     "accepted": true,
+     "accepted_phase": "relaxed",
+     "wall_s": 14.94,
+     "calls": 9,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 2.1432,
+       "check_s": 1e-05,
+       "outcome": "bad_item_shape",
+       "reasons": [
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape"
+       ],
+       "tokens_out": 138,
+       "tokens_in": 621,
+       "gen_s": 2.0535
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.1224,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 141,
+       "tokens_in": 621,
+       "gen_s": 2.0969
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.2795,
+       "check_s": 7e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 85,
+       "tokens_in": 621,
+       "gen_s": 1.2536
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.5912,
+       "check_s": 3e-05,
+       "outcome": "duplicate_options",
+       "reasons": [
+        "duplicate_options"
+       ],
+       "tokens_out": 106,
+       "tokens_in": 621,
+       "gen_s": 1.566
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.5356,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 102,
+       "tokens_in": 621,
+       "gen_s": 1.5079
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.9522,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 130,
+       "tokens_in": 621,
+       "gen_s": 1.9244
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.1445,
+       "check_s": 9e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 76,
+       "tokens_in": 621,
+       "gen_s": 1.1198
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.5339,
+       "check_s": 1e-05,
+       "outcome": "bad_item_shape",
+       "reasons": [
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape"
+       ],
+       "tokens_out": 102,
+       "tokens_in": 621,
+       "gen_s": 1.5074
+      },
+      {
+       "phase": "relaxed",
+       "model_s": 1.6369,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 109,
+       "tokens_in": 621,
+       "gen_s": 1.6116
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 17",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 3.991,
+     "calls": 2,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.8849,
+       "check_s": 4e-05,
+       "outcome": "duplicate_options",
+       "reasons": [
+        "duplicate_options"
+       ],
+       "tokens_out": 121,
+       "tokens_in": 622,
+       "gen_s": 1.7956
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.106,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 140,
+       "tokens_in": 622,
+       "gen_s": 2.0803
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec04_time.pdf, page 7",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.2158,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.2157,
+       "check_s": 7e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 76,
+       "tokens_in": 603,
+       "gen_s": 1.1259
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 7,
+   "seed": 1006,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 25.1363,
+   "sampling_s": 0.0336,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec02_data.pdf, page 15",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.1476,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.1475,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 74,
+       "tokens_in": 509,
+       "gen_s": 1.0974
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec01_Introduction.pdf, page 16",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.6957,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6956,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 109,
+       "tokens_in": 591,
+       "gen_s": 1.615
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec06_classifacation_1.pdf, page 1",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 6.1494,
+     "calls": 4,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4783,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 94,
+       "tokens_in": 580,
+       "gen_s": 1.3975
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.6845,
+       "check_s": 1e-05,
+       "outcome": "bad_item_shape",
+       "reasons": [
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape"
+       ],
+       "tokens_out": 112,
+       "tokens_in": 580,
+       "gen_s": 1.6583
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.3554,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 90,
+       "tokens_in": 580,
+       "gen_s": 1.331
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.6309,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 108,
+       "tokens_in": 580,
+       "gen_s": 1.6062
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 26",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 14.5606,
+     "calls": 4,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 3.3767,
+       "check_s": 7e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 223,
+       "tokens_in": 529,
+       "gen_s": 3.3172
+      },
+      {
+       "phase": "strict",
+       "model_s": 5.3639,
+       "check_s": 9e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 357,
+       "tokens_in": 529,
+       "gen_s": 5.3365
+      },
+      {
+       "phase": "strict",
+       "model_s": 4.685,
+       "check_s": 6e-05,
+       "outcome": "duplicate_options",
+       "reasons": [
+        "duplicate_options"
+       ],
+       "tokens_out": 312,
+       "tokens_in": 529,
+       "gen_s": 4.658
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.1348,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 75,
+       "tokens_in": 529,
+       "gen_s": 1.1084
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec05_regression.pdf, page 9",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5488,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5487,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 100,
+       "tokens_in": 535,
+       "gen_s": 1.4891
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 6,
+   "seed": 1007,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 11.5636,
+   "sampling_s": 0.0048,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec02_system_model.pdf, page 35",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5013,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5012,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 96,
+       "tokens_in": 586,
+       "gen_s": 1.4211
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 15",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 4.04,
+     "calls": 2,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 2.3137,
+       "check_s": 4e-05,
+       "outcome": "answer_not_in_options",
+       "reasons": [
+        "answer_not_in_options"
+       ],
+       "tokens_out": 151,
+       "tokens_in": 536,
+       "gen_s": 2.2546
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.7262,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 114,
+       "tokens_in": 536,
+       "gen_s": 1.7012
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec04_time.pdf, page 9",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.5475,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5475,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 98,
+       "tokens_in": 614,
+       "gen_s": 1.4593
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 48",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 3.2074,
+     "calls": 2,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.8693,
+       "check_s": 3e-05,
+       "outcome": "duplicate_options",
+       "reasons": [
+        "duplicate_options"
+       ],
+       "tokens_out": 120,
+       "tokens_in": 587,
+       "gen_s": 1.7881
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.338,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 89,
+       "tokens_in": 587,
+       "gen_s": 1.3134
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec01_characterization.pdf, page 18",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.2621,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.262,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 80,
+       "tokens_in": 581,
+       "gen_s": 1.1803
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 7,
+   "seed": 1008,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 31.5298,
+   "sampling_s": 0.0281,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec02_data.pdf, page 4",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.515,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5149,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 97,
+       "tokens_in": 578,
+       "gen_s": 1.4341
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec08_classifacation_3.pdf, page 26",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.9523,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.9522,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 123,
+       "tokens_in": 696,
+       "gen_s": 1.8288
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec01_Introduction.pdf, page 23",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 3.5154,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 3.5153,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 231,
+       "tokens_in": 581,
+       "gen_s": 3.435
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec05_regression.pdf, page 23",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 6.4802,
+     "calls": 5,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5889,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 101,
+       "tokens_in": 629,
+       "gen_s": 1.492
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.2043,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 80,
+       "tokens_in": 629,
+       "gen_s": 1.1796
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.3704,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 91,
+       "tokens_in": 629,
+       "gen_s": 1.3447
+      },
+      {
+       "phase": "strict",
+       "model_s": 0.698,
+       "check_s": 1e-05,
+       "outcome": "bad_item_shape",
+       "reasons": [
+        "bad_item_shape"
+       ],
+       "tokens_out": 46,
+       "tokens_in": 629,
+       "gen_s": 0.6731
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.6182,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 108,
+       "tokens_in": 629,
+       "gen_s": 1.5939
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec07_classifacation_2.pdf, page 48",
+     "accepted": true,
+     "accepted_phase": "relaxed",
+     "wall_s": 18.0383,
+     "calls": 9,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6695,
+       "check_s": 0.0001,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 107,
+       "tokens_in": 600,
+       "gen_s": 1.5807
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.7798,
+       "check_s": 0.0001,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 119,
+       "tokens_in": 600,
+       "gen_s": 1.7542
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.0806,
+       "check_s": 4e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 72,
+       "tokens_in": 600,
+       "gen_s": 1.0568
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.5317,
+       "check_s": 6e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 168,
+       "tokens_in": 600,
+       "gen_s": 2.5089
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.3734,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 91,
+       "tokens_in": 600,
+       "gen_s": 1.3478
+      },
+      {
+       "phase": "strict",
+       "model_s": 3.1063,
+       "check_s": 6e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 207,
+       "tokens_in": 600,
+       "gen_s": 3.0821
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.3224,
+       "check_s": 1e-05,
+       "outcome": "bad_item_shape",
+       "reasons": [
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape"
+       ],
+       "tokens_out": 88,
+       "tokens_in": 600,
+       "gen_s": 1.2955
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.2866,
+       "check_s": 1e-05,
+       "outcome": "bad_item_shape",
+       "reasons": [
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape"
+       ],
+       "tokens_out": 153,
+       "tokens_in": 600,
+       "gen_s": 2.2622
+      },
+      {
+       "phase": "relaxed",
+       "model_s": 2.8874,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 193,
+       "tokens_in": 600,
+       "gen_s": 2.8627
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 6,
+   "seed": 1009,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 10.0178,
+   "sampling_s": 0.0046,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec02_system_model.pdf, page 39",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.373,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3729,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 87,
+       "tokens_in": 567,
+       "gen_s": 1.2925
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec04_time.pdf, page 17",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 3.9416,
+     "calls": 3,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.2156,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 77,
+       "tokens_in": 576,
+       "gen_s": 1.136
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.1253,
+       "check_s": 1e-05,
+       "outcome": "bad_item_shape",
+       "reasons": [
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape"
+       ],
+       "tokens_out": 75,
+       "tokens_in": 576,
+       "gen_s": 1.1013
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.6005,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 107,
+       "tokens_in": 576,
+       "gen_s": 1.5749
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 21",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 2.4333,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 2.4333,
+       "check_s": 6e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 158,
+       "tokens_in": 613,
+       "gen_s": 2.3442
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec01_characterization.pdf, page 11",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.1257,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.1256,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 71,
+       "tokens_in": 574,
+       "gen_s": 1.0455
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 17",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.139,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.139,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 72,
+       "tokens_in": 574,
+       "gen_s": 1.0586
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 7,
+   "seed": 1010,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 26.8447,
+   "sampling_s": 0.0211,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "kdd_lec03_data_preprocessing.pdf, page 7",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.4651,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.465,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 93,
+       "tokens_in": 564,
+       "gen_s": 1.3852
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec04_association_rule.pdf, page 3",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 4.6687,
+     "calls": 3,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.4597,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 95,
+       "tokens_in": 516,
+       "gen_s": 1.4051
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.4663,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 97,
+       "tokens_in": 516,
+       "gen_s": 1.4431
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.7425,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 116,
+       "tokens_in": 516,
+       "gen_s": 1.7192
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec09_cluster_analyis.pdf, page 43",
+     "accepted": true,
+     "accepted_phase": "relaxed",
+     "wall_s": 17.8635,
+     "calls": 9,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.5612,
+       "check_s": 4e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 98,
+       "tokens_in": 667,
+       "gen_s": 1.4527
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.689,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 112,
+       "tokens_in": 667,
+       "gen_s": 1.665
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.9919,
+       "check_s": 2e-05,
+       "outcome": "malformed_json",
+       "reasons": [
+        "malformed_json"
+       ],
+       "tokens_out": 132,
+       "tokens_in": 667,
+       "gen_s": 1.9611
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.1258,
+       "check_s": 3e-05,
+       "outcome": "answer_not_in_options",
+       "reasons": [
+        "answer_not_in_options"
+       ],
+       "tokens_out": 141,
+       "tokens_in": 667,
+       "gen_s": 2.0975
+      },
+      {
+       "phase": "strict",
+       "model_s": 2.6184,
+       "check_s": 3e-05,
+       "outcome": "malformed_json",
+       "reasons": [
+        "malformed_json"
+       ],
+       "tokens_out": 173,
+       "tokens_in": 667,
+       "gen_s": 2.5879
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.9166,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 126,
+       "tokens_in": 667,
+       "gen_s": 1.8869
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.8005,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 119,
+       "tokens_in": 667,
+       "gen_s": 1.7709
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.9267,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 128,
+       "tokens_in": 667,
+       "gen_s": 1.8995
+      },
+      {
+       "phase": "relaxed",
+       "model_s": 2.2328,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 148,
+       "tokens_in": 667,
+       "gen_s": 2.205
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec07_classifacation_2.pdf, page 44",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.7416,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.7416,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 112,
+       "tokens_in": 573,
+       "gen_s": 1.6596
+      }
+     ]
+    },
+    {
+     "citation": "kdd_lec02_data.pdf, page 15",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.0843,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.0842,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 67,
+       "tokens_in": 630,
+       "gen_s": 0.9877
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "language": "ar",
+   "subject_id": 6,
+   "seed": 1011,
+   "requested": 5,
+   "produced": 5,
+   "total_s": 12.093,
+   "sampling_s": 0.0043,
+   "error": null,
+   "chunks": [
+    {
+     "citation": "ds_lec04_time.pdf, page 15",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 4.5041,
+     "calls": 3,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.2359,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 78,
+       "tokens_in": 566,
+       "gen_s": 1.156
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.4247,
+       "check_s": 5e-05,
+       "outcome": "latin_leakage",
+       "reasons": [
+        "latin_leakage"
+       ],
+       "tokens_out": 95,
+       "tokens_in": 566,
+       "gen_s": 1.3998
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.8434,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 123,
+       "tokens_in": 566,
+       "gen_s": 1.8178
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec02_system_model.pdf, page 24",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3184,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3184,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 84,
+       "tokens_in": 567,
+       "gen_s": 1.2401
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec01_characterization.pdf, page 8",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.3205,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.3205,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 84,
+       "tokens_in": 568,
+       "gen_s": 1.241
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec05_operating_system.pdf, page 16",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 3.3322,
+     "calls": 2,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6227,
+       "check_s": 2e-05,
+       "outcome": "bad_item_shape",
+       "reasons": [
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape",
+        "bad_item_shape"
+       ],
+       "tokens_out": 104,
+       "tokens_in": 562,
+       "gen_s": 1.5435
+      },
+      {
+       "phase": "strict",
+       "model_s": 1.7095,
+       "check_s": 4e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 114,
+       "tokens_in": 562,
+       "gen_s": 1.6848
+      }
+     ]
+    },
+    {
+     "citation": "ds_lec03_distributed_objects.pdf, page 31",
+     "accepted": true,
+     "accepted_phase": "strict",
+     "wall_s": 1.6129,
+     "calls": 1,
+     "attempts": [
+      {
+       "phase": "strict",
+       "model_s": 1.6129,
+       "check_s": 5e-05,
+       "outcome": "accepted",
+       "reasons": [],
+       "tokens_out": 103,
+       "tokens_in": 602,
+       "gen_s": 1.5241
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
