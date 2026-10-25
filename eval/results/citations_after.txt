@@ -1,0 +1,52 @@
+Citation validity after the fix (same 45 questions, seeds 42 43 44, same retrieval as baseline, default config).
+First block = baseline (before). Second = what the MODEL wrote in this run (raw, unchecked). Third = what the STUDENT sees (validated).
+The residual 'unreadable' in the third block is file-only citations of retrieved files (e01, e15, a07), kept on purpose.
+
+
+=== baseline
+  [AR]  23 in-scope answers x 3 seeds
+    strict   citations written per answer-set               28.7
+    strict   % naming a page that was NOT retrieved          22.9 ±14.3
+    lenient  citation-like brackets per answer-set           31.7  (strict regex misses 3.0 of them)
+    lenient  % not valid                                     30.4 ±13.2
+             of the invalid: wrong page 5.3, file not retrieved 2.7, unreadable 2.3
+    lenient  % of answers carrying at least one invalid      33.8 ±10.1
+  [EN]  15 in-scope answers x 3 seeds
+    strict   citations written per answer-set               24.0
+    strict   % naming a page that was NOT retrieved          13.7 ±4.0
+    lenient  citation-like brackets per answer-set           25.0  (strict regex misses 1.0 of them)
+    lenient  % not valid                                     14.6 ±1.9
+             of the invalid: wrong page 3.0, file not retrieved 0.3, unreadable 0.3
+    lenient  % of answers carrying at least one invalid      26.7 ±3.2
+
+=== validated
+  [AR]  23 in-scope answers x 3 seeds
+    strict   citations written per answer-set               24.7
+    strict   % naming a page that was NOT retrieved          14.9 ±4.1
+    lenient  citation-like brackets per answer-set           27.0  (strict regex misses 2.3 of them)
+    lenient  % not valid                                     22.4 ±4.5
+             of the invalid: wrong page 1.3, file not retrieved 3.0, unreadable 1.7
+    lenient  % of answers carrying at least one invalid      26.6 ±3.4
+  [EN]  15 in-scope answers x 3 seeds
+    strict   citations written per answer-set               24.0
+    strict   % naming a page that was NOT retrieved          13.8 ±1.9
+    lenient  citation-like brackets per answer-set           25.3  (strict regex misses 1.3 of them)
+    lenient  % not valid                                     15.8 ±0.4
+             of the invalid: wrong page 2.7, file not retrieved 0.7, unreadable 0.7
+    lenient  % of answers carrying at least one invalid      28.6 ±0.0
+
+=== validated
+  [AR]  23 in-scope answers x 3 seeds
+    strict   citations written per answer-set               21.7
+    strict   % naming a page that was NOT retrieved           0.0 ±0.0
+    lenient  citation-like brackets per answer-set           22.0  (strict regex misses 0.3 of them)
+    lenient  % not valid                                      1.3 ±2.3
+             of the invalid: wrong page 0.0, file not retrieved 0.0, unreadable 0.3
+    lenient  % of answers carrying at least one invalid       1.9 ±3.2
+  [EN]  15 in-scope answers x 3 seeds
+    strict   citations written per answer-set               22.7
+    strict   % naming a page that was NOT retrieved           0.0 ±0.0
+    lenient  citation-like brackets per answer-set           23.3  (strict regex misses 0.7 of them)
+    lenient  % not valid                                      2.7 ±2.4
+             of the invalid: wrong page 0.0, file not retrieved 0.0, unreadable 0.7
+    lenient  % of answers carrying at least one invalid       5.8 ±5.0

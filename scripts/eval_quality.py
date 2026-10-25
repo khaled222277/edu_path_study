@@ -246,8 +246,10 @@ def ask_chat(question: str, subject_id: int, history: list[tuple[str, str]], pre
     response = get_client().chat(
         model=model, messages=messages, options={**cc.CHAT_OPTIONS, "seed": seed}, keep_alive=keep_alive()
     )
-    parsed = cc.finalize_answer(response["message"]["content"], question)
-    return parsed, trace.final, trace, query
+    content = response["message"]["content"]
+    parsed = cc.finalize_answer(content, question, trace.final)  # what the student is shown
+    raw = cc.finalize_answer(content, question)  # what the model wrote
+    return parsed, trace.final, trace, query, raw
 
 
 def run_chat(items, seeds, model, top_k, candidate_k, rewrite=True, progress=True, queries=None) -> list[dict]:
@@ -259,9 +261,9 @@ def run_chat(items, seeds, model, top_k, candidate_k, rewrite=True, progress=Tru
             if item.get("previous"):
                 # Answer the earlier question first, with the same model and seed, so the
                 # follow-up sees a realistic conversation instead of a made-up one.
-                prev_parsed, *_ = ask_chat(item["previous"], item["subject_id"], [], None, model, seed, top_k, candidate_k, rewrite)
+                prev_parsed, *_rest = ask_chat(item["previous"], item["subject_id"], [], None, model, seed, top_k, candidate_k, rewrite)
                 history = [("user", item["previous"]), ("assistant", prev_parsed.text)]
-            parsed, final, trace, query = ask_chat(
+            parsed, final, trace, query, raw = ask_chat(
                 item["question"], item["subject_id"], history, item.get("previous"), model, seed, top_k, candidate_k,
                 rewrite, query=(queries or {}).get(item["id"]),
             )
@@ -272,7 +274,13 @@ def run_chat(items, seeds, model, top_k, candidate_k, rewrite=True, progress=Tru
                     {"file": c.source_filename, "page": c.page_number, "type": c.content_type, "snippet": re.sub(r"\s+", " ", c.text)[:260]}
                     for c in (final if not parsed.refused else final)
                 ],
-                "metrics": chat_metrics(item, parsed, final, corpus),
+                "metrics": {
+                    **chat_metrics(item, parsed, final, corpus),
+                    # what the model itself wrote, before the app checked its citations
+                    **{f"raw_{k}": v for k, v in citation_check(
+                        raw.text, {(c.source_filename, c.page_number) for c in final}, corpus).items()},
+                },
+                "raw_answer": raw.text,
             }
             rows.append(row)
         if progress:
