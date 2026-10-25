@@ -36,6 +36,7 @@ from starlette.responses import StreamingResponse
 
 from app.controllers import chat_controller as cc
 from app.schemas.chat import Citation, MessageOut
+from app.services.citations import CitationFilter, Retrieved
 from app.services.refusal import RefusalFilter
 from app.services.llm import get_async_client, keep_alive
 from app.services.retrieval import RetrievedChunk
@@ -123,24 +124,29 @@ async def stream_events(
         yield encode_event({"type": "citations", "citations": citation_payload(turn.chunks)})
 
         raw: list[str] = []
-        shown = RefusalFilter()  # keeps the refusal token off the screen, however it is split
+        # Two filters in a row, so nothing the student must not see ever reaches the
+        # browser: the refusal token is removed, then every citation is checked against
+        # this turn's retrieved chunks (an invalid one is never sent, a valid one is sent
+        # already in its canonical form). Each holds back only what could still change.
+        shown = RefusalFilter()
+        cited = CitationFilter(Retrieved.from_chunks(turn.chunks))
         emitted = False
         part = first_part
         while part is not None:
             text = _text_of(part)
             if text:
                 raw.append(text)
-                visible = shown.feed(text)
+                visible = cited.feed(shown.feed(text))
                 if visible:
                     emitted = True
                     yield encode_event({"type": "token", "text": visible})
             part = await anext(stream, None)
-        tail = shown.flush()
+        tail = cited.feed(shown.flush()) + cited.flush()
         if tail:
             emitted = True
             yield encode_event({"type": "token", "text": tail})
 
-        parsed = cc.finalize_answer("".join(raw), turn.question)
+        parsed = cc.finalize_answer("".join(raw), turn.question, turn.chunks)
         if not emitted:
             # The model said nothing visible (no reply, or only the token): show the
             # same stand-in text the plain route would store.

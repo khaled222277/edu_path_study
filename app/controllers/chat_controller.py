@@ -15,7 +15,9 @@ from app.models.user import User
 from app.services.llm import get_client, keep_alive
 from app.services.query_rewrite import retrieval_query
 from app.services.quiz_service import detect_language
+from app.services.citations import Retrieved, validate_answer
 from app.services.refusal import (
+    DEFAULT_APOLOGY,
     LEGACY_REFUSAL_PHRASE,
     REFUSAL_SENTINEL,
     ParsedReply,
@@ -221,14 +223,32 @@ def _prepare(
     return chunks, _build_messages(chat_session, question, chunks)
 
 
-def finalize_answer(raw: str | None, question: str = "") -> ParsedReply:
+def finalize_answer(
+    raw: str | None, question: str = "", chunks: list[RetrievedChunk] | None = None
+) -> ParsedReply:
     """What is stored and shown for a model reply, and whether it was a refusal.
 
     The refusal token is removed from the text; `refused` says the material did not
     cover the question. `question` only picks the language of the stand-in text used
     when the model wrote nothing but the token, or nothing at all.
+
+    With `chunks` -- the chunks actually put in this turn's prompt -- every inline
+    citation is checked against them: ones naming a page that was not retrieved are
+    removed and the rest are written in one canonical form (see app/services/citations.py).
+    Without it the text is returned as the model wrote it, which is what the evaluation
+    uses to measure how often the model cites wrongly.
     """
-    return parse_reply(raw, detect_language(question) if question else "en")
+    language = detect_language(question) if question else "en"
+    parsed = parse_reply(raw, language)
+    if chunks is None:
+        return parsed
+    checked = validate_answer(parsed.text, Retrieved.from_chunks(chunks))
+    if checked.removed:
+        log.info("removed %s citation(s) not among the retrieved chunks: %s", len(checked.removed), checked.removed)
+    if checked.text.strip():
+        return ParsedReply(checked.text, parsed.refused)
+    # The reply was nothing but citations that did not hold up: there is no answer left.
+    return ParsedReply(DEFAULT_APOLOGY.get(language, DEFAULT_APOLOGY["en"]), True)
 
 
 def visible_chunks(refused: bool, chunks: list[RetrievedChunk]) -> list[RetrievedChunk]:
@@ -291,7 +311,7 @@ def answer_question(
             detail=MODEL_UNAVAILABLE_DETAIL,
         ) from exc
 
-    parsed = finalize_answer(response.get("message", {}).get("content"), question)
+    parsed = finalize_answer(response.get("message", {}).get("content"), question, chunks)
 
     reply = ChatMessage(
         session_id=chat_session.id, role=ROLE_ASSISTANT, content=parsed.text
