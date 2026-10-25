@@ -399,3 +399,69 @@ def test_embedding_margin_is_correct_minus_the_mean_of_the_others(monkeypatch):
     good = _support(monkeypatch, correct=1)["margin"]
     bad = _support(monkeypatch, correct=0)["margin"]
     assert good > 0.3 and bad < 0
+
+
+# --- reusing queries so configurations compare exactly -------------------------------------------
+
+
+def _result_with_queries(tmp, mapping):
+    path = tmp / "r.json"
+    path.write_text(json.dumps({"meta": {}, "rows": [{"id": k, "query": v} for k, v in mapping.items()]}), encoding="utf-8")
+    return str(path)
+
+
+def test_load_queries_maps_ids_to_the_earlier_search_text(tmp_path):
+    q = eq.load_queries(_result_with_queries(tmp_path, {"a19": "rewritten text", "e01": "plain"}))
+    assert q == {"a19": "rewritten text", "e01": "plain"}
+    assert eq.load_queries(None) == {} and eq.load_queries("") == {}
+
+
+def test_a_reused_query_is_searched_and_the_rewrite_is_not_called(monkeypatch):
+    seen = []
+
+    class Trace:
+        candidates, reranked, final, strategy, top_score = [], [], [], "reranked", 0.5
+
+    monkeypatch.setattr(eq.retrieval, "retrieve_detailed", lambda q, s, c, k: seen.append(q) or Trace())
+
+    def boom(*a):
+        raise AssertionError("must not rewrite when the query is supplied")
+
+    monkeypatch.setattr(eq, "retrieval_query", boom)
+    item = {"id": "a19", "lang": "ar", "kind": "follow_up", "subject_id": 7, "question": "وما هي عيوبها؟", "previous": "كيف تعمل k-means؟", "gold": []}
+    rows = eq.run_retrieval([item], 3, 10, rewrite=True, queries={"a19": "ما هي عيوب k-means؟"})
+    assert seen == ["ما هي عيوب k-means؟"] and rows[0]["query"] == "ما هي عيوب k-means؟"
+
+
+def test_without_a_supplied_query_a_follow_up_is_still_rewritten(monkeypatch):
+    class Trace:
+        candidates, reranked, final, strategy, top_score = [], [], [], "reranked", 0.5
+
+    monkeypatch.setattr(eq.retrieval, "retrieve_detailed", lambda q, s, c, k: Trace())
+    monkeypatch.setattr(eq, "retrieval_query", lambda prev, q: f"REWRITTEN({prev}|{q})")
+    item = {"id": "x", "lang": "en", "kind": "follow_up", "subject_id": 7, "question": "why?", "previous": "what is X?", "gold": []}
+    assert eq.run_retrieval([item], 3, 10)[0]["query"] == "REWRITTEN(what is X?|why?)"
+    assert eq.run_retrieval([item], 3, 10, rewrite=False)[0]["query"] == "why?"
+
+
+def test_final_chars_counts_the_context_the_prompt_gets():
+    class T:
+        candidates = []
+        reranked = []
+        final = [chunk(text="x" * 100), chunk(text="y" * 50)]
+        strategy, top_score = "reranked", 0.5
+
+    row = eq.retrieval_row({"id": "i", "lang": "en", "kind": "narrow", "gold": []}, T(), "q")
+    assert row["final_chars"] == 150
+    assert eq.summarize_retrieval([{**row, "rank_candidates": None, "hit_cand3": False, "hit_cand5": False, "hit_cand10": False}])["en"]["mean_final_chars"] == 150
+
+
+def test_chroma_path_points_the_search_at_another_store(tmp_path, monkeypatch):
+    from app.services import vector_store
+
+    cleared = []
+    monkeypatch.setattr(vector_store, "reset_cache", lambda **kw: cleared.append(1))
+    monkeypatch.setattr(vector_store, "CHROMA_PATH", Path("/the/real/store"))
+    args = SimpleNamespace(min_confidence=None, chroma_path=str(tmp_path), top_k=3, candidate_k=10, no_rewrite=False, reuse_queries=None)
+    meta = eq.apply_common(args)
+    assert vector_store.CHROMA_PATH == tmp_path.resolve() and cleared and meta["chroma_path"] == str(tmp_path)

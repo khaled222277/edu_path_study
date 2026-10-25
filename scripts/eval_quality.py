@@ -111,6 +111,7 @@ def retrieval_row(item: dict, trace, query: str) -> dict:
         "strategy": trace.strategy, "top_score": round(trace.top_score, 5),
         "final_pages": [[c.source_filename, c.page_number] for c in trace.final],
         "hit_final": hit_at(trace.final, gold, len(trace.final)),
+        "final_chars": sum(len(c.text) for c in trace.final),  # how much context the prompt gets
         "hit_reranked3": hit_at(trace.reranked, gold, 3),
         "rank_candidates": first_gold_rank(trace.candidates, gold),
         "rank_reranked": first_gold_rank(trace.reranked, gold),
@@ -121,13 +122,23 @@ def retrieval_row(item: dict, trace, query: str) -> dict:
     return row
 
 
-def run_retrieval(items, top_k: int, candidate_k: int, rewrite: bool = True) -> list[dict]:
+def load_queries(path: str | None) -> dict[str, str]:
+    """id -> the search query an earlier result file used (so a follow-up is not rewritten again)."""
+    if not path:
+        return {}
+    rows = json.loads(Path(path).read_text(encoding="utf-8"))["rows"]
+    return {r["id"]: r["query"] for r in rows if r.get("query")}
+
+
+def run_retrieval(items, top_k: int, candidate_k: int, rewrite: bool = True, queries: dict | None = None) -> list[dict]:
     rows = []
     for item in items:
         if item["kind"] == "out_of_scope":
             continue
         query = item["question"]
-        if rewrite and item.get("previous"):
+        if queries and item["id"] in queries:
+            query = queries[item["id"]]  # identical text for every configuration being compared
+        elif rewrite and item.get("previous"):
             query = retrieval_query(item["previous"], item["question"])
         trace = retrieval.retrieve_detailed(query, item["subject_id"], candidate_k, top_k)
         rows.append(retrieval_row(item, trace, query))
@@ -147,15 +158,18 @@ def summarize_retrieval(rows: list[dict]) -> dict:
                 cell[key] = sum(vals) / len(vals)
         ranks = [r["rank_candidates"] for r in sel]
         cell["mrr_candidates"] = sum(1 / x for x in ranks if x) / len(ranks)
+        chars = [r["final_chars"] for r in sel if "final_chars" in r]
+        if chars:
+            cell["mean_final_chars"] = statistics.mean(chars)
         out[lang] = cell
     return out
 
 
 def print_retrieval(summary: dict, title: str = "") -> None:
-    print(f"\n{title}\n{'':<6}{'n':>3}{'cand@3':>9}{'cand@5':>9}{'cand@10':>9}{'cand@20':>9}{'rerank@3':>10}{'FINAL':>8}{'MRR(cand)':>11}")
+    print(f"\n{title}\n{'':<6}{'n':>3}{'cand@3':>9}{'cand@5':>9}{'cand@10':>9}{'cand@20':>9}{'rerank@3':>10}{'FINAL':>8}{'MRR(cand)':>11}{'ctx chars':>11}")
     for lang, c in summary.items():
         p = lambda k: f"{100 * c[k]:5.0f}%" if k in c else "     -"
-        print(f"{lang:<6}{c['n']:>3}{p('hit_cand3'):>9}{p('hit_cand5'):>9}{p('hit_cand10'):>9}{p('hit_cand20'):>9}{p('hit_reranked3'):>10}{p('hit_final'):>8}{c['mrr_candidates']:>11.2f}")
+        print(f"{lang:<6}{c['n']:>3}{p('hit_cand3'):>9}{p('hit_cand5'):>9}{p('hit_cand10'):>9}{p('hit_cand20'):>9}{p('hit_reranked3'):>10}{p('hit_final'):>8}{c['mrr_candidates']:>11.2f}{c.get('mean_final_chars', 0):>11.0f}")
 
 
 # -------------------------------------------------------------------------- chat
@@ -222,9 +236,10 @@ class _Session:
 
 
 def ask_chat(question: str, subject_id: int, history: list[tuple[str, str]], previous: str | None,
-             model: str, seed: int, top_k: int, candidate_k: int, rewrite: bool = True):
+             model: str, seed: int, top_k: int, candidate_k: int, rewrite: bool = True, query: str | None = None):
     """One chat turn exactly as the API runs it. Returns (ParsedReply, final chunks, trace, query)."""
-    query = retrieval_query(previous, question) if rewrite else question
+    if query is None:
+        query = retrieval_query(previous, question) if rewrite else question
     trace = retrieval.retrieve_detailed(query, subject_id, candidate_k, top_k)
     session = _Session([*history, ("user", question)])
     messages = cc._build_messages(session, question, trace.final)
@@ -235,7 +250,7 @@ def ask_chat(question: str, subject_id: int, history: list[tuple[str, str]], pre
     return parsed, trace.final, trace, query
 
 
-def run_chat(items, seeds, model, top_k, candidate_k, rewrite=True, progress=True) -> list[dict]:
+def run_chat(items, seeds, model, top_k, candidate_k, rewrite=True, progress=True, queries=None) -> list[dict]:
     corpus = corpus_pages()
     rows = []
     for item in items:
@@ -247,7 +262,8 @@ def run_chat(items, seeds, model, top_k, candidate_k, rewrite=True, progress=Tru
                 prev_parsed, *_ = ask_chat(item["previous"], item["subject_id"], [], None, model, seed, top_k, candidate_k, rewrite)
                 history = [("user", item["previous"]), ("assistant", prev_parsed.text)]
             parsed, final, trace, query = ask_chat(
-                item["question"], item["subject_id"], history, item.get("previous"), model, seed, top_k, candidate_k, rewrite
+                item["question"], item["subject_id"], history, item.get("previous"), model, seed, top_k, candidate_k,
+                rewrite, query=(queries or {}).get(item["id"]),
             )
             row = {
                 "id": item["id"], "lang": item["lang"], "kind": item["kind"], "seed": seed,
@@ -626,14 +642,24 @@ def add_common(p) -> None:
     p.add_argument("--candidate-k", type=int, default=settings.candidate_k)
     p.add_argument("--min-confidence", type=float, default=None, help="override RERANK_MIN_CONFIDENCE")
     p.add_argument("--no-rewrite", action="store_true", help="do not rewrite follow-ups before searching")
+    p.add_argument("--chroma-path", metavar="DIR",
+                   help="search a separate Chroma store (built by scripts/build_chunk_experiment.py)")
+    p.add_argument("--reuse-queries", metavar="RESULT.json",
+                   help="search with the queries a previous result file used, so configurations compare exactly")
     p.add_argument("--label", default="baseline")
 
 
 def apply_common(args) -> dict:
     if args.min_confidence is not None:
         retrieval.RERANK_MIN_CONFIDENCE = args.min_confidence
+    if args.chroma_path:
+        from app.services import vector_store
+
+        vector_store.CHROMA_PATH = Path(args.chroma_path).resolve()
+        vector_store.reset_cache()
     return {"top_k": args.top_k, "candidate_k": args.candidate_k, "min_confidence": retrieval.RERANK_MIN_CONFIDENCE,
-            "rewrite": not args.no_rewrite, "reranker": getattr(settings, "reranker", "flashrank")}
+            "rewrite": not args.no_rewrite, "reranker": getattr(settings, "reranker", "flashrank"),
+            "queries_from": args.reuse_queries, "chroma_path": args.chroma_path}
 
 
 def main() -> None:
@@ -681,7 +707,7 @@ def main() -> None:
     if args.mode == "retrieval":
         meta = apply_common(args)
         items = load_items(args.set, args.only)
-        rows = run_retrieval(items, args.top_k, args.candidate_k, not args.no_rewrite)
+        rows = run_retrieval(items, args.top_k, args.candidate_k, not args.no_rewrite, load_queries(args.reuse_queries))
         summary = summarize_retrieval(rows)
         print_retrieval(summary, f"retrieval [{args.label}]  top_k={args.top_k} candidates={args.candidate_k}")
         print("\nsaved", write_results("retrieval", args.label, meta, rows, summary))
@@ -691,7 +717,8 @@ def main() -> None:
         settings.chat_model = args.model  # the follow-up rewrite uses the same model
         cc.CHAT_MODEL = args.model
         meta.update(model=args.model, seeds=args.seeds)
-        rows = run_chat(load_items(args.set, args.only), args.seeds, args.model, args.top_k, args.candidate_k, not args.no_rewrite)
+        rows = run_chat(load_items(args.set, args.only), args.seeds, args.model, args.top_k, args.candidate_k,
+                        not args.no_rewrite, queries=load_queries(args.reuse_queries))
         summary = summarize_chat(rows)
         print_chat(summary, f"chat [{args.label}]  model={args.model}  seeds={args.seeds}")
         print("\nsaved", write_results("chat", args.label, meta, rows, summary))
