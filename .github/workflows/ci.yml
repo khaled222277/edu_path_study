@@ -1,9 +1,18 @@
 name: CI
 
+# Every push to any branch, every pull request, and a manual button.
+# (A branch with an open PR runs twice, once per trigger; `concurrency` cancels the older run.)
 on:
   push:
-    branches: [main]
   pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   test:
@@ -13,7 +22,7 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.13"
           cache: pip
           cache-dependency-path: |
             requirements.txt
@@ -26,9 +35,14 @@ jobs:
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install -r requirements.txt -r requirements-dev.txt
 
-      # No Postgres, Ollama or Chroma needed: the suite fakes all three.
+      # No Postgres, Ollama, Chroma data or secrets needed: the suite fakes all of them
+      # and pins its own environment in tests/conftest.py. The HF_*_OFFLINE flags make a
+      # test that tries to download a model fail loudly instead of quietly fetching 2 GB.
       - name: Run tests
         run: pytest
+        env:
+          HF_HUB_OFFLINE: "1"
+          TRANSFORMERS_OFFLINE: "1"
 
   frontend:
     runs-on: ubuntu-latest
@@ -38,8 +52,17 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
 
-      # Pure-logic tests on Node's built-in runner: no npm install needed.
+      - name: Install dependencies
+        run: npm ci
+        working-directory: frontend
+
       - name: Run frontend tests
         run: npm test
+        working-directory: frontend
+
+      - name: Build
+        run: npm run build
         working-directory: frontend
