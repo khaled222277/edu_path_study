@@ -212,3 +212,85 @@ test("network failure: 'Failed to fetch' becomes the translated 'unavailable' er
 test("network failure: an abort is the caller's choice and passes through untouched", () => {
   assert.equal(networkFailure(abort), abort);
 });
+
+// --- the reconciled answer: citations the server checked ------------------------------
+//
+// The server sends only text whose citations it has already checked, and the "done"
+// event repeats the stored text. These run whole streams, byte-chunked, through the
+// parser, the state and the message list, as Chat.jsx does.
+
+const playStream = (events, chunk = 7) => {
+  const bytes = new TextEncoder().encode(events.map(line).join(""));
+  const decoder = new TextDecoder("utf-8");
+  const parser = createNdjsonParser();
+  let state = initialStreamState();
+  let messages = [{ id: "u", role: "user", content: "q" }];
+  for (let i = 0; i < bytes.length; i += chunk) {
+    for (const ev of parser.push(decoder.decode(bytes.slice(i, i + chunk), { stream: true }))) {
+      state = applyEvent(state, ev);
+      messages = upsertAnswer(messages, "a", state);
+    }
+  }
+  return { state, messages, answer: messages.find((m) => m.role === "assistant") };
+};
+
+const SRC = [{ source_filename: "dm.pdf", page_number: 4 }];
+
+test("reconciled: English answer ends as the stored text, with only the retrieved sources", () => {
+  const { answer, state } = playStream([
+    { type: "citations", citations: SRC },
+    { type: "token", text: "Support is a ratio " },
+    { type: "token", text: "[dm.pdf, page 4]." },
+    { type: "done", message: { id: 5, content: "Support is a ratio [dm.pdf, page 4]." }, citations: SRC },
+  ]);
+  assert.equal(answer.content, "Support is a ratio [dm.pdf, page 4].");
+  assert.equal(answer.id, 5);
+  assert.equal(answer.streaming, false);
+  assert.deepEqual(state.citations, SRC);
+});
+
+test("reconciled: Arabic answer, Arabic-Indic digits already canonical, survives byte-splitting intact", () => {
+  const text = "الدعم نسبة [dm.pdf, page 4] وهي مفيدة.";
+  const { answer } = playStream(
+    [
+      { type: "citations", citations: SRC },
+      { type: "token", text: "الدعم نسبة " },
+      { type: "token", text: "[dm.pdf, page 4] وهي مفيدة." },
+      { type: "done", message: { id: 6, content: text }, citations: SRC },
+    ],
+    5, // splits inside two-byte letters
+  );
+  assert.equal(answer.content, text);
+  assert.ok(!answer.content.includes("�"));
+  assert.ok(!/[٠-٩]/.test(answer.content), "no Arabic-Indic digits left in a citation");
+});
+
+test("reconciled: if the final text differs from what streamed, the screen ends on the final text", () => {
+  const { answer, state } = playStream([
+    { type: "citations", citations: SRC },
+    { type: "token", text: "A [dm.pdf, page 4] and more" },
+    { type: "done", message: { id: 7, content: "A [dm.pdf, page 4]." }, citations: SRC },
+  ]);
+  assert.equal(answer.content, "A [dm.pdf, page 4].");
+  assert.equal(state.text, answer.content);
+});
+
+test("reconciled: a withdrawn answer (apology) shows the apology and no sources", () => {
+  const apology = "عذرًا، لا أستطيع تقديم إجابة.";
+  const { answer, state } = playStream([
+    { type: "citations", citations: SRC },
+    { type: "token", text: apology },
+    { type: "done", message: { id: 8, content: apology }, citations: [] },
+  ]);
+  assert.equal(answer.content, apology);
+  assert.deepEqual(state.citations, []);
+});
+
+test("reconciled: the sources shown are the done event's, never an earlier or longer list", () => {
+  const { state } = playStream([
+    { type: "citations", citations: [...SRC, { source_filename: "dm.pdf", page_number: 9 }] },
+    { type: "token", text: "x" },
+    { type: "done", message: { id: 9, content: "x" }, citations: SRC },
+  ]);
+  assert.deepEqual(state.citations, SRC);
+});
