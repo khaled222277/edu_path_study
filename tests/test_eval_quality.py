@@ -465,3 +465,61 @@ def test_chroma_path_points_the_search_at_another_store(tmp_path, monkeypatch):
     args = SimpleNamespace(min_confidence=None, chroma_path=str(tmp_path), top_k=3, candidate_k=10, no_rewrite=False, reuse_queries=None)
     meta = eq.apply_common(args)
     assert vector_store.CHROMA_PATH == tmp_path.resolve() and cleared and meta["chroma_path"] == str(tmp_path)
+
+
+def test_two_variants_are_paired_on_the_same_questions(tmp_path):
+    sheet, key = eq.make_review([fake_chat(tmp_path, "A"), fake_chat(tmp_path, "B")], [], 10, 0, seed=5)
+    assert len(sheet) == 10
+    by_q = defaultdict_list()
+    for rid, k in key.items():
+        by_q[k["qa_id"]].append(k["variant"])
+    assert len(by_q) == 5 and all(sorted(v) == ["A", "B"] for v in by_q.values()), "each question once per variant"
+    assert "variant" not in json.dumps(sheet)
+
+
+def defaultdict_list():
+    from collections import defaultdict
+
+    return defaultdict(list)
+
+
+def test_only_questions_every_variant_answered_are_paired(tmp_path):
+    a = fake_chat(tmp_path, "A", n=6)
+    b = fake_chat(tmp_path, "B", n=2)
+    _, key = eq.make_review([a, b], [], 10, 0, seed=1)
+    assert {k["qa_id"] for k in key.values()} <= {"q0", "q1"}
+
+
+def test_paired_choice_uses_one_seed_per_question():
+    chat = [
+        {"variant": v, "row": {"id": "q1", "lang": "en", "seed": s, "question": "?", "answer": "", "sources": []}}
+        for v in ("A", "B") for s in (44, 42, 43)
+    ]
+    picked = eq.pick_paired(chat, ["A", "B"], 2, random.Random(0))
+    assert sorted((e["variant"], e["row"]["seed"]) for e in picked) == [("A", 42), ("B", 42)]
+
+
+def test_the_committed_review_sheet_is_blind_balanced_and_ungraded():
+    sheet_path, key_path = ROOT / "eval" / "review_sheet.csv", ROOT / "eval" / "review_key.json"
+    if not sheet_path.exists():
+        pytest.skip("review sheet not generated")
+    with open(sheet_path, encoding="utf-8-sig", newline="") as f:
+        rows = list(csv.DictReader(f))
+    key = json.loads(key_path.read_text(encoding="utf-8"))
+    assert len(rows) == 60 and {r["id"] for r in rows} == set(key)
+    kinds = Counter_((r["type"], r["language"]) for r in rows)
+    assert kinds[("quiz", "ar")] == kinds[("quiz", "en")] == 15
+    assert abs(kinds[("chat", "ar")] - kinds[("chat", "en")]) <= 4
+    text = sheet_path.read_text(encoding="utf-8-sig") + (ROOT / "eval" / "review_sheet.html").read_text(encoding="utf-8")
+    for leak in ("baseline", "bge_k3_c10", "flashrank", "bge-m3"):
+        assert leak not in text, f"the sheet reveals '{leak}'"
+    assert all(not r["correct_0_1_2"] and not r["notes"] for r in rows), "nothing is pre-graded"
+    chat_variants = Counter_(v["variant"] for v in key.values() if v["type"] == "chat")
+    assert chat_variants == {"baseline": 15, "bge_k3_c10": 15}
+
+
+def test_variant_labels_never_appear_in_any_sheet_field(tmp_path):
+    sheet, _ = eq.make_review([fake_chat(tmp_path, "SECRETA"), fake_chat(tmp_path, "SECRETB")], [fake_quiz(tmp_path, "SECRETC")], 8, 4, seed=2)
+    assert "SECRET" not in json.dumps(sheet, ensure_ascii=False)
+    eq.write_sheet(sheet, {}, tmp_path / "s.csv", tmp_path / "s.html", tmp_path / "k.json")
+    assert "SECRET" not in (tmp_path / "s.csv").read_text(encoding="utf-8-sig") + (tmp_path / "s.html").read_text(encoding="utf-8")

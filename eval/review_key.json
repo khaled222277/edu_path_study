@@ -1,0 +1,512 @@
+{
+ "R001": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 0,
+  "seed": 20000,
+  "n": 2,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R002": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a14",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R003": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e05",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R004": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a04",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R005": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 0,
+  "seed": 20000,
+  "n": 1,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R006": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e01",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R007": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e02",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R008": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 2,
+  "seed": 20002,
+  "n": 4,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R009": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e18",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R010": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 3,
+  "seed": 20003,
+  "n": 3,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R011": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a03",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R012": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a04",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R013": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 3,
+  "seed": 20003,
+  "n": 1,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R014": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 0,
+  "seed": 20000,
+  "n": 2,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R015": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a19",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R016": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 3,
+  "seed": 20003,
+  "n": 2,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R017": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e11",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R018": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e09",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R019": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 3,
+  "seed": 20003,
+  "n": 4,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R020": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a02",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R021": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e13",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R022": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 2,
+  "seed": 20002,
+  "n": 3,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R023": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 5,
+  "seed": 20005,
+  "n": 2,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R024": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 3,
+  "seed": 20003,
+  "n": 0,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R025": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 2,
+  "seed": 20002,
+  "n": 1,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R026": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 2,
+  "seed": 20002,
+  "n": 1,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R027": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e09",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R028": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a18",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R029": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 0,
+  "seed": 20000,
+  "n": 3,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R030": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 3,
+  "seed": 20003,
+  "n": 2,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R031": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a19",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R032": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 3,
+  "seed": 20003,
+  "n": 1,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R033": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 5,
+  "seed": 20005,
+  "n": 0,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R034": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 1,
+  "seed": 20001,
+  "n": 1,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R035": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a18",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R036": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 3,
+  "seed": 20003,
+  "n": 3,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R037": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 1,
+  "seed": 20001,
+  "n": 0,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R038": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a08",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R039": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e18",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R040": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a14",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R041": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 2,
+  "seed": 20002,
+  "n": 0,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R042": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a02",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R043": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e11",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R044": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 0,
+  "seed": 20000,
+  "n": 3,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R045": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e05",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R046": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 4,
+  "seed": 20004,
+  "n": 4,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R047": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e13",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R048": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 5,
+  "seed": 20005,
+  "n": 2,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R049": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a23",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R050": {
+  "variant": "bge_k3_c10",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a03",
+  "seed": 42,
+  "file": "eval/results/quality_chat_bge_k3_c10.json"
+ },
+ "R051": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e02",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R052": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 0,
+  "seed": 20000,
+  "n": 1,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R053": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a08",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R054": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 3,
+  "seed": 20003,
+  "n": 0,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R055": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "en",
+  "qa_id": "e01",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R056": {
+  "variant": "baseline",
+  "type": "chat",
+  "lang": "ar",
+  "qa_id": "a23",
+  "seed": 42,
+  "file": "eval/results/quality_chat_baseline.json"
+ },
+ "R057": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 2,
+  "seed": 20002,
+  "n": 3,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R058": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 0,
+  "seed": 20000,
+  "n": 4,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R059": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "ar",
+  "quiz": 4,
+  "seed": 20004,
+  "n": 2,
+  "file": "eval/results/quality_quiz_baseline.json"
+ },
+ "R060": {
+  "variant": "baseline",
+  "type": "quiz",
+  "lang": "en",
+  "quiz": 2,
+  "seed": 20002,
+  "n": 0,
+  "file": "eval/results/quality_quiz_baseline.json"
+ }
+}

@@ -500,11 +500,42 @@ def pick_balanced(pool: list[dict], n: int, rng: random.Random, lang_of, variant
     return picked
 
 
+def pick_paired(chat: list[dict], variants: list[str], n: int, rng: random.Random) -> list[dict]:
+    """About n answers: the SAME questions answered by every variant, one seed each.
+
+    Pairing lets a reviewer compare variants on identical questions, and the blind sheet
+    still hides which answer came from which (rows are shuffled afterwards). Only
+    questions every variant answered are eligible; the question ids are balanced across
+    languages.
+    """
+    by_q: dict[str, dict[str, dict]] = defaultdict(dict)
+    for e in sorted(chat, key=lambda e: e["row"]["seed"]):
+        by_q[e["row"]["id"]].setdefault(e["variant"], e)  # lowest seed wins
+    full = {q: v for q, v in by_q.items() if set(v) == set(variants)}
+    langs = defaultdict(list)
+    for q, v in full.items():
+        langs[next(iter(v.values()))["row"]["lang"]].append(q)
+    for ids in langs.values():
+        rng.shuffle(ids)
+    want, picked, order = max(n // len(variants), 0), [], sorted(langs)
+    i = 0
+    while len(picked) < want and any(langs[k] for k in order):
+        k = order[i % len(order)]
+        if langs[k]:
+            picked.append(langs[k].pop())
+        i += 1
+    return [full[q][v] for q in picked for v in variants]
+
+
 def make_review(chat_files, quiz_files, n_chat: int, n_quiz: int, seed: int):
     rng = random.Random(seed)
     chat, quiz = build_pool(chat_files, quiz_files)
+    variants = sorted({e["variant"] for e in chat})
     chosen = [
-        ("chat", e) for e in pick_balanced(chat, n_chat, rng, lambda e: e["row"]["lang"], lambda e: e["variant"])
+        ("chat", e) for e in (
+            pick_paired(chat, variants, n_chat, rng) if len(variants) > 1
+            else pick_balanced(chat, n_chat, rng, lambda e: e["row"]["lang"], lambda e: e["variant"])
+        )
     ] + [
         ("quiz", e) for e in pick_balanced(quiz, n_quiz, rng, lambda e: e["row"]["lang"], lambda e: e["variant"])
     ]

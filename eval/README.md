@@ -125,3 +125,178 @@ the Arabic refusal bug and the q08 language flip, not enough to rank small diffe
 
 Note that `results/duplicate_question*.json` were produced with the previous (English-phrase)
 prompt, before this change; re-running that experiment now would use the token prompt.
+
+# Quality evaluation (answers and quizzes, Arabic first)
+
+`qa_set.json` holds 45 questions (27 Arabic, 18 English) over the ingested lectures: narrow,
+broad, follow-up, figure and 7 out-of-scope. Each has gold pages (`file` + `page`, the unit the
+app cites) and a one-line expected answer; 11 are marked `uncertain` with a reason. **The Arabic
+wording was written by a model and has not been checked by a native speaker.** Gold was chosen by
+reading the chunks the app's own retrieval proposed, so it is biased towards pages the retriever
+can find (one miss was added by hand); the file says so.
+
+```bash
+python scripts/eval_quality.py retrieval --label mine                      # gold-page recall, no chat model
+python scripts/eval_quality.py chat --label mine --seeds 42 43 44          # answers + automatic checks
+python scripts/eval_quality.py quiz --label mine --quizzes 6               # quiz validity / duplicates / support
+python scripts/eval_quality.py compare eval/results/A.json eval/results/B.json
+```
+
+Useful options: `--top-k`, `--candidate-k`, `--min-confidence` (the reranker gate),
+`--model` (chat/quiz model tag, must already be pulled), `--reuse-queries FILE` (search with the
+exact text an earlier run used, so two configurations differ only in the setting under test) and
+`--chroma-path DIR` (search a separate store). Results are written to `results/quality_*.json`.
+
+The automatic metrics are **signals, not judgements**: nothing here can say whether an Arabic
+answer reads well or is correct. That is what the review sheet is for.
+
+## Results so far (automatic metrics only)
+
+Retrieval, gold page present, over 23 Arabic and 15 English in-scope questions. This is
+deterministic given the queries (4 repeats of the same configuration gave identical rows; across
+two separate runs one Arabic question flipped on a ~0.0001 difference in the FlashRank score).
+One question is 4% of Arabic, so differences of one question are noise.
+
+| Configuration | AR in vector top-3 | AR after rerank top-3 | **AR in the prompt** | **EN in the prompt** |
+| --- | --- | --- | --- | --- |
+| FlashRank, top 3 of 10 (**today**) | 91 | 61 | **74** | **93** |
+| FlashRank, top 5 of 10 | 91 | 61 | 91 | 93 |
+| FlashRank, top 6 of 10 | 91 | 61 | 96 | 93 |
+| FlashRank, top 3 of 20 | 91 | 52 | 65 | 80 |
+| FlashRank, top 5 / 6 of 20 | 91 | 52 / 48 | 78 / 83 | 93 / 93 |
+| FlashRank, confidence gate 0.5 / 0.99 (0.1 today) | 91 | 61 | 74 / 83 | 93 / 93 |
+| no reranker (vector order), top 3 / 5 | 91 | - | 91 / 91 | 93 / 100 |
+| **bge-reranker-v2-m3**, top 3 of 10 | 91 | **91** | **91** | **100** |
+| bge, top 5 / 6 of 10 | 91 | 91 | 91 / 96 | 100 / 100 |
+| bge, top 3 / 5 of 20 | 91 | 91 | 91 / 91 | 100 / 100 |
+
+Reading it: the embedding search finds the gold page in its top 3 for 91% of Arabic questions, and
+**FlashRank then throws some of them away** (74% reach the prompt). The multilingual reranker does
+not; neither does simply keeping vector order. Paired against today's setting on the same queries,
+bge gained 5 questions and lost none (4 Arabic, 1 English; exact sign test p = 0.062 overall,
+0.125 for Arabic): encouraging, not conclusive on 38 questions. Widening to 20 candidates makes
+FlashRank worse. Raising `TOP_K` helps FlashRank only by putting more text in the prompt.
+
+Cost of the bge reranker, CPU, idle machine (14 queries): load 4 s vs 0.5 s; **1.8 s per query
+for 10 candidates vs 0.2 s** (4.2 s vs 0.6 s for 20); about 0.6 GB more RAM once in use (process
+3.8 GB vs 3.2 GB). It adds ~1.6 s before the first token. Weights are 2.27 GB in fp32.
+
+Answers, 45 questions x 3 seeds (mean ± sd over seeds, %); the gold page is a property of the
+retrieval so its sd is 0:
+
+| Arabic | today | bge top 3 | bge top 5 | FlashRank top 5 | vector order |
+| --- | --- | --- | --- | --- | --- |
+| gold page in the prompt | 73.9 | **91.3** | 91.3 | 91.3 | 91.3 |
+| in-scope wrongly refused | 5.8 ±2.5 | **0.0** | 1.4 ±2.5 | 2.9 ±2.5 | 2.9 ±2.5 |
+| citations naming a retrieved page | 77.1 ±14.3 | **91.7 ±9.4** | 79.4 ±6.5 | 75.6 ±6.4 | 89.2 ±5.1 |
+| citations naming an existing page | 77.1 ±14.3 | **94.0 ±7.8** | 81.4 ±5.2 | 75.6 ±6.4 | 90.6 ±2.7 |
+| answers with a non-lecture Latin word | 24.7 ±5.7 | 19.8 ±2.1 | 23.5 ±5.7 | 24.7 ±7.7 | 21.0 ±11.9 |
+
+| English | today | bge top 3 | bge top 5 | FlashRank top 5 | vector order |
+| --- | --- | --- | --- | --- | --- |
+| gold page in the prompt | 93.3 | **100** | 100 | 93.3 | 93.3 |
+| in-scope wrongly refused | 6.7 | **0.0** | 0.0 | 6.7 | 0.0 |
+| citations naming a retrieved page | 86.3 ±4.0 | **94.2 ±2.4** | 94.0 ±5.2 | 92.9 ±1.1 | 92.9 ±3.3 |
+| citations naming an existing page | 90.3 ±2.1 | **97.6 ±2.1** | 97.5 ±2.4 | 96.0 ±1.3 | 94.1 ±1.9 |
+
+Unchanged in every variant: answer language correct 100%, out-of-scope questions refused 100%,
+Arabic Latin-letter share about 10% (mostly lecture terms such as "k-means"). **In the baseline,
+10-23% of inline citations name a page that does not exist** (the model invents page numbers);
+better retrieval reduces that but does not remove it.
+
+Chunk size, rebuilt into separate stores (`data/chroma_experiments/`, gitignored; the real
+collection was only read; rebuilt at 800/100 it reproduced the real 468 text chunks exactly):
+
+| chunk size / overlap | AR in the prompt (FlashRank / bge) | EN in the prompt (FlashRank / bge) | prompt context |
+| --- | --- | --- | --- |
+| 400 / 50 | 65 / 83 | 73 / 93 | ~1,100 chars (half) |
+| **800 / 100 (shipped)** | **74 / 91** | **93 / 100** | ~1,850 |
+| 800 / 200 | 70 / 87 | 87 / 100 | ~1,880 |
+| 1200 / 150 | 61 / 74 | 73 / 73 | ~2,700 |
+
+The shipped size is the best of those tested. 400/50 gives half the context at top 3; with top 6
+(equal context) it reached 87% / 87% with FlashRank and 100% / 100% with bge at the retrieval
+level, **but this was not tested at the answer level and would need a re-ingest. Deferred**, see
+below.
+
+Quiz quality (6 quizzes per language, baseline): English 81% of replies valid, Arabic 52%; 30/30
+questions produced in both; no repeated questions within a quiz; the correct option is the one
+closest to its source chunk 43% of the time in both languages (25% would be chance; this check is
+approximate and cross-lingual, so it can only flag, not certify).
+
+## What is decided, and what is not
+
+**No default was changed by this evaluation.** The evidence favours the bge reranker for
+retrieval and for citation accuracy, but (a) 38 questions cannot make the retrieval result
+significant, (b) it costs ~1.6 s per question, and (c) nobody has read the answers yet. To try it:
+`RERANKER=bge-m3` in `.env`. Decide after the human review below.
+
+## Human review (the real test)
+
+`review_sheet.csv` (open it in Excel or LibreOffice; it has a UTF-8 BOM so Arabic displays
+correctly) and `review_sheet.html` (the same items for easy reading) hold 60 items in random
+order: 30 chat answers (15 questions, each answered once by the **current defaults** and once
+with the **bge reranker**, mixed together, same seed) and 30 quiz items (15 Arabic, 15 English).
+The reviewer cannot tell which variant produced an answer. **Do not give the reviewer
+`review_key.json`**; it maps each id to its variant.
+
+Fill in the last four columns of each row:
+
+| Column | Chat answer | Quiz item |
+| --- | --- | --- |
+| `correct_0_1_2` | 0 wrong or misleading, 1 partly right / incomplete, 2 correct | is the option marked as correct really correct for the sources shown? 0 no, 1 arguable, 2 yes |
+| `grounded_y_n` | `y` if every claim is supported by the sources shown, else `n` | `y` if the sources shown contain what is needed to answer |
+| `arabic_quality_1_5` | Arabic rows only: 1 unreadable ... 5 natural, correct Arabic (grammar, terms, no stray foreign words). Leave blank for English | Arabic rows only, grading the question and options |
+| `notes` | anything odd | e.g. ambiguous question, wrong distractor, two right answers |
+
+Save as `eval/review_graded.csv` (keep it CSV, UTF-8) and run:
+
+```bash
+python scripts/eval_quality.py grades --graded eval/review_graded.csv
+```
+
+It joins the grades to the hidden key and prints, per variant, language and type: items graded,
+mean `correct` (0-2), % fully correct, % grounded, and mean Arabic quality. Blank cells are
+ignored, and a mistyped grade is skipped rather than fatal. With 7-8 paired answers per language
+only large differences will show; grade everything and read the notes.
+
+Regenerate or enlarge the sheet (different seed, other result files):
+
+```bash
+python scripts/eval_quality.py review-sheet --chat eval/results/quality_chat_baseline.json \
+    eval/results/quality_chat_bge_k3_c10.json --quiz eval/results/quality_quiz_baseline.json --seed 8
+```
+
+With two or more chat files the same questions are used for every variant (one seed each).
+Quiz generation does not use the reranker, so all quiz items come from the baseline run.
+
+## Deferred, and for you to run
+
+- **400-character chunks, top 6, bge, answer level.** The store was built locally
+  (`python scripts/build_chunk_experiment.py --chunk-size 400 --chunk-overlap 50`); adopting it
+  for real needs a re-ingest of every lecture. To measure answers first (about 15 minutes):
+  ```bash
+  RERANKER=bge-m3 python scripts/eval_quality.py chat --label chunk400_bge_k6 \
+      --reuse-queries eval/results/quality_retrieval_baseline.json --seeds 42 43 44 \
+      --top-k 6 --candidate-k 10 --chroma-path data/chroma_experiments/c400_o50
+  ```
+- **bge reranker on the GPU.** Not measured. The venv has a CPU-only torch (`2.13.0+cpu`), and
+  the model's fp32 weights (2.27 GB) next to the 5.3 GB chat model would leave almost nothing of
+  an 8 GB card, which could evict the chat model. Check yourself: `nvidia-smi` with the chat model
+  loaded (`ollama ps`), then a CUDA torch build and `RERANKER_DEVICE=cuda`; watch that `ollama ps`
+  still says 100% GPU afterwards. Half precision would halve the memory but is not implemented.
+- **Other chat/quiz models** (not pulled or loaded by me). Machine: RTX 5060 Laptop, 8 GB VRAM,
+  31 GB RAM; installed: `llama3.1:8b` (4.9 GB), `qwen3-vl:4b`, `nomic-embed-text`. Plausible
+  for Arabic at 4-bit on 8 GB (from general knowledge, not verified on this machine; check size
+  and Arabic support on the Ollama library page first):
+  ```bash
+  ollama pull aya-expanse:8b     # Cohere, trained for 23 languages incl. Arabic
+  ollama pull qwen2.5:7b         # strong multilingual 7B
+  ollama pull qwen3:8b           # newer; may print <think> blocks that the quiz/chat parsers do not strip
+  python scripts/eval_quality.py chat --model aya-expanse:8b --label aya \
+      --reuse-queries eval/results/quality_retrieval_baseline.json --seeds 42 43 44
+  python scripts/eval_quality.py quiz --model aya-expanse:8b --label aya
+  ```
+  Asking Ollama for a different model makes it swap models in VRAM, which briefly unloads the
+  chat model; do it while nobody is using the app. Compare with `compare`, then add the new
+  chat files to a fresh `review-sheet` for a blind comparison.
