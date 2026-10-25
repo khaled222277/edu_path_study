@@ -86,6 +86,11 @@ def test_plain_the_structured_sources_are_exactly_the_retrieved_chunks(client, w
     assert "ghost" not in json.dumps(r.json())
 
 
+def test_plain_a_removed_trailing_citation_leaves_no_blank_lines(client, db, world, session, fake_ollama):
+    r = ask(client, world, session, fake_ollama, "Support is a ratio.\n\n[dm.pdf, page 99]\n\n")
+    assert r.json()["message"]["content"] == "Support is a ratio." == stored(db)[-1]
+
+
 def test_plain_valid_citations_are_untouched(client, world, session, fake_ollama):
     text = "Support is a ratio [dm.pdf, page 4]. Confidence differs [dm.pdf, page 7]."
     assert ask(client, world, session, fake_ollama, text).json()["message"]["content"] == text
@@ -174,6 +179,12 @@ def test_stream_the_final_event_matches_what_was_streamed(client, world, session
 def test_stream_arabic_digits_are_already_canonical_on_the_wire(client, world, session, fake_async_ollama, store_in_test_db):
     r = ask_stream(client, world, session, fake_async_ollama, ["الدعم [dm.pdf, صفحة ", "٤] نسبة."], "ما هو الدعم؟")
     assert streamed_text(events(r)) == "الدعم [dm.pdf, page 4] نسبة."
+
+
+def test_stream_a_removed_trailing_citation_leaves_no_blank_lines(client, world, session, fake_async_ollama, store_in_test_db):
+    evs = events(ask_stream(client, world, session, fake_async_ollama, ["Support is a ratio.\n\n", "[dm.pdf, page 99]", "\n\n"]))
+    assert evs[-1]["message"]["content"] == "Support is a ratio."
+    assert streamed_text(evs).strip() == "Support is a ratio."
 
 
 def test_stream_stored_text_equals_the_final_event(client, db, world, session, fake_async_ollama, store_in_test_db):

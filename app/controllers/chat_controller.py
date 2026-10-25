@@ -245,8 +245,9 @@ def finalize_answer(
     checked = validate_answer(parsed.text, Retrieved.from_chunks(chunks))
     if checked.removed:
         log.info("removed %s citation(s) not among the retrieved chunks: %s", len(checked.removed), checked.removed)
+    # strip again: removing a citation at the end of a paragraph can leave blank lines behind
     if checked.text.strip():
-        return ParsedReply(checked.text, parsed.refused)
+        return ParsedReply(checked.text.strip(), parsed.refused)
     # The reply was nothing but citations that did not hold up: there is no answer left.
     return ParsedReply(DEFAULT_APOLOGY.get(language, DEFAULT_APOLOGY["en"]), True)
 

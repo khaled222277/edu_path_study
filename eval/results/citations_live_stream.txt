@@ -1,0 +1,12 @@
+Live streaming check (real server, real llama3.1:8b, real Chroma; throwaway SQLite DB).
+7 questions that previously produced invalid citations (en: e07 e10; ar: a01 a07 a09 a11 a14) x 4 runs.
+At every streamed token every citation-shaped bracket on screen was judged against the chunks
+retrieved for the turn; the streamed text was then compared with the "done" event.
+
+before the trailing-whitespace fix (28 runs):
+  invalid citation shown mid-stream: 0   streamed != done: 7 (all trailing blank lines only)
+after (28 runs):
+  runs 28, tokens 2296, citations shown 13, invalid shown mid-stream 0,
+  streamed text != done text 0, raw sentinel left 0, structured sources not retrieved: 0 (asserted per run)
+The remaining mismatch was a real bug: a citation removed at the end of an answer left blank lines
+because the text was stripped before, not after, the check. Fixed in finalize_answer (test added).
