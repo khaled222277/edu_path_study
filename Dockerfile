@@ -28,10 +28,15 @@ COPY app ./app
 COPY ingestion ./ingestion
 COPY scripts ./scripts
 
+# HF_HOME is where sentence-transformers keeps the bge-m3 weights (~2 GB). It lives on
+# its own volume (/models) so a recreated container does not download them again.
+# (Set after the pip steps so changing it does not invalidate the cached layers.)
+ENV HF_HOME=/models/huggingface
+
 # data/ (Chroma store, figures, reranker cache) is mounted, never baked in.
 RUN useradd --create-home --uid 1000 appuser \
-    && mkdir -p /app/data \
-    && chown -R appuser /app
+    && mkdir -p /app/data /models/huggingface \
+    && chown -R appuser /app /models
 USER appuser
 
 EXPOSE 8000

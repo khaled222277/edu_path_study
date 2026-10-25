@@ -54,6 +54,38 @@ uvicorn app.main:app --reload   # http://localhost:8000
 
 Interactive API docs: <http://localhost:8000/docs>
 
+#### Backend in Docker (optional)
+
+The image holds the API only. Ollama stays on the host; ingestion (which needs Tesseract) is an
+offline admin task you run on the host, so it is not in the image either.
+
+```bash
+docker build -t edupath-api:latest .
+alembic upgrade head                              # once, from the host (Postgres is on localhost:5432)
+docker compose --profile app up -d api            # Postgres + API on http://localhost:8000
+```
+
+Compose points the container at the host's Ollama (`host.docker.internal:11434`; the `extra_hosts`
+line makes that name work on Linux too) and at the `postgres` service, whatever `.env` says for
+`DATABASE_URL`. Two volumes persist state: `./data` (Chroma store, figures, reranker cache; use
+`EDUPATH_DATA_DIR=/path` to point at another copy) and `edupath_models` (the ~2 GB bge-m3 weights,
+downloaded once on first use, not on every container start). On Linux the host's Ollama must listen
+on more than loopback (`OLLAMA_HOST=0.0.0.0`) for the container to reach it; on Docker Desktop it works as is.
+
+The same without compose:
+
+```bash
+docker run -d --name edupath-api -p 8000:8000 --env-file .env \
+  --add-host host.docker.internal:host-gateway \
+  -e DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/edupath_study \
+  -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
+  -v "$PWD/data:/app/data" -v edupath_models:/models edupath-api:latest
+```
+
+The server listens within seconds; the models warm up in the background (about two minutes when
+the chat model has to be loaded from disk). `ENVIRONMENT=production` refuses to start with
+placeholder secrets or `COOKIE_SECURE=false`.
+
 ### 3. Google OAuth
 
 Create an OAuth 2.0 Client ID (type: Web application) at

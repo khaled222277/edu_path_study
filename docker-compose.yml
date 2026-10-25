@@ -17,5 +17,34 @@ services:
       timeout: 5s
       retries: 10
 
+  # The API. Not started by a plain `docker compose up` (the profile keeps the old
+  # workflow of Postgres alone); start it with:  docker compose --profile app up -d api
+  # Run `alembic upgrade head` once first (see README, "Docker").
+  api:
+    profiles: ["app"]
+    build: .
+    image: edupath-api:latest
+    container_name: edupath-api
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      # Override .env, whose DATABASE_URL points at localhost (the host, from in here).
+      DATABASE_URL: postgresql://${POSTGRES_USER:-edupath}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-edupath_study}
+      # Ollama runs on the host, not in a container.
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL_DOCKER:-http://host.docker.internal:11434}
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # built in on Docker Desktop; needed on Linux
+    ports:
+      - "8000:8000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      # Chroma store, figures, reranker cache: the ingestion output. EDUPATH_DATA_DIR
+      # points the container at another copy (e.g. to try things without touching the real one).
+      - ${EDUPATH_DATA_DIR:-./data}:/app/data
+      - edupath_models:/models # embedding model cache: survives container re-creation
+
 volumes:
   edupath_pgdata:
+  edupath_models:
