@@ -88,6 +88,12 @@ class Settings(BaseSettings):
     # into a standalone question first. Costs one short model call (~0.35 s) per turn that
     # has a previous question; falls back to the question as asked if it fails.
     chat_followup_rewrite: bool = True
+    # One INFO line per chat turn for retrieval and one for the reply (what was retrieved,
+    # whether the reply was a refusal, how many citations were taken out, how many sources
+    # were shown), to find out why a particular answer had no sources. Off by default. The
+    # question text is never logged unless CHAT_TRACE_QUERIES is also on.
+    chat_trace_log: bool = False
+    chat_trace_queries: bool = False
     # Chunks pulled from Chroma, then reranked down to `top_k` for the prompt.
     candidate_k: int = Field(default=10, ge=1, le=200)
     top_k: int = Field(default=3, ge=1, le=50)

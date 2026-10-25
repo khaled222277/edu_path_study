@@ -147,6 +147,7 @@ async def stream_events(
             yield encode_event({"type": "token", "text": tail})
 
         parsed = cc.finalize_answer("".join(raw), turn.question, turn.chunks)
+        cc.trace_reply(turn.session_id, "".join(raw), parsed, turn.chunks)
         if not emitted:
             # The model said nothing visible (no reply, or only the token): show the
             # same stand-in text the plain route would store.

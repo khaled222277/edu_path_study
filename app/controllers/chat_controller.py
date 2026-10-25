@@ -15,12 +15,13 @@ from app.models.user import User
 from app.services.llm import get_client, keep_alive
 from app.services.query_rewrite import retrieval_query
 from app.services.quiz_service import detect_language
-from app.services.citations import Retrieved, validate_answer
+from app.services.citations import Retrieved, find_citations, judge, validate_answer
 from app.services.refusal import (
     DEFAULT_APOLOGY,
     LEGACY_REFUSAL_PHRASE,
     REFUSAL_SENTINEL,
     ParsedReply,
+    _SENTINEL_RE,
     parse_reply,
 )
 from app.services.retrieval import RetrievedChunk, format_context, retrieve
@@ -207,11 +208,10 @@ def _prepare(
     db.flush()
     db.refresh(chat_session)
 
+    query = question
     try:
-        chunks = retrieve(
-            retrieval_query(previous_user_question(chat_session), question),
-            chat_session.subject_id,
-        )
+        query = retrieval_query(previous_user_question(chat_session), question)
+        chunks = retrieve(query, chat_session.subject_id)
     except Exception as exc:
         # Chroma unreadable, embedding model or reranker failed to load, etc.
         db.rollback()
@@ -220,7 +220,40 @@ def _prepare(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail=SEARCH_UNAVAILABLE_DETAIL,
         ) from exc
+    if settings.chat_trace_log:
+        log.info(
+            "chat-trace retrieve session=%s subject=%s prior_messages=%d rewritten=%s query_chars=%d chunks=%s%s",
+            chat_session.id, chat_session.subject_id, len(chat_session.messages) - 1,
+            query != question, len(query),
+            [(c.source_filename, c.page_number) for c in chunks],
+            f" question={question!r} query={query!r}" if settings.chat_trace_queries else "",
+        )
     return chunks, _build_messages(chat_session, question, chunks)
+
+
+def trace_reply(
+    session_id: int, raw: str | None, parsed: ParsedReply, chunks: list[RetrievedChunk]
+) -> None:
+    """With CHAT_TRACE_LOG on, one line saying what became of the model's reply.
+
+    Answers "why did this answer have no sources": a refusal (and whether the token was
+    at the start or somewhere inside a long answer), citations taken out, or nothing
+    retrieved to begin with.
+    """
+    if not settings.chat_trace_log:
+        return
+    text = raw or ""
+    retrieved = Retrieved.from_chunks(chunks)
+    cites = find_citations(text)
+    token = _SENTINEL_RE.search(text)
+    log.info(
+        "chat-trace reply session=%s refused=%s sentinel_at=%s legacy_phrase=%s raw_chars=%d "
+        "citations_written=%d citations_invalid=%d chunks=%d sources_shown=%d final_chars=%d",
+        session_id, parsed.refused, token.start() if token else None,
+        LEGACY_REFUSAL_PHRASE in text.lower(), len(text), len(cites),
+        sum(1 for c in cites if not judge(c, retrieved).ok), len(chunks),
+        len(visible_chunks(parsed.refused, chunks)), len(parsed.text),
+    )
 
 
 def finalize_answer(
@@ -312,7 +345,9 @@ def answer_question(
             detail=MODEL_UNAVAILABLE_DETAIL,
         ) from exc
 
-    parsed = finalize_answer(response.get("message", {}).get("content"), question, chunks)
+    raw = response.get("message", {}).get("content")
+    parsed = finalize_answer(raw, question, chunks)
+    trace_reply(chat_session.id, raw, parsed, chunks)
 
     reply = ChatMessage(
         session_id=chat_session.id, role=ROLE_ASSISTANT, content=parsed.text
