@@ -76,6 +76,14 @@ class Settings(BaseSettings):
     quiz_concurrency: int = Field(default=1, ge=1, le=8)
 
     # --- Retrieval ---
+    # Which cross-encoder reorders the vector candidates. "flashrank" is the small ONNX
+    # model the app has always used; "bge-m3" is BAAI/bge-reranker-v2-m3, multilingual
+    # (measured: ~0.6 GB more RAM than FlashRank on CPU and ~8x slower per query: 1.8 s vs
+    # 0.2 s for 10 candidates). See eval/README.md for the measurements.
+    reranker: str = Field(default="flashrank", pattern=r"^(flashrank|bge-m3)$")
+    # Where the bge-m3 reranker runs. It shares the GPU with Ollama if set to cuda, which
+    # can crowd the chat model out of VRAM, so the default is cpu.
+    reranker_device: str = Field(default="cpu", pattern=r"^(cpu|mps|cuda(:\d+)?)$")
     # Search for what a follow-up ("explain that again") means, using the model to turn it
     # into a standalone question first. Costs one short model call (~0.35 s) per turn that
     # has a previous question; falls back to the question as asked if it fails.

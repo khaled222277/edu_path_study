@@ -69,11 +69,42 @@ class RetrievedChunk:
         return lecture_images.image_url(self.image_path)
 
 
-@lru_cache(maxsize=1)
-def get_ranker() -> Ranker:
-    """Reranker singleton -- loading the ONNX model is expensive."""
+BGE_RERANKER_MODEL = "BAAI/bge-reranker-v2-m3"
+
+
+class BgeReranker:
+    """BAAI/bge-reranker-v2-m3 behind the same `.rerank(RerankRequest)` as FlashRank.
+
+    A multilingual cross-encoder, so an Arabic question can be scored against English
+    slides. Scores are sigmoid probabilities in [0, 1].
+    """
+
+    def __init__(self, device: str = "cpu") -> None:
+        from sentence_transformers import CrossEncoder
+
+        from app.services.vector_store import resolve_device
+
+        self._model = CrossEncoder(BGE_RERANKER_MODEL, device=resolve_device(device), max_length=512)
+
+    def rerank(self, request) -> list[dict]:
+        scores = self._model.predict([(request.query, p["text"]) for p in request.passages])
+        ranked = [{**p, "score": float(s)} for p, s in zip(request.passages, scores)]
+        ranked.sort(key=lambda r: r["score"], reverse=True)
+        return ranked
+
+
+@lru_cache(maxsize=2)
+def _build_ranker(name: str, device: str):
+    """One instance per (reranker, device) -- loading either model is expensive."""
+    if name == "bge-m3":
+        return BgeReranker(device)
     RERANKER_CACHE.mkdir(parents=True, exist_ok=True)
     return Ranker(model_name=RERANKER_MODEL, cache_dir=str(RERANKER_CACHE))
+
+
+def get_ranker():
+    """The configured reranker (RERANKER), built once."""
+    return _build_ranker(settings.reranker, settings.reranker_device)
 
 
 @dataclass
