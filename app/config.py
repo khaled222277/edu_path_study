@@ -133,6 +133,14 @@ class Settings(BaseSettings):
 
     # --- Rate limiting (slowapi, in-memory, per process) ---
     rate_limit_enabled: bool = True
+    # Behind a reverse proxy every request arrives from the proxy's address, so the per-IP
+    # limits (login) would all share one counter. Turn this on ONLY when a proxy you control
+    # sets X-Forwarded-For and the API is not reachable except through it: otherwise anyone
+    # can send the header and pick their own "IP". Off by default.
+    trusted_proxy: bool = False
+    # How many proxies in front of the API append to X-Forwarded-For. The address read is
+    # the one that many entries from the right (the left side is client-supplied).
+    trusted_proxy_hops: int = Field(default=1, ge=1, le=5)
     rate_limit_auth: str = "10/minute"  # login + OAuth callback, per client IP
     rate_limit_chat: str = "20/minute"  # chat messages, per user
     rate_limit_quiz: str = "5/minute"  # quiz generation, per user
