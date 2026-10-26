@@ -10,6 +10,7 @@ import {
   streamMessage,
 } from "./api.js";
 import { friendlyError, guessLanguage, restoreDraft, withoutPending } from "./errors.js";
+import { MessageText } from "./messageText.js";
 import {
   applyEvent,
   citationsByMessage,
@@ -316,7 +317,9 @@ export default function Chat({ user, initialSubject = null }) {
             className={`msg msg-${m.role}${m.streaming ? " msg-streaming" : ""}`}
             dir="auto"
           >
-            <div className="msg-body">{m.content}</div>
+            <div className="msg-body">
+              <MessageText text={m.content} />
+            </div>
             {m.note && <div className={`msg-note msg-note-${m.noteTone}`}>{m.note}</div>}
             {citations[m.id]?.length > 0 && (
               <div className="citations">
