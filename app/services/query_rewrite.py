@@ -63,7 +63,8 @@ def rewrite_followup(previous: str, question: str) -> str:
     if usable is None:
         log.warning("follow-up rewrite was unusable; searching with the question as asked")
         return question
-    log.debug("search query %r rewritten as %r", question, usable)
+    if settings.chat_trace_queries:  # the student's words are only logged when asked for
+        log.debug("search query %r rewritten as %r", question, usable)
     return usable
 
 

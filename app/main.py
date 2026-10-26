@@ -8,6 +8,7 @@ from slowapi.errors import RateLimitExceeded
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 
+from app import log_redaction
 from app.config import settings
 from app.rate_limit import limiter, rate_limit_exceeded_handler
 from app.services import llm, retrieval, vector_store
@@ -27,6 +28,7 @@ from app.routers import (
 settings.validate_for_environment()
 
 log = logging.getLogger(__name__)
+log_redaction.install()
 
 
 def warm_up_models() -> None:
