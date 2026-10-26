@@ -3,9 +3,10 @@
 from fastapi import Depends, HTTPException, Request, status
 from sqlalchemy.orm import Session
 
-from app.auth.jwt import decode_access_token
+from app.auth.jwt import token_claims
 from app.config import settings
 from app.db.session import get_db
+from app.models.revoked_token import RevokedToken
 from app.models.user import User
 
 
@@ -21,11 +22,14 @@ def get_current_user(
     if not token:
         raise unauthorized
 
-    user_id = decode_access_token(token)
-    if user_id is None:
+    claims = token_claims(token)
+    if claims is None:
         raise unauthorized
+    jti = claims.get("jti")
+    if jti and db.get(RevokedToken, jti) is not None:
+        raise unauthorized  # signed out
 
-    user = db.get(User, user_id)
+    user = db.get(User, int(claims["sub"]))
     if user is None:
         raise unauthorized
 

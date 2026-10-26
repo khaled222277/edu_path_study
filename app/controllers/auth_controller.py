@@ -4,8 +4,11 @@ from fastapi import HTTPException, Response, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
-from app.auth.jwt import create_access_token
+from datetime import UTC, datetime
+
+from app.auth.jwt import create_access_token, token_claims
 from app.config import settings
+from app.models.revoked_token import RevokedToken
 from app.models.user import User
 
 
@@ -48,6 +51,18 @@ def set_session_cookie(response: Response, user: User) -> None:
         max_age=settings.jwt_expire_minutes * 60,
         path="/",
     )
+
+
+def revoke_token(db: Session, token: str | None) -> None:
+    """Denylist the token's jti until its own expiry. Anything unreadable or already
+    expired needs nothing (it cannot be used anyway). Also drops denylist rows whose
+    tokens have expired, so the table stays small."""
+    now = datetime.now(UTC)
+    db.query(RevokedToken).filter(RevokedToken.expires_at < now).delete()
+    claims = token_claims(token) if token else None
+    if claims and claims.get("jti") and db.get(RevokedToken, claims["jti"]) is None:
+        db.add(RevokedToken(jti=claims["jti"], expires_at=datetime.fromtimestamp(claims["exp"], UTC)))
+    db.commit()
 
 
 def clear_session_cookie(response: Response) -> None:

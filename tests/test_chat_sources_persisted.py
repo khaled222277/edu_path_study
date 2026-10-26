@@ -92,4 +92,4 @@ def test_replies_stored_before_the_column_existed_come_back_with_an_empty_list(c
 
 def test_another_students_session_still_cannot_be_read(client, world, session):
     r = login(client, world["bob"]).get(f"/chat/sessions/{session.id}")
-    assert r.status_code in (403, 404)
+    assert r.status_code == 404

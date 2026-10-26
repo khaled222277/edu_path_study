@@ -111,16 +111,14 @@ STUDENT QUESTION:
 
 
 def get_session_or_404(db: Session, session_id: int, user: User) -> ChatSession:
-    """Fetch a session, 404 if missing and 403 if it belongs to someone else."""
+    """Fetch a session; 404 if it does not exist OR belongs to someone else.
+
+    The same answer for both, so ids cannot be probed to learn which sessions exist.
+    """
     chat_session = db.get(ChatSession, session_id)
-    if chat_session is None:
+    if chat_session is None or chat_session.user_id != user.id:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Chat session not found"
-        )
-    if chat_session.user_id != user.id:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="This chat session belongs to another student",
         )
     return chat_session
 

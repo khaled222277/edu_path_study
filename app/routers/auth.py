@@ -4,14 +4,13 @@ import logging
 
 from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from fastapi.responses import RedirectResponse
-from slowapi.util import get_remote_address
 from sqlalchemy.orm import Session
 
 from app.auth.dependencies import get_current_user
 from app.auth.oauth import oauth
 from app.config import settings
 from app.controllers import auth_controller
-from app.rate_limit import limiter
+from app.rate_limit import client_ip, limiter
 from app.db.session import get_db
 from app.models.user import User
 from app.schemas.user import UserOut
@@ -22,7 +21,7 @@ router = APIRouter(prefix="/auth", tags=["auth"])
 
 
 @router.get("/google/login")
-@limiter.limit(settings.rate_limit_auth, key_func=get_remote_address)
+@limiter.limit(settings.rate_limit_auth, key_func=client_ip)
 async def google_login(request: Request):
     """Kick off the OAuth dance by redirecting to Google's consent screen."""
     if not settings.google_client_id or not settings.google_client_secret:
@@ -35,7 +34,7 @@ async def google_login(request: Request):
 
 
 @router.get("/google/callback")
-@limiter.limit(settings.rate_limit_auth, key_func=get_remote_address)
+@limiter.limit(settings.rate_limit_auth, key_func=client_ip)
 async def google_callback(request: Request, db: Session = Depends(get_db)):
     """Exchange the code for tokens, upsert the user, and set the session cookie."""
     try:
@@ -69,5 +68,7 @@ def me(user: User = Depends(get_current_user)) -> User:
 
 
 @router.post("/logout", status_code=status.HTTP_204_NO_CONTENT)
-def logout(response: Response) -> None:
+def logout(request: Request, response: Response, db: Session = Depends(get_db)) -> None:
+    """Sign out: the cookie is cleared AND the token itself stops working (denylisted until it would expire)."""
+    auth_controller.revoke_token(db, request.cookies.get(settings.cookie_name))
     auth_controller.clear_session_cookie(response)

@@ -313,7 +313,7 @@ def test_another_student_cannot_answer_a_quiz_that_is_streaming(client, world, q
     r = login(client, world["bob"]).post(
         f"/quiz/{started.attempt_id}/answer", json={"item_id": started.first["id"], "chosen_answer_index": 0}
     )
-    assert r.status_code == 403
+    assert r.status_code == 404
 
 
 def test_answering_and_completing_take_the_row_lock(client, world, quiz_db, model, monkeypatch):

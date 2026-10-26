@@ -189,12 +189,12 @@ def test_missing_cookie_is_401(client, chat_session, fake_async_ollama):
     assert fake.kwargs == []
 
 
-def test_other_students_session_is_403_and_untouched(
+def test_other_students_session_is_404_and_untouched(
     client, db, world, chat_session, fake_async_ollama, store_in_test_db
 ):
     fake = fake_async_ollama(script=["x"])
     r = post(client, world["bob"], chat_session)
-    assert r.status_code == 403
+    assert r.status_code == 404
     assert fake.kwargs == [] and stored(db) == []
 
 

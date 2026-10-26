@@ -36,21 +36,16 @@ QUIZ_UNAVAILABLE_DETAIL = (
 def get_attempt_or_404(
     db: Session, attempt_id: int, user: User, *, lock: bool = False
 ) -> QuizAttempt:
-    """Fetch an attempt, 404 if missing and 403 if it is someone else's.
+    """Fetch an attempt; 404 if it does not exist OR is someone else's (same answer for both).
 
     `lock` takes a row lock (SELECT ... FOR UPDATE) that is held until the request
     commits. Answering and completing use it so they cannot interleave with a quiz
     that is still being generated (see finish_streamed_quiz).
     """
     attempt = db.get(QuizAttempt, attempt_id, with_for_update=lock)
-    if attempt is None:
+    if attempt is None or attempt.user_id != user.id:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Quiz attempt not found"
-        )
-    if attempt.user_id != user.id:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="This quiz belongs to another student",
         )
     return attempt
 

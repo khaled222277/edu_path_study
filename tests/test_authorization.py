@@ -42,7 +42,9 @@ def test_owner_can_read_own_chat_session(client, world, alice_data):
 
 def test_other_student_cannot_read_chat_session(client, world, alice_data):
     r = login(client, world["bob"]).get(f"/chat/sessions/{alice_data['session'].id}")
-    assert r.status_code == 403
+    assert r.status_code == 404
+    missing = login(client, world["bob"]).get("/chat/sessions/999999")
+    assert (r.status_code, r.json()) == (missing.status_code, missing.json()), "indistinguishable from a session that does not exist"
     assert "secret question" not in r.text
 
 
@@ -51,7 +53,7 @@ def test_other_student_cannot_post_to_chat_session(client, world, alice_data, fa
     r = login(client, world["bob"]).post(
         f"/chat/sessions/{alice_data['session'].id}/messages", json={"content": "hi"}
     )
-    assert r.status_code == 403
+    assert r.status_code == 404
     assert fake.calls == 0  # rejected before any model work
 
 
@@ -101,7 +103,8 @@ def test_other_student_cannot_read_quiz_results(client, db, world, alice_data):
     alice_data["attempt"].completed_at = datetime.now(UTC)
     db.commit()
     r = login(client, world["bob"]).get(f"/quiz/{alice_data['attempt'].id}/results")
-    assert r.status_code == 403
+    assert r.status_code == 404
+    assert r.json() == login(client, world["bob"]).get("/quiz/999999/results").json()
     assert "correct_answer_index" not in r.text
 
 
@@ -112,8 +115,8 @@ def test_other_student_cannot_answer_or_complete_quiz(client, db, world, alice_d
         f"/quiz/{attempt_id}/answer",
         json={"item_id": alice_data["item"].id, "chosen_answer_index": 2},
     )
-    assert r.status_code == 403
-    assert c.post(f"/quiz/{attempt_id}/complete").status_code == 403
+    assert r.status_code == 404
+    assert c.post(f"/quiz/{attempt_id}/complete").status_code == 404
 
     db.refresh(alice_data["item"])
     assert alice_data["item"].chosen_answer_index is None  # untouched

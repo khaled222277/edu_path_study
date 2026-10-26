@@ -23,7 +23,8 @@ def old_database(tmp_path, monkeypatch):
     Base.metadata.create_all(engine)
     with engine.begin() as c:
         c.execute(text("ALTER TABLE chat_messages DROP COLUMN sources"))
-        c.execute(text("DROP TABLE message_feedback"))  # a later migration's table
+        c.execute(text("DROP TABLE message_feedback"))  # later migrations' tables
+        c.execute(text("DROP TABLE revoked_tokens"))
         c.execute(text("CREATE TABLE alembic_version (version_num VARCHAR(32) NOT NULL PRIMARY KEY)"))
         c.execute(text(f"INSERT INTO alembic_version VALUES ('{PREVIOUS}')"))
         c.execute(text("INSERT INTO universities (id, name, country) VALUES (1, 'U', 'E')"))
