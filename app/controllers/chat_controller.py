@@ -334,11 +334,13 @@ def persist_exchange(
     with session_scope() as db:
         db.add(ChatMessage(session_id=session_id, role=ROLE_USER, content=question))
         reply = ChatMessage(
-            session_id=session_id, role=ROLE_ASSISTANT, content=answer, sources=sources or []
+            session_id=session_id, role=ROLE_ASSISTANT, content=answer,
+            sources=sources or [],
         )
         db.add(reply)
         db.commit()
         db.refresh(reply)
+        reply.feedback_rows  # load it now: it cannot be loaded once detached
         db.expunge(reply)  # keep its loaded attributes readable after the session closes
         return reply
 

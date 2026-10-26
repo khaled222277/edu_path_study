@@ -3,13 +3,14 @@ from fastapi.concurrency import run_in_threadpool
 from sqlalchemy.orm import Session
 
 from app.auth.dependencies import get_current_user
-from app.controllers import chat_controller, chat_stream
+from app.controllers import chat_controller, chat_stream, feedback_controller
 from app.config import settings
 from app.db.session import get_db
 from app.models.user import User
 from app.rate_limit import limiter
 from app.schemas.chat import (
     AssistantReply,
+    FeedbackIn,
     MessageCreate,
     MessageOut,
     SessionCreate,
@@ -47,6 +48,26 @@ def get_session(
     db: Session = Depends(get_db),
 ):
     return chat_controller.get_session_or_404(db, session_id, user)
+
+
+@router.put("/messages/{message_id}/feedback", status_code=status.HTTP_204_NO_CONTENT)
+def rate_message(
+    message_id: int,
+    payload: FeedbackIn,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> None:
+    """Thumbs up / down (and an optional short comment) on one of the student's own replies."""
+    feedback_controller.set_feedback(db, user, message_id, payload.rating, payload.comment)
+
+
+@router.delete("/messages/{message_id}/feedback", status_code=status.HTTP_204_NO_CONTENT)
+def unrate_message(
+    message_id: int,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> None:
+    feedback_controller.clear_feedback(db, user, message_id)
 
 
 @router.post("/sessions/{session_id}/messages", response_model=AssistantReply)

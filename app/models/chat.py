@@ -7,6 +7,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.base import Base
 
 if TYPE_CHECKING:
+    from app.models.feedback import MessageFeedback
     from app.models.subject import Subject
     from app.models.user import User
 
@@ -61,6 +62,16 @@ class ChatMessage(Base):
     sources: Mapped[list | None] = mapped_column(JSON, nullable=True)
 
     session: Mapped["ChatSession"] = relationship(back_populates="messages")
+    feedback_rows: Mapped[list["MessageFeedback"]] = relationship(
+        cascade="all, delete-orphan"
+    )
+
+    @property
+    def feedback(self) -> str | None:
+        """"up" / "down" if the student rated this reply, else None."""
+        if not self.feedback_rows:
+            return None
+        return "up" if self.feedback_rows[0].rating > 0 else "down"
 
     @property
     def citations(self) -> list:

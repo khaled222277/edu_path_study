@@ -1302,3 +1302,11 @@ li.option.static {
 .review .cite {
   margin: 12px 0 0;
 }
+
+/* thumbs up / down under an assistant reply */
+.feedback { display: flex; align-items: center; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.thumb { background: none; border: 1px solid transparent; border-radius: 6px; padding: 2px 6px; cursor: pointer; opacity: 0.55; font-size: 14px; }
+.thumb:hover, .thumb:focus-visible { opacity: 1; }
+.thumb-on { opacity: 1; border-color: currentColor; }
+.feedback-comment { display: flex; gap: 6px; flex: 1 1 220px; }
+.feedback-comment input { flex: 1; min-width: 0; }

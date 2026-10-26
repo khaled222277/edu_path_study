@@ -6,10 +6,13 @@ import {
   createSession,
   getMySubjects,
   getSession,
+  clearRating,
   listSessions,
+  rateMessage,
   streamMessage,
 } from "./api.js";
 import { friendlyError, guessLanguage, restoreDraft, withoutPending } from "./errors.js";
+import { canRate, cleanComment, feedbackByMessage, nextRating } from "./feedback.js";
 import { MessageText } from "./messageText.js";
 import {
   applyEvent,
@@ -28,6 +31,8 @@ export default function Chat({ user, initialSubject = null }) {
   // Citations are returned per-reply, not stored on the message row, so they
   // are kept here keyed by message id.
   const [citations, setCitations] = useState({});
+  const [ratings, setRatings] = useState({}); // message id -> "up" | "down"
+  const [commenting, setCommenting] = useState(null); // { id, text } while a comment box is open
   const [draft, setDraft] = useState("");
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(null);
@@ -101,6 +106,8 @@ export default function Chat({ user, initialSubject = null }) {
       setSession({ id: detail.id, subject_id: detail.subject_id });
       setMessages(detail.messages);
       setCitations(citationsByMessage(detail.messages));
+      setRatings(feedbackByMessage(detail.messages));
+      setCommenting(null);
     } catch (e) {
       setError(friendlyError(e));
     }
@@ -199,6 +206,42 @@ export default function Chat({ user, initialSubject = null }) {
         abortRef.current = null;
         setSending(false);
       }
+    }
+  }
+
+  async function handleRate(id, clicked) {
+    const before = ratings[id];
+    const next = nextRating(before, clicked);
+    setRatings((r) => {
+      const copy = { ...r };
+      if (next) copy[id] = next;
+      else delete copy[id];
+      return copy;
+    });
+    setCommenting(next === "down" ? { id, text: "" } : null);
+    try {
+      if (next) await rateMessage(id, next);
+      else await clearRating(id);
+    } catch (e) {
+      // put the thumb back where it was
+      setRatings((r) => {
+        const copy = { ...r };
+        if (before) copy[id] = before;
+        else delete copy[id];
+        return copy;
+      });
+      setError(friendlyError(e));
+    }
+  }
+
+  async function handleComment(event) {
+    event.preventDefault();
+    const { id, text } = commenting;
+    setCommenting(null);
+    try {
+      await rateMessage(id, "down", cleanComment(text));
+    } catch (e) {
+      setError(friendlyError(e));
     }
   }
 
@@ -321,6 +364,37 @@ export default function Chat({ user, initialSubject = null }) {
               <MessageText text={m.content} />
             </div>
             {m.note && <div className={`msg-note msg-note-${m.noteTone}`}>{m.note}</div>}
+            {canRate(m) && (
+              <div className="feedback" dir="ltr">
+                {["up", "down"].map((kind) => (
+                  <button
+                    key={kind}
+                    type="button"
+                    className={`thumb${ratings[m.id] === kind ? " thumb-on" : ""}`}
+                    aria-pressed={ratings[m.id] === kind}
+                    aria-label={kind === "up" ? "Good answer" : "Bad answer"}
+                    title={kind === "up" ? "Good answer" : "Bad answer"}
+                    onClick={() => handleRate(m.id, kind)}
+                  >
+                    {kind === "up" ? "\u{1F44D}" : "\u{1F44E}"}
+                  </button>
+                ))}
+                {commenting?.id === m.id && (
+                  <form className="feedback-comment" onSubmit={handleComment}>
+                    <input
+                      type="text"
+                      dir="auto"
+                      maxLength={500}
+                      autoFocus
+                      placeholder="What was wrong? (optional)"
+                      value={commenting.text}
+                      onChange={(e) => setCommenting({ id: m.id, text: e.target.value })}
+                    />
+                    <button type="submit">Send</button>
+                  </form>
+                )}
+              </div>
+            )}
             {citations[m.id]?.length > 0 && (
               <div className="citations">
                 <div className="citations-label">Sources</div>

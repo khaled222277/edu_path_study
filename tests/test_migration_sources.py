@@ -23,6 +23,7 @@ def old_database(tmp_path, monkeypatch):
     Base.metadata.create_all(engine)
     with engine.begin() as c:
         c.execute(text("ALTER TABLE chat_messages DROP COLUMN sources"))
+        c.execute(text("DROP TABLE message_feedback"))  # a later migration's table
         c.execute(text("CREATE TABLE alembic_version (version_num VARCHAR(32) NOT NULL PRIMARY KEY)"))
         c.execute(text(f"INSERT INTO alembic_version VALUES ('{PREVIOUS}')"))
         c.execute(text("INSERT INTO universities (id, name, country) VALUES (1, 'U', 'E')"))
@@ -51,7 +52,7 @@ def columns(url):
 def test_upgrade_adds_a_nullable_column_and_keeps_the_old_reply(old_database):
     url, cfg = old_database
     assert "sources" not in columns(url)
-    command.upgrade(cfg, "head")
+    command.upgrade(cfg, THIS)
     assert "sources" in columns(url)
     engine = create_engine(url)
     with engine.connect() as c:
@@ -62,7 +63,7 @@ def test_upgrade_adds_a_nullable_column_and_keeps_the_old_reply(old_database):
 
 def test_an_old_reply_is_served_with_an_empty_sources_list(old_database):
     url, cfg = old_database
-    command.upgrade(cfg, "head")
+    command.upgrade(cfg, "head")  # the ORM reads the newest schema
     from sqlalchemy.orm import sessionmaker
     from app.models import ChatMessage
     from app.schemas.chat import MessageOut
@@ -75,7 +76,7 @@ def test_an_old_reply_is_served_with_an_empty_sources_list(old_database):
 
 def test_downgrade_removes_the_column_and_keeps_the_rest(old_database):
     url, cfg = old_database
-    command.upgrade(cfg, "head")
+    command.upgrade(cfg, THIS)
     command.downgrade(cfg, PREVIOUS)
     assert "sources" not in columns(url)
     engine = create_engine(url)
@@ -85,9 +86,12 @@ def test_downgrade_removes_the_column_and_keeps_the_rest(old_database):
     engine.dispose()
 
 
-def test_the_migration_chain_has_a_single_head_and_it_is_this_one():
+def test_the_migration_chain_has_a_single_head_and_this_migration_is_in_it():
     from alembic.script import ScriptDirectory
 
     cfg = Config()  # no ini file: env.py would call logging.fileConfig and silence other tests' loggers
     cfg.set_main_option("script_location", str(ROOT / "app" / "db" / "migrations"))
-    assert ScriptDirectory.from_config(cfg).get_heads() == [THIS]
+    scripts = ScriptDirectory.from_config(cfg)
+    heads = scripts.get_heads()
+    assert len(heads) == 1
+    assert THIS in [r.revision for r in scripts.walk_revisions()]

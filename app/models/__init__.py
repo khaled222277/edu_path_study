@@ -1,4 +1,5 @@
 from app.models.chat import ChatMessage, ChatSession
+from app.models.feedback import MessageFeedback
 from app.models.lecture import Lecture
 from app.models.quiz import QuizAttempt, QuizItem
 from app.models.subject import Subject
@@ -9,6 +10,7 @@ __all__ = [
     "ChatMessage",
     "ChatSession",
     "Lecture",
+    "MessageFeedback",
     "QuizAttempt",
     "QuizItem",
     "Subject",

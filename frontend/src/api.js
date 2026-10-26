@@ -56,6 +56,16 @@ export const createSession = (subjectId) =>
 
 export const listSessions = () => request("/chat/sessions");
 
+/** Thumbs up / down on a reply, with an optional short comment. */
+export const rateMessage = (messageId, rating, comment = null) =>
+  request(`/chat/messages/${messageId}/feedback`, {
+    method: "PUT",
+    body: JSON.stringify({ rating, comment }),
+  });
+
+export const clearRating = (messageId) =>
+  request(`/chat/messages/${messageId}/feedback`, { method: "DELETE" });
+
 export const getSession = (sessionId) => request(`/chat/sessions/${sessionId}`);
 
 export const sendMessage = (sessionId, content) =>

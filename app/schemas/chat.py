@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -33,6 +34,13 @@ class MessageOut(BaseModel):
     # What the reply was grounded on, kept so a reopened chat shows its Sources again.
     # Always a list: empty for user messages, refusals and replies stored before this existed.
     citations: list[Citation] = []
+    # The student's own rating of this reply: "up", "down" or null.
+    feedback: str | None = None
+
+
+class FeedbackIn(BaseModel):
+    rating: Literal["up", "down"]
+    comment: str | None = Field(default=None, max_length=500)
 
 
 class AssistantReply(BaseModel):
