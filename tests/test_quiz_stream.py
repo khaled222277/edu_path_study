@@ -286,6 +286,26 @@ def test_unanswered_questions_leave_the_quiz_open_after_settling(world, quiz_db,
     assert attempt.completed_at is None and attempt.total_questions == 2
 
 
+def test_a_question_arriving_after_the_quiz_was_settled_is_refused(world, quiz_db, model):
+    """A worker still inside the model call when the stream closed must not add a question that
+    total_questions no longer counts (found on Postgres, tests/test_postgres_quiz_race.py)."""
+    model({"A": [good("A")], "B": [good("B")], "C": [good("C")]})
+    started = qc.begin_streamed_quiz(quiz_db, world["alice"], world["subject"].id, 3, "en")
+    late = next(started.questions)
+    assert qc.finish_streamed_quiz(started.attempt_id, 3) == (1, True)  # settled with one question
+    assert qc.add_streamed_item(started.attempt_id, late) is None
+    (attempt,) = attempts(quiz_db)
+    assert len(items(quiz_db)) == 1 and attempt.total_questions == 1
+
+
+def test_questions_up_to_the_requested_number_are_still_accepted(world, quiz_db, model):
+    model({"A": [good("A")], "B": [good("B")], "C": [good("C")]})
+    started = qc.begin_streamed_quiz(quiz_db, world["alice"], world["subject"].id, 3, "en")
+    assert qc.add_streamed_item(started.attempt_id, next(started.questions)) is not None
+    assert qc.add_streamed_item(started.attempt_id, next(started.questions)) is not None
+    assert len(items(quiz_db)) == 3
+
+
 def test_a_quiz_closed_early_by_the_student_stops_accepting_questions(world, quiz_db, model):
     model({"A": [good("A")], "B": [good("B")]})
     started = qc.begin_streamed_quiz(quiz_db, world["alice"], world["subject"].id, 3, "en")

@@ -330,6 +330,15 @@ def add_streamed_item(attempt_id: int, question: GeneratedQuestion) -> dict | No
         attempt = db.get(QuizAttempt, attempt_id, with_for_update=True)
         if attempt is None or attempt.completed_at is not None:
             return None
+        # While a quiz is being written total_questions holds the number REQUESTED, so it is
+        # always above what is stored. Once finish_streamed_quiz has settled it, total equals
+        # what is stored: a question arriving after that (a worker thread that was still
+        # inside the model call when the stream was closed) would be stored but never counted.
+        stored = db.scalar(
+            select(func.count()).select_from(QuizItem).where(QuizItem.attempt_id == attempt_id)
+        )
+        if stored >= attempt.total_questions:
+            return None
         item = _item_row(attempt_id, question)
         db.add(item)
         db.commit()
