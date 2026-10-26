@@ -40,3 +40,9 @@ def test_no_job_needs_a_secret_or_a_service(ci):
     text = WORKFLOW.read_text(encoding="utf-8")
     assert "secrets." not in text
     assert not any("services" in job for job in ci["jobs"].values())
+
+
+def test_actions_are_on_the_node24_majors(ci):
+    """checkout / setup-python / setup-node v7 declare `using: node24` (checked against their action.yml)."""
+    uses = [s["uses"] for job in ci["jobs"].values() for s in job["steps"] if "uses" in s]
+    assert uses and all(u.endswith("@v7") for u in uses), uses
