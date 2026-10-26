@@ -10,7 +10,6 @@ from app.models.user import User
 from app.rate_limit import limiter
 from app.schemas.chat import (
     AssistantReply,
-    Citation,
     MessageCreate,
     MessageOut,
     SessionCreate,
@@ -65,16 +64,7 @@ def send_message(
 
     return AssistantReply(
         message=MessageOut.model_validate(reply),
-        citations=[
-            Citation(
-                source_filename=c.source_filename,
-                page_number=c.page_number,
-                content_type=c.content_type,
-                score=c.score,
-                image_url=c.image_url,
-            )
-            for c in chunks
-        ],
+        citations=chat_controller.citation_payload(chunks),
     )
 
 

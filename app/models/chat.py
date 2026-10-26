@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import TYPE_CHECKING
 
-from sqlalchemy import DateTime, ForeignKey, String, Text, func
+from sqlalchemy import JSON, DateTime, ForeignKey, String, Text, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
@@ -55,7 +55,16 @@ class ChatMessage(Base):
         DateTime(timezone=True), server_default=func.now(), nullable=False
     )
 
+    # The sources shown under an assistant reply, exactly as the "done" event returned them
+    # (validated against what was retrieved; empty for a refusal). NULL on user messages
+    # and on replies stored before this column existed.
+    sources: Mapped[list | None] = mapped_column(JSON, nullable=True)
+
     session: Mapped["ChatSession"] = relationship(back_populates="messages")
+
+    @property
+    def citations(self) -> list:
+        return self.sources or []
 
     def __repr__(self) -> str:
         return f"<ChatMessage id={self.id} role={self.role!r}>"

@@ -12,6 +12,7 @@ import {
 import { friendlyError, guessLanguage, restoreDraft, withoutPending } from "./errors.js";
 import {
   applyEvent,
+  citationsByMessage,
   failurePlan,
   initialStreamState,
   streamOutcome,
@@ -98,7 +99,7 @@ export default function Chat({ user, initialSubject = null }) {
       const detail = await getSession(sessionId);
       setSession({ id: detail.id, subject_id: detail.subject_id });
       setMessages(detail.messages);
-      setCitations({});
+      setCitations(citationsByMessage(detail.messages));
     } catch (e) {
       setError(friendlyError(e));
     }

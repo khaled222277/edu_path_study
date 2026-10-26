@@ -12,6 +12,7 @@ from app.db.session import session_scope
 from app.models.chat import ROLE_ASSISTANT, ROLE_USER, ChatMessage, ChatSession
 from app.models.subject import Subject
 from app.models.user import User
+from app.schemas.chat import Citation
 from app.services.llm import get_client, keep_alive
 from app.services.query_rewrite import retrieval_query
 from app.services.quiz_service import detect_language
@@ -312,11 +313,29 @@ def prepare_turn(db: Session, chat_session: ChatSession, question: str) -> Prepa
     return PreparedTurn(session_id, question, chunks, messages)
 
 
-def persist_exchange(session_id: int, question: str, answer: str) -> ChatMessage:
+def citation_payload(chunks: list[RetrievedChunk]) -> list[dict]:
+    """The sources list as sent to the client and as stored with the reply: one definition."""
+    return [
+        Citation(
+            source_filename=c.source_filename,
+            page_number=c.page_number,
+            content_type=c.content_type,
+            score=c.score,
+            image_url=c.image_url,
+        ).model_dump()
+        for c in chunks
+    ]
+
+
+def persist_exchange(
+    session_id: int, question: str, answer: str, sources: list[dict] | None = None
+) -> ChatMessage:
     """Store a finished question + answer pair in one commit, in its own session."""
     with session_scope() as db:
         db.add(ChatMessage(session_id=session_id, role=ROLE_USER, content=question))
-        reply = ChatMessage(session_id=session_id, role=ROLE_ASSISTANT, content=answer)
+        reply = ChatMessage(
+            session_id=session_id, role=ROLE_ASSISTANT, content=answer, sources=sources or []
+        )
         db.add(reply)
         db.commit()
         db.refresh(reply)
@@ -349,11 +368,15 @@ def answer_question(
     parsed = finalize_answer(raw, question, chunks)
     trace_reply(chat_session.id, raw, parsed, chunks)
 
+    shown = visible_chunks(parsed.refused, chunks)
     reply = ChatMessage(
-        session_id=chat_session.id, role=ROLE_ASSISTANT, content=parsed.text
+        session_id=chat_session.id,
+        role=ROLE_ASSISTANT,
+        content=parsed.text,
+        sources=citation_payload(shown),
     )
     db.add(reply)
     db.commit()
     db.refresh(reply)
 
-    return reply, visible_chunks(parsed.refused, chunks)
+    return reply, shown

@@ -210,3 +210,17 @@ export function quizFailurePlan(error, state) {
   }
   return { keep: false, banner: !aborted, cause: error ?? { kind: "interrupted" }, tone: null, params };
 }
+
+/**
+ * The Sources lists stored with a loaded chat, keyed by message id, for the messages that
+ * have any. Older replies (stored before sources were kept) and refusals have none.
+ */
+export function citationsByMessage(messages) {
+  const out = {};
+  for (const m of messages ?? []) {
+    if (m.role === "assistant" && Array.isArray(m.citations) && m.citations.length > 0) {
+      out[m.id] = m.citations;
+    }
+  }
+  return out;
+}

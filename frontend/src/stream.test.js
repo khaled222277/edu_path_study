@@ -294,3 +294,40 @@ test("reconciled: the sources shown are the done event's, never an earlier or lo
   ]);
   assert.deepEqual(state.citations, SRC);
 });
+
+// --- sources of a reopened chat ---------------------------------------------------------
+
+import { citationsByMessage } from "./stream.js";
+
+test("reopened chat: each assistant reply gets back the sources stored with it", () => {
+  const a = [{ source_filename: "dm.pdf", page_number: 4 }];
+  const b = [{ source_filename: "dm.pdf", page_number: 9 }];
+  const out = citationsByMessage([
+    { id: 1, role: "user", content: "q", citations: [] },
+    { id: 2, role: "assistant", content: "a", citations: a },
+    { id: 3, role: "user", content: "q2", citations: [] },
+    { id: 4, role: "assistant", content: "b", citations: b },
+  ]);
+  assert.deepEqual(out, { 2: a, 4: b });
+});
+
+test("reopened chat: refusals, old replies and missing fields have no Sources", () => {
+  const out = citationsByMessage([
+    { id: 1, role: "assistant", content: "refusal", citations: [] },
+    { id: 2, role: "assistant", content: "old reply" }, // stored before sources existed
+    { id: 3, role: "assistant", content: "x", citations: null },
+  ]);
+  assert.deepEqual(out, {});
+  assert.deepEqual(citationsByMessage(undefined), {});
+});
+
+test("reopened chat: sources shown after a live answer equal those shown after reopening", () => {
+  const SRC = [{ source_filename: "dm.pdf", page_number: 4 }];
+  const { state } = playStream([
+    { type: "citations", citations: SRC },
+    { type: "token", text: "x" },
+    { type: "done", message: { id: 5, role: "assistant", content: "x", citations: SRC }, citations: SRC },
+  ]);
+  const reopened = citationsByMessage([{ id: 5, role: "assistant", content: "x", citations: SRC }]);
+  assert.deepEqual(reopened[5], state.citations);
+});

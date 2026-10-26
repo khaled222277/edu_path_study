@@ -30,6 +30,9 @@ class MessageOut(BaseModel):
     role: str
     content: str
     created_at: datetime
+    # What the reply was grounded on, kept so a reopened chat shows its Sources again.
+    # Always a list: empty for user messages, refusals and replies stored before this existed.
+    citations: list[Citation] = []
 
 
 class AssistantReply(BaseModel):

@@ -35,7 +35,7 @@ from fastapi.concurrency import run_in_threadpool
 from starlette.responses import StreamingResponse
 
 from app.controllers import chat_controller as cc
-from app.schemas.chat import Citation, MessageOut
+from app.schemas.chat import MessageOut
 from app.services.citations import CitationFilter, Retrieved
 from app.services.refusal import RefusalFilter
 from app.services.llm import get_async_client, keep_alive
@@ -54,17 +54,7 @@ def encode_event(event: dict) -> bytes:
     return (json.dumps(event, ensure_ascii=False, separators=(",", ":")) + "\n").encode("utf-8")
 
 
-def citation_payload(chunks: list[RetrievedChunk]) -> list[dict]:
-    return [
-        Citation(
-            source_filename=c.source_filename,
-            page_number=c.page_number,
-            content_type=c.content_type,
-            score=c.score,
-            image_url=c.image_url,
-        ).model_dump()
-        for c in chunks
-    ]
+citation_payload = cc.citation_payload
 
 
 async def _aclose(stream) -> None:
@@ -154,14 +144,15 @@ async def stream_events(
             yield encode_event({"type": "token", "text": parsed.text})
 
         # Only now, with a complete answer, touch the database.
+        sources = citation_payload(cc.visible_chunks(parsed.refused, turn.chunks))
         reply = await run_in_threadpool(
-            cc.persist_exchange, turn.session_id, turn.question, parsed.text
+            cc.persist_exchange, turn.session_id, turn.question, parsed.text, sources
         )
         yield encode_event(
             {
                 "type": "done",
                 "message": MessageOut.model_validate(reply).model_dump(mode="json"),
-                "citations": citation_payload(cc.visible_chunks(parsed.refused, turn.chunks)),
+                "citations": sources,
             }
         )
     except asyncio.CancelledError:
