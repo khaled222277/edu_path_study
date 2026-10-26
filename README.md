@@ -70,7 +70,33 @@ line makes that name work on Linux too) and at the `postgres` service, whatever 
 `DATABASE_URL`. Two volumes persist state: `./data` (Chroma store, figures, reranker cache; use
 `EDUPATH_DATA_DIR=/path` to point at another copy) and `edupath_models` (the ~2 GB bge-m3 weights,
 downloaded once on first use, not on every container start). On Linux the host's Ollama must listen
-on more than loopback (`OLLAMA_HOST=0.0.0.0`) for the container to reach it; on Docker Desktop it works as is.
+on more than loopback for the container to reach it. Docker Desktop (Windows, macOS) needs nothing.
+On a Linux host that runs Ollama as a systemd service:
+
+```bash
+sudo systemctl edit ollama      # add:  [Service]  Environment="OLLAMA_HOST=0.0.0.0"
+sudo systemctl restart ollama   # restarts Ollama -- do it while nobody is using the app
+```
+
+and keep port 11434 closed to the outside with the firewall: Ollama has no authentication.
+
+##### Seeding the model cache (first time only)
+
+The container runs with `HF_HUB_OFFLINE=1`, so it never downloads models while serving. Put the
+bge-m3 weights (~2.3 GB) into the `edupath_models` volume once, with internet access:
+
+```bash
+docker compose --profile app run --rm --no-deps -e HF_HUB_OFFLINE=0 api   python -c "from sentence_transformers import SentenceTransformer as S; S('BAAI/bge-m3', device='cpu')"
+```
+
+Or copy them from a host that already has them (`~/.cache/huggingface/hub/models--BAAI--bge-m3`):
+
+```bash
+docker compose --profile app run --rm --no-deps --user root --entrypoint sh   -v "$HOME/.cache/huggingface/hub/models--BAAI--bge-m3:/src:ro" api -c   'mkdir -p /models/huggingface/hub/models--BAAI--bge-m3 && cp -rL /src/. /models/huggingface/hub/models--BAAI--bge-m3/ && rm -rf /models/huggingface/hub/models--BAAI--bge-m3/blobs && chown -R 1000 /models'
+```
+
+If the cache is missing the API still starts, but the first chat fails with "search unavailable"
+(the warm-up logs `embedding model warm-up failed`). Seed it and restart.
 
 The same without compose:
 
@@ -79,7 +105,7 @@ docker run -d --name edupath-api -p 8000:8000 --env-file .env \
   --add-host host.docker.internal:host-gateway \
   -e DATABASE_URL=postgresql://USER:PASSWORD@HOST:5432/edupath_study \
   -e OLLAMA_BASE_URL=http://host.docker.internal:11434 \
-  -v "$PWD/data:/app/data" -v edupath_models:/models edupath-api:latest
+  -e HF_HUB_OFFLINE=1 \n  -v "$PWD/data:/app/data" -v edupath_models:/models edupath-api:latest
 ```
 
 The server listens within seconds; the models warm up in the background (about two minutes when

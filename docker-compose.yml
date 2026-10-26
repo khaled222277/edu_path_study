@@ -32,6 +32,10 @@ services:
       DATABASE_URL: postgresql://${POSTGRES_USER:-edupath}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-edupath_study}
       # Ollama runs on the host, not in a container.
       OLLAMA_BASE_URL: ${OLLAMA_BASE_URL_DOCKER:-http://host.docker.internal:11434}
+      # Never fetch models at run time: a missing cache then fails fast and visibly instead of
+      # starting a 2 GB download (or hanging on retries offline). Seed the cache once with
+      # HF_HUB_OFFLINE=0 -- see README, "Seeding the model cache".
+      HF_HUB_OFFLINE: ${HF_HUB_OFFLINE:-1}
     extra_hosts:
       - "host.docker.internal:host-gateway" # built in on Docker Desktop; needed on Linux
     ports:
@@ -43,7 +47,9 @@ services:
       # Chroma store, figures, reranker cache: the ingestion output. EDUPATH_DATA_DIR
       # points the container at another copy (e.g. to try things without touching the real one).
       - ${EDUPATH_DATA_DIR:-./data}:/app/data
-      - edupath_models:/models # embedding model cache: survives container re-creation
+      # Embedding model cache: survives container re-creation. Created and owned by compose
+      # (first `docker compose run`/`up`), so there is no "not created by Compose" warning.
+      - edupath_models:/models
 
 volumes:
   edupath_pgdata:

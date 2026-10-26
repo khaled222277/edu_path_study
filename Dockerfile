@@ -1,6 +1,6 @@
 # Backend API only (the React app is built/served separately).
 # Ingestion needs Tesseract and is an offline admin task, so it is not in here.
-FROM python:3.12-slim
+FROM python:3.13-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \

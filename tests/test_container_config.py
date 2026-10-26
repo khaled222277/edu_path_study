@@ -34,5 +34,16 @@ def test_the_data_directory_is_mounted_not_baked_in_and_the_app_runs_as_non_root
     assert re.search(r"^USER appuser$", DOCKERFILE, re.M)
 
 
+def test_the_base_image_matches_ci_and_the_container_never_downloads_models():
+    ci = (ROOT / ".github" / "workflows" / "ci.yml").read_text(encoding="utf-8")
+    version = re.search(r"^FROM python:(\d+\.\d+)-slim", DOCKERFILE, re.M).group(1)
+    assert f'python-version: "{version}"' in ci, "the image and CI must run the same Python"
+    assert API["environment"]["HF_HUB_OFFLINE"] == "${HF_HUB_OFFLINE:-1}"
+
+
+def test_the_model_volume_is_owned_by_compose_not_external():
+    assert COMPOSE["volumes"]["edupath_models"] in (None, {}), "external: true would need a manual `docker volume create`"
+
+
 def test_the_api_service_stays_out_of_a_plain_compose_up():
     assert API["profiles"] == ["app"]
