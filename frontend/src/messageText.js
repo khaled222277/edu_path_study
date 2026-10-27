@@ -33,7 +33,7 @@ export function MessageText({ text }) {
     Fragment,
     null,
     parts.map((p, i) =>
-      p.cite ? h("bdi", { key: i, dir: "ltr", className: "cite" }, p.text) : h(Fragment, { key: i }, p.text),
+      p.cite ? h("bdi", { key: i, dir: "ltr", className: "msg-cite" }, p.text) : h(Fragment, { key: i }, p.text),
     ),
   );
 }

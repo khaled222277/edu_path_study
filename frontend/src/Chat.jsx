@@ -365,7 +365,7 @@ export default function Chat({ user, initialSubject = null }) {
             </div>
             {m.note && <div className={`msg-note msg-note-${m.noteTone}`}>{m.note}</div>}
             {canRate(m) && (
-              <div className="feedback" dir="ltr">
+              <div className="answer-rating" dir="ltr">
                 {["up", "down"].map((kind) => (
                   <button
                     key={kind}
@@ -380,7 +380,7 @@ export default function Chat({ user, initialSubject = null }) {
                   </button>
                 ))}
                 {commenting?.id === m.id && (
-                  <form className="feedback-comment" onSubmit={handleComment}>
+                  <form className="answer-rating-comment" onSubmit={handleComment}>
                     <input
                       type="text"
                       dir="auto"

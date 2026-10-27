@@ -1,0 +1,1325 @@
+<!doctype html><html><head><meta charset="utf-8"><style>/* EduPath Study — design system imported from Claude Design
+   ("EduPath Study platform design" / EduPath Study Deck.dc.html) */
+
+:root {
+  /* surfaces */
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-sunken: #f1f5f9;
+  --shell: #0f172a;
+  --shell-raised: #1e293b;
+
+  /* lines */
+  --border: #e2e8f0;
+  --border-subtle: #f1f5f9;
+  --border-shell: #334155;
+
+  /* text */
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+  --text-on-shell: #cbd5e1;
+  --text-on-shell-faint: #64748b;
+
+  /* accents */
+  --primary: #6366f1;
+  --primary-tint: #eef2ff;
+  --success: #10b981;
+  --success-tint: #ecfdf5;
+  --success-ink: #065f46;
+  --danger: #ef4444;
+  --danger-tint: #fef2f2;
+  --danger-ink: #991b1b;
+
+  /* radii */
+  --r-sm: 8px;
+  --r-md: 9px;
+  --r-lg: 12px;
+  --r-xl: 14px;
+  --r-2xl: 16px;
+  --r-pill: 20px;
+
+  /* elevation */
+  --shadow-card: 0 4px 16px rgba(15, 23, 42, 0.06);
+  --shadow-raised: 0 8px 28px rgba(15, 23, 42, 0.08);
+
+  --sidebar-w: 320px;
+  --topbar-h: 80px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: var(--text-faint);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+/* ---------- app shell ---------- */
+
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: var(--topbar-h);
+  flex-shrink: 0;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 0 32px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-md);
+  background: var(--shell);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-mark::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  background: var(--success);
+}
+
+.brand-name {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: var(--r-pill);
+  font-size: 14px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.crumb .sep {
+  color: var(--text-faint);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.shell-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  background: var(--shell);
+  padding: 26px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 11px 14px;
+  border-radius: var(--r-md);
+  font-size: 15px;
+  color: var(--text-on-shell);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-item .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: #475569;
+  flex-shrink: 0;
+}
+
+.nav-item.active {
+  background: var(--shell-raised);
+  color: #fff;
+  font-weight: 600;
+}
+
+.nav-item.active .dot {
+  background: var(--success);
+}
+
+.nav-heading {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-on-shell-faint);
+  padding: 0 14px;
+  margin: 26px 0 10px;
+}
+
+.nav-subject {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 14px;
+  border-radius: var(--r-md);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: start;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text-on-shell);
+}
+
+.nav-subject:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.nav-subject.active {
+  background: var(--shell-raised);
+  color: #fff;
+}
+
+.badge {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: var(--primary-tint);
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.badge-lg {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-sm);
+  font-size: 12px;
+}
+
+.sidebar-foot {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 40px 52px;
+}
+
+/* ---------- centered card (sign-in / onboarding) ---------- */
+
+.centered {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: min(460px, 100%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 44px;
+  box-shadow: var(--shadow-raised);
+}
+
+.card h1 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.card .lede {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 0 0 26px;
+}
+
+/* ---------- forms ---------- */
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--surface);
+  margin-bottom: 16px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: -1px;
+}
+
+button {
+  font-family: inherit;
+  font-size: 15.5px;
+  font-weight: 600;
+  padding: 13px 20px;
+  border-radius: var(--r-md);
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.06);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-secondary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: #334155;
+  font-size: 13.5px;
+  padding: 9px 18px;
+  border-radius: var(--r-sm);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--surface-sunken);
+  filter: none;
+}
+
+.btn-small {
+  font-size: 13.5px;
+  padding: 9px 16px;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 0;
+  text-decoration: underline;
+  cursor: pointer;
+  width: auto;
+}
+
+.link-button:hover {
+  color: var(--text);
+  filter: none;
+}
+
+/* ---------- shared bits ---------- */
+
+.hint {
+  color: var(--text-muted);
+  font-size: 13.5px;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 14px;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.page-sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin: 0 0 28px;
+}
+
+.section-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 16px;
+}
+
+/* ---------- dashboard ---------- */
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+  max-width: 900px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 20px;
+}
+
+.stat-value {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.stat-value.good {
+  color: var(--success);
+}
+
+.stat-value.muted {
+  color: var(--text-faint);
+}
+
+.stat-label {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 2px;
+}
+
+.meter {
+  height: 7px;
+  background: var(--surface-sunken);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.meter-fill {
+  height: 100%;
+  background: var(--success);
+  border-radius: 4px;
+}
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 0 36px;
+  padding: 0;
+  list-style: none;
+}
+
+.subject-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subject-head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 14px;
+  min-width: 0;
+}
+
+.subject-name {
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.subject-code {
+  font-size: 12.5px;
+  color: var(--text-faint);
+}
+
+.subject-score {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.score-value {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.score-none {
+  font-size: 14px;
+  color: var(--text-faint);
+  font-weight: 500;
+}
+
+.trend {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.trend.up {
+  background: var(--success-tint);
+  color: var(--success-ink);
+}
+
+.trend.down {
+  background: var(--danger-tint);
+  color: var(--danger-ink);
+}
+
+.trend.flat {
+  background: var(--surface-sunken);
+  color: var(--text-muted);
+}
+
+.spark {
+  color: var(--success);
+  display: block;
+  margin-top: 10px;
+}
+
+.subject-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-top: 7px;
+}
+
+.unfinished {
+  font-size: 12px;
+  color: #b45309;
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 4px 8px;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.subject-actions {
+  display: flex;
+  gap: 8px;
+  /* auto keeps the action row pinned to the card bottom so buttons line up
+     across cards whose bodies differ in height (score vs "no attempts yet") */
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.subject-card > :not(.subject-actions):last-of-type {
+  margin-bottom: 16px;
+}
+
+.subject-actions button {
+  flex: 1;
+}
+
+.activity {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  max-width: 1200px;
+}
+
+.ev {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.ev:last-child {
+  border-bottom: none;
+}
+
+.ev-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--r-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+  background: var(--primary-tint);
+  color: var(--primary);
+}
+
+.ev.quiz_completed .ev-icon {
+  background: var(--success-tint);
+  color: var(--success-ink);
+}
+
+.ev.quiz_in_progress .ev-icon {
+  background: #fffbeb;
+  color: #b45309;
+}
+
+.ev-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.ev-label {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.ev-subject {
+  font-size: 13px;
+  color: var(--text-faint);
+  margin-top: 2px;
+  overflow-wrap: anywhere;
+}
+
+.ev-score {
+  font-size: 15px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.ev-score.good {
+  color: var(--success);
+}
+
+.ev-time {
+  font-size: 13px;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.empty-note {
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  border-radius: var(--r-lg);
+  padding: 22px;
+  margin-bottom: 28px;
+  color: var(--text-muted);
+  font-size: 14.5px;
+}
+
+.session-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  max-width: 1200px;
+}
+
+.session-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 14px 22px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--border-subtle);
+  border-radius: 0;
+  text-align: start;
+  cursor: pointer;
+  color: inherit;
+  font-weight: 400;
+}
+
+.session-row:hover {
+  background: var(--surface-sunken);
+  filter: none;
+}
+
+.session-list li:last-child .session-row {
+  border-bottom: none;
+}
+
+.session-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.session-subject {
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* ---------- chat ---------- */
+
+.chat {
+  display: flex;
+  flex-direction: column;
+  /* fills the main column so the composer sits at the bottom */
+  height: calc(100vh - var(--topbar-h) - 80px);
+  min-height: 520px;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.chat-title {
+  font-size: 18px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.chat-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 26px 4px;
+  min-height: 0;
+}
+
+.chat-empty {
+  margin: auto;
+  text-align: center;
+}
+
+.msg {
+  max-width: min(680px, 72%);
+  padding: 14px 18px;
+  border-radius: var(--r-2xl);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* The bubble's side is decided by role, not by the language of the text, so
+   these corners stay physical. dir="auto" lives on .msg-body, one level in,
+   which keeps text direction from rotating the tail to the wrong corner. */
+.msg-assistant {
+  align-self: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 2px;
+}
+
+.msg-user {
+  align-self: flex-end;
+  background: var(--primary);
+  color: #fff;
+  border-bottom-right-radius: 2px;
+}
+
+.msg-body {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  /* start (not left) so Arabic aligns right inside its own bubble */
+  text-align: start;
+}
+
+.typing {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* A caret at the logical end of the text, so it trails the last word in both
+   directions, while an answer is still being written. */
+.msg-streaming .msg-body::after {
+  content: "\258D";
+  margin-inline-start: 2px;
+  color: var(--text-faint);
+  animation: caret-blink 1s steps(2, start) infinite;
+}
+
+@keyframes caret-blink {
+  to {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .msg-streaming .msg-body::after {
+    animation: none;
+  }
+}
+
+/* Why an answer stops short: pressed Stop (muted) or it broke (error). */
+.msg-note {
+  margin-top: 10px;
+  font-size: 13px;
+  text-align: start;
+}
+
+.msg-note-muted {
+  color: var(--text-muted);
+}
+
+.msg-note-error {
+  color: var(--danger);
+}
+
+.citations {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.citations-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+  text-align: start;
+}
+
+.citations ul {
+  margin: 0;
+  padding-inline-start: 18px;
+  list-style: disc;
+}
+
+.citations li {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+
+/* Thumbnail of the cited figure. A button, not a bare img, so the enlarge
+   action is reachable by keyboard and announced as such. */
+.citation-thumb {
+  display: block;
+  margin: 6px 0 10px;
+  padding: 4px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  cursor: zoom-in;
+  line-height: 0;
+}
+
+.citation-thumb:hover,
+.citation-thumb:focus-visible {
+  border-color: var(--primary);
+}
+
+.citation-thumb img {
+  display: block;
+  /* Slide figures range from wide banners to tall tables; capping both axes
+     keeps the row height even without distorting either shape. */
+  max-width: min(240px, 100%);
+  max-height: 160px;
+  width: auto;
+  height: auto;
+  border-radius: 4px;
+  /* Many slide figures are line art on transparency; an opaque backdrop keeps
+     them readable instead of blending into whatever sits behind. */
+  background: #fff;
+}
+
+.figure-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  background: rgba(0, 0, 0, 0.72);
+  cursor: zoom-out;
+}
+
+.figure-zoom {
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  cursor: default;
+}
+
+.figure-zoom img {
+  max-width: 100%;
+  /* Leave room for the caption under a tall figure. */
+  max-height: calc(100vh - 140px);
+  object-fit: contain;
+  border-radius: var(--r-md);
+  background: #fff;
+}
+
+.figure-zoom figcaption {
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.figure-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 26px;
+  line-height: 1;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.figure-close:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.composer {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-2xl);
+  box-shadow: var(--shadow-card);
+  padding: 10px 12px;
+}
+
+.composer input {
+  flex: 1;
+  margin: 0;
+  border: none;
+  padding: 8px 6px;
+  font-size: 15px;
+  background: transparent;
+  text-align: start;
+}
+
+.composer input:focus {
+  outline: none;
+}
+
+.composer button {
+  flex-shrink: 0;
+  padding: 11px 22px;
+}
+
+/* ---------- quiz ---------- */
+
+.quiz {
+  max-width: 820px;
+}
+
+.setup-panel,
+.score-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 26px;
+  margin-bottom: 28px;
+}
+
+.setup-panel select {
+  max-width: 220px;
+}
+
+.setup-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.score-big {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.score-big.good {
+  color: var(--success);
+}
+
+.quiz-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+/* "Writing question 3 of 5..." while the rest of the quiz is still being made. */
+.quiz-generating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  color: var(--text-muted);
+}
+
+/* Why a quiz has fewer questions than were asked for. */
+.quiz-note {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+}
+
+.quiz-note-muted {
+  color: var(--text-muted);
+}
+
+.quiz-note-error {
+  color: var(--danger);
+}
+
+.quiz-progress-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--primary);
+}
+
+.quiz-subject {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 2px;
+  overflow-wrap: anywhere;
+}
+
+.quiz-meter {
+  margin: 0 0 28px;
+}
+
+.question-text {
+  font-weight: 600;
+  overflow-wrap: anywhere;
+  /* start, not left, so an Arabic question aligns right */
+  text-align: start;
+}
+
+.question-text.lead {
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 0 0 22px;
+}
+
+.options {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* The option row itself is never given dir="auto" — order and marker side are
+   fixed by position so the four choices cannot reorder or jump between
+   languages. Only .option-text carries dir="auto". */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 500;
+  text-align: start;
+  cursor: pointer;
+}
+
+.option:hover:not(:disabled):not(.static) {
+  border-color: var(--primary);
+  background: var(--primary-tint);
+  filter: none;
+}
+
+.option:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+li.option.static {
+  cursor: default;
+}
+
+.option-mark {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #cbd5e1;
+  color: var(--text-faint);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.option-text {
+  flex: 1;
+  min-width: 0;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+
+.option-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  opacity: 0.8;
+  flex-shrink: 0;
+}
+
+/* feedback states, straight from the deck */
+.option.correct {
+  border-color: var(--success);
+  background: var(--success-tint);
+  color: var(--success-ink);
+  font-weight: 600;
+}
+
+.option.correct .option-mark {
+  background: var(--success);
+  border-color: var(--success);
+  color: #fff;
+}
+
+.option.wrong {
+  border-color: var(--danger);
+  background: var(--danger-tint);
+  color: var(--danger-ink);
+  font-weight: 600;
+}
+
+.option.wrong .option-mark {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+
+.option.neutral {
+  color: var(--text-faint);
+}
+
+.feedback {
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 18px 20px;
+  background: var(--surface);
+}
+
+.feedback.correct {
+  border-color: var(--success);
+  background: var(--success-tint);
+}
+
+.feedback.wrong {
+  border-color: var(--danger);
+  background: var(--danger-tint);
+}
+
+.feedback-head {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.feedback.correct .feedback-head {
+  color: var(--success-ink);
+}
+
+.feedback.wrong .feedback-head {
+  color: var(--danger-ink);
+}
+
+.cite {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+
+.review {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 22px;
+}
+
+.review-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.qnum {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 12.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.qnum.correct {
+  background: var(--success);
+}
+
+.qnum.wrong {
+  background: var(--danger);
+}
+
+.review .cite {
+  margin: 12px 0 0;
+}
+
+/* thumbs up / down under an assistant reply */
+.answer-rating { display: flex; align-items: center; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.thumb { background: none; border: 1px solid transparent; border-radius: 6px; padding: 2px 6px; cursor: pointer; opacity: 0.55; font-size: 14px; }
+.thumb:hover, .thumb:focus-visible { opacity: 1; }
+.thumb-on { opacity: 1; border-color: currentColor; }
+.answer-rating-comment { display: flex; gap: 6px; flex: 1 1 220px; }
+.answer-rating-comment input { flex: 1; min-width: 0; }
+
+/* a citation stays one left-to-right unit; wraps inside only if wider than the line */
+.msg-cite { display: inline-block; max-width: 100%; overflow-wrap: anywhere; }
+
+body{font-family:system-ui,"Segoe UI",sans-serif;padding:16px;background:#fff;color:#111}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}small{color:#666;display:block;margin:4px 0}h4{margin:14px 0 4px}
+.msg{max-width:none!important;align-self:auto!important}</style></head><body>
+<h3>Citation rendering check (static page rendered by Chrome; app CSS + real MessageText output)</h3><h4>In parentheses</h4><div class="pair"><div><small>BEFORE (plain text)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body">خوارزمية التعزيز (انظر [kdd_lec08_classifacation_3.pdf, page 37]) تحسن الدقة.</div></div></div><div><small>AFTER (bdi isolate)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body">خوارزمية التعزيز (انظر <bdi dir="ltr" class="msg-cite">[kdd_lec08_classifacation_3.pdf, page 37]</bdi>) تحسن الدقة.</div></div></div></div>
+<h4>Right after an Arabic comma</h4><div class="pair"><div><small>BEFORE (plain text)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body">الدعم، [kdd_lec04_association_rule.pdf, page 5]، والثقة، [kdd_lec04_association_rule.pdf, page 6]، مقياسان.</div></div></div><div><small>AFTER (bdi isolate)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body">الدعم، <bdi dir="ltr" class="msg-cite">[kdd_lec04_association_rule.pdf, page 5]</bdi>، والثقة، <bdi dir="ltr" class="msg-cite">[kdd_lec04_association_rule.pdf, page 6]</bdi>، مقياسان.</div></div></div></div>
+<h4>Citation starts the line</h4><div class="pair"><div><small>BEFORE (plain text)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body">[kdd_lec01_Introduction.pdf, page 7] تعرّف التنقيب عن البيانات.</div></div></div><div><small>AFTER (bdi isolate)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body"><bdi dir="ltr" class="msg-cite">[kdd_lec01_Introduction.pdf, page 7]</bdi> تعرّف التنقيب عن البيانات.</div></div></div></div>
+<h4>Numbered list, citation last</h4><div class="pair"><div><small>BEFORE (plain text)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body">1. تحديد المشكلة [kdd_lec01_Introduction.pdf, page 12] 2. جمع البيانات [kdd_lec02_data.pdf, page 3]</div></div></div><div><small>AFTER (bdi isolate)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body">1. تحديد المشكلة <bdi dir="ltr" class="msg-cite">[kdd_lec01_Introduction.pdf, page 12]</bdi> 2. جمع البيانات <bdi dir="ltr" class="msg-cite">[kdd_lec02_data.pdf, page 3]</bdi></div></div></div></div>
+<h4>Citation then digits</h4><div class="pair"><div><small>BEFORE (plain text)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body">في عام 2020 [kdd_lec01_Introduction.pdf, page 7] 5 خطوات.</div></div></div><div><small>AFTER (bdi isolate)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body">في عام 2020 <bdi dir="ltr" class="msg-cite">[kdd_lec01_Introduction.pdf, page 7]</bdi> 5 خطوات.</div></div></div></div>
+<h4>Page range</h4><div class="pair"><div><small>BEFORE (plain text)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body">الشجرة [kdd_lec06_classifacation_1.pdf, page 12] و [kdd_lec06_classifacation_1.pdf, page 13].</div></div></div><div><small>AFTER (bdi isolate)</small><div class="msg msg-assistant" dir="auto"><div class="msg-body">الشجرة <bdi dir="ltr" class="msg-cite">[kdd_lec06_classifacation_1.pdf, page 12]</bdi> و <bdi dir="ltr" class="msg-cite">[kdd_lec06_classifacation_1.pdf, page 13]</bdi>.</div></div></div></div></body></html>

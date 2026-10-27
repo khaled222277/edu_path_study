@@ -49,13 +49,13 @@ test("splitCitations: file-only citations and Arabic comma are isolated too", ()
 test("MessageText: every citation is wrapped in a left-to-right isolate, the text is not changed", () => {
   const ar = "الدعم نسبة [kdd_lec08.pdf, page 37] وهي مفيدة.";
   const html = render(ar);
-  assert.equal(html, '<div>الدعم نسبة <bdi dir="ltr" class="cite">[kdd_lec08.pdf, page 37]</bdi> وهي مفيدة.</div>');
+  assert.equal(html, '<div>الدعم نسبة <bdi dir="ltr" class="msg-cite">[kdd_lec08.pdf, page 37]</bdi> وهي مفيدة.</div>');
   assert.equal(strip(html), ar, "the visible text is exactly the stored text");
 });
 
 test("MessageText: English and citation-free text render as plain text", () => {
   assert.equal(render("Just English."), "<div>Just English.</div>");
-  assert.equal(render("A [dm.pdf, page 4] B"), '<div>A <bdi dir="ltr" class="cite">[dm.pdf, page 4]</bdi> B</div>');
+  assert.equal(render("A [dm.pdf, page 4] B"), '<div>A <bdi dir="ltr" class="msg-cite">[dm.pdf, page 4]</bdi> B</div>');
   assert.equal(render(""), "<div></div>");
 });
 

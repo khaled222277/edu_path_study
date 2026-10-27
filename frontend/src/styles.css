@@ -1304,9 +1304,12 @@ li.option.static {
 }
 
 /* thumbs up / down under an assistant reply */
-.feedback { display: flex; align-items: center; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
+.answer-rating { display: flex; align-items: center; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
 .thumb { background: none; border: 1px solid transparent; border-radius: 6px; padding: 2px 6px; cursor: pointer; opacity: 0.55; font-size: 14px; }
 .thumb:hover, .thumb:focus-visible { opacity: 1; }
 .thumb-on { opacity: 1; border-color: currentColor; }
-.feedback-comment { display: flex; gap: 6px; flex: 1 1 220px; }
-.feedback-comment input { flex: 1; min-width: 0; }
+.answer-rating-comment { display: flex; gap: 6px; flex: 1 1 220px; }
+.answer-rating-comment input { flex: 1; min-width: 0; }
+
+/* a citation stays one left-to-right unit; wraps inside only if wider than the line */
+.msg-cite { display: inline-block; max-width: 100%; overflow-wrap: anywhere; }
