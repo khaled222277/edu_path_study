@@ -98,7 +98,7 @@ app.add_middleware(
     allow_credentials=True,
     # Exactly what the frontend uses (see frontend/src/api.js), not "*", since
     # credentials are allowed.
-    allow_methods=["GET", "POST"],
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["Content-Type"],
 )
 
