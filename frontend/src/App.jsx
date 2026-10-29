@@ -10,6 +10,7 @@ import {
   logout,
   submitOnboarding,
 } from "./api.js";
+import { signInNotice } from "./errors.js";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -162,9 +163,15 @@ function initials(name) {
 }
 
 function SignIn() {
+  const notice = signInNotice(window.location.search);
+  useEffect(() => {
+    // the notice is shown once; drop the query string so a refresh starts clean
+    if (notice) window.history.replaceState(null, "", window.location.pathname);
+  }, [notice]);
   return (
     <>
       <h1>EduPath Study</h1>
+      {notice && <p className="error" role="alert">{notice}</p>}
       <p>Sign in to reach your lectures, tutor, and quizzes.</p>
       <button onClick={() => (window.location.href = googleLoginUrl)}>
         Sign up with Google

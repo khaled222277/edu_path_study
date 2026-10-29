@@ -25,6 +25,7 @@ def old_database(tmp_path, monkeypatch):
         c.execute(text("ALTER TABLE chat_messages DROP COLUMN sources"))
         c.execute(text("DROP TABLE message_feedback"))  # later migrations' tables
         c.execute(text("DROP TABLE revoked_tokens"))
+        c.execute(text("DROP TABLE allowed_emails"))
         c.execute(text("CREATE TABLE alembic_version (version_num VARCHAR(32) NOT NULL PRIMARY KEY)"))
         c.execute(text(f"INSERT INTO alembic_version VALUES ('{PREVIOUS}')"))
         c.execute(text("INSERT INTO universities (id, name, country) VALUES (1, 'U', 'E')"))

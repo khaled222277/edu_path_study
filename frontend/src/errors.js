@@ -45,6 +45,15 @@ const MESSAGES = {
 };
 
 /** Which friendly message an HTTP status maps to, or null for "show the server's". */
+/** A notice for the sign-in screen from the query string Google's callback redirected with, else null. */
+export function signInNotice(search) {
+  const code = new URLSearchParams(search ?? "").get("signin");
+  if (code === "not_allowed") {
+    return "This account cannot be used to sign in to the pilot. If you think this is a mistake, please contact your instructor.";
+  }
+  return null;
+}
+
 export function kindForStatus(status) {
   if (status === 429) return "rate_limited";
   if (status === 503) return "unavailable";

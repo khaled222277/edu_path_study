@@ -50,3 +50,15 @@ test("language is guessed from the script the student typed", () => {
   assert.equal(guessLanguage("12345 ???"), "en");
   assert.equal(guessLanguage(undefined), "en");
 });
+
+import { signInNotice } from "./errors.js";
+
+test("signInNotice: the not-allowed redirect gets one generic message, anything else none", () => {
+  const msg = signInNotice("?signin=not_allowed");
+  assert.match(msg, /cannot be used to sign in/);
+  assert.ok(!/@|allowlist|list/i.test(msg), "reveals nothing about who is listed");
+  assert.equal(signInNotice(""), null);
+  assert.equal(signInNotice(undefined), null);
+  assert.equal(signInNotice("?signin=other"), null);
+  assert.equal(signInNotice("?x=1&signin=not_allowed"), msg);
+});

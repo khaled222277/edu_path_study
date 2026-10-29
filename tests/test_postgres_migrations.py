@@ -96,7 +96,7 @@ def test_downgrade_drops_exactly_the_new_structures_and_upgrade_again_loses_noth
     psql("insert into message_feedback (message_id, user_id, rating, comment) values (2, 1, -1, 'x')", name)
     psql("insert into revoked_tokens (jti, expires_at) values ('j', now() + interval '1 day')", name)
     command.downgrade(cfg, OLD)
-    assert psql("select count(*) from information_schema.tables where table_name in ('message_feedback','revoked_tokens')", name) == "0"
+    assert psql("select count(*) from information_schema.tables where table_name in ('message_feedback','revoked_tokens','allowed_emails')", name) == "0"
     assert psql("select count(*) from information_schema.columns where table_name='chat_messages' and column_name='sources'", name) == "0"
     assert psql("select version_num from alembic_version", name) == OLD
     assert dump_data(name, OLD_TABLES) == before and messages(name) == msgs, "messages, users, quizzes survive the downgrade"
@@ -104,3 +104,21 @@ def test_downgrade_drops_exactly_the_new_structures_and_upgrade_again_loses_noth
     assert dump_data(name, OLD_TABLES) == before and messages(name) == msgs
     assert psql("select count(*), count(sources) from chat_messages", name) == "6|0", "the dropped sources do not come back"
     assert psql("select count(*) from message_feedback", name) == "0"
+
+
+def test_allowlist_table_on_postgres_stores_one_row_per_address_and_the_script_works(old_db):
+    name, url, cfg = old_db
+    command.upgrade(cfg, "head")
+    assert psql("select data_type||' '||character_maximum_length||' '||is_nullable from information_schema.columns where table_name='allowed_emails' and column_name='email'", name) == "character varying 320 NO"
+    assert psql("select count(*) from pg_indexes where tablename='allowed_emails' and indexdef like '%UNIQUE%'", name) == "1"
+    import sys
+
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import manage_allowlist
+
+    engine = create_engine(url)
+    with sessionmaker(bind=engine)() as db:
+        assert manage_allowlist.add(db, ["A@Example.com", "a@example.com", "طالب@example.com"])[0] == ["a@example.com", "طالب@example.com"]
+        assert manage_allowlist.listing(db) == ["a@example.com", "طالب@example.com"]
+    engine.dispose()
+    assert psql("select count(*) from allowed_emails", name) == "2"

@@ -11,6 +11,7 @@ from app.auth.oauth import oauth
 from app.config import settings
 from app.controllers import auth_controller
 from app.rate_limit import client_ip, limiter
+from app.services import allowlist
 from app.db.session import get_db
 from app.models.user import User
 from app.schemas.user import UserOut
@@ -51,7 +52,18 @@ async def google_callback(request: Request, db: Session = Depends(get_db)):
     if not userinfo:
         userinfo = await oauth.google.userinfo(token=token)
 
-    user = auth_controller.get_or_create_user_from_google(db, dict(userinfo))
+    userinfo = dict(userinfo)
+    if not allowlist.is_allowed(db, userinfo.get("email")) or (
+        settings.allowlist_enabled and userinfo.get("email_verified") is False
+    ):
+        # Same answer for every refusal, and nothing created: no row, no cookie. The address is
+        # logged only as a short hash.
+        log.warning("sign-in refused: account not allowed (ref=%s)", allowlist.log_ref(userinfo.get("email")))
+        return RedirectResponse(
+            url=f"{settings.frontend_url.rstrip('/')}/?signin=not_allowed", status_code=status.HTTP_302_FOUND
+        )
+
+    user = auth_controller.get_or_create_user_from_google(db, userinfo)
 
     # Land the browser back on the frontend; it will call /auth/me next.
     redirect = RedirectResponse(

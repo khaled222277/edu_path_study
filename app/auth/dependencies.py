@@ -7,6 +7,7 @@ from app.auth.jwt import token_claims
 from app.config import settings
 from app.db.session import get_db
 from app.models.revoked_token import RevokedToken
+from app.services import allowlist
 from app.models.user import User
 
 
@@ -32,5 +33,7 @@ def get_current_user(
     user = db.get(User, int(claims["sub"]))
     if user is None:
         raise unauthorized
+    if not allowlist.is_allowed(db, user.email):
+        raise unauthorized  # removed from the pilot list: signed out at the next request
 
     return user

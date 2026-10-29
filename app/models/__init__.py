@@ -1,3 +1,4 @@
+from app.models.allowed_email import AllowedEmail
 from app.models.chat import ChatMessage, ChatSession
 from app.models.feedback import MessageFeedback
 from app.models.lecture import Lecture
@@ -8,6 +9,7 @@ from app.models.university import University
 from app.models.user import User
 
 __all__ = [
+    "AllowedEmail",
     "ChatMessage",
     "ChatSession",
     "Lecture",

@@ -21,6 +21,7 @@ os.environ.update(
         "QUIZ_SWEEP_ENABLED": "false",
         "CHAT_FOLLOWUP_REWRITE": "false",  # tests that exercise it switch it on
         "COOKIE_SECURE": "false",
+        "ALLOWLIST_ENABLED": "false",
         "CHAT_TRACE_LOG": "false",  # a developer may switch it on in .env
         "CHAT_TRACE_QUERIES": "false",
     }

@@ -151,6 +151,7 @@ def test_feedback_migration_goes_up_and_down(tmp_path, monkeypatch):
     with engine.begin() as c:
         c.execute(text("DROP TABLE message_feedback"))
         c.execute(text("DROP TABLE revoked_tokens"))
+        c.execute(text("DROP TABLE allowed_emails"))
         c.execute(text("CREATE TABLE alembic_version (version_num VARCHAR(32) NOT NULL PRIMARY KEY)"))
         c.execute(text("INSERT INTO alembic_version VALUES ('a1c5e7b9d201')"))
     engine.dispose()
