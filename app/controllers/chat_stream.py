@@ -34,6 +34,7 @@ from fastapi import HTTPException, status
 from fastapi.concurrency import run_in_threadpool
 from starlette.responses import StreamingResponse
 
+from app import log_safe
 from app.controllers import chat_controller as cc
 from app.schemas.chat import MessageOut
 from app.services.citations import CitationFilter, Retrieved
@@ -91,7 +92,7 @@ async def open_chat_stream(messages: list[dict], model: str | None = None):
         first = await anext(stream, None)  # None: the model produced nothing at all
     except Exception as exc:
         await _aclose(stream)
-        log.exception("chat model call failed")
+        log_safe.failure(log, "chat model call failed", exc)
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail=cc.MODEL_UNAVAILABLE_DETAIL,
@@ -158,8 +159,8 @@ async def stream_events(
     except asyncio.CancelledError:
         log.info("client went away mid-answer; nothing stored")
         raise
-    except Exception:
-        log.exception("chat stream failed")
+    except Exception as exc:
+        log_safe.failure(log, "chat stream failed", exc)
         yield encode_event({"type": "error", "detail": STREAM_ERROR_DETAIL})
     finally:
         await _aclose(stream)

@@ -142,6 +142,11 @@ class Settings(BaseSettings):
     # may sign in, and an already-signed-in student who is removed from it is signed out at their
     # next request. OFF by default so existing behaviour is unchanged; ON for the pilot.
     allowlist_enabled: bool = False
+
+    # Failures are logged as exception class + code + location, never with the exception's message
+    # (which can contain a student's question, a prompt or lecture text). True restores full
+    # tracebacks for debugging on your own machine; leave it off during the pilot.
+    log_tracebacks: bool = False
     # How many proxies in front of the API append to X-Forwarded-For. The address read is
     # the one that many entries from the right (the left side is client-supplied).
     trusted_proxy_hops: int = Field(default=1, ge=1, le=5)

@@ -30,6 +30,7 @@ from collections.abc import AsyncIterator
 import anyio
 from fastapi.concurrency import run_in_threadpool
 
+from app import log_safe
 from app.controllers import quiz_controller as qc
 from app.controllers.chat_stream import NDJSON, ClosingStreamingResponse, encode_event
 from app.schemas.quiz import QuizQuestionOut
@@ -94,8 +95,8 @@ async def stream_events(started: qc.StreamedQuiz) -> AsyncIterator[bytes]:
     except asyncio.CancelledError:
         log.info("client went away mid-quiz; keeping %s question(s)", started.produced)
         raise
-    except Exception:
-        log.exception("quiz stream failed")
+    except Exception as exc:
+        log_safe.failure(log, "quiz stream failed", exc)
         kept = await run_in_threadpool(started.close)
         total = kept[0] if kept is not None else started.produced
         yield encode_event(

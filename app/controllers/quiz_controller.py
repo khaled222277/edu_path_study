@@ -2,6 +2,7 @@
 
 import logging
 import threading
+from app import log_safe
 from collections.abc import Iterator
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
@@ -68,13 +69,13 @@ def start_quiz(
     except NotImplementedError:
         raise
     except (LLMUnavailableError, QuizGenerationError) as exc:
-        log.error("quiz generation failed: %s", exc)
+        log_safe.failure(log, "quiz generation failed", exc)
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail=QUIZ_UNAVAILABLE_DETAIL,
         ) from exc
     except Exception as exc:  # e.g. Chroma unreadable
-        log.exception("quiz generation failed")
+        log_safe.failure(log, "quiz generation failed", exc)
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail=QUIZ_UNAVAILABLE_DETAIL,
@@ -280,12 +281,12 @@ def begin_streamed_quiz(
     except NotImplementedError:
         raise
     except (LLMUnavailableError, QuizGenerationError) as exc:
-        log.error("quiz generation failed: %s", exc)
+        log_safe.failure(log, "quiz generation failed", exc)
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail=QUIZ_UNAVAILABLE_DETAIL
         ) from exc
     except Exception as exc:  # e.g. Chroma unreadable
-        log.exception("quiz generation failed")
+        log_safe.failure(log, "quiz generation failed", exc)
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE, detail=QUIZ_UNAVAILABLE_DETAIL
         ) from exc

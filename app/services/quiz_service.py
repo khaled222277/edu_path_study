@@ -21,6 +21,7 @@ from typing import Any
 
 import httpx
 
+from app import log_safe
 from app.config import settings
 from app.services.llm import LLM_ERRORS, LLMUnavailableError, get_client, keep_alive
 from app.services.vector_store import get_collection, retry_if_stale
@@ -698,7 +699,7 @@ def _generate_one(
         try:
             items = _parse_items(raw)
         except Exception as exc:
-            log.debug("quiz generation attempt failed to parse (%s)", exc)
+            log.debug("quiz generation attempt failed to parse [%s]", log_safe.describe(exc))
             rejected += 1
             reasons.append(REASON_MALFORMED)
             items = None

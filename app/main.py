@@ -8,7 +8,7 @@ from slowapi.errors import RateLimitExceeded
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.sessions import SessionMiddleware
 
-from app import log_redaction
+from app import log_redaction, log_safe
 from app.config import settings
 from app.rate_limit import limiter, rate_limit_exceeded_handler
 from app.services import llm, retrieval, vector_store
@@ -47,8 +47,8 @@ def warm_up_models() -> None:
     for name, step in steps:
         try:
             step()
-        except Exception:
-            log.warning("%s warm-up failed; the first request will retry", name, exc_info=True)
+        except Exception as exc:
+            log_safe.failure(log, f"{name} warm-up failed; the first request will retry", exc, logging.WARNING)
     if settings.quiz_model != settings.chat_model:
         log.info(
             "QUIZ_MODEL (%s) differs from CHAT_MODEL (%s): it loads on first use, "

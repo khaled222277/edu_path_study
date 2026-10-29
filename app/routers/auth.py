@@ -6,6 +6,7 @@ from fastapi import APIRouter, Depends, HTTPException, Request, Response, status
 from fastapi.responses import RedirectResponse
 from sqlalchemy.orm import Session
 
+from app import log_safe
 from app.auth.dependencies import get_current_user
 from app.auth.oauth import oauth
 from app.config import settings
@@ -42,7 +43,7 @@ async def google_callback(request: Request, db: Session = Depends(get_db)):
         token = await oauth.google.authorize_access_token(request)
     except Exception as exc:  # Authlib raises a variety of OAuth errors here.
         # Log the cause; the client only learns that sign-in failed.
-        log.warning("google sign-in failed: %s", exc)
+        log_safe.failure(log, "google sign-in failed", exc, logging.WARNING)
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Google sign-in failed. Please try again.",

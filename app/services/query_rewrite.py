@@ -15,6 +15,7 @@ never make a chat turn fail.
 
 import logging
 
+from app import log_safe
 from app.config import settings
 from app.services.llm import LLM_ERRORS, get_client, keep_alive
 
@@ -55,8 +56,8 @@ def rewrite_followup(previous: str, question: str) -> str:
     except LLM_ERRORS:
         log.warning("follow-up rewrite unavailable; searching with the question as asked")
         return question
-    except Exception:
-        log.warning("follow-up rewrite failed; searching with the question as asked", exc_info=True)
+    except Exception as exc:
+        log_safe.failure(log, "follow-up rewrite failed; searching with the question as asked", exc, logging.WARNING)
         return question
 
     usable = _usable((response.get("message") or {}).get("content") or "")

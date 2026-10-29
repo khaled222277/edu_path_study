@@ -7,6 +7,7 @@ from fastapi import HTTPException, status
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
+from app import log_safe
 from app.config import settings
 from app.db.session import session_scope
 from app.models.chat import ROLE_ASSISTANT, ROLE_USER, ChatMessage, ChatSession
@@ -214,7 +215,7 @@ def _prepare(
     except Exception as exc:
         # Chroma unreadable, embedding model or reranker failed to load, etc.
         db.rollback()
-        log.exception("lecture retrieval failed")
+        log_safe.failure(log, "lecture retrieval failed", exc)
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail=SEARCH_UNAVAILABLE_DETAIL,
@@ -358,7 +359,7 @@ def answer_question(
         )
     except Exception as exc:
         db.rollback()
-        log.exception("chat model call failed")
+        log_safe.failure(log, "chat model call failed", exc)
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail=MODEL_UNAVAILABLE_DETAIL,

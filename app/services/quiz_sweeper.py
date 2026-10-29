@@ -26,6 +26,7 @@ from datetime import UTC, datetime, timedelta
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
+from app import log_safe
 from app.models.quiz import QuizAttempt, QuizItem
 
 log = logging.getLogger(__name__)
@@ -125,8 +126,8 @@ class QuizSweeper(threading.Thread):
         while not self._stop_event.is_set():
             try:
                 self._sweep(self.older_than)
-            except Exception:
-                log.warning("quiz sweep failed; will retry", exc_info=True)
+            except Exception as exc:
+                log_safe.failure(log, "quiz sweep failed; will retry", exc, logging.WARNING)
             self.runs += 1
             if self.interval <= 0:
                 return

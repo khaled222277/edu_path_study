@@ -29,6 +29,7 @@ from chromadb.api.shared_system_client import SharedSystemClient
 from chromadb.errors import InternalError
 from chromadb.utils import embedding_functions
 
+from app import log_safe
 from app.config import settings
 
 log = logging.getLogger(__name__)
@@ -172,7 +173,7 @@ def retry_if_stale(operation: Callable[[], T]) -> T:
     try:
         return operation()
     except InternalError as exc:
-        log.warning("chroma client looks stale (%s); resetting and retrying once", exc)
+        log.warning("chroma client looks stale [%s]; resetting and retrying once", log_safe.describe(exc))
         reset_cache()
         return operation()
 

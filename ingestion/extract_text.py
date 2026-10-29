@@ -47,7 +47,7 @@ def extract_pdf_pages(path, ocr_langs=DEFAULT_OCR_LANGS, ocr_dpi=DEFAULT_OCR_DPI
                 ocr_text = pytesseract.image_to_string(img, lang=ocr_langs).strip()
                 pages_out.append({"page": i + 1, "text": ocr_text, "method": "ocr"})
             except Exception as e:
-                logger.warning("OCR failed on %s page %d: %s", path, i + 1, e)
+                logger.warning("OCR failed on %s page %d [%s]", path, i + 1, type(e).__name__)  # the class only: the message can quote page text
                 pages_out.append({"page": i + 1, "text": "", "method": "ocr_failed"})
     finally:
         doc.close()

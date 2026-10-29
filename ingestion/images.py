@@ -27,6 +27,7 @@ from pathlib import Path
 import fitz  # PyMuPDF
 from PIL import Image
 
+from app import log_safe
 from app.config import settings
 from app.services.llm import get_client
 from app.services.lecture_images import (
@@ -219,7 +220,7 @@ def extract_images(pdf_path: str) -> list[ExtractedImage]:
                     raw = doc.extract_image(xref)
                 except Exception as exc:
                     log.warning(
-                        "page %s: could not extract image %s (%s)", page_number, xref, exc
+                        "page %s: could not extract image %s [%s]", page_number, xref, log_safe.describe(exc)
                     )
                     continue
 
@@ -264,7 +265,7 @@ def _write_png(data: bytes, path: Path) -> None:
             im.save(path, format="PNG")
         return
     except Exception as exc:
-        log.debug("Pillow could not decode %s (%s); trying PyMuPDF", path.name, exc)
+        log.debug("Pillow could not decode %s [%s]; trying PyMuPDF", path.name, log_safe.describe(exc))
 
     pixmap = fitz.Pixmap(data)
     if pixmap.n - pixmap.alpha >= 4:  # CMYK has no PNG representation
@@ -291,7 +292,7 @@ def save_images(images: list[ExtractedImage], lecture_id: int) -> dict[tuple[int
         try:
             _write_png(image.data, destination / name)
         except Exception as exc:
-            log.warning("page %s: could not save %s (%s)", image.page_number, name, exc)
+            log.warning("page %s: could not save %s [%s]", image.page_number, name, log_safe.describe(exc))
             continue
         saved[(image.page_number, image.page_index)] = relative_image_path(
             lecture_id, image.page_number, image.page_index
@@ -333,7 +334,7 @@ def classify_image(
                 options=CLASSIFY_OPTIONS,
             )
         except Exception as exc:
-            log.warning("classification call failed on %s (%s)", attempt_model, exc)
+            log.warning("classification call failed on %s [%s]", attempt_model, log_safe.describe(exc))
             if errors is not None:
                 errors.append(_reason(exc))
             continue
@@ -407,7 +408,7 @@ def describe_image(
             options=DESCRIBE_OPTIONS,
         )
     except Exception as exc:
-        log.warning("page %s: description failed (%s)", image.page_number, exc)
+        log.warning("page %s: description failed [%s]", image.page_number, log_safe.describe(exc))
         if errors is not None:
             errors.append(_reason(exc))
         return None
