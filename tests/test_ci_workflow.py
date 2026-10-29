@@ -46,3 +46,8 @@ def test_actions_are_on_the_node24_majors(ci):
     """checkout / setup-python / setup-node v7 declare `using: node24` (checked against their action.yml)."""
     uses = [s["uses"] for job in ci["jobs"].values() for s in job["steps"] if "uses" in s]
     assert uses and all(u.endswith("@v7") for u in uses), uses
+
+
+def test_the_frontend_job_runs_the_jsdom_component_tests_as_their_own_step(ci):
+    runs = [s.get("run") for s in ci["jobs"]["frontend"]["steps"]]
+    assert "npm run test:ui" in runs and runs.index("npm ci") < runs.index("npm run test:ui")
