@@ -1,9 +1,16 @@
 """Back up and restore the two things that cannot be rebuilt cheaply: Postgres and data/.
 
     python scripts/backup.py backup  [--out backups] [--pg-container edupath-postgres] [--include-lectures]
+                                     [--keep 7] [--log-file backups/backup.log]
     python scripts/backup.py verify  backups/edupath-20261026-101500
     python scripts/backup.py restore backups/edupath-20261026-101500 --yes [--target-data-dir DIR]
                                      [--pg-container NAME] [--database NAME] [--force]
+
+Scheduled use (Task Scheduler / cron, see scripts/schedule_backup.ps1 and docs/PILOT.md): `backup`
+verifies what it just wrote, then keeps only the newest --keep backups (default 7; 0 = keep all),
+appends one line per run to --log-file, and exits non-zero on any failure (2 = backup failed,
+3 = the new backup did not verify). Old backups are only pruned after a successful, verified one, so
+a failing job never eats the backups that still work.
 
 A backup is a folder holding
 
@@ -29,6 +36,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -123,7 +131,10 @@ def make_backup(out_dir: Path, data_dir: Path, container: str | None, database: 
     db = database_settings(database_url)
     stamp = (now or datetime.now()).strftime("%Y%m%d-%H%M%S")
     folder = out_dir / f"edupath-{stamp}"
-    folder.mkdir(parents=True, exist_ok=False)
+    try:
+        folder.mkdir(parents=True, exist_ok=False)
+    except FileExistsError:
+        raise BackupError(f"{folder.name} already exists (two runs in the same second?)") from None
     try:
         dump_cmd, _, env = pg_commands(container, db, database)
         with open(folder / DUMP, "wb") as fh:
@@ -142,6 +153,38 @@ def make_backup(out_dir: Path, data_dir: Path, container: str | None, database: 
     }
     (folder / MANIFEST).write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     return folder
+
+
+# --- retention and the run log -------------------------------------------------------------------
+
+
+def backup_folders(out_dir: Path) -> list[Path]:
+    """Folders in `out_dir` that look like backups made by this script (name and manifest), oldest first."""
+    if not out_dir.is_dir():
+        return []
+    found = [p for p in out_dir.iterdir()
+             if p.is_dir() and re.fullmatch(r"edupath-\d{8}-\d{6}", p.name) and (p / MANIFEST).is_file()]
+    return sorted(found, key=lambda p: p.name)
+
+
+def prune(out_dir: Path, keep: int, protect: Path | None = None) -> list[Path]:
+    """Delete all but the newest `keep` backups (never `protect`, never anything that is not a backup)."""
+    if keep <= 0:
+        return []
+    folders = backup_folders(out_dir)
+    doomed = [p for p in folders[: max(0, len(folders) - keep)] if p != protect]
+    for p in doomed:
+        shutil.rmtree(p)
+    return doomed
+
+
+def log_run(log_file: Path | None, status: str, detail: str, now: datetime | None = None) -> str:
+    line = f"{(now or datetime.now()).isoformat(timespec='seconds')} {status} {detail}"
+    if log_file:
+        log_file.parent.mkdir(parents=True, exist_ok=True)
+        with open(log_file, "a", encoding="utf-8") as fh:
+            fh.write(line + "\n")
+    return line
 
 
 # --- verify / restore ---------------------------------------------------------------------------
@@ -201,6 +244,26 @@ def restore_backup(folder: Path, target_data_dir: Path, container: str | None, d
 # --- command line -------------------------------------------------------------------------------
 
 
+def run_backup(args) -> int:
+    """backup -> verify -> prune -> log. Exit 0 ok, 2 backup failed, 3 the new backup did not verify."""
+    out = Path(args.out)
+    log_file = Path(args.log_file) if args.log_file else out / "backup.log"
+    try:
+        folder = make_backup(out, Path(args.data_dir), args.pg_container or None, args.database, args.include_lectures)
+    except BackupError as e:
+        print(log_run(log_file, "FAILED", f"backup: {e}"), file=sys.stderr)
+        return 2
+    try:
+        manifest = verify_backup(folder)
+    except BackupError as e:
+        print(log_run(log_file, "FAILED", f"verify {folder.name}: {e}"), file=sys.stderr)
+        return 3
+    pruned = prune(out, args.keep, protect=folder)
+    sizes = ", ".join(f"{n} {i['bytes']:,} B" for n, i in manifest["files"].items())
+    print(log_run(log_file, "OK", f"{folder.name} ({sizes}); verified; kept {len(backup_folders(out))}, pruned {len(pruned)}"))
+    return 0
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -211,6 +274,8 @@ def main(argv=None) -> int:
     b.add_argument("--pg-container", default="edupath-postgres", help="docker container running Postgres ('' = use host pg_dump)")
     b.add_argument("--database", help="database name (default: from DATABASE_URL)")
     b.add_argument("--include-lectures", action="store_true", help="also save data/lectures (the source PDFs)")
+    b.add_argument("--keep", type=int, default=7, help="keep this many newest backups after a successful one (0 = keep all)")
+    b.add_argument("--log-file", help="append one line per run here (default: <out>/backup.log)")
 
     v = sub.add_parser("verify")
     v.add_argument("folder")
@@ -227,11 +292,7 @@ def main(argv=None) -> int:
 
     try:
         if args.cmd == "backup":
-            folder = make_backup(Path(args.out), Path(args.data_dir), args.pg_container or None, args.database, args.include_lectures)
-            m = verify_backup(folder)
-            print(f"backup written to {folder}")
-            for name, info in m["files"].items():
-                print(f"  {name}: {info['bytes']:,} bytes")
+            return run_backup(args)
         elif args.cmd == "verify":
             m = verify_backup(Path(args.folder))
             print(f"OK: {Path(args.folder).name} made {m['created']}, data: {', '.join(m['data_parts'])}")
