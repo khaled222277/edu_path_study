@@ -100,6 +100,11 @@ class Settings(BaseSettings):
     # Below this best cross-encoder score the reranker is ignored and the vector
     # order is kept (it is unreliable on cross-lingual pairs).
     rerank_min_confidence: float = Field(default=0.1, ge=0.0, le=1.0)
+    # What to do with figure-description chunks when the question does not mention a figure,
+    # diagram, chart, image or picture (English or Arabic). "normal": nothing, they compete with
+    # lecture text. "demote": they are only used after every lecture-text candidate. "exclude": they
+    # are not searched at all. See eval/README.md ("Figure descriptions in retrieval") for the numbers.
+    figure_chunks: str = Field(default="normal", pattern=r"^(normal|demote|exclude)$")
 
     # Where the query embedder (bge-m3) runs: "cpu", "mps", "cuda" or "cuda:N".
     # If the requested accelerator is not available the app falls back to cpu with

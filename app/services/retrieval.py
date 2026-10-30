@@ -6,6 +6,7 @@ the cross-encoder pick the few that actually answer the question.
 """
 
 import logging
+import re
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
@@ -40,6 +41,42 @@ RERANKER_CACHE = PROJECT_ROOT / "data" / "flashrank"
 # 0.1 sits three orders of magnitude above the Arabic scores and well below the
 # lowest confident English one.
 RERANK_MIN_CONFIDENCE = settings.rerank_min_confidence
+
+
+# A question that names a figure wants figure descriptions. English by word, Arabic by stem: the
+# common prefixes (ال, و, ب, ل, ف, ك) are removed first, so "الرسوم", "بالصورة" and "للشكل" all match.
+# Deliberately generous (Arabic "بشكل", "in a way", matches too): a false "asks" only keeps the
+# behaviour that existed before FIGURE_CHUNKS, whereas a miss hides the figure that was asked about.
+_FIGURE_WORDS_EN = re.compile(
+    r"\b(figures?|fig|diagrams?|charts?|images?|pictures?|photos?|graphs?|plots?|illustrations?|"
+    r"drawings?|sketch(?:es)?|screenshots?|visuals?|infographics?|logos?)\b",
+    re.IGNORECASE,
+)
+_FIGURE_STEMS_AR = frozenset(
+    "شكل اشكال أشكال رسم رسوم رسمه رسمة مخطط مخططات صوره صورة صور رسومات منحني منحنى تخطيط شعار".split()
+)
+_AR_PREFIXES = ("وبال", "وال", "بال", "كال", "فال", "لل", "ال", "و", "ب", "ل", "ك", "ف")
+_AR_WORD = re.compile(r"[؀-ۿ]+")
+_AR_MARKS = re.compile(r"[ً-ٰٟـ]")
+
+
+def asks_for_figure(question: str) -> bool:
+    """True if the question mentions a figure, diagram, chart, image or picture."""
+    if _FIGURE_WORDS_EN.search(question):
+        return True
+    for word in _AR_WORD.findall(question):
+        word = _AR_MARKS.sub("", word)
+        stems = {word} | {word[len(p):] for p in _AR_PREFIXES if word.startswith(p) and len(word) > len(p) + 1}
+        if stems & _FIGURE_STEMS_AR:
+            return True
+    return False
+
+
+def _demote_figures(chunks: list) -> list:
+    """Lecture text first, then figure descriptions; the order inside each group is kept."""
+    return [c for c in chunks if c.content_type != CONTENT_TYPE_IMAGE] + [
+        c for c in chunks if c.content_type == CONTENT_TYPE_IMAGE
+    ]
 
 
 @dataclass
@@ -142,11 +179,16 @@ def retrieve_detailed(
     if not query.strip():
         return empty
 
+    figures = settings.figure_chunks if not asks_for_figure(query) else "normal"
+    where = {"subject_id": subject_id}
+    if figures == "exclude":
+        where = {"$and": [where, {"content_type": {"$ne": CONTENT_TYPE_IMAGE}}]}
+
     result = retry_if_stale(
         lambda: get_collection().query(
             query_texts=[query],
             n_results=candidate_k,
-            where={"subject_id": subject_id},
+            where=where,
             include=["documents", "metadatas", "distances"],
         )
     )
@@ -168,6 +210,9 @@ def retrieve_detailed(
     ranked = get_ranker().rerank(RerankRequest(query=query, passages=passages))
     top_score = max((r["score"] for r in ranked), default=0.0)
     reranked = [_to_chunk(r["text"], r["meta"], float(r["score"])) for r in ranked]
+
+    if figures == "demote":
+        candidates, reranked = _demote_figures(candidates), _demote_figures(reranked)
 
     if top_score >= RERANK_MIN_CONFIDENCE:
         final, strategy = reranked[:top_k], "reranked"
