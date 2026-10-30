@@ -64,8 +64,12 @@ def test_the_boilerplate_rule_can_be_turned_off(monkeypatch):
     assert qs.ineligible_reason(f"Agenda\n{PROSE}", TEXT) is None
 
 
-def test_figure_descriptions_are_included_by_default_and_excluded_by_setting(monkeypatch):
-    assert qs.ineligible_reason(PROSE, FIGURE) is None
+def test_figures_are_left_out_by_default():
+    assert type(settings).model_fields["quiz_include_figures"].default is False
+
+
+def test_figure_descriptions_can_be_included_and_are_excluded_by_the_default_setting(monkeypatch):
+    assert qs.ineligible_reason(PROSE, FIGURE) is None  # the fixture above sets include=True
     monkeypatch.setattr(settings, "quiz_include_figures", False)
     assert qs.ineligible_reason(PROSE, FIGURE) == qs.INELIGIBLE_FIGURE
     assert qs.ineligible_reason(PROSE, TEXT) is None, "lecture text is unaffected"

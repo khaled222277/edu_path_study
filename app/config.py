@@ -75,9 +75,11 @@ class Settings(BaseSettings):
     # nothing gets faster. Never more are in flight than questions still needed.
     quiz_concurrency: int = Field(default=1, ge=1, le=8)
     # Which chunks a quiz question may be made from (see eligibility in app/services/quiz_service.py).
-    # Questions made from figure descriptions are the main source of "what does this show?" items,
-    # but those descriptions also carry real content (the regression lecture is mostly figures).
-    quiz_include_figures: bool = True
+    # Off: questions made from figure descriptions were the main source of "what does this show?" items
+    # (22 of 32 bad Arabic and 16 of 18 bad English items before the answerability rules; with them, Arabic
+    # self-contained items 89% -> 100% when figures are left out). The cost is that content which exists only
+    # in a diagram (most of the regression lecture) is no longer quizzed. True restores it.
+    quiz_include_figures: bool = False
     # A chunk shorter than this, or with fewer words of 3+ letters, or whose letters are a smaller
     # share of its non-space characters, cannot support a question with four plausible options.
     quiz_min_chunk_chars: int = Field(default=220, ge=1, le=5000)
