@@ -1,0 +1,3406 @@
+{
+ "source": "baseline",
+ "model": "llama3.1:8b",
+ "items": [
+  {
+   "lang": "ar",
+   "question": "ما هو الغرض من الوظيفة في التعلم الآلي؟",
+   "options": [
+    "تحويل المدخلات إلى إخراج",
+    "تحليل المدخلات لتحديد النتائج",
+    "توليد النتائج من المدخلات",
+    "تحسين أداء النظام"
+   ],
+   "correct": 0,
+   "source": "kdd_lec01_Introduction.pdf p17",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.66,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي العلاقة بين المجموعات المذكورة في الجدول؟",
+   "options": [
+    "العلاقة هي تكرار",
+    "العلاقة هي تشابه",
+    "العلاقة هي فرق",
+    "العلاقة هي ارتباط"
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p37",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.38,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "ar",
+   "question": "يُستخدم للتنبؤ بالقيمة الفعلية لمتغير مستمر يهدف إلى تحديد العلاقة بين متغيرات مستمرة.",
+   "options": [
+    "يُستخدم للتنبؤ بالتغيرات في البيئة.",
+    "يُستخدم للتنبؤ بالسعر الحالي.",
+    "يُستخدم للتنبؤ بالسعر المستقبلي.",
+    "يُستخدم للتنبؤ بالسعر الحالي و السعر المستقبلي."
+   ],
+   "correct": 2,
+   "source": "kdd_lec05_regression.pdf p3",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.41,
+   "rules_flag": "fragment",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الهدف من استخدام هذه المكونات في تمثيل البيانات؟",
+   "options": [
+    "تحديد المسافة بين النقاط",
+    "تقييم الأبعاد الموجودة في البيانات",
+    "حساب المسافة بين النقاط باستخدام المسافة الأوروبية",
+    "تحليل البيانات باستخدام الجداول"
+   ],
+   "correct": 2,
+   "source": "kdd_lec09_cluster_analyis.pdf p15",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.34,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "ar",
+   "question": "المفارقة التي تعرف الوظيفة المكتسبة هي",
+   "options": [
+    "شجرة القرار",
+    "نظام القرار",
+    "شجرة النشاط",
+    "نظام النشاط"
+   ],
+   "correct": 0,
+   "source": "kdd_lec06_classifacation_1.pdf p14",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "fragment",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي الطريقة التي يتم بها تخزين البيانات المتحركة؟",
+   "options": [
+    "تخزين البيانات المتحركة في هياكل البيانات المتحركة.",
+    "تخزين البيانات المتحركة في هياكل البيانات الثابتة.",
+    "تخزين البيانات المتحركة في هياكل البيانات المتحركة والثابتة.",
+    "لا يتم تخزين البيانات المتحركة في أي هياكل بيانات."
+   ],
+   "correct": 1,
+   "source": "kdd_lec02_data.pdf p26",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما يسمى قاعدة قوية إذا كانت تحقق معايير الدعم والثقة",
+   "options": [
+    "قاعدة ضعيفة",
+    "قاعدة قوية",
+    "قاعدة حتمية",
+    "قاعدة غير مصدقة"
+   ],
+   "correct": 1,
+   "source": "kdd_lec04_association_rule.pdf p12",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.34,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الهدف من تفرقة البيانات قبل التدريب على النموذج؟",
+   "options": [
+    "تقليل الوقت المطلوب للتدريب",
+    "تحسين أداء النموذج",
+    "تفرقة البيانات إلى مجموعات تدريب وتجريبية",
+    "تحسين جودة البيانات"
+   ],
+   "correct": 2,
+   "source": "kdd_lec05_regression.pdf p57",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.33,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما يعطينا عن كمية الحالات الصحيحة والمضللة من قبل النموذج؟",
+   "options": [
+    "الحالات الصحيحة والمضللة",
+    "الحالات الصحيحة وحدها",
+    "الحالات المضللة وحدها",
+    "الحالات الصحيحة والجيد التعرف عليها"
+   ],
+   "correct": 0,
+   "source": "kdd_lec08_classifacation_3.pdf p7",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو العلاقة بين أداء النموذج على البيانات التدريبية والمؤسسية؟",
+   "options": [
+    "زادت دقة النموذج على البيانات التدريبية دون تغيير على البيانات المؤسسية.",
+    "زادت دقة النموذج على البيانات المؤسسية دون تغيير على البيانات التدريبية.",
+    "انخفضت دقة النموذج على البيانات المؤسسية بعد زيادة أولى.",
+    "انخفضت دقة النموذج على البيانات التدريبية بعد زيادة أولى."
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p62",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "تظهر العلاقة بين حجم المنزل ومميزاته",
+   "options": [
+    "زيادة الحجم تؤدي إلى زيادة السعر",
+    "زيادة السعر تؤدي إلى زيادة الحجم",
+    "لا توجد علاقة بين الحجم وسعر المنزل",
+    "الزيادة في الحجم تؤدي إلى انخفاض السعر"
+   ],
+   "correct": 0,
+   "source": "kdd_lec05_regression.pdf p22",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.38,
+   "rules_flag": "fragment",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما يرمز إليه كل عمود في هذا التمثيل البياني؟",
+   "options": [
+    "مادة",
+    "حالة",
+    "فئة",
+    "عملية"
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p8",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "ar",
+   "question": "ما يتم التأكد منه عند إيقاف عملية التجميع؟",
+   "options": [
+    "التحقق من عدم تغيير التوزيع",
+    "التحقق من وجود نقطة ثابتة",
+    "التحقق من عدم التغير في الأقرب",
+    "التحقق من عدم تغيير العدد"
+   ],
+   "correct": 0,
+   "source": "kdd_lec09_cluster_analyis.pdf p30",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.43,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "لماذا يجمع الكثير من البيانات حاليًا من مختلف المجالات التطبيقية؟",
+   "options": [
+    "لأنها تعتبر مصدرًا مهماً للمعلومات",
+    "لأنها تظهر في وسائل التواصل الاجتماعي",
+    "لأنها تُستخدم في تحليل البيانات",
+    "لأنها تُستخدم في العلوم والتكنولوجيا"
+   ],
+   "correct": 0,
+   "source": "kdd_lec01_Introduction.pdf p5",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.4,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما النوعان الأساسيان من البيانات؟",
+   "options": [
+    "بيانات تسجيل",
+    "بيانات ترابط",
+    "بيانات مُتتابعة",
+    "بيانات تسجيل والترابط"
+   ],
+   "correct": 3,
+   "source": "kdd_lec02_data.pdf p20",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما يعبر عن قوة القاعدة؟",
+   "options": [
+    "مقدار الثقة",
+    "مقدار النسبة المئوية",
+    "مقدار النسبة",
+    "مقدار القاعدة"
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p43",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.31,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي الحالة التي تظهر فيها المسافات بين النقاط داخل كل مجموعة تكون أقل من المسافات بين المجموعات المختلفة؟",
+   "options": [
+    "المسافات بين المجموعات المختلفة تظاهر",
+    "المسافات بين النقاط داخل كل مجموعة تكون أكبر",
+    "المسافات بين النقاط داخل كل مجموعة تكون أقل",
+    "المجموعات المختلفة تكون متطاولة"
+   ],
+   "correct": 2,
+   "source": "kdd_lec01_Introduction.pdf p28",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو مصطلح السبك المستخدم هنا؟",
+   "options": [
+    "دالة سهمية",
+    "دالة خطية",
+    "دالة غير خطية",
+    "دالة غير سهمية"
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p54",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.38,
+   "rules_flag": "self_contained",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو معنى الرمز الذي يظهر في الشبكة؟",
+   "options": [
+    "رسالة",
+    "معلومات",
+    "إشارة",
+    "رمز"
+   ],
+   "correct": 1,
+   "source": "kdd_lec03_data_preprocessing.pdf p40",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو التعریف على المسافة بين مرضى؟",
+   "options": [
+    "المسافة هي المعدل بين القيمتين",
+    "المسافة هي مجموع القيمتين",
+    "المسافة هي الفرق بين القيمتين",
+    "المسافة هي حاصل الضرب بين القيمتين"
+   ],
+   "correct": 3,
+   "source": "kdd_lec09_cluster_analyis.pdf p20",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.45,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "أي من هذه الأساليب تقلل من تعقيد الحوسبة للفيم؟",
+   "options": [
+    "تقليل عدد المجموعات المرشحة (M)",
+    "تقليل عدد المعاملات (N)",
+    "تقليل عدد المقارنات (NM)",
+    "تقليل عدد المقارنات بين المجموعات المرشحة والمعاملات"
+   ],
+   "correct": 3,
+   "source": "kdd_lec04_association_rule.pdf p22",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.42,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "أيًا كانت الظروف الجوية، فإنه يُعتبر الطقس قويًا",
+   "options": [
+    "الرعد والبرق",
+    "الرياح القوية",
+    "الغيوم الغائمة",
+    "الرياح الرفيعة"
+   ],
+   "correct": 1,
+   "source": "kdd_lec07_classifacation_2.pdf p18",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.47,
+   "rules_flag": "fragment",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو أسلوب التقسيم الذي يتناسب مع كل نقطة بيانات بنفس الطريقة؟",
+   "options": [
+    "التقسيم بالعمق المتساوي",
+    "التقسيم بالعرض المتساوي",
+    "التقسيم بالعمق المتساوي والفاصل",
+    "التقسيم بالعرض المتساوي والفاصل"
+   ],
+   "correct": 1,
+   "source": "kdd_lec03_data_preprocessing.pdf p20",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.41,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي الحاجة لاختيار مؤشرات الأداء المناسبة للأنماط التصنيفية؟",
+   "options": [
+    "تحديد الأهمية بين النماذج المختلفة",
+    "التعرف على الأخطاء المتكررة في النماذج",
+    "اختيار المؤشرات التي تعكس التوزيع الفعلي للأنماط",
+    "تحديد الأخطاء الفعلية من الأخطاء المحتملة"
+   ],
+   "correct": 2,
+   "source": "kdd_lec08_classifacation_3.pdf p16",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.35,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو مفهوم التفاعل الرقمي على مستوى العالم؟",
+   "options": [
+    "شبكة عالمية متصلة",
+    "نظام مركزي",
+    "تطبيق للتواصل",
+    "نظام محلي"
+   ],
+   "correct": 0,
+   "source": "kdd_lec05_regression.pdf p5",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "لماذا ضروري إعداد البيانات قبل التحليل؟",
+   "options": [
+    "لإزالة الأخطاء من البيانات",
+    "لإزالة القيم غير المتوقعة من البيانات",
+    "لإزالة القيم الخاطئة من البيانات",
+    "لإزالة البيانات الغير كاملة من البيانات"
+   ],
+   "correct": 2,
+   "source": "kdd_lec03_data_preprocessing.pdf p6",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو معنى كلمة مشكلة في هذا السياق؟",
+   "options": [
+    "رقم تسلسلي",
+    "عنوان لمادة",
+    "كلمة عربية",
+    "حرف إنجليزي"
+   ],
+   "correct": 1,
+   "source": "kdd_lec04_association_rule.pdf p11",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.37,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو مصطلح يوصف بترتيب نقاط على شبكة الأكسيس؟",
+   "options": [
+    "تجميع نقاطي",
+    "ترتيب نقاطي",
+    "مجموعة نقاطي",
+    "نقاط متشابهة"
+   ],
+   "correct": 2,
+   "source": "kdd_lec09_cluster_analyis.pdf p30",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي العلاقة بين المساحة و السعر؟",
+   "options": [
+    "العلاقة خطية و تزيد مع الزيادة في المساحة",
+    "العلاقة خطية و تقل مع الزيادة في المساحة",
+    "العلاقة غير خطية و تزيد مع الزيادة في المساحة",
+    "العلاقة غير خطية و تقل مع الزيادة في المساحة"
+   ],
+   "correct": 0,
+   "source": "kdd_lec05_regression.pdf p21",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي الطريقة التي يستخدمها الخوارزمية لتحديث أوزان التجمعات؟",
+   "options": [
+    "تعديل الأوزان بشكل عشوائي",
+    "تعديل الأوزان بناء على النتائج",
+    "تعديل الأوزان بناء على تصنيفات الفئات",
+    "تعديل الأوزان بناء على تصنيفات الفئات المحددة"
+   ],
+   "correct": 3,
+   "source": "kdd_lec08_classifacation_3.pdf p38",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.47,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي العملية التي يتم تعلمها من هذه البرمجية؟",
+   "options": [
+    "تدريب النماذج المتقاربة",
+    "حساب الدقة",
+    "تأثير المعلمات على النماذج",
+    "حساب المعلمات"
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p59",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو المثال على البيانات المهيأة؟",
+   "options": [
+    "البيانات الهيكلية",
+    "البيانات غير الهيكلية",
+    "البيانات المخزنة في قاعدة بيانات",
+    "البيانات المخزنة في قاعدة بيانات تعمل على أساس علاقات"
+   ],
+   "correct": 0,
+   "source": "kdd_lec02_data.pdf p25",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو المفهوم الرئيسي الذي يُقدم في هذه المادة؟",
+   "options": [
+    "التحليل المتراکم",
+    "الخوارزميات",
+    "النقاط العشوائية",
+    "انخفاض المعلومات"
+   ],
+   "correct": 3,
+   "source": "kdd_lec06_classifacation_1.pdf p24",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.33,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي ميزة الرئيسية لويب 2.0؟",
+   "options": [
+    "التحكم في المحتوى",
+    "التواصل الاجتماعي",
+    "الرأي العام",
+    "الرؤية العامة"
+   ],
+   "correct": 1,
+   "source": "kdd_lec01_Introduction.pdf p5",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الهدف من استبدال أحد الوسيطات",
+   "options": [
+    "تحسين التصنيف",
+    "تحسين التكلفة",
+    "تحسين التوزيع",
+    "تحسين العوامل"
+   ],
+   "correct": 1,
+   "source": "kdd_lec09_cluster_analyis.pdf p42",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.38,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "يتم استخدام طريقة بتغير ترقيم الفئات لإنشاء نموذج مصنع",
+   "options": [
+    "باستخدام أكثر من نموذج بنائي واحد",
+    "باستخدام نموذج بنائي واحد فقط",
+    "بتغير ترقيم الفئات",
+    "باستخدام نفس النموذج بنائي مرتين"
+   ],
+   "correct": 2,
+   "source": "kdd_lec08_classifacation_3.pdf p28",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.42,
+   "rules_flag": "fragment",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي الصفة التي تحدد اتجاه مشتق الدالة في منطقة ما قبل القمة؟",
+   "options": [
+    "مصير موجب",
+    "مصير سالب",
+    "مصير موجب/سالب",
+    "مصير سالب/موجب"
+   ],
+   "correct": 0,
+   "source": "kdd_lec05_regression.pdf p28",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو المعنى إذا كان معامل الارتباط بين أى ميزتين إيجابيا؟",
+   "options": [
+    "يؤدي زيادة قيمة الأولى إلى زيادة قيمة الثانية.",
+    "يؤدي زيادة قيمة الأولى إلى نقصان قيمة الثانية.",
+    "لا توجد أي علاقة بين الميزتين.",
+    "لا توجد أي قيمة للتعرف عليها."
+   ],
+   "correct": 0,
+   "source": "kdd_lec03_data_preprocessing.pdf p29",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي العلاقة بين النقاط على الخلفية البيضاء؟",
+   "options": [
+    "التوزيع العشوائي",
+    "التجميع الحواري",
+    "التوزيع المزدوج",
+    "التوزيع البؤري"
+   ],
+   "correct": 3,
+   "source": "kdd_lec01_Introduction.pdf p31",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.38,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو المُصاحَب لبيانات المُعايَنَة في مخازن البيانات؟",
+   "options": [
+    "بيانات مُرَكَّزة",
+    "بيانات غير مُرَكَّزة",
+    "بيانات مُضَمَّمة",
+    "بيانات مُنسقة"
+   ],
+   "correct": 1,
+   "source": "kdd_lec02_data.pdf p25",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.34,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي الطريقة التي تستخدمها هذه التعليمات لتعيين قيم فارغة؟",
+   "options": [
+    "استخدام القيمة الوسطى",
+    "استخدام القيمة الأعلى",
+    "استخدام القيمة المنخفضة",
+    "استخدام القيمة المتوسطة"
+   ],
+   "correct": 0,
+   "source": "kdd_lec03_data_preprocessing.pdf p16",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "النقطة الرئيسية التي يُظهرها هذا التصور هي",
+   "options": [
+    "الزيادة في التعقيد يؤدي إلى زيادة الخطأ",
+    "الخطأ يقل مع زيادة التعقيد",
+    "الخطأ يزيد مع زيادة التعقيد",
+    "التعقيد لا يؤثر على الخطأ"
+   ],
+   "correct": 1,
+   "source": "kdd_lec05_regression.pdf p52",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.38,
+   "rules_flag": "deictic",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو العلاقة بين الحالة الاجتماعية والتصرفات الضريبية؟",
+   "options": [
+    "تؤثر الحالة الاجتماعية على التصرفات الضريبية",
+    "لا تؤثر الحالة الاجتماعية على التصرفات الضريبية",
+    "الحالة الاجتماعية لا علاقة لها بالتصرفات الضريبية",
+    "الحالة الاجتماعية تؤثر على بعض التصرفات الضريبية"
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p12",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.33,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الفارق بين البلوكين؟",
+   "options": [
+    "البيانات الموجودة في البلوكين",
+    "البيانات المفقودة في البلوكين",
+    "النتائج الموجودة في البلوكين",
+    "النتائج المفقودة في البلوكين"
+   ],
+   "correct": 3,
+   "source": "kdd_lec06_classifacation_1.pdf p23",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.38,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما يعني قاعدة شبه قوية؟",
+   "options": [
+    "قاعدة قوية",
+    "قاعدة ضعيفة",
+    "قاعدة شبه قوية",
+    "قاعدة غير قوية"
+   ],
+   "correct": 2,
+   "source": "kdd_lec04_association_rule.pdf p12",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.34,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ماهي الفكرة الرئيسية المشاركة في تشغيل الالغام",
+   "options": [
+    "التحليل الإحصائي",
+    "حساب المعلومات",
+    "الترتيب العشري",
+    "تقييم القرار"
+   ],
+   "correct": 1,
+   "source": "kdd_lec06_classifacation_1.pdf p24",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.34,
+   "rules_flag": "fragment",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الغرض من استخدام المتوسط والتباين في تحليل البيانات؟",
+   "options": [
+    "لتحديد النتائج المحتملة",
+    "لمعرفة المتغيرات الرئيسية",
+    "لتحليل التباين بين النماذج",
+    "لتحديد المتوسط والتباين"
+   ],
+   "correct": 3,
+   "source": "kdd_lec07_classifacation_2.pdf p14",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.38,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما يكون البحث عنه في المنهجيات التجميعية؟",
+   "options": [
+    "البعد المنخفض",
+    "الفراغ الكامل",
+    "المخزون",
+    "البعد العالي"
+   ],
+   "correct": 1,
+   "source": "kdd_lec09_cluster_analyis.pdf p9",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.35,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي المكونات الأساسية لعمليات التجارة الإلكترونية؟",
+   "options": [
+    "المدفوعات",
+    "البحث",
+    "التسليم",
+    "المبيعات"
+   ],
+   "correct": 0,
+   "source": "kdd_lec01_Introduction.pdf p5",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي الخاصية التي تستخدمها تقنية القصص المسبقة؟",
+   "options": [
+    "الخاصية المسبقة",
+    "الخاصية الصادمة",
+    "الخاصية التأويلية",
+    "الخاصية المنطقية"
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p24",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي العملية التي يمررها البيانات؟",
+   "options": [
+    "التحليل",
+    "التوثيق",
+    "التحليل العميق",
+    "التمييز"
+   ],
+   "correct": 2,
+   "source": "kdd_lec01_Introduction.pdf p29",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.38,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو مفهوم التصنيف؟",
+   "options": [
+    "تجميع الأفراد في مجموعات",
+    "تصنيف الأفراد حسب العمر",
+    "توزيع الأفراد على مناطق جغرافية",
+    "تصنيف الأفراد حسب مهاراتهم"
+   ],
+   "correct": 0,
+   "source": "kdd_lec09_cluster_analyis.pdf p37",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.38,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي المفهوم الذي يُظهره هذا الرسوم الهيراركية؟",
+   "options": [
+    "المجموعات والفرعية",
+    "المجموعات والفرعية والجمع",
+    "الفرعية والجمع والشروخ",
+    "الفرعية والجمع والشروخ والشروخات"
+   ],
+   "correct": 1,
+   "source": "kdd_lec04_association_rule.pdf p24",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.38,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو العلاقة بين القيمة الصفرية والقيم القوية والقوية للعلاقة التفاعلية؟",
+   "options": [
+    "تختلف القيم الثلاثة في العلاقة التفاعلية",
+    "القيمة الصفرية هي أقوى قيمة للعلاقة التفاعلية",
+    "القيمة الصفرية هي أضعف قيمة للعلاقة التفاعلية",
+    "القيم الثلاثة هي متساوية في العلاقة التفاعلية"
+   ],
+   "correct": 2,
+   "source": "kdd_lec03_data_preprocessing.pdf p29",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو السبب في أن الأخطاء التدريبية تكون مشجعة جدا؟",
+   "options": [
+    "الأخطاء التدريبية تُقاس على البيانات الموجودة في المجموعة التدريبية فقط.",
+    "الأخطاء التدريبية تُقاس على البيانات غير الموجودة في المجموعة التدريبية.",
+    "الأخطاء التدريبية تكون مشجعة لأنها تُقاس على البيانات الموجودة في المجموعة التدريبية.",
+    "الأخطاء التدريبية تكون مشجعة لأنها تُقاس على جميع البيانات المتاحة."
+   ],
+   "correct": 2,
+   "source": "kdd_lec05_regression.pdf p51",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.44,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "الهدف من العامل التمييزي هو",
+   "options": [
+    "الحد من الأخطاء في البيانات التدريبية",
+    "البحث عن خطوط فرقيه متعددة",
+    "البحث عن خطوط فرقيه واحدة",
+    "البحث عن أفضل خطوط فرقيه"
+   ],
+   "correct": 2,
+   "source": "kdd_lec07_classifacation_2.pdf p40",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما الذي يفصل بين الأراضي الشائعة وغير الشائعة؟",
+   "options": [
+    "حدود مفهومية",
+    "منطقة محددة",
+    "معيار محدد",
+    "فاصل مادي"
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p30",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.38,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو معنى استخدام الكرة الضوئية في هذا المفهوم؟",
+   "options": [
+    "هو وسيلة للإضاءة",
+    "هو رمز للابتكار",
+    "هو وسيلة للتواصل",
+    "هو وسيلة للراحة"
+   ],
+   "correct": 1,
+   "source": "kdd_lec06_classifacation_1.pdf p16",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.38,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي الميزة الثالثة التي تؤثر على تقنيات تحليل البيانات؟",
+   "options": [
+    "التحليل التطويري",
+    "التحليل الدقيق",
+    "التحليل المجهري",
+    "التحليل المستوي"
+   ],
+   "correct": 1,
+   "source": "kdd_lec02_data.pdf p17",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو نظام العرض المستخدم في الجدول؟",
+   "options": [
+    "نظام الإحداثيات الكارتيزيانية",
+    "نظام الإحداثيات البولارد",
+    "نظام الإحداثيات العمودية",
+    "نظام الإحداثيات الرأسية"
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p27",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.38,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الغرض من عملية اتخاذ القرار في هذا النموذج؟",
+   "options": [
+    "حساب سن الشخص",
+    "تحديد سمة الفرد",
+    "تحديد إجابة السؤال",
+    "تحديد قرار بناء على سؤال"
+   ],
+   "correct": 3,
+   "source": "kdd_lec06_classifacation_1.pdf p28",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.38,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الغرض من استخدام النموذج التصنيفي؟",
+   "options": [
+    "تحليل الكلمات",
+    "تحليل الصور",
+    "تحليل العبارات",
+    "تحليل الفئات"
+   ],
+   "correct": 2,
+   "source": "kdd_lec01_Introduction.pdf p26",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.38,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "الطريقة الأولى لتحسين أداء محدد الفئة",
+   "options": [
+    "الترشيح العشوائي",
+    "الترشيح بالتضخم",
+    "البناء على البيانات",
+    "تحديد الميزات الجذرية"
+   ],
+   "correct": 0,
+   "source": "kdd_lec08_classifacation_3.pdf p27",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.38,
+   "rules_flag": "fragment",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما يميز النماذج الفئة القريبة من التعلم؟",
+   "options": [
+    "النماذج الفئة القريبة من التعلم تعتمد على المعلومات المحلية.",
+    "النماذج الفئة القريبة من التعلم تعتمد على النماذج المحلية.",
+    "النماذج الفئة القريبة من التعلم تعتمد على النماذج العالمية.",
+    "النماذج الفئة القريبة من التعلم تعتمد على المعلومات العالمية."
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p30",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.42,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو السبب الرئيسي لزوال المرشح من مجموعة المرشحين?",
+   "options": [
+    "لأن جميع أجزاءه المتوالية غير موجودة في مجموعة المرشحين السابقة",
+    "لأن عدد أجزاءه المتوالية أكبر من عدد أجزاء المرشحين الذين يحتوي عليهم",
+    "لأن المرشح لا يحتوي على جميع الأجزاء المتوالية التي تتواجد في مجموعة المرشحين السابقة",
+    "لأن المرشح يحتوي على جميع الأجزاء المتوالية التي تتواجد في مجموعة المرشحين السابقة"
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p33",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.52,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "تعليل الأبعاد الأربعة للنباتات",
+   "options": [
+    "الطول والعرض للورقة",
+    "الطول والعرض للورقة والطول والعرض للزهرة",
+    "الطول والعرض للورقة والطول والعرض للزهرة والطول والعرض للزهرة",
+    "الطول والعرض للورقة والطول والعرض للزهرة والطول والعرض للزهرة والطول والعرض للزهرة"
+   ],
+   "correct": 1,
+   "source": "kdd_lec02_data.pdf p44",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.41,
+   "rules_flag": "fragment",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي العملية التي يتم تنفيذها في هذا الكود؟",
+   "options": [
+    "تحليل البيانات",
+    "تحديد القيم الغائبة",
+    "تحليل الميزات",
+    "تحليل العيوب"
+   ],
+   "correct": 1,
+   "source": "kdd_lec03_data_preprocessing.pdf p15",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.33,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "ar",
+   "question": "المسافات بين النقاط في نفس المجموعة تكون",
+   "options": [
+    "محدودة",
+    "مثلى",
+    "محدودة ومثلى",
+    "مثلى ومحدودة"
+   ],
+   "correct": 1,
+   "source": "kdd_lec01_Introduction.pdf p28",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.35,
+   "rules_flag": "fragment",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي الوظيفة الخاسرة؟",
+   "options": [
+    "وظيفة تقييم النتيجة",
+    "وظيفة تقييم الفارق بين النتيجة والاستنتاج",
+    "وظيفة تقييم الخسارة",
+    "وظيفة تقييم الاستنتاج"
+   ],
+   "correct": 2,
+   "source": "kdd_lec05_regression.pdf p50",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.41,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو العامل الذي يؤثر على فعالية الدقة؟",
+   "options": [
+    "التوازن بين الفئات",
+    "النسبة الكبيرة لعنصر الإيجاب",
+    "العناصر غير المعروفة",
+    "التوازن بين الفئات والعناصر"
+   ],
+   "correct": 0,
+   "source": "kdd_lec08_classifacation_3.pdf p11",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.34,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الغرض من الجدول؟",
+   "options": [
+    "تجميع البيانات",
+    "تنظيم البيانات",
+    "تنظيم المتغيرات",
+    "تصنيف البيانات"
+   ],
+   "correct": 1,
+   "source": "kdd_lec03_data_preprocessing.pdf p13",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.38,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما يتم تدريبه باستخدام البيانات المذكورة؟",
+   "options": [
+    "النظام الرقمي",
+    "الجسم الحي",
+    "الحيوان",
+    "النظام العصبي"
+   ],
+   "correct": 0,
+   "source": "kdd_lec06_classifacation_1.pdf p32",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو مصطلح يصف النتائج التي تحدث عندما يكون التصنيف الصحيح لكن التنبؤ خاطئ؟",
+   "options": [
+    "الخطأ المزعوم",
+    "الخطأ الفعلي",
+    "الواقع الإيجابي",
+    "الواقع السالب"
+   ],
+   "correct": 3,
+   "source": "kdd_lec08_classifacation_3.pdf p7",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما يسمح بحدود القرار?",
+   "options": [
+    "الحدود المتباعدة بحيث لا يوجد نقطة بينهم",
+    "الحدود المتباعدة بحيث يوجد نقطة بينهم",
+    "الحدود المتقاربة بحيث لا يوجد نقطة بينهم",
+    "الحدود المتقاربة بحيث يوجد نقطة بينهم"
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p48",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو العلاقة بين المساحة المترامية و الثمن؟",
+   "options": [
+    "العلاقة خطية و غير خطية",
+    "العلاقة غير خطية",
+    "العلاقة خطية",
+    "العلاقة غير موجودة"
+   ],
+   "correct": 2,
+   "source": "kdd_lec05_regression.pdf p22",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو تعريف المعادن البيانية؟",
+   "options": [
+    "تحليل البيانات الكبيرة لاكتشاف الأنماط والمعرفة",
+    "اكتشاف الأنماط والمعرفة من البيانات الكبيرة",
+    "تحليل البيانات الكبيرة لاكتشاف الأنماط والمعرفة من البيانات الكبيرة",
+    "اكتشاف الأنماط والمعرفة من البيانات الكبيرة لتحليل البيانات الكبيرة"
+   ],
+   "correct": 0,
+   "source": "kdd_lec01_Introduction.pdf p7",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.42,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "هي نوع من الخوارزميات التي تستخدم لتعلم المدارس",
+   "options": [
+    "خوارزمية مزدوجة",
+    "خوارزمية إقصائية",
+    "خوارزمية حاسمة",
+    "خوارزمية حاسمة مزدوجة"
+   ],
+   "correct": 1,
+   "source": "kdd_lec06_classifacation_1.pdf p17",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.56,
+   "rules_flag": "self_contained",
+   "rules_reject": "no_question_form"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي الفكرة الرئيسية التي تُظهر هذه الحالة؟",
+   "options": [
+    "التجميع البياني",
+    "النقاط المبعثرة",
+    "الدوائر المائلة",
+    "النقاط المجمعة"
+   ],
+   "correct": 0,
+   "source": "kdd_lec03_data_preprocessing.pdf p17",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.35,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي الخاصات الثنائية؟",
+   "options": [
+    "الخاصات الثنائية هي تلك التي لها قيمتين فقط.",
+    "الخاصات الثنائية هي تلك التي لها أكثر من قيمة.",
+    "الخاصات الثنائية هي تلك التي لها قيم أقل من اثنين.",
+    "الخاصات الثنائية هي تلك التي لها قيمة واحدة فقط."
+   ],
+   "correct": 0,
+   "source": "kdd_lec02_data.pdf p11",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.42,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي المعدل المناسب لاستخدام عندما يكون الفئات متوازنة؟",
+   "options": [
+    "الضبط",
+    "الاستحواذ",
+    "الاستبعاد",
+    "التنبؤ"
+   ],
+   "correct": 0,
+   "source": "kdd_lec08_classifacation_3.pdf p16",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.34,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو العلاقة بين الفئات في الجدول؟",
+   "options": [
+    "كل الفئات متساوية عدداً.",
+    "الفئة الأولى أكبر عدداً.",
+    "الفئة الأولى أقل عدداً.",
+    "لا يوجد علاقة بين الفئات."
+   ],
+   "correct": 0,
+   "source": "kdd_lec02_data.pdf p30",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو تعريف عملية اكتشاف المعرفة في البيانات؟",
+   "options": [
+    "اكتشاف النماذج والنمط من البيانات",
+    "اكتشاف المعرفة من البيانات",
+    "اكتشاف المعرفة في البيانات",
+    "اكتشاف البنية الداخلية للبيانات"
+   ],
+   "correct": 1,
+   "source": "kdd_lec01_Introduction.pdf p7",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.35,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الغرض من الجدول الذي تم وضعه؟",
+   "options": [
+    "تصنيف البيانات",
+    "تنظيم البيانات",
+    "إجراء تحليل إحصائي",
+    "تطبيق التعلم الآلي"
+   ],
+   "correct": 1,
+   "source": "kdd_lec07_classifacation_2.pdf p15",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.39,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما يعطى دعم قاعدة؟",
+   "options": [
+    "مقدار القاعدة",
+    "نسبة القاعدة",
+    "تكرار القاعدة",
+    "دالة دعم القاعدة"
+   ],
+   "correct": 1,
+   "source": "kdd_lec04_association_rule.pdf p14",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.48,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما يمثل العشوائية في نظرية المعلومات؟",
+   "options": [
+    "إجمال المعلومات",
+    "متوسط كمية المعلومات",
+    "كمية المعلومات اللازمة",
+    "كمية المعلومات المطلوبة"
+   ],
+   "correct": 1,
+   "source": "kdd_lec06_classifacation_1.pdf p21",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.47,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الهدف من تحليل سلة المشتريات؟",
+   "options": [
+    "تحليل بيانات المستهلك",
+    "تحليل البيانات الموجودة",
+    "اكتشاف علاقات جديدة",
+    "تحليل بيانات المنتجات"
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p4",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو مصطلح التنبؤ؟",
+   "options": [
+    "تنبؤ قيمية",
+    "تنبؤ مصنف",
+    "تنبؤ معاملات",
+    "تنبؤ كمية"
+   ],
+   "correct": 0,
+   "source": "kdd_lec01_Introduction.pdf p25",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.38,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "تعتبر العوامل التالية هي الأسباب الرئيسية للتفاوت بين أسعار المنازل التي تختلف في الحجم؟",
+   "options": [
+    "حجم المنزل",
+    "عدد الغرف",
+    "عدد الحمامات",
+    "حجم الحديقة"
+   ],
+   "correct": 1,
+   "source": "kdd_lec05_regression.pdf p13",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.38,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي العلاقة بين عدد المجاورين و أداء النموذج؟",
+   "options": [
+    "تزداد أداء النموذج مع زيادة عدد المجاورين.",
+    "تنخفض أداء النموذج مع زيادة عدد المجاورين.",
+    "لا توجد علاقة بين عدد المجاورين و أداء النموذج.",
+    "تظل أداء النموذج ثابتًا مع تغيير عدد المجاورين."
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p36",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.33,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الغرض من جدول التكاملات؟",
+   "options": [
+    "قياس شدة العلاقة بين متغيرين",
+    "تقييم تأثير متغير واحد على آخر",
+    "حساب المتوسطات الحسابية للعوامل",
+    "تحليل التباين بين المتغيرات"
+   ],
+   "correct": 0,
+   "source": "kdd_lec03_data_preprocessing.pdf p34",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي فكرة هذا الخوارزمية؟",
+   "options": [
+    "تستخدم لتحديد الحدود",
+    "تستخدم لتحديد الدعم",
+    "تستخدم لتحديد الأقسام",
+    "تستخدم لتحديد السلاسل"
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p28",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "deictic",
+   "rules_reject": "demonstrative_agreement"
+  },
+  {
+   "lang": "ar",
+   "question": "ما يتم تعريفه عندما يتزايد التعقيد؟",
+   "options": [
+    "الخطأ",
+    "التعقيد",
+    "الخطأ العام",
+    "الخطأ التدريب"
+   ],
+   "correct": 3,
+   "source": "kdd_lec05_regression.pdf p54",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما يشمل عمليات تحليل البيانات؟",
+   "options": [
+    "النظافة من البيانات",
+    "الاستقطاع من البيانات",
+    "الترجمة لبيانات",
+    "البحث الذكي في البيانات"
+   ],
+   "correct": 3,
+   "source": "kdd_lec01_Introduction.pdf p10",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هي المفهوم الرئيسي لتقنيات التعلم الآلي؟",
+   "options": [
+    "التحليل العميق",
+    "التصنيف البايزي",
+    "التصنيف بالمسافة",
+    "تعلم النماذج"
+   ],
+   "correct": 2,
+   "source": "kdd_lec07_classifacation_2.pdf p2",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو المفهوم الرئيسي الذي يُظهره الجدول؟",
+   "options": [
+    "التكاملات المتبادلة بين الأشخاص",
+    "مصفوفات الجوائز والخسائر",
+    "النظريات المالية",
+    "الجداول اللغوية"
+   ],
+   "correct": 1,
+   "source": "kdd_lec09_cluster_analyis.pdf p20",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.39,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما يعزز من المسافة بين النقاط في نفس المجموعة؟",
+   "options": [
+    "تقل المسافة بين النقاط في المجموعة",
+    "تزداد المسافة بين النقاط في المجموعة",
+    "تقل المسافة بين النقاط في المجموعة الأخرى",
+    "تزداد المسافة بين النقاط في المجموعة الأخرى"
+   ],
+   "correct": 3,
+   "source": "kdd_lec09_cluster_analyis.pdf p4",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الدلالة من النتائج؟",
+   "options": [
+    "توجد علاقة ارتباطية بين الجنسين.",
+    "لا توجد علاقة ارتباطية بين الجنسين.",
+    "توجد علاقة ارتباطية بين الجنسين و النوعية القرائية.",
+    "توجد علاقة ارتباطية بين الجنسين فقط و ليس النوعية القرائية."
+   ],
+   "correct": 2,
+   "source": "kdd_lec03_data_preprocessing.pdf p27",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.43,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو الهدف من الحساب الجدلي للفرضيات في هذا السياق؟",
+   "options": [
+    "حساب فرق بين الفرضيات المختلفة",
+    "حساب احتمال حدوث حدث معين",
+    "حساب فرق بين الاحتمالات المختلفة",
+    "حساب احتمال حدوث حدث معين من خلال فرضيات متعددة"
+   ],
+   "correct": 2,
+   "source": "kdd_lec07_classifacation_2.pdf p16",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.56,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو العلاقة بين المتغيرات المستقلة في النموذج الخطي؟",
+   "options": [
+    "تكون العلاقة خطية",
+    "تكون العلاقة غير خطية",
+    "تكون العلاقة متباينة",
+    "تكون العلاقة متعددة المتغيرات"
+   ],
+   "correct": 0,
+   "source": "kdd_lec05_regression.pdf p46",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.42,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "ar",
+   "question": "ما هو العلاقة بين مناطق المربع والمنحنيات العادية؟",
+   "options": [
+    "تتناسب مع بعضها",
+    "تختلف عن بعضها",
+    "تكون متطابقة تماما",
+    "لا علاقة بينهم"
+   ],
+   "correct": 0,
+   "source": "kdd_lec02_data.pdf p42",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of the table in the given data?",
+   "options": [
+    "To display the frequency of individual items",
+    "To illustrate the combinations of items that appear together in the dataset",
+    "To show the total count of itemsets",
+    "To list the support counts of unique itemsets"
+   ],
+   "correct": 1,
+   "source": "kdd_lec04_association_rule.pdf p37",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.36,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What is the primary goal of regression in a prediction task?",
+   "options": [
+    "To predict a categorical outcome based on multiple independent variables",
+    "To identify the most important independent variable for a continuous outcome",
+    "To predict a value of a given continuous-valued target variable based on other independent variables",
+    "To determine the correlation between two independent variables"
+   ],
+   "correct": 2,
+   "source": "kdd_lec05_regression.pdf p3",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the primary purpose of a Data Matrix in data representation?",
+   "options": [
+    "To calculate Euclidean distances between points",
+    "To visually position points based on their attribute values",
+    "To list points and their attribute values",
+    "To show pairwise distances between points"
+   ],
+   "correct": 2,
+   "source": "kdd_lec09_cluster_analyis.pdf p15",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is being demonstrated in this code snippet?",
+   "options": [
+    "Data visualization using pandas",
+    "Loading a dataset into a pandas DataFrame",
+    "Renaming columns in a pandas DataFrame",
+    "Classifying data using machine learning algorithms"
+   ],
+   "correct": 1,
+   "source": "kdd_lec02_data.pdf p28",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What is a decision tree in classification?",
+   "options": [
+    "A tree structure that represents a single learned function",
+    "A tree structure that represents a disjunction of conjunctions",
+    "A flowchart-like structure that represents a single learned function",
+    "A flowchart-like tree structure that represents a disjunction of conjunctions"
+   ],
+   "correct": 3,
+   "source": "kdd_lec06_classifacation_1.pdf p14",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of organizing data in a table?",
+   "options": [
+    "To make it easier to read",
+    "To make it easier to understand",
+    "To organize data in a structured format",
+    "To make it easier to manipulate"
+   ],
+   "correct": 2,
+   "source": "kdd_lec02_data.pdf p26",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.35,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the main implication of an association rule?",
+   "options": [
+    "It suggests a strong co-occurrence relationship between the items.",
+    "It implies a direct cause-and-effect relationship between the items.",
+    "It is a subjective measure of the user's interest in the data.",
+    "It is an objective measure based on the data's statistics."
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p12",
+   "figure": false,
+   "model_rejects": false,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of splitting input data into training and test sets in machine learning?",
+   "options": [
+    "To improve the accuracy of the regression model",
+    "To reduce the computational cost of training the model",
+    "To prevent overfitting by reserving some data for testing",
+    "To increase the number of variables in the model"
+   ],
+   "correct": 2,
+   "source": "kdd_lec05_regression.pdf p57",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What does a non-diagonal entry in a confusion matrix indicate?",
+   "options": [
+    "The number of tuples of the same class that were correctly labeled",
+    "The number of tuples of the same class that were mislabeled",
+    "The number of tuples of a different class that were mislabeled",
+    "The number of tuples of a different class that were correctly labeled"
+   ],
+   "correct": 2,
+   "source": "kdd_lec08_classifacation_3.pdf p7",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.31,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What happens to model performance on test data as it relates to training data?",
+   "options": [
+    "Training accuracy is always higher than test accuracy.",
+    "Test accuracy is always higher than training accuracy.",
+    "Training accuracy and test accuracy are equal at all times.",
+    "Test accuracy increases as training accuracy decreases."
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p62",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of relationship is observed between house size and price?",
+   "options": [
+    "Positive correlation",
+    "Negative correlation",
+    "Linear relationship",
+    "Non-linear relationship"
+   ],
+   "correct": 0,
+   "source": "kdd_lec05_regression.pdf p22",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of binary format can be used to represent transaction data?",
+   "options": [
+    "A binary 0/1 format where each row corresponds to a transaction",
+    "A binary 0/1 format where each column corresponds to an item",
+    "A binary 0/1 format where each row corresponds to an item",
+    "A binary 0/1 format where each column corresponds to a transaction"
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p8",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What condition causes K-Means clustering to stop?",
+   "options": [
+    "The centroids change significantly between iterations",
+    "The centroids change slightly between iterations",
+    "A maximum number of iterations is reached",
+    "The clusters get exactly the same allocation as the previous time"
+   ],
+   "correct": 3,
+   "source": "kdd_lec09_cluster_analyis.pdf p30",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the main reason for the increasing importance of data sources in various application domains?",
+   "options": [
+    "Businesses are collecting more data from sales transactions and stock trading records.",
+    "Social media is producing digital pictures and videos, blogs, and Web communities.",
+    "The health industry is generating medical records, patient monitoring, and medical imaging.",
+    "Scientific and engineering applications are producing high orders of petabytes of data."
+   ],
+   "correct": 0,
+   "source": "kdd_lec01_Introduction.pdf p5",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.37,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What should we consider when categorizing datasets?",
+   "options": [
+    "The type of data storage used",
+    "The specific applications the datasets will be used for",
+    "The type of data analysis software used",
+    "The size of the dataset"
+   ],
+   "correct": 1,
+   "source": "kdd_lec02_data.pdf p20",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What concept is visually demonstrated by dividing space into two areas with labeled elements?",
+   "options": [
+    "Separation of regions by a boundary",
+    "Classification of objects into two categories",
+    "Labeling of elements with identical values",
+    "Partitioning of space into two distinct areas"
+   ],
+   "correct": 3,
+   "source": "kdd_lec08_classifacation_3.pdf p40",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.37,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of computing the weighted average entropy of children for each attribute?",
+   "options": [
+    "To find the best splitting attribute at the root node",
+    "To determine the class distribution of tuples for each value",
+    "To calculate the information gain of each attribute",
+    "To compute the entropy of each attribute"
+   ],
+   "correct": 2,
+   "source": "kdd_lec06_classifacation_1.pdf p26",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.64,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is association rule mining used for?",
+   "options": [
+    "Predicting the likelihood of future events",
+    "Evaluating the strength of rules based on confidence metrics",
+    "Analyzing the relationships between different variables",
+    "Identifying patterns in large datasets"
+   ],
+   "correct": 1,
+   "source": "kdd_lec04_association_rule.pdf p43",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the goal of clustering in this concept?",
+   "options": [
+    "Minimize distances between clusters",
+    "Minimize distances within clusters",
+    "Maximize distances between clusters",
+    "Maximize distances within clusters"
+   ],
+   "correct": 2,
+   "source": "kdd_lec01_Introduction.pdf p28",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.34,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What are key parameters of support vectors in machine learning?",
+   "options": [
+    "The x and y coordinates of the data points",
+    "The binary labels assigned to each data point",
+    "The Lagrange Multiplier values corresponding to each data point",
+    "The arrows used to indicate the support vectors"
+   ],
+   "correct": 2,
+   "source": "kdd_lec07_classifacation_2.pdf p54",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is a method to reduce the computational complexity of FIM?",
+   "options": [
+    "Reduce the number of candidate itemsets (M)",
+    "Reduce the number of transactions (N)",
+    "Reduce the number of comparisons (NM)",
+    "Use the Dynamic Hash and Pruning (DHP) algorithm"
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p22",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.35,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the probability that it is sunny given that it is yes?",
+   "options": [
+    "P(O=\"sunny\" yes)P(yes)",
+    "P(yes O=\"sunny\")",
+    "P(O=\"sunny\" yes) = P(yes)",
+    "P(yes O=\"sunny\") = P(O=\"sunny\" yes)"
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p18",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What method divides data into bins of equal width?",
+   "options": [
+    "Equal-depth partitioning method",
+    "Equal-width partitioning method",
+    "Data Integration",
+    "Data Smoothing"
+   ],
+   "correct": 1,
+   "source": "kdd_lec03_data_preprocessing.pdf p20",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.35,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is a major reason why data mining is important?",
+   "options": [
+    "It helps in managing and storing large amounts of data.",
+    "It enables businesses to make better decisions with the help of data.",
+    "It is used to analyze and understand the behavior of patients in the health industry.",
+    "It allows companies to generate huge amounts of data from various sources."
+   ],
+   "correct": 1,
+   "source": "kdd_lec01_Introduction.pdf p5",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.35,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the primary difference between unimodal and multimodal distributions?",
+   "options": [
+    "The number of peaks in the distribution",
+    "The height of the peaks in the distribution",
+    "The spread of the data in the distribution",
+    "The shape of the distribution"
+   ],
+   "correct": 0,
+   "source": "kdd_lec02_data.pdf p34",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.31,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "Why do we need to clean real-world data before analyzing it?",
+   "options": [
+    "The data is already accurate and complete.",
+    "The data collection instruments are always reliable.",
+    "Many possible reasons, including faulty instruments and human errors.",
+    "The data is always consistent and complete."
+   ],
+   "correct": 2,
+   "source": "kdd_lec03_data_preprocessing.pdf p6",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.35,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the goal when finding a separating hyperplane?",
+   "options": [
+    "To minimize the distance between the margin hyperplanes",
+    "To maximize the margin of the separating hyperplane",
+    "To minimize the number of support vectors",
+    "To minimize the number of instances on the wrong side of the hyperplane"
+   ],
+   "correct": 1,
+   "source": "kdd_lec07_classifacation_2.pdf p44",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.33,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of a title or section identifier in a sequence?",
+   "options": [
+    "To introduce a new concept",
+    "To label a specific problem",
+    "To provide a summary of the previous topic",
+    "To indicate the start of a new chapter"
+   ],
+   "correct": 1,
+   "source": "kdd_lec04_association_rule.pdf p11",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What concept is being demonstrated by the spatial arrangement of points in a coordinate grid?",
+   "options": [
+    "Spatial Clustering",
+    "Linear Relationship",
+    "Independent Points",
+    "Ordered Sequence"
+   ],
+   "correct": 0,
+   "source": "kdd_lec09_cluster_analyis.pdf p30",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What is the y-intercept in the context of linear regression?",
+   "options": [
+    "The point where the regression line intersects the y-axis.",
+    "The point where the regression line intersects the x-axis.",
+    "The point where the regression line is not very meaningful.",
+    "The point where the regression line represents the relationship between square footage and price."
+   ],
+   "correct": 0,
+   "source": "kdd_lec05_regression.pdf p21",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of varying the regularization parameter C in SVM training?",
+   "options": [
+    "To improve the model's ability to generalize to new data",
+    "To increase the model's capacity to fit the training data",
+    "To reduce the model's ability to overfit the training data",
+    "To decrease the model's accuracy on the test data"
+   ],
+   "correct": 2,
+   "source": "kdd_lec07_classifacation_2.pdf p59",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of data has a fixed set of attributes and is stored in data repositories with uniform, record- or table-like structures?",
+   "options": [
+    "Structured data",
+    "Unstructured data",
+    "Real-world data",
+    "Online shopping data"
+   ],
+   "correct": 0,
+   "source": "kdd_lec02_data.pdf p25",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the Apriori property used for in the prune step?",
+   "options": [
+    "To determine if an itemset is frequent",
+    "To determine the minimum support threshold",
+    "To remove itemsets that have a (k-1)-subset not in Lk-1",
+    "To generate the candidate k-itemsets"
+   ],
+   "correct": 2,
+   "source": "kdd_lec04_association_rule.pdf p33",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What concept is being visually represented in the diagrams?",
+   "options": [
+    "The process of calculating weighted averages",
+    "The relationship between entropy and decision tree algorithms",
+    "The concept of gain(S, attribute) formulas",
+    "The process of splitting data by attributes in decision trees"
+   ],
+   "correct": 3,
+   "source": "kdd_lec06_classifacation_1.pdf p24",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of relationship is shown between X and Y?",
+   "options": [
+    "A non-linear relationship",
+    "A non-existent relationship",
+    "A linear relationship with no variability",
+    "A linear relationship with observed variability"
+   ],
+   "correct": 3,
+   "source": "kdd_lec05_regression.pdf p56",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "How can an ensemble classifier be constructed by manipulating class labels?",
+   "options": [
+    "By partitioning the class labels randomly into two disjoint subsets and relabeling the examples.",
+    "By training multiple base classifiers on the same training data using different learning algorithms.",
+    "By training a single base classifier on the entire training data and then combining its predictions with another model.",
+    "By partitioning the training data into two disjoint subsets and training a base classifier on each subset separately."
+   ],
+   "correct": 0,
+   "source": "kdd_lec08_classifacation_3.pdf p28",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What happens to the derivative of the function g(w) as w increases past its maximum point?",
+   "options": [
+    "The derivative remains greater than zero",
+    "The derivative becomes less than zero",
+    "The derivative remains equal to zero",
+    "The derivative becomes greater than zero"
+   ],
+   "correct": 1,
+   "source": "kdd_lec05_regression.pdf p28",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What does a positive correlation between two numeric attributes mean?",
+   "options": [
+    "The values of one attribute increase as the values of the other attribute decrease.",
+    "The values of one attribute increase as the values of the other attribute increase.",
+    "There is no relationship between the two attributes.",
+    "The values of one attribute have no effect on the values of the other attribute."
+   ],
+   "correct": 1,
+   "source": "kdd_lec03_data_preprocessing.pdf p29",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What concept is being demonstrated by the arrangement of black dots?",
+   "options": [
+    "Random distribution",
+    "Spatial grouping",
+    "Causal relationships",
+    "Geometric patterns"
+   ],
+   "correct": 1,
+   "source": "kdd_lec01_Introduction.pdf p31",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What is an example of a data type that does not have a fixed set of attributes?",
+   "options": [
+    "Structured data",
+    "Unstructured data",
+    "Relational database",
+    "Product images"
+   ],
+   "correct": 1,
+   "source": "kdd_lec02_data.pdf p25",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of using the fillna() function in pandas to replace missing values?",
+   "options": [
+    "To remove duplicate values",
+    "To fill missing values with the mean",
+    "To fill missing values with the median",
+    "To delete rows with missing values"
+   ],
+   "correct": 2,
+   "source": "kdd_lec03_data_preprocessing.pdf p16",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the concept being demonstrated?",
+   "options": [
+    "The relationship between shape and color",
+    "The concept of identical elements",
+    "The definition of a set",
+    "The process of labeling shapes"
+   ],
+   "correct": 1,
+   "source": "kdd_lec08_classifacation_3.pdf p39",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.35,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What happens to the error as model complexity increases?",
+   "options": [
+    "The error stays the same regardless of complexity.",
+    "The error increases as complexity increases.",
+    "The error decreases as complexity increases.",
+    "The error stays the same as complexity decreases."
+   ],
+   "correct": 2,
+   "source": "kdd_lec05_regression.pdf p52",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of data is being linked to tax evasion decisions in the table?",
+   "options": [
+    "Personal details",
+    "Tax-related behaviors",
+    "Financial information",
+    "Marital status"
+   ],
+   "correct": 1,
+   "source": "kdd_lec07_classifacation_2.pdf p12",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What is Information Gain in decision trees?",
+   "options": [
+    "The difference between parent and child entropy",
+    "The total entropy of the entire population",
+    "A measure of the reduction in entropy when splitting a dataset",
+    "A formula for calculating child entropy"
+   ],
+   "correct": 2,
+   "source": "kdd_lec06_classifacation_1.pdf p23",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the key concept being taught in decision tree algorithms like ID3?",
+   "options": [
+    "Entropy reduction when splitting data by attributes is not important",
+    "Entropy is a measure of data randomness",
+    "Entropy reduction when splitting data by attributes is a key concept",
+    "Decision trees are only used for classification tasks"
+   ],
+   "correct": 2,
+   "source": "kdd_lec06_classifacation_1.pdf p24",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of statistical measures are often calculated for attributes in data analysis?",
+   "options": [
+    "Sample median and sample standard deviation",
+    "Sample mean and sample variance",
+    "Population mean and population variance",
+    "Sample range and sample interquartile range"
+   ],
+   "correct": 1,
+   "source": "kdd_lec07_classifacation_2.pdf p14",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of data sets do clustering methods in subspaces typically handle?",
+   "options": [
+    "low-dimensionality data sets",
+    "high-dimensional data sets",
+    "medium-dimensionality data sets",
+    "no specific dimensionality data sets"
+   ],
+   "correct": 1,
+   "source": "kdd_lec09_cluster_analyis.pdf p9",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.33,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What does a positive correlation coefficient indicate between two numeric data attributes?",
+   "options": [
+    "The values of one attribute decrease as the values of the other attribute increase.",
+    "The values of one attribute increase as the values of the other attribute increase.",
+    "The values of one attribute decrease as the values of the other attribute decrease.",
+    "There is no correlation between the two attributes."
+   ],
+   "correct": 1,
+   "source": "kdd_lec03_data_preprocessing.pdf p29",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of having multiple decision rules in bagging?",
+   "options": [
+    "To reduce the effect of outliers in the data",
+    "To improve the accuracy of the model by combining multiple predictions",
+    "To increase the computational cost of the algorithm",
+    "To simplify the decision-making process by reducing the number of rules"
+   ],
+   "correct": 1,
+   "source": "kdd_lec08_classifacation_3.pdf p33",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.33,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of the 'Regression' component in this process?",
+   "options": [
+    "It generates input features from data",
+    "It learns a relationship between input and output",
+    "It predicts continuous outputs",
+    "It stores data for later use"
+   ],
+   "correct": 1,
+   "source": "kdd_lec05_regression.pdf p4",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the primary goal of the bagging algorithm?",
+   "options": [
+    "To reduce the risk of model overfitting",
+    "To increase the number of models in an ensemble",
+    "To improve the accuracy of each individual model",
+    "To make each model in the ensemble equally weighted"
+   ],
+   "correct": 0,
+   "source": "kdd_lec08_classifacation_3.pdf p30",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.33,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is one way vertebrates are classified?",
+   "options": [
+    "by their ability to give birth",
+    "by their ability to hibernate",
+    "by their ability to fly",
+    "by their body temperature regulation"
+   ],
+   "correct": 0,
+   "source": "kdd_lec06_classifacation_1.pdf p38",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the concept of grouping entities into clusters?",
+   "options": [
+    "Assigning individuals to categories",
+    "Grouping entities into distinct clusters",
+    "Categorizing items into sets",
+    "Creating separate categories for items"
+   ],
+   "correct": 1,
+   "source": "kdd_lec09_cluster_analyis.pdf p37",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is a key feature of Support Vector Machines (SVM) compared to other classification methods?",
+   "options": [
+    "They are very fast to train but may not be as accurate.",
+    "They can model complex nonlinear decision boundaries.",
+    "They are only used for classification tasks.",
+    "They are not commonly used in real-world applications."
+   ],
+   "correct": 1,
+   "source": "kdd_lec07_classifacation_2.pdf p37",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.39,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the goal of finding a decision boundary in a classification problem?",
+   "options": [
+    "To maximize the number of correct classifications",
+    "To find the simplest decision boundary possible",
+    "To find a decision boundary that will separate the data based on their class",
+    "To minimize the number of incorrect classifications"
+   ],
+   "correct": 2,
+   "source": "kdd_lec07_classifacation_2.pdf p40",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What concept is often associated with the use of a light bulb as a symbol?",
+   "options": [
+    "Innovation",
+    "Creativity",
+    "Invention",
+    "Discovery"
+   ],
+   "correct": 1,
+   "source": "kdd_lec06_classifacation_1.pdf p16",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of using matplotlib's subplot functionality in this code?",
+   "options": [
+    "To create a single scatter plot",
+    "To generate a grid of scatter plots with shared axes",
+    "To display a single plot with multiple lines",
+    "To create a table of numerical data"
+   ],
+   "correct": 1,
+   "source": "kdd_lec03_data_preprocessing.pdf p30",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What is an important step in preprocessing data sets?",
+   "options": [
+    "Data normalization",
+    "Dimensionality reduction",
+    "Data encoding",
+    "Data transformation"
+   ],
+   "correct": 1,
+   "source": "kdd_lec02_data.pdf p17",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of the 'Seasonal component' in a time series model?",
+   "options": [
+    "To account for random errors in the data",
+    "To capture the overall trend in the data over time",
+    "To model the effect of external factors on the data",
+    "To capture recurring patterns in the data that repeat at regular intervals"
+   ],
+   "correct": 3,
+   "source": "kdd_lec05_regression.pdf p42",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.33,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of a classifier model in a machine learning process?",
+   "options": [
+    "To generate a new input for the process",
+    "To predict a class based on the input",
+    "To classify the process itself",
+    "To provide a visual representation of the process"
+   ],
+   "correct": 1,
+   "source": "kdd_lec01_Introduction.pdf p26",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is one way to construct an ensemble classifier?",
+   "options": [
+    "By manipulating the input features",
+    "By manipulating the training set",
+    "By combining multiple machine learning algorithms",
+    "By using a different type of data"
+   ],
+   "correct": 1,
+   "source": "kdd_lec08_classifacation_3.pdf p27",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.34,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of decision boundaries can nearest-neighbor classifiers produce?",
+   "options": [
+    "Arbitrarily shaped",
+    "Axis-parallel hyper rectangles",
+    "Circular",
+    "Spherical"
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p30",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the Apriori property used for during the prune step?",
+   "options": [
+    "To determine if a candidate k-itemset is frequent",
+    "To remove itemsets with a minsupport threshold",
+    "To check if a (k -1)-subset of a candidate k-itemset is in Lk-1",
+    "To generate the resulting k-itemset formed by joining two members of Lk-1"
+   ],
+   "correct": 2,
+   "source": "kdd_lec04_association_rule.pdf p33",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the main reason we need a closer look at attributes and data values to get the data ready for data mining?",
+   "options": [
+    "To understand the relationship between different attributes",
+    "To detect any outliers in the data",
+    "To get the data ready for data analysis",
+    "To visualize the data and get a better understanding of it"
+   ],
+   "correct": 2,
+   "source": "kdd_lec02_data.pdf p4",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.34,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the main goal of the Association Rules Mining (ARM) Problem?",
+   "options": [
+    "To find the total number of possible rules extracted from a dataset",
+    "To find all strong association rules in a transactions database",
+    "To determine the number of items in a set",
+    "To calculate the minimum support threshold"
+   ],
+   "correct": 1,
+   "source": "kdd_lec04_association_rule.pdf p17",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.37,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of data is often compared in a boxplot?",
+   "options": [
+    "Quantitative data",
+    "Qualitative data",
+    "Discrete data",
+    "Continuous data"
+   ],
+   "correct": 0,
+   "source": "kdd_lec02_data.pdf p44",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of the code snippet?",
+   "options": [
+    "To classify tumors based on their characteristics",
+    "To identify missing values in a dataset",
+    "To generate random numbers for a simulation",
+    "To analyze the relationship between two variables"
+   ],
+   "correct": 1,
+   "source": "kdd_lec03_data_preprocessing.pdf p15",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What is the goal of clustering in this concept?",
+   "options": [
+    "Minimize distances between clusters",
+    "Maximize distances within clusters",
+    "Minimize distances within clusters",
+    "Maximize distances between clusters"
+   ],
+   "correct": 2,
+   "source": "kdd_lec01_Introduction.pdf p28",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What does the loss function quantify?",
+   "options": [
+    "The model's weight",
+    "The error in prediction",
+    "The cost of model training",
+    "The difference between actual and predicted values"
+   ],
+   "correct": 1,
+   "source": "kdd_lec05_regression.pdf p50",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the L2 norm also known as in the context of Minkowski distance?",
+   "options": [
+    "Manhattan distance",
+    "Euclidean distance",
+    "Minkowski distance",
+    "L1 norm"
+   ],
+   "correct": 1,
+   "source": "kdd_lec09_cluster_analyis.pdf p16",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.46,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of a table like this in data analysis?",
+   "options": [
+    "To display the results of a statistical test",
+    "To organize data variables for a dataset",
+    "To present the findings of a research study",
+    "To create a new dataset from existing data"
+   ],
+   "correct": 1,
+   "source": "kdd_lec03_data_preprocessing.pdf p13",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of a Test set in machine learning?",
+   "options": [
+    "To provide examples of already classified instances",
+    "To evaluate the performance of a machine learning model",
+    "To train a machine learning model from scratch",
+    "To create a dataset for a different machine learning task"
+   ],
+   "correct": 1,
+   "source": "kdd_lec06_classifacation_1.pdf p32",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of the second main section in frequent itemset mining?",
+   "options": [
+    "To compare candidate support count with minimum support count",
+    "To generate C2 candidates from L1",
+    "To display final candidate item pairs with their support counts",
+    "To list item pairs from L1"
+   ],
+   "correct": 3,
+   "source": "kdd_lec04_association_rule.pdf p35",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.35,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is a classification outcome in machine learning?",
+   "options": [
+    "A prediction that is correct",
+    "A prediction that is incorrect but close to the true label",
+    "A prediction that matches the true label",
+    "A prediction that is correct and the true label is also correct"
+   ],
+   "correct": 3,
+   "source": "kdd_lec08_classifacation_3.pdf p7",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What concept is demonstrated by the arrangement of black regions on a grid?",
+   "options": [
+    "Pixel clustering",
+    "Shape recognition",
+    "Image segmentation",
+    "Grid-based pattern recognition"
+   ],
+   "correct": 0,
+   "source": "kdd_lec09_cluster_analyis.pdf p11",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.37,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What is the process of discovering interesting patterns, models, and knowledge in large datasets?",
+   "options": [
+    "Exploration and analysis of large quantities of data to discover meaningful patterns",
+    "Knowledge discovery in databases, knowledge extraction, and pattern discovery",
+    "Data analytics, information harvesting, and knowledge extraction",
+    "Knowledge mining from data, which emphasizes mining from large amounts of data"
+   ],
+   "correct": 0,
+   "source": "kdd_lec01_Introduction.pdf p7",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is RSS in the context of linear regression?",
+   "options": [
+    "The sum of the differences between actual and predicted prices",
+    "The sum of the products of data points and their corresponding residuals",
+    "The sum of the squared differences between actual and predicted prices",
+    "The sum of the products of the model coefficients and their corresponding data points"
+   ],
+   "correct": 2,
+   "source": "kdd_lec05_regression.pdf p23",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.33,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of algorithm is the Basic DTs Learning Algorithm?",
+   "options": [
+    "Greedy algorithm",
+    "Random algorithm",
+    "Optimization algorithm",
+    "Machine learning algorithm"
+   ],
+   "correct": 0,
+   "source": "kdd_lec06_classifacation_1.pdf p17",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is data clustering?",
+   "options": [
+    "A method of organizing data into separate groups",
+    "A process of finding patterns in a set of data",
+    "A technique used to identify relationships between variables",
+    "A way to visualize data using charts and graphs"
+   ],
+   "correct": 0,
+   "source": "kdd_lec03_data_preprocessing.pdf p17",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What does the table show about the distribution of the 'class' variable?",
+   "options": [
+    "The 'class' variable is continuous.",
+    "The 'class' variable is categorical with three classes.",
+    "Each class has a different count.",
+    "The counts for each class are equal."
+   ],
+   "correct": 3,
+   "source": "kdd_lec02_data.pdf p30",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the process of discovering interesting patterns in large datasets called?",
+   "options": [
+    "Data Analytics",
+    "Knowledge Discovery in Databases",
+    "Data Mining",
+    "Knowledge Extraction"
+   ],
+   "correct": 2,
+   "source": "kdd_lec01_Introduction.pdf p7",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of the chi-square (χ2) test in the context of nominal data?",
+   "options": [
+    "To test the relationship between two categorical attributes",
+    "To compare the frequencies of two categorical attributes",
+    "To identify the most common value of a categorical attribute",
+    "To determine the independence of two categorical attributes"
+   ],
+   "correct": 0,
+   "source": "kdd_lec03_data_preprocessing.pdf p24",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.36,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of attributes are used in the table?",
+   "options": [
+    "Numerical attributes",
+    "Categorical attributes",
+    "Ordinal attributes",
+    "Nominal attributes"
+   ],
+   "correct": 1,
+   "source": "kdd_lec07_classifacation_2.pdf p15",
+   "figure": true,
+   "model_rejects": false,
+   "seconds": 0.34,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What does the support of a rule in Association Rules - Support indicate?",
+   "options": [
+    "The number of transactions in the dataset that contain the items in the rule",
+    "The percentage of transactions in the dataset that contain the items in the rule",
+    "The number of times a rule is applicable to a given dataset",
+    "The number of items in the rule that are purchased together"
+   ],
+   "correct": 1,
+   "source": "kdd_lec04_association_rule.pdf p14",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.31,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the goal of market basket analysis in an online shop?",
+   "options": [
+    "To find the most expensive items in a shopping basket.",
+    "To identify items that occur frequently together and use this information to predict the occurrence of an item.",
+    "To determine the average number of items in a customer's shopping basket.",
+    "To compare the sales of different products in an online shop."
+   ],
+   "correct": 1,
+   "source": "kdd_lec04_association_rule.pdf p4",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.31,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What type of predictive task predicts a value of a given continuous-valued target variable?",
+   "options": [
+    "Class Label Prediction",
+    "Numeric Prediction",
+    "Regression",
+    "Machine Learning"
+   ],
+   "correct": 2,
+   "source": "kdd_lec01_Introduction.pdf p25",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the concept of error in a regression model?",
+   "options": [
+    "The difference between the actual and predicted values of y",
+    "The number of bedrooms in a house",
+    "The number of bathrooms in a house",
+    "The size of the yard in a house"
+   ],
+   "correct": 0,
+   "source": "kdd_lec05_regression.pdf p13",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the relationship between the number of neighbors and a KNN model's performance?",
+   "options": [
+    "The number of neighbors has no effect on the model's performance.",
+    "The number of neighbors directly affects the model's performance.",
+    "The number of neighbors affects the model's performance, but only slightly.",
+    "The number of neighbors affects the model's performance, and it is a critical hyperparameter."
+   ],
+   "correct": 3,
+   "source": "kdd_lec07_classifacation_2.pdf p36",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What does a correlation matrix illustrate?",
+   "options": [
+    "relationships between variables and a reference line",
+    "pairwise correlations among variables",
+    "a scatter plot of variable values",
+    "a table of variable means and standard deviations"
+   ],
+   "correct": 1,
+   "source": "kdd_lec03_data_preprocessing.pdf p34",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What determines the type of an attribute?",
+   "options": [
+    "The set of possible values the attribute can have",
+    "How many columns the attribute has",
+    "Whether the attribute is a ratio or a difference",
+    "The number of students in the dataset"
+   ],
+   "correct": 0,
+   "source": "kdd_lec02_data.pdf p8",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What happens to training error as model complexity increases?",
+   "options": [
+    "Training error continues to decrease",
+    "Training error remains constant",
+    "Training error decreases then increases",
+    "Training error increases consistently"
+   ],
+   "correct": 2,
+   "source": "kdd_lec05_regression.pdf p54",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.28,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the primary purpose of Data Cleaning in the KDD Process?",
+   "options": [
+    "To combine multiple data sources",
+    "To transform data into forms appropriate for the next mining task",
+    "To remove noise and inconsistent data",
+    "To apply intelligent methods to extract patterns or construct models"
+   ],
+   "correct": 2,
+   "source": "kdd_lec01_Introduction.pdf p10",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of using the accuracy_score function in this code?",
+   "options": [
+    "To calculate the precision of the model",
+    "To evaluate the model's performance on test data",
+    "To compare the model's accuracy with other models",
+    "To determine the number of correct predictions made by the model"
+   ],
+   "correct": 1,
+   "source": "kdd_lec06_classifacation_1.pdf p44",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What is being taught about the relationships between different machine learning algorithms?",
+   "options": [
+    "Decision trees are a type of algorithm that can be used with any other machine learning algorithm.",
+    "k nearest neighbours and Bayesian classifiers are both types of decision trees.",
+    "Support vector machines are a type of algorithm that can be used to maximize the margin between different classes.",
+    "Machine learning algorithms can be grouped into four main categories: decision trees, k nearest neighbours, Bayesian classifiers, and support vector machines."
+   ],
+   "correct": 2,
+   "source": "kdd_lec07_classifacation_2.pdf p2",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the goal of minimizing intra-cluster distances?",
+   "options": [
+    "Reducing the number of clusters",
+    "Increasing the distance between clusters",
+    "Keeping points within each cluster close together",
+    "Decreasing the number of points in each cluster"
+   ],
+   "correct": 2,
+   "source": "kdd_lec09_cluster_analyis.pdf p4",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What does it mean for two attributes to be strongly correlated?",
+   "options": [
+    "It means that one attribute is not related to the other",
+    "It means that one attribute is always present when the other is present",
+    "It means that the attributes tend to occur together more often than expected by chance",
+    "It means that one attribute is completely independent of the other"
+   ],
+   "correct": 2,
+   "source": "kdd_lec03_data_preprocessing.pdf p27",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.29,
+   "rules_flag": "deictic",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "How are conditional probabilities calculated in this example?",
+   "options": [
+    "By multiplying the probabilities of each condition",
+    "By adding the probabilities of each condition",
+    "By taking the average of the probabilities of each condition",
+    "By using a formula that combines the probabilities"
+   ],
+   "correct": 0,
+   "source": "kdd_lec07_classifacation_2.pdf p16",
+   "figure": false,
+   "model_rejects": true,
+   "seconds": 0.3,
+   "rules_flag": "deictic",
+   "rules_reject": "depends_on_missing_context"
+  },
+  {
+   "lang": "en",
+   "question": "What type of relationship is being modeled between price, square footage, and number of bathrooms?",
+   "options": [
+    "A non-linear relationship between all three variables",
+    "A linear relationship between price and square footage, but not number of bathrooms",
+    "A linear relationship between price and both square footage and number of bathrooms",
+    "A non-linear relationship between price and square footage, but a linear relationship between price and number of bathrooms"
+   ],
+   "correct": 2,
+   "source": "kdd_lec05_regression.pdf p46",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.32,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  },
+  {
+   "lang": "en",
+   "question": "What is the purpose of search space pruning in algorithms?",
+   "options": [
+    "To reduce the number of possible solutions",
+    "To increase the number of possible solutions",
+    "To eliminate certain paths that are less likely to yield a solution",
+    "To add more complexity to the search process"
+   ],
+   "correct": 0,
+   "source": "kdd_lec04_association_rule.pdf p28",
+   "figure": true,
+   "model_rejects": true,
+   "seconds": 0.33,
+   "rules_flag": "self_contained",
+   "rules_reject": null
+  }
+ ]
+}

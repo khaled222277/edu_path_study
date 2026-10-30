@@ -391,3 +391,72 @@ After the transform change the observed turn repeated a paragraph 0/24 times (it
 - The model sometimes translates a term wrongly ("entropy" -> الارتفاع); needs a better Arabic model (deferred).
 - The streamed text carries trailing newlines that the stored copy trims (identical otherwise; 13/96 rows).
 - The Arabic phrasing of the transform cases was not checked by a native speaker.
+
+## Quiz questions that cannot be answered (branch `fix/quiz-answerability`)
+
+Observed: an Arabic KDD question "هذا الفكرة هي" ("this idea is") with four unrelated options, earlier "what is the
+meaning of each cell in the model?" and a sentence fragment used as a question. `llama3.1:8b`, quiz temperature 0.5,
+subject 7 (KDD), 20 quizzes x 5 questions per language and configuration, seeds 31000-31019, on a **copy** of
+`data/chroma_db`. Raw results: `eval/results/quiz_quality/`. Tools: `scripts/eval_quiz_quality.py`
+(`generate`, `report`, `eligibility`, `validator`, `modelcheck`, `compare`) and `scripts/quiz_checks.py`.
+
+How items are scored: rules in `scripts/quiz_checks.py`, separate from the app's own validator so the validator is not
+marking its own homework: **deictic** (this/that/the following/the figure/the table, هذا/هذه/الشكل/الجدول...), **fragment**
+(no question form, or fewer than 3 words), **grammar** (masculine هذا before a -ة noun). These are signals; they cannot
+judge Arabic quality or whether the marked answer is right, and the printed samples are for a human to read. Two rules
+over-fire on English ("what does it mean if..." counts as a bare pointer: 4 of the 100 English items still flagged
+after the changes are of that kind). Off-topic is only a proxy (embedding similarity of question + answer to the nearest
+chunk, median 0.58 Arabic / 0.71 English) and no threshold is claimed.
+
+### Does the hypothesis hold?
+
+"A slide or figure description with little technical content" is **not confirmed**. Title, agenda and low-information
+chunks produced 0 of 200 baseline items (only 3 of the 672 usable chunks have fewer than 25 real words, none is an
+agenda). What the bad items come from is **figure descriptions**: 22 of the 32 bad Arabic and 16 of the 18 bad English
+items (bad rate English 29% vs 4% for lecture text, Arabic 38% vs 24%), and fragments came from ordinary lecture text.
+The exact observed question was not reproduced in 100 Arabic items (7 questions of 4 words or fewer, none like it).
+
+### Before and after (per language; n = 100 items, 20 quizzes, per cell)
+
+| | baseline | rules only | rules + figures off (new defaults) | figures off only |
+| --- | --- | --- | --- | --- |
+| self-contained, Arabic | 68% | 89% | **100%** | 82% |
+| self-contained, English | 82% | 95% | **96%** | 95% |
+| fragment, Arabic | 10% | 0% | 0% | 15% |
+| questions produced per quiz | 5 / 5 | 5 / 5 | 5 / 5 | 5 / 5 |
+| model-call validity (accepted/all), ar / en | 48% / 76% | 40% / 77% | 40% / 96% | 44% / 94% |
+| seconds per quiz, ar / en | 17.6 / 9.0 | 21.4 / 9.2 | 22.4 / 8.0 | 20.1 / 7.7 |
+
+Differences of a second or two per quiz are inside the run-to-run noise (single runs). Arabic takes more model calls
+because more replies are rejected, which is the intended cost of rejecting rather than showing them.
+
+### What shipped
+
+- **Eligibility** (`QUIZ_MIN_CHUNK_CHARS`, `QUIZ_MIN_REAL_WORDS`, `QUIZ_MIN_ALPHA_SHARE`, `QUIZ_SKIP_BOILERPLATE_SLIDES`,
+  `QUIZ_INCLUDE_FIGURES`): the first four remove only 6 more of 730 chunks and no agenda slide on this corpus (they are
+  cheap insurance, on). `QUIZ_INCLUDE_FIGURES` **defaults to off** (it was on): it takes eligible chunks from 666 to 285,
+  every lecture keeps 21-37 (`eligibility` prints the table), the round-robin still draws five lectures per quiz (4.95
+  Arabic, 5.0 English), and a subject with few eligible chunks gives a shorter quiz, not an error (tested). The cost:
+  content that exists only in a diagram is no longer quizzed (the regression lecture is 90 of 118 usable chunks figures).
+  `QUIZ_INCLUDE_FIGURES=true` restores it.
+- **Answerability rules** (`QUIZ_ANSWERABILITY_RULES`, on): reject a question that starts with or hinges on a
+  demonstrative, points at a figure/table/code/"this concept"/"used here"/"in this context", has no question form, has
+  fewer than 3 words, or (Arabic) puts masculine هذا before a -ة noun. Replayed over the 200 baseline items they reject
+  23% of Arabic and 16% of English; over 61 hand-drafted known-good questions (`eval/qa_set.json`, `chat_questions.json`) the
+  false-positive rate is 0/31 Arabic and 0/30 English (one Arabic false positive, "المذكورة في المحاضرات", was fixed
+  before this number). The Arabic **feminine هذه before a masculine noun** check is deferred: broken plurals take هذه
+  ("هذه الأساليب"), so it is not reliable as a cheap rule.
+- **Model-based check** (`QUIZ_MODEL_CHECK`, **off**): one extra call (0.39 s Arabic, 0.31 s English per check) asking
+  "standalone?" and "supported?". Replayed over the baseline: it rejects 62/100 Arabic and **96/100 English**, including plain
+  good questions ("What is the primary goal of regression in a prediction task?"), and still accepts some the rules reject
+  ("What is the purpose of the table in the given data?"). With this model it is not usable, so it stays off; a better
+  prompt or model was not tried (out of scope).
+- **Report this question**: `PUT/DELETE /quiz/{attempt}/items/{item}/report`, reasons `not_answerable | wrong_answer |
+  unclear | other` (optional, no free text), 404 for another student's attempt, migration `e5a7c9b13d40`, the control on
+  each question, `scripts/export_quiz_reports.py` (no student identity), and `delete_student.py` removes a student's reports.
+
+### Limits
+
+Single runs per configuration, 100 items each (a difference of 11 points at n = 100 is clear, 1 point is not). Answer
+correctness (is the marked option right?) is not measured; several kept items have two defensible options. Arabic phrasing
+quality is unjudged. Questions per quiz were 5 of 5 in every configuration, so "a short quiz" was only exercised by tests.
