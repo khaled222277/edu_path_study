@@ -39,6 +39,7 @@ from app.controllers import chat_controller as cc
 from app.schemas.chat import MessageOut
 from app.services.citations import CitationFilter, Retrieved
 from app.services.refusal import RefusalFilter
+from app.services.script_guard import ScriptFilter
 from app.services.llm import get_async_client, keep_alive
 from app.services.retrieval import RetrievedChunk
 
@@ -115,16 +116,18 @@ async def stream_events(
         yield encode_event({"type": "citations", "citations": citation_payload(turn.chunks)})
 
         raw: list[str] = []
-        # Two filters in a row, so nothing the student must not see ever reaches the
+        # Three filters in a row (the first drops characters of a script the answer must not
+        # contain, see app/services/script_guard.py), so nothing the student must not see ever reaches the
         # browser: the refusal token is removed, then every citation is checked against
         # this turn's retrieved chunks (an invalid one is never sent, a valid one is sent
         # already in its canonical form). Each holds back only what could still change.
+        scripts = ScriptFilter()
         shown = RefusalFilter()
         cited = CitationFilter(Retrieved.from_chunks(turn.chunks))
         emitted = False
         part = first_part
         while part is not None:
-            text = _text_of(part)
+            text = scripts.feed(_text_of(part))
             if text:
                 raw.append(text)
                 visible = cited.feed(shown.feed(text))
@@ -132,6 +135,7 @@ async def stream_events(
                     emitted = True
                     yield encode_event({"type": "token", "text": visible})
             part = await anext(stream, None)
+        cc.log_dropped_characters(scripts.dropped)
         tail = cited.feed(shown.flush()) + cited.flush()
         if tail:
             emitted = True

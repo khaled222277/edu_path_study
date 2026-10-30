@@ -17,6 +17,7 @@ from app.schemas.chat import Citation
 from app.services.llm import get_client, keep_alive
 from app.services.query_rewrite import retrieval_query
 from app.services.quiz_service import detect_language
+from app.services.script_guard import strip_foreign
 from app.services.transform_intent import find_transform_request
 from app.services.citations import Retrieved, find_citations, judge, validate_answer
 from app.services.refusal import (
@@ -346,6 +347,12 @@ def _prepare(
     return chunks, _build_messages(chat_session, question, chunks)
 
 
+def log_dropped_characters(count: int) -> None:
+    """How many foreign-script characters were taken out of a reply. A count only, never the text."""
+    if count:
+        log.info("dropped %d foreign-script character(s) from a chat reply", count)
+
+
 def trace_reply(
     session_id: int, raw: str | None, parsed: ParsedReply, chunks: list[RetrievedChunk]
 ) -> None:
@@ -481,6 +488,9 @@ def answer_question(
         ) from exc
 
     raw = response.get("message", {}).get("content")
+    if raw:
+        raw, dropped = strip_foreign(raw)
+        log_dropped_characters(dropped)
     parsed = finalize_answer(raw, question, chunks)
     trace_reply(chat_session.id, raw, parsed, chunks)
 
