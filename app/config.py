@@ -74,6 +74,17 @@ class Settings(BaseSettings):
     # GPUs): with Ollama serving one request at a time, extra callers just queue and
     # nothing gets faster. Never more are in flight than questions still needed.
     quiz_concurrency: int = Field(default=1, ge=1, le=8)
+    # Which chunks a quiz question may be made from (see eligibility in app/services/quiz_service.py).
+    # Questions made from figure descriptions are the main source of "what does this show?" items,
+    # but those descriptions also carry real content (the regression lecture is mostly figures).
+    quiz_include_figures: bool = True
+    # A chunk shorter than this, or with fewer words of 3+ letters, or whose letters are a smaller
+    # share of its non-space characters, cannot support a question with four plausible options.
+    quiz_min_chunk_chars: int = Field(default=220, ge=1, le=5000)
+    quiz_min_real_words: int = Field(default=25, ge=0, le=500)
+    quiz_min_alpha_share: float = Field(default=0.5, ge=0.0, le=1.0)
+    # Skip slides that are only an agenda, references, "thank you" or "questions?".
+    quiz_skip_boilerplate_slides: bool = True
 
     # --- Retrieval ---
     # Which cross-encoder reorders the vector candidates. "flashrank" is the small ONNX

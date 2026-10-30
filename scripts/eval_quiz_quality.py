@@ -170,6 +170,22 @@ def report(path: str, sample: int) -> None:
                       f"source={s['file']} p{s['page']} figure={s['figure']} len={s['length']} words={s['real_words']}")
 
 
+def eligibility(chroma_copy: str) -> None:
+    """Eligible chunks per lecture under the current settings (set QUIZ_INCLUDE_FIGURES=false etc. to see another)."""
+    use_copy(chroma_copy)
+    from app.config import settings
+    from app.services import quiz_service as qs
+
+    print(f"figures included={settings.quiz_include_figures} min_chars={settings.quiz_min_chunk_chars} "
+          f"min_real_words={settings.quiz_min_real_words} min_alpha_share={settings.quiz_min_alpha_share} "
+          f"skip_boilerplate={settings.quiz_skip_boilerplate_slides}")
+    total = Counter()
+    for lecture, cell in sorted(qs.eligibility_by_lecture(SUBJECT_ID).items()):
+        total.update(cell)
+        print(f"  {lecture:<40}{dict(cell)}")
+    print(f"  {'TOTAL':<40}{dict(total)}")
+
+
 def compare(a_path: str, b_path: str) -> None:
     a, b = (json.loads(Path(p).read_text(encoding="utf-8")) for p in (a_path, b_path))
     sa, sb = summarize(reflag(a["rows"])), summarize(reflag(b["rows"]))
@@ -194,6 +210,8 @@ def main() -> None:
     g.add_argument("--seed-base", type=int, default=31000)
     g.add_argument("--label", default="baseline")
     g.add_argument("--out", required=True)
+    e = sub.add_parser("eligibility")
+    e.add_argument("--chroma-copy", required=True)
     r = sub.add_parser("report")
     r.add_argument("result")
     r.add_argument("--sample", type=int, default=12)
@@ -202,6 +220,8 @@ def main() -> None:
     c.add_argument("b")
     args = p.parse_args()
 
+    if args.mode == "eligibility":
+        return eligibility(args.chroma_copy)
     if args.mode == "report":
         return report(args.result, args.sample)
     if args.mode == "compare":

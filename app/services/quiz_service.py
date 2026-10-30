@@ -179,10 +179,73 @@ def detect_language(text: str) -> str:
     return LANG_AR if _is_arabic(letters[0]) else LANG_EN
 
 
+# A slide that is only a heading of this kind has nothing to ask about. Judged on the FIRST line, so a
+# real slide that merely mentions "references" further down is untouched. "Summary" and "overview" are
+# deliberately absent: those slides carry content.
+_BOILERPLATE_HEADING_RE = re.compile(
+    r"^\W*(agenda|outline|contents?|table of contents|references?|bibliography|thank\s*you|thanks|"
+    r"questions\??|q\s*&\s*a|any questions\??|the end|"
+    r"شكرا|شكراً|المراجع|المحتويات|الأسئلة|الاسئلة)\W*$",
+    re.IGNORECASE,
+)
+_REAL_WORD_RE = re.compile(r"[^\W\d_]{3,}", re.UNICODE)
+
+INELIGIBLE_SHORT = "too_short"
+INELIGIBLE_FIGURE = "figure_excluded"
+INELIGIBLE_DECORATIVE = "decorative_figure"
+INELIGIBLE_BOILERPLATE = "boilerplate_slide"
+INELIGIBLE_LOW_WORDS = "few_real_words"
+INELIGIBLE_LOW_ALPHA = "low_letter_share"
+
+
+def ineligible_reason(text: str, meta: dict, min_chars: int | None = None) -> str | None:
+    """Why this chunk may not be used for a quiz question, or None if it may.
+
+    Lecture text is never judged decorative; figure descriptions are screened for decoration and,
+    with QUIZ_INCLUDE_FIGURES off, left out altogether.
+    """
+    min_chars = settings.quiz_min_chunk_chars if min_chars is None else min_chars
+    if not text or len(text) < min_chars:
+        return INELIGIBLE_SHORT
+    if meta.get("content_type") == "image_description":
+        if not settings.quiz_include_figures:
+            return INELIGIBLE_FIGURE
+        if is_decorative(text):
+            return INELIGIBLE_DECORATIVE
+    if settings.quiz_skip_boilerplate_slides:
+        first_line = next((ln.strip() for ln in text.splitlines() if ln.strip()), "")
+        if _BOILERPLATE_HEADING_RE.match(first_line):
+            return INELIGIBLE_BOILERPLATE
+    if len(_REAL_WORD_RE.findall(text)) < settings.quiz_min_real_words:
+        return INELIGIBLE_LOW_WORDS
+    letters = sum(1 for ch in text if ch.isalpha())
+    non_space = sum(1 for ch in text if not ch.isspace())
+    if non_space and letters / non_space < settings.quiz_min_alpha_share:
+        return INELIGIBLE_LOW_ALPHA
+    return None
+
+
+def eligibility_by_lecture(subject_id: int) -> dict[str, dict[str, int]]:
+    """For each lecture file of a subject: how many chunks there are and how many are unusable, by reason."""
+    stored = retry_if_stale(
+        lambda: get_collection().get(where={"subject_id": subject_id}, include=["documents", "metadatas"])
+    )
+    out: dict[str, dict[str, int]] = {}
+    for text, meta in zip(stored.get("documents") or [], stored.get("metadatas") or []):
+        cell = out.setdefault(meta.get("source_filename", "unknown"), {"chunks": 0, "eligible": 0})
+        cell["chunks"] += 1
+        reason = ineligible_reason(text, meta)
+        if reason is None:
+            cell["eligible"] += 1
+        else:
+            cell[reason] = cell.get(reason, 0) + 1
+    return out
+
+
 def sample_chunks(
     subject_id: int,
     count: int = DEFAULT_QUESTION_COUNT,
-    min_chars: int = MIN_CHUNK_CHARS,
+    min_chars: int | None = None,
     seed: int | None = None,
 ) -> list[SourceChunk]:
     """Pick `count` chunks spread as widely as possible across the subject.
@@ -199,14 +262,13 @@ def sample_chunks(
     metadatas = stored.get("metadatas") or []
 
     by_lecture: dict[int, list[SourceChunk]] = {}
-    skipped_decorative = 0
+    skipped: dict[str, int] = {}
     for text, meta in zip(documents, metadatas):
-        if not text or len(text) < min_chars:
-            continue
-        # Logos and title slides carry no concept to examine. Only figure
-        # descriptions are screened -- lecture text is never decoration.
-        if meta.get("content_type") == "image_description" and is_decorative(text):
-            skipped_decorative += 1
+        # Short fragments, logos, agenda/reference slides and (optionally) figure descriptions carry
+        # no concept to examine; see ineligible_reason for each rule and its setting.
+        reason = ineligible_reason(text, meta, min_chars)
+        if reason is not None:
+            skipped[reason] = skipped.get(reason, 0) + 1
             continue
         lecture_id = int(meta.get("lecture_id", 0))
         by_lecture.setdefault(lecture_id, []).append(
@@ -256,10 +318,8 @@ def sample_chunks(
         round_index += 1
 
     log.info(
-        "sampled %s chunks for subject %s across %s lecture(s) "
-        "(%s decorative figure(s) skipped)",
-        len(selected), subject_id, len({c.lecture_id for c in selected}),
-        skipped_decorative,
+        "sampled %s chunks for subject %s across %s lecture(s) (skipped: %s)",
+        len(selected), subject_id, len({c.lecture_id for c in selected}), skipped or "none",
     )
     return selected
 
