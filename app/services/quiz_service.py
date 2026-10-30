@@ -23,7 +23,14 @@ import httpx
 
 from app import log_safe
 from app.config import settings
-from app.services.llm import LLM_ERRORS, LLMUnavailableError, get_client, keep_alive
+from app.services.llm import (
+    LLM_ERRORS,
+    LLMUnavailableError,
+    ModelRepeatLimitError,
+    get_client,
+    is_repeat_limit,
+    keep_alive,
+)
 from app.services.vector_store import get_collection, retry_if_stale
 
 log = logging.getLogger(__name__)
@@ -560,6 +567,7 @@ REASON_MALFORMED = "malformed_json"
 REASON_EMPTY = "empty_response"
 REASON_BAD_ITEM = "bad_item_shape"
 REASON_FOREIGN = "foreign_script"
+REASON_REPEAT_LIMIT = "model_repeat_limit"
 
 
 def arabic_violation(text) -> str | None:
@@ -761,7 +769,11 @@ def model_check(
         options="\n".join(f"{letters[i]}. {o}" for i, o in enumerate(options)),
         letter=f"{letters[options.index(answer)]}. {answer}",
     )
-    verdict = parse_model_check(_ask_model(prompt, model, CHECK_OPTIONS))
+    try:
+        raw = _ask_model(prompt, model, CHECK_OPTIONS)
+    except ModelRepeatLimitError:
+        raw = ""  # the check can only remove questions: a generation it lost lets the item through
+    verdict = parse_model_check(raw)
     reason = REASON_MODEL_CHECK if verdict is not None and not all(verdict) else None
     return reason, time.perf_counter() - started
 
@@ -851,6 +863,10 @@ def _ask_model(prompt: str, model: str, options: dict | None = None) -> str:
             keep_alive=keep_alive(),
         )
     except LLM_ERRORS as exc:
+        if is_repeat_limit(exc):
+            # Ollama stopped this one generation (the model looped); the server is fine. Reject the
+            # attempt like an unusable reply, so the next attempt or chunk gets its turn.
+            raise ModelRepeatLimitError() from exc
         # Ollama down / hung / model missing: retrying the same call a dozen
         # more times per chunk cannot help, so surface it instead of "rejecting".
         raise LLMUnavailableError(str(exc)) from exc
@@ -901,6 +917,15 @@ def _generate_one(
         _take_call_stats()  # drop anything left from an earlier call
         try:
             raw = _ask_model(prompt, model)
+        except ModelRepeatLimitError as exc:
+            # Counts as an attempt (the caps still bound the retries); nothing is raised, so what was
+            # already generated is kept and generation goes on. Logged as class + code, never the prompt.
+            rejected += 1
+            log_safe.failure(log, "quiz generation attempt aborted by the model's repeat limit", exc, logging.WARNING)
+            trace.attempts.append(
+                AttemptTrace(phase, time.perf_counter() - t0, 0.0, REASON_REPEAT_LIMIT, [REASON_REPEAT_LIMIT])
+            )
+            return None
         except LLMUnavailableError as exc:
             kind = _unavailable_kind(exc)
             trace.attempts.append(

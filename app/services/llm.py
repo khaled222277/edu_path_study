@@ -69,6 +69,33 @@ class LLMUnavailableError(Exception):
     """Ollama could not serve the request. Never carries user-facing detail."""
 
 
+# Ollama stops a generation that has fallen into a loop and answers HTTP 500 with
+# {"error": "prediction aborted, token repeat limit reached"}. The server is fine, only that one
+# generation is lost, so it is NOT an outage: asking again (the sampling is not deterministic)
+# normally works. The signal is deliberately narrow -- status AND message -- because any other 500
+# ("model runner crashed", out of memory...) may mean the server really is in trouble.
+REPEAT_LIMIT_STATUS = 500
+REPEAT_LIMIT_MESSAGE = "token repeat limit"
+
+
+def is_repeat_limit(exc: BaseException) -> bool:
+    """True for Ollama's "token repeat limit reached" abort of a single generation."""
+    return (
+        isinstance(exc, ollama.ResponseError)
+        and exc.status_code == REPEAT_LIMIT_STATUS
+        and REPEAT_LIMIT_MESSAGE in str(exc.error).lower()
+    )
+
+
+class ModelRepeatLimitError(Exception):
+    """One generation was aborted by Ollama's repeat limit; the next attempt may succeed.
+
+    Carries no message (the cause is chained). `status_code` is there so log_safe prints it as the code.
+    """
+
+    status_code = REPEAT_LIMIT_STATUS
+
+
 @lru_cache(maxsize=4)
 def get_client(timeout: float | None = None) -> ollama.Client:
     """Ollama client with a bounded timeout (seconds)."""
