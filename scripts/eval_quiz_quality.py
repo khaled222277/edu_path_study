@@ -186,6 +186,45 @@ def eligibility(chroma_copy: str) -> None:
     print(f"  {'TOTAL':<40}{dict(total)}")
 
 
+def validator(path: str, sample: int) -> None:
+    """Replay the app's answerability rules over saved items and over known-good questions.
+
+    Known-good = the hand-drafted questions of eval/qa_set.json and eval/chat_questions.json (not quiz items:
+    a student's question and a quiz stem read alike). Every one the rules reject there is a false positive.
+    """
+    from app.services import quiz_service as qs
+
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    print(f"== answerability rules replayed over {data['meta']['label']} ==")
+    for lang in ("ar", "en"):
+        items = [it for r in data["rows"] if r["lang"] == lang for it in r["items"]]
+        verdicts = [(it, qs.answerability_reason(it["question"], lang == "ar")) for it in items]
+        rejected = [(it, why) for it, why in verdicts if why]
+        print()
+        print(f"[{lang}] {len(rejected)}/{len(items)} generated items would be rejected: {dict(Counter(w for _, w in rejected))}")
+        for it, why in rejected[:sample]:
+            print(f"   REJECT ({why}): {it['question']}")
+        kept = [it for it, why in verdicts if not why]
+        for it in kept[:sample // 2]:
+            print(f"   KEEP: {it['question']}")
+    good = []
+    for name in ("qa_set.json", "chat_questions.json"):
+        raw = json.loads((ROOT / "eval" / name).read_text(encoding="utf-8"))
+        entries = raw["items"] if isinstance(raw, dict) and "items" in raw else raw.get("questions", raw) if isinstance(raw, dict) else raw
+        for e in entries:
+            if isinstance(e, dict) and e.get("question") and e.get("kind") != "follow_up" and e.get("lang") in ("ar", "en"):
+                good.append((e["lang"], e["question"]))
+    print()
+    print(f"known-good questions (eval/qa_set.json + chat_questions.json): {len(good)}")
+    for lang in ("ar", "en"):
+        qs_ = [q for l, q in good if l == lang]
+        bad = [(q, qs.answerability_reason(q, lang == "ar")) for q in qs_]
+        bad = [(q, w) for q, w in bad if w]
+        print(f"  [{lang}] false positives: {len(bad)}/{len(qs_)}")
+        for q, w in bad:
+            print(f"     {w}: {q}")
+
+
 def compare(a_path: str, b_path: str) -> None:
     a, b = (json.loads(Path(p).read_text(encoding="utf-8")) for p in (a_path, b_path))
     sa, sb = summarize(reflag(a["rows"])), summarize(reflag(b["rows"]))
@@ -212,6 +251,9 @@ def main() -> None:
     g.add_argument("--out", required=True)
     e = sub.add_parser("eligibility")
     e.add_argument("--chroma-copy", required=True)
+    v = sub.add_parser("validator")
+    v.add_argument("result")
+    v.add_argument("--sample", type=int, default=12)
     r = sub.add_parser("report")
     r.add_argument("result")
     r.add_argument("--sample", type=int, default=12)
@@ -220,6 +262,8 @@ def main() -> None:
     c.add_argument("b")
     args = p.parse_args()
 
+    if args.mode == "validator":
+        return validator(args.result, args.sample)
     if args.mode == "eligibility":
         return eligibility(args.chroma_copy)
     if args.mode == "report":

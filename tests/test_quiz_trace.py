@@ -85,7 +85,13 @@ def corpus():
             yield q, opts, answer, in_ar
 
 
-def test_refactored_strict_decision_matches_the_old_rules_everywhere():
+@pytest.fixture()
+def legacy_rules_only(monkeypatch):
+    """These two tests pin the V1 decision; the answerability rules (tests/test_quiz_answerability.py) are additional."""
+    monkeypatch.setattr(qs.settings, "quiz_answerability_rules", False)
+
+
+def test_refactored_strict_decision_matches_the_old_rules_everywhere(legacy_rules_only):
     cases = list(corpus())
     assert len(cases) > 500
     for q, opts, ans, in_ar in cases:
@@ -93,7 +99,7 @@ def test_refactored_strict_decision_matches_the_old_rules_everywhere():
         assert (qs.reject_reason(q, opts, ans, in_ar) is None) == old_valid_item(q, opts, ans, in_ar)
 
 
-def test_refactored_relaxed_decision_matches_the_old_rules_everywhere():
+def test_refactored_relaxed_decision_matches_the_old_rules_everywhere(legacy_rules_only):
     for q, opts, ans, _ in corpus():
         assert (qs.relaxed_reject_reason(q, opts, ans) is None) == old_relaxed_ok(q, opts, ans), (q, opts, ans)
 

@@ -402,6 +402,97 @@ _CONTENT_NOUN_RE = re.compile(
 )
 
 
+# --- self-contained questions ----------------------------------------------------------------------
+#
+# The student sees the question and four options, never the slide. "What is the concept being
+# demonstrated?" and "هذا الفكرة هي" ("this idea is") cannot be answered by someone who has read the
+# course, whichever option is marked. These rules (no model call) reject a question that hinges on
+# something that is not in its text. They err towards NOT rejecting: "Which of the following ..." is
+# fine because the options follow, and "in the context of linear regression" is a topic, not a pointer.
+
+REASON_MISSING_CONTEXT = "depends_on_missing_context"
+REASON_NO_QUESTION_FORM = "no_question_form"
+REASON_TOO_FEW_WORDS = "question_too_few_words"
+REASON_DEMONSTRATIVE_AGREEMENT = "demonstrative_agreement"
+
+MIN_QUESTION_WORDS = 3
+MIN_QUESTION_CHARS = 10
+
+_ARABIC_MARKS_RE = re.compile(r"[ً-ٰٟـ]")
+
+_EN_MISSING_CONTEXT_RE = re.compile(
+    # "what is this?", "what does it mean?": the question is only a pointer
+    r"^\W*(?:what|which|who)?\s*(?:is|are|does|do)?\s*(?:this|that|these|those|it)\b(?:\W+\w+){0,3}\W*$"
+    # a demonstrative in front of something that lives on the slide
+    r"|\b(?:this|that|these|those)\s+(?:idea|concept|term|slide|page|diagram|figure|picture|image|chart|graph"
+    r"|plot|table|code|snippet|passage|text|excerpt|equation|formula|expression|example|illustration|visual"
+    r"|screenshot|logo|symbol|notation|cell|column|row)s?\b"
+    # "the following table" (singular: "which of the following formulas" is a normal MCQ)
+    r"|\bthe\s+(?:following|given|above|below|previous|preceding)\s+(?:idea|concept|term|slide|page|diagram|figure"
+    r"|picture|image|chart|graph|plot|table|data|dataset|code|snippet|passage|text|excerpt|equation|formula"
+    r"|expression|example|illustration|screenshot)\b"
+    r"|\b(?:is|are|was|were|being)\s+(?:\w+ly\s+)?(?:shown|demonstrated|illustrated|depicted|displayed)\b"
+    r"|\bin\s+this\s+(?:context|case|scenario|situation|lecture|chapter|section|setting)\b"
+    r"|\b(?:used|shown|given|mentioned|described|referred\s+to)\s+here\b"
+    r"|\bin\s+the\s+(?:table|example|text|passage|code|snippet)\b"
+    r"|\beach\s+cell\b|\bcode\s+snippet\b",
+    re.IGNORECASE,
+)
+_AR_DEMONSTRATIVES = "هذا|هذه|هذي|ذلك|تلك|هؤلاء|هذان|هاتان"
+_AR_MISSING_CONTEXT_RE = re.compile(
+    # "ما هذا؟", "هذا الفكرة هي": starts with a demonstrative (optionally after ما/ماذا/ما هو)
+    rf"^\W*(?:و)?(?:ما|ماذا)?\s*(?:هو|هي)?\s*(?:{_AR_DEMONSTRATIVES})\b"
+    # a demonstrative in front of something that lives on the slide
+    rf"|\b(?:{_AR_DEMONSTRATIVES})\s+(?:ال)?(?:فكرة|فكره|مفهوم|مصطلح|شكل|صورة|صوره|رسم|مخطط|جدول|شريحة|شريحه"
+    r"|تمثيل|كود|شفرة|نص|فقرة|مثال|صيغة|صيغه|معادلة|معادله|جملة|جمله|عبارة|عباره|مكونات|رمز|عمود|خلية)"
+    # "the table mentioned", "in the table"
+    r"|\bفي\s+(?:ال)?(?:جدول|نص|مثال|فقرة|فقره|كود|شفرة)\b"
+    r"|(?:المذكور|المذكورة|المعروض|المعروضة|الموضح|الموضحة|المعطى|المعطاة)\s+(?:في\s+(?:ال)?(?:جدول|شكل|صورة|صوره"
+    r"|نص|مثال|فقرة|فقره|رسم|مخطط|كود)|أعلاه|اعلاه|أدناه|ادناه)"
+    # "used here", "in this context"
+    r"|\b(?:المستخدم|المستخدمة|المذكور|المذكورة|الموضح|الموضحة)\s+هنا\b"
+    rf"|\bفي\s+(?:{_AR_DEMONSTRATIVES})\s+(?:السياق|الحالة|المثال|الدرس|الفصل)\b",
+)
+# Masculine "هذا" before a noun in -ة ("هذا الفكرة"): -ة nouns are feminine, so this is wrong Arabic.
+# Only this direction is checked; feminine "هذه" before a masculine noun is common (broken plurals).
+_AR_AGREEMENT_RE = re.compile(r"\bهذا\s+(?:ال)?[ء-ي]{3,}ة\b")
+
+# Question form. Interrogatives that cannot be mistaken for something else count anywhere; words that are
+# also ordinary words in a statement ("is", "من" = from, "بين" = between) and imperatives count only at the start.
+_EN_QUESTION_FORM_RE = re.compile(
+    r"\b(?:what|which|who|whom|whose|when|where|why|how)\b"
+    r"|^\W*(?:and\s+|so\s+)?(?:is|are|was|were|does|do|did|can|could|should|would|will|has|have|"
+    r"identify|select|choose|name|define|explain|describe|state|list|complete|find|calculate|compute|determine|"
+    r"give|write|compare|differentiate|distinguish)\b",
+    re.IGNORECASE,
+)
+_AR_QUESTION_FORM_RE = re.compile(
+    r"(?:^|\s)(?:و|ف)?(?:ما|ماذا|متى|أين|اين|كيف|لماذا|هل|أي|اي|كم|أيها|ايها)(?:\s|$)"
+    r"|^\W*(?:و|ف)?(?:من|لم|عرف|عرّف|اذكر|اشرح|حدد|اختر|وضح|صف|قارن|أكمل|اكمل|احسب|ميز|بين)(?:\s|$)"
+)
+_BLANK_RE = re.compile(r"_{2,}|\.{3,}|…|\(\s*\)")
+
+
+def answerability_reason(question: str, in_arabic: bool) -> str | None:
+    """Why `question` cannot stand on its own, or None. Rules only; see the comment above."""
+    text = unicodedata.normalize("NFKC", str(question or ""))
+    text = _ARABIC_MARKS_RE.sub("", text).strip()
+    if len(text) < MIN_QUESTION_CHARS or len(text.split()) < MIN_QUESTION_WORDS:
+        return REASON_TOO_FEW_WORDS
+    if in_arabic:
+        if _AR_MISSING_CONTEXT_RE.search(text):
+            return REASON_MISSING_CONTEXT
+        if _AR_AGREEMENT_RE.search(text):
+            return REASON_DEMONSTRATIVE_AGREEMENT
+    elif _EN_MISSING_CONTEXT_RE.search(text):
+        return REASON_MISSING_CONTEXT
+    if "?" in text or "؟" in text or _BLANK_RE.search(text):
+        return None
+    if (_AR_QUESTION_FORM_RE if in_arabic else _EN_QUESTION_FORM_RE).search(text):
+        return None
+    return REASON_NO_QUESTION_FORM
+
+
 def references_unseen_source(text: str) -> bool:
     """True if the question points at material the student cannot see."""
     return bool(_DEIXIS_RE.search(str(text or "")))
@@ -516,6 +607,10 @@ def reject_reason(
         return REASON_ANSWER_MISSING
     if references_unseen_source(question):
         return REASON_FIGURE
+    if settings.quiz_answerability_rules:
+        problem = answerability_reason(question, in_arabic)
+        if problem is not None:
+            return problem
     if in_arabic:
         for text in (question, *options, answer):
             problem = arabic_violation(text)
@@ -547,6 +642,8 @@ def relaxed_reject_reason(question: str, options: list[str], answer: str) -> str
         return REASON_ANSWER_MISSING
     if references_unseen_source(question):
         return REASON_FIGURE
+    if settings.quiz_answerability_rules:
+        return answerability_reason(question, True)
     return None
 
 

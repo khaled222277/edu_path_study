@@ -85,6 +85,9 @@ class Settings(BaseSettings):
     quiz_min_alpha_share: float = Field(default=0.5, ge=0.0, le=1.0)
     # Skip slides that are only an agenda, references, "thank you" or "questions?".
     quiz_skip_boilerplate_slides: bool = True
+    # Reject questions that cannot stand on their own ("this idea is", "what is shown in the table",
+    # no question form). Rules only, no extra model call; rejected items are retried like any other.
+    quiz_answerability_rules: bool = True
 
     # --- Retrieval ---
     # Which cross-encoder reorders the vector candidates. "flashrank" is the small ONNX
