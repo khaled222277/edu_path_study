@@ -1,0 +1,1119 @@
+{
+ "meta": {
+  "label": "before",
+  "seeds": [
+   41,
+   42,
+   43
+  ],
+  "model": "llama3.1:8b"
+ },
+ "summary": {
+  "ar": {
+   "answers": 57,
+   "answers_with_leak": 4,
+   "answer_rate": 0.07017543859649122,
+   "char_rate": 0.0022593196937366637,
+   "by_script": {
+    "Cyrillic": 36
+   },
+   "by_seed": {
+    "41": 1,
+    "42": 1,
+    "43": 2
+   }
+  },
+  "en": {
+   "answers": 39,
+   "answers_with_leak": 0,
+   "answer_rate": 0.0,
+   "char_rate": 0.0,
+   "by_script": {},
+   "by_seed": {
+    "41": 0,
+    "42": 0,
+    "43": 0
+   }
+  },
+  "all": {
+   "answers": 96,
+   "answers_with_leak": 4,
+   "answer_rate": 0.041666666666666664,
+   "char_rate": 0.0012457609523150392,
+   "by_script": {
+    "Cyrillic": 36
+   },
+   "by_seed": {
+    "41": 1,
+    "42": 1,
+    "43": 2
+   }
+  }
+ },
+ "rows": [
+  {
+   "id": "e01",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 1105,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10].\n\nNote that the KDD process is also described as an iterative sequence of steps in [kdd_lec01_Introduction.pdf, page 9], but the above list provides the specific steps mentioned in the lecture."
+  },
+  {
+   "id": "e02",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 71,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The context does not mention the four types of attributes in a dataset."
+  },
+  {
+   "id": "e03",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 251,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Min-max normalization transforms a value by computing:\n\n          𝐯𝐢\n′ =\n𝐯𝐢−𝐦𝐢𝐧𝐀\n𝐦𝐚𝐱𝐀−𝐦𝐢𝐧𝐀new_𝐦𝐚𝐱𝐀−new_𝐦𝐢𝐧𝐀+ new_𝐦𝐢𝐧𝐀\n\nwhere minA and maxA are the minimum and maximum values of the attribute A, respectively [kdd_lec03_data_preprocessing.pdf, page 42]."
+  },
+  {
+   "id": "e04",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 217,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Z-score normalization is useful when the actual minimum and maximum of a numeric attribute A are unknown, or when there are outliers that dominate the min-max normalization [kdd_lec03_data_preprocessing.pdf, page 43]."
+  },
+  {
+   "id": "e05",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 148,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Binning smooths noisy data by replacing each data value with the mean, median, or boundaries of its bin [kdd_lec03_data_preprocessing.pdf, page 19]."
+  },
+  {
+   "id": "e06",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 383,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The lift of an association rule tells you the degree of positive correlation between the items in the rule, indicating that the occurrence of one item implies the occurrence of the other. If the lift value is greater than 1, it means that the items are positively correlated, and if it's less than 1, it means they are negatively correlated [kdd_lec04_association_rule.pdf, page 47]."
+  },
+  {
+   "id": "e07",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 140,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "A strong association rule is a rule that satisfies both a minimum support threshold (min_sup) and a minimum confidence threshold (min_conf)."
+  },
+  {
+   "id": "e08",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 407,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance, representing the impurity of the data [kdd_lec06_classifacation_1.pdf, page 21]."
+  },
+  {
+   "id": "e09",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 869,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly defined in the provided context, but implied to be the complement of TP and TN)\n\nNote that the context does not explicitly define FN, but based on the definitions of TP and TN, it can be inferred that FN refers to # false negatives (#positive tuples that were incorrectly labeled as negative)."
+  },
+  {
+   "id": "e10",
+   "lang": "en",
+   "kind": "broad",
+   "seed": 41,
+   "chars": 370,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Ensemble methods for classification are a technique to improve the accuracy of a model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, which is a combination of k learned models, 𝑀1, 𝑀2, … . , 𝑀𝑘. The ensemble method tends to be more accurate than its base classifiers [kdd_lec08_classifacation_3.pdf, page 24]."
+  },
+  {
+   "id": "e13",
+   "lang": "en",
+   "kind": "figure",
+   "seed": 41,
+   "chars": 231,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The diagram of under-fitting, balanced and over-fitting models shows model fitting scenarios in machine learning: underfitting (poor fit), balanced (optimal fit), and overfitting (excessive fit) [kdd_lec05_regression.pdf, page 49]."
+  },
+  {
+   "id": "e14",
+   "lang": "en",
+   "kind": "figure",
+   "seed": 41,
+   "chars": 220,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The diagram of the Apriori algorithm illustrates the sequential steps of the algorithm, including the generation and pruning of candidate itemsets during frequent itemset mining [kdd_lec04_association_rule.pdf, page 39]."
+  },
+  {
+   "id": "e16",
+   "lang": "en",
+   "kind": "out_of_scope",
+   "seed": 41,
+   "chars": 93,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The material does not contain information about the winner of the football World Cup in 2018."
+  },
+  {
+   "id": "a01",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 423,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "خطوات عملية اكتشاف المعرفة من قواعد البيانات (KDD) هي:\n1. تعريف المشكلة: تحديد المشكلة التي تريد حلها.\n2. جمع البيانات: جمع البيانات المتعلقة بالمشكلة.\n3. تحليل البيانات: تحليل البيانات لتحديد العلاقات بين المتغيرات.\n4. استخراج المعرفة: استخراج المعرفة من البيانات.\n5. تقييم المعرفة: تقييم المعرفة المستخرجة لتحديد مدى صحتها.\n6. إعادة التوجيه: إعادة التوجيه للمشكلة الأصلية لتحديد ما إذا كانت المعرفة المستخرجة تفي بالحاجة."
+  },
+  {
+   "id": "a02",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 228,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الخصائص الأربعة في البيانات هي:\n- الاسمية (Nominal) [kdd_lec02_data.pdf, page 9]\n- الترتيبية (Ordinal) [kdd_lec02_data.pdf, page 9]\n- الفاصلة (Interval) [kdd_lec02_data.pdf, page 9]\n- النسبية (Ratio) [kdd_lec02_data.pdf, page 9]"
+  },
+  {
+   "id": "a03",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 721,
+   "disallowed": 6,
+   "scripts": {
+    "Cyrillic": 6
+   },
+   "streamed_equals_stored": false,
+   "answer": "تعمل عملية التطبيع بطريقة الحد الأدنى والحد الأقصى (min-max) على تحويل قيمة معينة من الأтрибут إلى قيمة جديدة في مدى محدد بين الحد الأدنى والحد الأقصى للقيمة الأصلية. يتم الحصول على القيمة المجددة من خلال الحساب التالي:\n\n𝐯𝐢′ = (𝐯𝐢 − 𝐦𝐢𝐧𝐀) / (𝐦𝐚𝐱𝐀 − 𝐦𝐢𝐧𝐀) × (new_maxA − new_minA) + new_minA\n\nحيث:\n\n* 𝐯𝐢 هي القيمة الأصلية للقيمة.\n* 𝐦𝐢𝐧𝐀 و𝐦𝐚𝐱𝐀 هما الحد الأدنى والحد الأقصى للقيمة الأصلية.\n* new_minA وnew_maxA هما الحد الأدنى والحد الأقصى للقيمة الجديدة.\n\nمثال: إذا كانت القيمة الأصلية هي $73,600 وحد الأدنى والحد الأقصى للقيمة الأصلية هما $12,000 و$98,000، respectively، وحد الأدنى والحد الأقصى للقيمة الجديدة هما 0.0 و1.0، respectively، فإن القيمة الجديدة هي:\n\n73,600 − 12,000 / 98,000 − 12,000 × (1.0 − 0.0) + 0.0 = 0.716"
+  },
+  {
+   "id": "a04",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 225,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "يستخدم التطبيع بالدرجة المعيارية (z-score) عندما يكون الحد الأدنى والحد الأعلى الفعليين لمتغير رقمي ما غير معروفين، أو عندما يكون هناك قيم خارجية تؤثر على الحد الأدنى والحد الأعلى.\n\n[kdd_lec03_data_preprocessing.pdf, page 43]"
+  },
+  {
+   "id": "a05",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 281,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "يمكن معالجة القيم الناقصة في البيانات عن طريق استخدام أحد الطرق التالية:\n- تعيين قيمة ثابتة عالمية مثل \"غير معروف\".\n- استخدام قياس المركزية مثل المتوسط أو الوسط أو النمط.\n- استخدام قياس المركزية للعينة بأكملها.\n- تحديد القيمة الأكثر احتمالاً باستخدام تقنيات مثل الانحدار أو القرار."
+  },
+  {
+   "id": "a06",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 292,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الخاصية الأبريوري (Apriori) هي خاصية تقول إن إذا كان هناك مجموعة من العناصر (مثل {A, B, C}) وكل عنصر من هذه المجموعة يظهر بمفرده في المجموعة المتكررة (مثل L3)، فإن المجموعة نفسها (مثل {A, B, C}) يجب أن تكون موجودة في المجموعة المتكررة (مثل L3) أيضًا [kdd_lec04_association_rule.pdf, page 37]."
+  },
+  {
+   "id": "a07",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 490,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الإنتروبيا هي مقياس لطاهة البيانات، وتُحسب باستخدام الصيغة: \\(Entropy(S) = - \\sum_{i=1}^{m} p_i \\log_2 p_i\\), حيث \\(p_i\\) هي احتمال كل فئة من الفئات الموجودة في dataset \\(S\\).\n\nكما يُظهر الشكل الموجود في الصفحة 22 من المادة التعليمية [kdd_lec06_classifacation_1.pdf], الإنتروبيا هي الفرق بين الإنتروبيا قبل القسمة (Entropy(S)) والوزن الموزع للإنتروبيا بعد القسمة على الخاصية A ( \\(\\sum_{v \\in Values(A)} \\frac{|S_v|}{|S|} Entropy(S_v)\\) ).\n\nالمصدر: [kdd_lec06_classifacation_1.pdf, page 22]"
+  },
+  {
+   "id": "a08",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 497,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج مع البيانات التدريبية بدرجة كبيرة، مما يؤدي إلى انخفاض نسبة الخطأ التدريبي (training error) ولكن يؤدي إلى زيادة نسبة الخطأ على البيانات التي لم تُدرّب عليها (test error).\n\nللتجنب من الإفراط في التكيّف، يجب أن نبحث عن النموذج الذي يتوازن بين انخفاض نسبة الخطأ التدريبي و انخفاض نسبة الخطأ على البيانات التي لم تُدرّب عليها. هذا يمكن أن يتم عن طريق استخدام تقنيات مثل تقنيات التأثير (regularization) أو تقنيات تحديد البحوث (cross-validation)."
+  },
+  {
+   "id": "a09",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 315,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "التجميع (bagging) و التعزيز (boosting) هما تقنيات لإنشاء نماذج مجمعة (ensemble models) لتحسين دقة التصنيف. الفرق بينهما هو أن التجميع يوزع الوزن على كل نماذج التصنيف بنفس القدر، بينما يوزع التعزيز الوزن على كل نماذج التصنيف بناءً على أدائها، مما يزيد من دقة النموذج المجمعة ولكن يزيد أيضًا من خطر الفساد في النموذج."
+  },
+  {
+   "id": "a10",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 219,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "تعمل خوارزمية k-means على تقسيم البيانات إلى مجموعات (clusters) من حيث تشابهها، وتستخدم هذه الخوارزمية في تحديد مركزي كل مجموعة (centroid) الذي يعتبر المرجع للبيانات في المجموعة. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "a11",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 229,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "مصفوفة الارتباك (confusion matrix) هي أداة مفيدة لتحليل كيفية أداء محدد الفصل . [kdd_lec08_classifacation_3.pdf, page 6] تعرف على أنها مصفوفة بناءً على مجموعة الاختبار ومخزونات محدد الفصل. [kdd_lec08_classifacation_3.pdf, page 6]"
+  },
+  {
+   "id": "a12",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 245,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "تعمل خوارزمية الجار الأقرب (kNN) على حساب المسافة بين instance جديدة غير معروفة و instances في المجموعة التدريبية، ثم تحديد class label للinstance الجديدة بناءً على class labels للk instances الأقرب لها. [kdd_lec07_classifacation_2.pdf, page 25]"
+  },
+  {
+   "id": "a13",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 41,
+   "chars": 118,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "يُعتمد مصنّف بايز البسيط على افتراض independance conditionnelle بين الأبعاد [kdd_lec07_classifacation_2.pdf, page 21]."
+  },
+  {
+   "id": "a14",
+   "lang": "ar",
+   "kind": "broad",
+   "seed": 41,
+   "chars": 192,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تكامل البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation)"
+  },
+  {
+   "id": "a15",
+   "lang": "ar",
+   "kind": "broad",
+   "seed": 41,
+   "chars": 403,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "تُقسم مهام التنقيب في البيانات إلى نوعين رئيسيين: مهام التنبؤية (predictive tasks) ومهام الوصفية (descriptive tasks).\n\nمهام التنبؤية: تشمل التنبؤ بالقيمة الخاصة بمعينة خاصية بناءً على قيم أخرى. وتشمل هذه المهام التصنيف والتنبؤ والتشخيص.\n\nمهام الوصفية: تشمل استخراج الأنماط التي تلخص أو تشارك خواص البيانات في المجموعة الهدف. وتشمل هذه المهام اكتشاف القواعد الارتباطية واكتشاف الأنماط المتتالية والتشكيل."
+  },
+  {
+   "id": "a22",
+   "lang": "ar",
+   "kind": "figure",
+   "seed": 41,
+   "chars": 66,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "لا يوجد وصف للشكل الخاص بخطوات خوارزمية k-means في المادة المقدمة."
+  },
+  {
+   "id": "a23",
+   "lang": "ar",
+   "kind": "figure",
+   "seed": 41,
+   "chars": 232,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "توضح الرسوم عن النموذج ناقص التكيّف والنموذج المفرط التكيّف أن النموذج الناقص التكيّف يتعامل مع البيانات بطريقة بسيطة جدًا، بينما يتعامل النموذج المفرط التكيّف مع البيانات بطريقة معقدة جدًا [kdd_lec06_classifacation_1.pdf, page 33]."
+  },
+  {
+   "id": "a24",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "seed": 41,
+   "chars": 49,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "لا يوجد ذكر لاسم عاصمة اليابان في المادة المقدمة."
+  },
+  {
+   "id": "a26",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "seed": 41,
+   "chars": 43,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "لا يوجد معلومات في المادة حول مخترع الهاتف."
+  },
+  {
+   "id": "e01",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 599,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The steps of the KDD process are:\n\n1. Data Cleaning: [kdd_lec01_Introduction.pdf, page 10]\n2. Data Integration: [kdd_lec01_Introduction.pdf, page 10]\n3. Data selection: [kdd_lec01_Introduction.pdf, page 10]\n4. Data transformation: [kdd_lec01_Introduction.pdf, page 10]\n5. Data Mining: [kdd_lec01_Introduction.pdf, page 10]\n6. Evaluation: [kdd_lec01_Introduction.pdf, page 10]\n7. Knowledge presentation: [kdd_lec01_Introduction.pdf, page 10]\n\nNote that the lecture text on page 9 provides a brief overview of the KDD process as an iterative sequence of steps, but it does not list the specific steps."
+  },
+  {
+   "id": "e02",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 80,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The lecture material does not mention the four types of attributes in a dataset."
+  },
+  {
+   "id": "e03",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 368,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Min-max normalization transforms a value, vi, of a numeric attribute A by computing:\n\nvi′ = (vi - minA) / (maxA - minA) * (new_maxA - new_minA) + new_minA\n\nwhere minA and maxA are the minimum and maximum values of attribute A, and new_minA and new_maxA are the desired minimum and maximum values of the normalized attribute. [kdd_lec03_data_preprocessing.pdf, page 42]"
+  },
+  {
+   "id": "e04",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 217,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Z-score normalization is useful when the actual minimum and maximum of a numeric attribute A are unknown, or when there are outliers that dominate the min-max normalization [kdd_lec03_data_preprocessing.pdf, page 43]."
+  },
+  {
+   "id": "e05",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 192,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Binning smooths noisy data by replacing each data value with a representative value of its bin, such as the bin mean, bin median, or bin boundaries [kdd_lec03_data_preprocessing.pdf, page 19]."
+  },
+  {
+   "id": "e06",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 269,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The lift of an association rule tells you the degree of positive correlation between the items in the rule. If the resulting value is greater than 1, it means that the occurrence of one item implies the occurrence of the other [kdd_lec04_association_rule.pdf, page 47]."
+  },
+  {
+   "id": "e07",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 140,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "A strong association rule is a rule that satisfies both a minimum support threshold (min_sup) and a minimum confidence threshold (min_conf)."
+  },
+  {
+   "id": "e08",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 461,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21]. It represents the impurity or uncertainty in the data, and it comes from information theory."
+  },
+  {
+   "id": "e09",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 900,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly defined in the provided context, but implied as the remaining category)\n\nHowever, since FN is not explicitly defined in the provided context, I will provide the correct answer based on the given information.\n\nTP, TN, FP, and FN are the four \"building blocks\" used in computing many evaluation measures in a confusion matrix."
+  },
+  {
+   "id": "e10",
+   "lang": "en",
+   "kind": "broad",
+   "seed": 42,
+   "chars": 519,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Ensemble methods for classification are a technique to improve the accuracy of a classification model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, which is a combination of k learned models, M1, M2, ..., Mk, each trained on a different subset of the data, D1, D2, ..., Dk [kdd_lec08_classifacation_3.pdf, page 24]. The ensemble model returns a class prediction based on the votes of the individual base classifiers [kdd_lec08_classifacation_3.pdf, page 31]."
+  },
+  {
+   "id": "e13",
+   "lang": "en",
+   "kind": "figure",
+   "seed": 42,
+   "chars": 180,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The diagram shows model fitting scenarios in machine learning: underfitting (poor fit), balanced (optimal fit), and overfitting (excessive fit) [kdd_lec05_regression.pdf, page 49]."
+  },
+  {
+   "id": "e14",
+   "lang": "en",
+   "kind": "figure",
+   "seed": 42,
+   "chars": 220,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The diagram of the Apriori algorithm illustrates the sequential steps of the algorithm, including the generation and pruning of candidate itemsets during frequent itemset mining [kdd_lec04_association_rule.pdf, page 39]."
+  },
+  {
+   "id": "e16",
+   "lang": "en",
+   "kind": "out_of_scope",
+   "seed": 42,
+   "chars": 74,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The context does not mention the winner of the football World Cup in 2018."
+  },
+  {
+   "id": "a01",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 467,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "خطوات عملية اكتشاف المعرفة من قواعد البيانات (KDD) هي:\n1- تعريف المشكلة: تحديد المشكلة التي تريد حلها.\n2- جمع البيانات: جمع البيانات المتعلقة بالمشكلة.\n3- تحليل البيانات: تحليل البيانات لتحديد العلاقات بين المتغيرات.\n4- تعريف النموذج: تعريف النموذج الذي سيستخدم لوصف البيانات.\n5- تدريب النموذج: تدريب النموذج على البيانات.\n6- تقييم النموذج: تقييم أداء النموذج.\n7- إعادة تدريب النموذج: إعادة تدريب النموذج إذا لزم الأمر.\n8- تقديم النتائج: تقديم النتائج إلى المستخدمين."
+  },
+  {
+   "id": "a02",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 219,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الخصائص الأربعة في البيانات هي:\n- الخصائص النوعية (Nominal)\n- الخصائص النوعية المترتبة (Ordinal)\n- الخصائص النوعية المترتبة على الفرق (Interval)\n- الخصائص النوعية المترتبة على النسبة (Ratio) [kdd_lec02_data.pdf, page 9]"
+  },
+  {
+   "id": "a03",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 544,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "تعمل عملية التطبيع بطريقة الحد الأدنى والحد الأقصى (min-max) على تحويل قيمة معينة في الميزة إلى قيمة جديدة في مدى محدد، حسب الصيغة التالية:\n\n𝐯𝐢′ = (𝐯𝐢 − 𝐦𝐢𝐧𝐀) / (𝐦𝐚𝐱𝐀 − 𝐦𝐢𝐧𝐀) × (new_maxA − new_minA) + new_minA\n\nحيث:\n- 𝐯𝐢 هي القيمة الأصلية للميزة A.\n- 𝐦𝐢𝐧𝐀 و𝐦𝐚𝐱𝐀 هما الحد الأدنى والحد الأقصى للميزة A.\n- new_minA وnew_maxA هما الحد الأدنى والحد الأقصى للمدى الجديد.\n\nمثال: إذا كان الحد الأدنى والحد الأقصى للجملة (income) هما $12,000 و$98,000 على التوالي، وتريد التطبيع إلى مدى [0.0, 1.0]، فإن قيمة $73,600 للجملة (income) يتم تحويلها إلى 0.716."
+  },
+  {
+   "id": "a04",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 234,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "يستخدم التطبيع بالدرجة المعيارية (z-score) عندما يكون الحد الأدنى والحد الأعلى الفعليين لمتغير رقمي ما غير معروفين، أو عندما يكون هناك قيم خارجية تؤثر على التطبيع بالحد الأدنى والحد الأعلى.\n\n[kdd_lec03_data_preprocessing.pdf, page 43]"
+  },
+  {
+   "id": "a05",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 308,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "يمكن معالجة القيم الناقصة في البيانات عن طريق استخدام أحد الطرق التالية:\n- إضافة قيمة ثابتة عالمية مثل \"غير معروف\".\n- استخدام قياس المركزية مثل المتوسط أو الوسيط أو النمط.\n- استخدام قياس المركزية للجميع عينات تعود إلى نفس الفئة.\n- تحديد القيمة الأكثر احتمالا باستخدام تقنيات مثل الانحدار أو الخريطة القرارية."
+  },
+  {
+   "id": "a06",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 292,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الخاصية الأبريوري (Apriori) هي خاصية تقول إن إذا كان هناك مجموعة من العناصر (مثل {I1, I2, I3}) وجميع أجزاء هذه المجموعة (مثل {I1, I2}, {I1, I3}, {I2, I3}) موجودة في قاعدة البيانات، فإن المجموعة نفسها (مثل {I1, I2, I3}) موجودة أيضًا في قاعدة البيانات. [kdd_lec04_association_rule.pdf, page 37]"
+  },
+  {
+   "id": "a07",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 341,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الإنتروبيا هي قياس لطلاقة البيانات أو نقصانها. [kdd_lec06_classifacation_1.pdf, page 22]\n\nتُحسب الإنتروبيا باستخدام الصيغة: Entropy(S) = - ∑ (p(x) * log2(p(x))) [kdd_lec06_classifacation_1.pdf, page 22]\n\nحيث p(x) هي احتمال كل فئة من الفئات. [kdd_lec06_classifacation_1.pdf, page 22]\n\nفي حالة البيانات الموجودة في الجدول، الإنتروبيا هي 0.391."
+  },
+  {
+   "id": "a08",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 475,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية ولكن يقلل من دقته على البيانات التي لم تكن معروفة له سابقًا.\n\n\n\nللتجنب من الإفراط في التكيّف، يجب أن نضمن أن نموذجنا يلائم البيانات التدريبية جيدًا (يقلل من خطأ التدريب) ولكن أيضًا يتصرف بشكل صحيح على البيانات التي لم تكن معروفة له سابقًا (يقلل من خطأ الاختبار). يمكننا تحقيق ذلك عن طريق تجنب زيادة تعقيد نموذجنا أكثر من اللازم."
+  },
+  {
+   "id": "a09",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 189,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "التجميع (bagging) يعتمد على تكرار عملية التدريب على نفس المجموعة التدريبية، بينما يعمل التعزيز (boosting) على تخصيص وزن للكلاسفاير (classifier) بناءً على أدائه في كل رunde من راوند التمرين."
+  },
+  {
+   "id": "a10",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 273,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "تعمل خوارزمية k-means على تقسيم البيانات إلى مجموعات (clusters) منفصلة، حيث يتم تعيين مركز لكل مجموعة (cluster center) وتمثيلها بالعديد من البيانات. يتم تحديد مركز كل مجموعة من خلال حساب متوسط القيم للخصائص (attributes) في المجموعة. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "a11",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 678,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "مصفوفة الارتباك (confusion matrix) هي أداة مفيدة لتحليل كيفية أداء محدد تصنيفي في تحديد كيفية تصنيفه للبيانات. [kdd_lec08_classifacation_3.pdf, page 6] \n\nهي مصفوفة بناءً على مجموعة الاختبار ومخرجات محدد تصنيفي. [kdd_lec08_classifacation_3.pdf, page 6] \n\nتتكون من أربع عناصر أساسية: \n✓TP: عدد الإيجابيات الصحيحة (عدد التجمعات الإيجابية التي تم تصنيفها بشكل صحيح من قبل محدد تصنيفي).\n✓TN: عدد اللا إيجابيات الصحيحة (عدد التجمعات التي تم تصنيفها بشكل صحيح من قبل محدد تصنيفي).\n✓FP: عدد اللا إيجابيات الخاطئة (عدد التجمعات التي تم تصنيفها بشكل خاطئ كإيجابية).\n✓FN: عدد الإيجابيات الخاطئة (عدد التجمعات التي تم تصنيفها بشكل خاطئ كلا إيجابية). [kdd_lec08_classifacation_3.pdf, page 6]"
+  },
+  {
+   "id": "a12",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 242,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "تعمل خوارزمية الجار الأقرب (kNN) على حساب المسافة بين instance جديدة غير معروفة و instances في مجموعة التدريب، ثم تحديد class label للinstance الجديدة بناءً على class labels لل instances القريبة منها. [kdd_lec07_classifacation_2.pdf, page 25]"
+  },
+  {
+   "id": "a13",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 42,
+   "chars": 145,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "يُعتمد مصنّف بايز البسيط على الافتراض بأن هناك استقلال شروط الفئة، أو (class conditional independence) [kdd_lec07_classifacation_2.pdf, page 21]."
+  },
+  {
+   "id": "a14",
+   "lang": "ar",
+   "kind": "broad",
+   "seed": 42,
+   "chars": 191,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تدمج البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation)"
+  },
+  {
+   "id": "a15",
+   "lang": "ar",
+   "kind": "broad",
+   "seed": 42,
+   "chars": 380,
+   "disallowed": 12,
+   "scripts": {
+    "Cyrillic": 12
+   },
+   "streamed_equals_stored": true,
+   "answer": "تُقسم مهام التنقيب في البيانات إلى نوعين رئيسيين: المهام التنبؤية والمهام الوصفية. المهام التنبؤية تشمل التنبؤ بقيمة معينة من الأтрибутات بناءً على قيم الأтрибутات الأخرى، وتشمل التصنيف والتنبؤ والتشخيص. المهام الوصفية تشمل استخراج الأنماط التي توضح خصائص البيانات في المجموعة الهدف، وتشمل اكتشاف القواعد المرتبطة والاكتشاف المتسلسل والترابط. [kdd_lec01_Introduction.pdf, page 22]"
+  },
+  {
+   "id": "a22",
+   "lang": "ar",
+   "kind": "figure",
+   "seed": 42,
+   "chars": 66,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "لا يوجد وصف للشكل الخاص بخطوات خوارزمية k-means في المادة المقدمة."
+  },
+  {
+   "id": "a23",
+   "lang": "ar",
+   "kind": "figure",
+   "seed": 42,
+   "chars": 344,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "تتوضح الرسوم عن النموذج ناقص التكيّف والنموذج المفرط التكيّف من خلال الرسوم التوضيحية في [kdd_lec06_classifacation_1.pdf, page 33]. تعرض الرسوم خطًا يظهر أداء النموذج على بيانات التدريب والبيانات الاختبار، حيث يظهر النموذج المفرط التكيّف عندما يتعامل مع البيانات بشكل مفرط، بينما يظهر النموذج ناقص التكيّف عندما لا يتعامل مع البيانات بشكل كافٍ."
+  },
+  {
+   "id": "a24",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "seed": 42,
+   "chars": 43,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "لا يوجد معلومات في المادة عن عاصمة اليابان."
+  },
+  {
+   "id": "a26",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "seed": 42,
+   "chars": 42,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "لا يوجد معلومات في المادة عن مخترع الهاتف."
+  },
+  {
+   "id": "e01",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 912,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10]."
+  },
+  {
+   "id": "e02",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 80,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The lecture material does not mention the four types of attributes in a dataset."
+  },
+  {
+   "id": "e03",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 239,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Min-max normalization transforms a value, vi, of a numeric attribute A to vi′ in the range [new_minA, new_maxA] by computing: vi′ = (vi - minA) / (maxA - minA) * (new_maxA - new_minA) + new_minA [kdd_lec03_data_preprocessing.pdf, page 42]."
+  },
+  {
+   "id": "e04",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 217,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Z-score normalization is useful when the actual minimum and maximum of a numeric attribute A are unknown, or when there are outliers that dominate the min-max normalization [kdd_lec03_data_preprocessing.pdf, page 43]."
+  },
+  {
+   "id": "e05",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 208,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Binning smooths noisy data by replacing each data value with the mean, median, or boundaries of its bin, effectively reducing the impact of individual noisy values [kdd_lec03_data_preprocessing.pdf, page 19]."
+  },
+  {
+   "id": "e06",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 317,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The lift of an association rule tells you the degree of positive correlation between the items in the rule, indicating that the occurrence of one item implies the occurrence of the other. If the lift value is greater than 1, it means that the items are positively correlated [kdd_lec04_association_rule.pdf, page 47]."
+  },
+  {
+   "id": "e07",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 140,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "A strong association rule is a rule that satisfies both a minimum support threshold (min_sup) and a minimum confidence threshold (min_conf)."
+  },
+  {
+   "id": "e08",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 419,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance. Entropy measures the impurity or randomness in the data, representing the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21]."
+  },
+  {
+   "id": "e09",
+   "lang": "en",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 654,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly mentioned in the provided context, but implied as the complement of TP and TN)"
+  },
+  {
+   "id": "e10",
+   "lang": "en",
+   "kind": "broad",
+   "seed": 43,
+   "chars": 518,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "Ensemble methods for classification are a technique to improve the accuracy of a model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, that combines the predictions of k individual models, M1, M2, ..., Mk, each trained on a different subset of the data, D1, D2, ..., Dk [kdd_lec08_classifacation_3.pdf, page 24]. The ensemble model then uses a voting mechanism to determine the final class prediction for a new tuple [kdd_lec08_classifacation_3.pdf, page 31]."
+  },
+  {
+   "id": "e13",
+   "lang": "en",
+   "kind": "figure",
+   "seed": 43,
+   "chars": 231,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The diagram of under-fitting, balanced and over-fitting models shows model fitting scenarios in machine learning: underfitting (poor fit), balanced (optimal fit), and overfitting (excessive fit) [kdd_lec05_regression.pdf, page 49]."
+  },
+  {
+   "id": "e14",
+   "lang": "en",
+   "kind": "figure",
+   "seed": 43,
+   "chars": 220,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The diagram of the Apriori algorithm illustrates the sequential steps of the algorithm, including the generation and pruning of candidate itemsets during frequent itemset mining [kdd_lec04_association_rule.pdf, page 39]."
+  },
+  {
+   "id": "e16",
+   "lang": "en",
+   "kind": "out_of_scope",
+   "seed": 43,
+   "chars": 85,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "The context does not mention the football World Cup or any information related to it."
+  },
+  {
+   "id": "a01",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 298,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "خطوات عملية اكتشاف المعرفة من قواعد البيانات (KDD) هي:\n1. تعريف المشكلة: تحديد المشكلة التي تريد حلها.\n2. جمع البيانات: جمع البيانات المتعلقة بالمشكلة.\n3. تحليل البيانات: تحليل البيانات لتحديد النتائج.\n4. استخراج المعرفة: استخراج المعرفة من البيانات.\n5. تقديم النتائج: تقديم النتائج إلى المستخدمين."
+  },
+  {
+   "id": "a02",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 228,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الخصائص الأربعة في البيانات هي:\n- الاسمية (Nominal) [kdd_lec02_data.pdf, page 9]\n- الترتيبية (Ordinal) [kdd_lec02_data.pdf, page 9]\n- الفاصلة (Interval) [kdd_lec02_data.pdf, page 9]\n- النسبية (Ratio) [kdd_lec02_data.pdf, page 9]"
+  },
+  {
+   "id": "a03",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 603,
+   "disallowed": 6,
+   "scripts": {
+    "Cyrillic": 6
+   },
+   "streamed_equals_stored": false,
+   "answer": "تعمل عملية التطبيع بطريقة الحد الأدنى والحد الأقصى (min-max) على تحويل قيمة معينة من الأтрибут إلى قيمة جديدة في نطاق محدد، من خلال الحساب التالي:\n\n𝐯𝐢′ = (𝐯𝐢 − 𝐦𝐢𝐧𝐀) / (𝐦𝐚𝐱𝐀 − 𝐦𝐢𝐧𝐀) × (new_maxA − new_minA) + new_minA\n\nحيث:\n\n* 𝐯𝐢 هي القيمة الأصلية للattribut A\n* 𝐦𝐢𝐧𝐀 هو الحد الأدنى للattribut A\n* 𝐦𝐚𝐱𝐀 هو الحد الأقصى للattribut A\n* new_minA و new_maxA هما الحدود الأدنى والأقصى للنطاق الجديد\n\nمثال: إذا كان الحد الأدنى والحد الأقصى للattribut \"الرقم\" هما 12000 و 98000 على التوالي، وتريد التطبيع إلى نطاق [0.0, 1.0]، فإن قيمة 73600 سوف تتحول إلى:\n\n73600 - 12000 / (98000 - 12000) × (1.0 - 0) + 0 = 0.716"
+  },
+  {
+   "id": "a04",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 222,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "يستخدم التطبيع بالدرجة المعيارية (z-score) عندما يكون الحد الأدنى والحد الأعلى الفعليين لمتغير رقمي غير معروفين، أو عندما يكون هناك قيم خارجية تؤثر على الحد الأدنى والحد الأعلى.\n\n[kdd_lec03_data_preprocessing.pdf, page 43]"
+  },
+  {
+   "id": "a05",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 305,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "يمكن معالجة القيم الناقصة في البيانات عن طريق استخدام أحد الطرق التالية:\n- إضافة قيمة ثابتة عالمية مثل \"مجهول\" أو \"غير معروف\".\n- استخدام قياس المركزية مثل المتوسط أو الوسيط أو النمط.\n- استخدام قياس المركزية للنمط الخاص بالعينة.\n- تحديد القيمة الأكثر احتمالاً باستخدام تقنيات مثل الانحدار أو القرار الشجري."
+  },
+  {
+   "id": "a06",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 243,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الخاصية الأبريوري (Apriori) هي خاصية تقول إن إذا كان هناك مجموعة من العناصر (مثل {A, B, C}) تكون متكررة في البيانات، maka أي مجموعة فرعية من هذه العناصر (مثل {A, B} أو {B, C}) يجب أن تكون متكررة أيضًا. [kdd_lec04_association_rule.pdf, page 37]"
+  },
+  {
+   "id": "a07",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 177,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الإنتروبيا هي قياس لتنوع البيانات وتُحسب باستخدام الصيغة: \\(Entropy(S) = - \\sum_{i=1}^n p_i \\log_2 p_i\\), حيث \\(p_i\\) هي احتمال كل فئة [kdd_lec06_classifacation_1.pdf, page 22]."
+  },
+  {
+   "id": "a08",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 676,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية، لكنه يفشل في التكيف مع البيانات الجديدة التي لم يتم تدريبه عليها. [kdd_lec06_classifacation_1.pdf, page 30]\n\nللتجنب من الإفراط في التكيّف، يجب أن نبحث عن التوازن بين دقة النموذج على البيانات التدريبية (التدريب) و دقة النموذج على البيانات الجديدة التي لم يتم تدريبه عليها (الاختبار). يمكننا استخدام الرسم البياني في [kdd_lec06_classifacation_1.pdf, page 35] لتحديد نقطة الأفضلية (best complexity) حيث يقلل من دقة النموذج على البيانات التدريبية و يقلل من دقة النموذج على البيانات الجديدة. [kdd_lec06_classifacation_1.pdf, page 35]"
+  },
+  {
+   "id": "a09",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 250,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "التجميع (bagging) يعتمد على تجميع النتائج من عدة محددات بشكل متساوٍ، بينما التعزيز (boosting) يعتمد على تعزيز النتائج من خلال زيادة وزن المحددات التي حققت أداءً جيدًا، وخفض وزن المحددات التي حققت أداءً سيئًا. [kdd_lec08_classifacation_3.pdf, page 35]"
+  },
+  {
+   "id": "a10",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 218,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "تعتمد خوارزمية k-means على تحديد مراكز للفرق (clusters) من خلال حساب متوسط القيم للجسميات (objects) في كل فرقة، وتحديد الأفراد الذين ينتمون إلى كل فرقة بناءً على أقرب مركز فرقة. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "a11",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 383,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "مصفوفة الارتباك (confusion matrix) هي أداة مفيدة لتحليل كيفية أداء محدد الفصل . [kdd_lec08_classifacation_3.pdf, page 6] \n\nهي مصفوفة بنيت من مجموعة الاختبار والمخزونات التي predicts من محدد الفصل. [kdd_lec08_classifacation_3.pdf, page 6] \n\nمصفوفة الارتباك هي طريقة لتحليل أداء محدد الفصل من خلال تحليل كيفية تصنيفه للعناصر في مجموعة الاختبار. [kdd_lec08_classifacation_3.pdf, page 7]"
+  },
+  {
+   "id": "a12",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 246,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "تعمل خوارزمية الجار الأقرب (kNN) على حساب المسافة بين instance جديدة غير معروفة و instances في المجموعة التدريبية، ثم تحديد class label للinstance الجديدة بناءً على class labels للneighbors القريبين منها. [kdd_lec07_classifacation_2.pdf, page 25]"
+  },
+  {
+   "id": "a13",
+   "lang": "ar",
+   "kind": "narrow",
+   "seed": 43,
+   "chars": 207,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "الافتراض الذي يقوم عليه مصنّف بايز البسيط (Naive Bayes) هو أن هناك استقلال شرطي بين متغيرات التصنيف، أي أن كل متغير يعتمد فقط على التصنيف و ليس على المتغيرات الأخرى. [kdd_lec07_classifacation_2.pdf, page 21]"
+  },
+  {
+   "id": "a14",
+   "lang": "ar",
+   "kind": "broad",
+   "seed": 43,
+   "chars": 192,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": false,
+   "answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تكامل البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation)"
+  },
+  {
+   "id": "a15",
+   "lang": "ar",
+   "kind": "broad",
+   "seed": 43,
+   "chars": 400,
+   "disallowed": 12,
+   "scripts": {
+    "Cyrillic": 12
+   },
+   "streamed_equals_stored": true,
+   "answer": "تُقسم مهام التنقيب في البيانات إلى نوعين رئيسيين: المهام التنبؤية والمهام الوصفية. المهام التنبؤية تشمل التنبؤ بقيمة معينة من الأтрибутات بناءً على قيم الأтрибутات الأخرى، مثل التصنيف والتنبؤ والتشخيص. بينما المهام الوصفية تشمل استخراج الأنماط التي تلخص أو تشارك في خصائص البيانات في المجموعة المستهدفة، مثل اكتشاف القواعد المرتبطة والاكتشاف المتسلسل والتركيبات. [kdd_lec01_Introduction.pdf, page 22]"
+  },
+  {
+   "id": "a22",
+   "lang": "ar",
+   "kind": "figure",
+   "seed": 43,
+   "chars": 66,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "لا يوجد وصف للشكل الخاص بخطوات خوارزمية k-means في المادة المقدمة."
+  },
+  {
+   "id": "a23",
+   "lang": "ar",
+   "kind": "figure",
+   "seed": 43,
+   "chars": 392,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "توضح الرسوم أن النموذج الناقص التكيّف يحدث عندما يكون التعلم المُستخدم في النموذج بسيطًا جدًا، مما يؤدي إلى أداء سيئ على البيانات التدريبية والبيانات المُختبرة [kdd_lec06_classifacation_1.pdf, page 33]. بينما يحدث النموذج المفرط التكيّف عندما يتعلم النموذج تفاصيل الزيادة العشوائية في البيانات التدريبية، مما يؤدي إلى أداء سيئ على البيانات المُختبرة [kdd_lec06_classifacation_1.pdf, page 33]."
+  },
+  {
+   "id": "a24",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "seed": 43,
+   "chars": 44,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "لا يوجد معلومات في المادة حول عاصمة اليابان."
+  },
+  {
+   "id": "a26",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "seed": 43,
+   "chars": 43,
+   "disallowed": 0,
+   "scripts": {},
+   "streamed_equals_stored": true,
+   "answer": "لا يوجد معلومات في المادة حول مخترع الهاتف."
+  }
+ ]
+}

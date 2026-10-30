@@ -300,3 +300,94 @@ Quiz generation does not use the reranker, so all quiz items come from the basel
   Asking Ollama for a different model makes it swap models in VRAM, which briefly unloads the
   chat model; do it while nobody is using the app. Compare with `compare`, then add the new
   chat files to a fresh `review-sheet` for a blind comparison.
+
+## Chat bugs: "repeat that in Arabic" and foreign characters (branch `fix/chat-transform-and-script-leak`)
+
+Two observed bugs (subject KDD): an Arabic answer with a Chinese character and U+FFFD in it, and
+a follow-up "okay i can't get it could repeat all that in arabic" answered with a logo and a DNA
+figure. All numbers below are from `llama3.1:8b`, temperature 0.2, seeds 41-52 (conversations) or
+41-43 (eval sets), on a throwaway SQLite database and a **copy** of `data/chroma_db`. Raw results:
+`eval/results/chat_bugs/`. Scripts: `scripts/repro_followup.py`, `eval_transform.py`,
+`eval_leakage.py`, `eval_figures.py` (all via `scripts/chat_sandbox.py`, which refuses paths inside `data/`).
+
+### Hypotheses for the logo/DNA answer
+
+| | verdict | evidence |
+| --- | --- | --- |
+| (a) the rewrite gives a topic-less / wrong query | **sometimes** | With the exact two turns the rewrite was topical every time (24/24, `ما هو التصنيف`). Over 35 previous questions + "repeat all that in arabic": 14/35 rewrites carry "in Arabic" into the search and a few drift (e.g. "the winner of the 2018 World Cup"); 20/35 kept at least one figure chunk, 6/35 kept three. |
+| (b) retrieval returns irrelevant figure chunks and nothing refuses | **yes, whenever the search is not topical** | Searching the follow-up as typed (rewrite off or failed): 35/35 cases and 24/24 conversations keep the same three chunks (RECAP logo on lec03 p2 and lec09 p2, DNA bases on lec02 p23); the model never refused (3 sources shown 24/24). With a working rewrite: 0/36 kept a figure. I could not see why the rewrite did not save the original session; that is not verifiable from here. |
+| (c) the model repeats itself | **yes** | 7/36 answers to the follow-up repeated a paragraph (4/24 short first answer, 3/12 long). 0/96 ordinary eval answers did. |
+| (d) "No Arabic text is present" is stored in figure chunks | **yes** | 108 of 423 figure-description chunks (26%) contain it, and "Arabic" in the follow-up matches it. All three chunks above contain it. |
+
+Not reproduced: Turn 1 (`حسنا ما هو التصنيف`) had no foreign characters in 24/24 runs. The CJK/U+FFFD showed
+up in the *follow-up* (1/24 on the short first answer, 7/12 on a long one), always in the same slot: "a
+model (or function)" became `(أو 関係)` or `(أو 関�function)`.
+
+### Transform requests skip retrieval (`app/services/transform_intent.py`)
+
+A message is a transform request only if **every** word is request vocabulary (politeness, "that/it/all",
+translate/repeat/simplify..., languages, "example/steps", "get/understand") and at least one word is a request
+word. One topic word ("entropy", "NLP", "k-means") and it is an ordinary question. False-positive risk: a
+real question made only of such words ("give an example", counted as a transform here) is answered from the
+previous answer. False negatives cost nothing: the turn is searched as before. No model call is used for this.
+
+`eval/transform_cases.json`: 20 transform cases (10 English, 10 Arabic question language) + 10 near-miss real
+questions, 3 seeds. Before = `main`, after = this branch.
+
+| | n | searched | stays on topic* | language as asked | no new sources | repeated paragraph |
+| --- | --- | --- | --- | --- | --- | --- |
+| transform, English | 36 | 100% -> 0% | 94% -> 92% | 92% -> 100% | 8% -> 100% | 3% -> 0% |
+| transform, Arabic | 24 | 100% -> 0% | 88% -> 100% | 100% -> 100% | 12% -> 100% | 4% -> 0% |
+| near-miss (real questions) | 30 | 100% -> 100% | 100% -> 100% | 100% -> 100% | still new sources, as they should | 0% -> 0% |
+
+\* Coarse: the answer contains one of the previous topic's terms. The 3 flagged "after" rows are all t10,
+where the model translated "entropy" as الارتفاع, so the term is missing but the content is the previous answer.
+Before, 5 rows were really off topic (answers about the mean, dirty data, k-medoids) with unrelated sources shown.
+
+### Foreign characters (`app/services/script_guard.py`)
+
+Rate over the 32 single-turn eval questions of subject 7 (96 answers, 3 seeds), stored answers:
+
+| | before | after |
+| --- | --- | --- |
+| Arabic questions | 4/57 answers (7.0%), 36 characters, all Cyrillic | 0/57 |
+| English questions | 0/39 | 0/39 |
+
+Leak events collected from all runs (22): 10 were foreign letters glued to Arabic (`الأтрибут`, Cyrillic for
+"attribute"), 7 a foreign word alone, 5 foreign characters in front of a Latin term. Option (a), a stream filter,
+was chosen over (b), regenerating: it costs nothing when there is no leak, and (b) cannot work with a streamed
+answer without buffering all of it. Dropping only the foreign characters turned the first kind into a broken
+fragment (`الأ`), so a word that mixes foreign and Arabic letters is dropped whole, any other word loses only
+the foreign characters (`関�function` -> `function`). A foreign word standing alone leaves a gap such as
+`(أو )`: 7 of 22 events. Compared with leaving the characters in: nothing the student sees is more broken than
+before (the fragment case is the only one that got worse with character-only dropping, and it no longer exists),
+but a sentence can lose a word. Only a word that contains Arabic or foreign letters is held back (until its end);
+English streams token by token. Logs carry a count only.
+
+### Figure descriptions (`FIGURE_CHUNKS=normal|demote|exclude`, default `normal`)
+
+On questions that do not mention a figure/diagram/chart/image/picture (`scripts/eval_figures.py`):
+
+| | normal | demote | exclude |
+| --- | --- | --- | --- |
+| figure share of kept chunks | 25% | 5% | 0% |
+| "No Arabic text" chunks kept | 2-3% | 0% | 0% |
+| gold page found (32 questions, all) | 23-24 | 23 | 23 |
+| follow-up set, topic term found | 11/11, 8/9 | 11/11, 7/9 | 11/11, 8/9 |
+
+Hit rates differ by at most one question, which is inside the run-to-run wobble seen on identical code (23
+vs 24 hits on two runs of `normal`, then 23 five times in a row; cause not found). There is no measured gain in
+finding the right page, one broad Arabic question (a14) loses a figure under both modes, so **the default is
+unchanged**. The setting is there if the pilot shows figure noise; `demote` is the safer of the two.
+
+### Repetition
+
+After the transform change the observed turn repeated a paragraph 0/24 times (it was 7/36). Ordinary answers
+0/96. No `repeat_penalty` change was tested: there is nothing left to improve at a measurable rate.
+
+### Found, not fixed
+
+- Latin-script leaks (`đại`, `afe` inside Arabic) pass a script filter by design.
+- The model sometimes translates a term wrongly ("entropy" -> الارتفاع); needs a better Arabic model (deferred).
+- The streamed text carries trailing newlines that the stored copy trims (identical otherwise; 13/96 rows).
+- The Arabic phrasing of the transform cases was not checked by a native speaker.

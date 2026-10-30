@@ -1,0 +1,1596 @@
+{
+ "turn1": "حسنا ما هو التصنيف اشرح بالتفصيل مع أمثلة وخطوات",
+ "turn2": "okay i can't get it could repeat all that in arabic",
+ "rows": [
+  {
+   "route": "stream",
+   "seed": 41,
+   "turn1_answer": "التصنيف هو عملية العثور على نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يهدف إلى التنبؤ بقيمة متغير هدف فئة (مسمى فئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\nيمكن أن يكون التصنيف غير ثنائي، أي يمكن أن يكون له فئات متعددة، وليس فقط إيجابي أو سلبي.\n\nخطوات بناء نموذج تصنيف:\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة تدريب و مجموعة اختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج: لتصنيف البيانات المستقبلية أو غير المعروفة أو غير المكتشفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\nأمثلة على تطبيقات التصنيف:\n\n* تصنيف العواطف\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n* ...",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف و كيف يتم التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6383,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.6118,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.601,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5948,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5889,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5706,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5701,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5596,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.553,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5501,
+     "no_arabic_boilerplate": false,
+     "snippet": "Evaluation of classifiers 5 The Role Of The Test Set ▪The quality of a classifier is evaluated over a test set, differen"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6383,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.6118,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.601,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00085,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 0,
+   "raw": "حسناً سأكرر ما ذكرت في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية العثور على نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يهدف إلى التنبؤ بقيمة متغير هدف فئة (مسمى فئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف العواطف\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n* ...\n\n**خطوات بناء نموذج تصنيف**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة تدريب و مجموعة اختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج: لتصنيف البيانات المستقبلية أو غير المعروفة أو غير المكتشفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف العواطف؟**\n\nتصنيف العواطف هو تطبيق للتصنيف يهدف إلى تحديد العاطفة أو التأثير الذي يسببه نص أو صورة أو صوت. [kdd_lec06_classifacation_1.pdf, page 5]\n\n**هل يوجد هرمية في البيانات؟**\n\nلا يوجد هرمية في البيانات، ولكن يمكن أن يوجد ترابط بين المتغيرات. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**ما هو تصنيف الأصناف؟**\n\nتصنيف الأصناف هو تطبيق للتصنيف يهدف إلى تحديد الفئة أو النوع الذي ينتمي إليه عنصر ما. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**ما هو تصنيف الصفحات؟**\n\nتصنيف الصفحات هو تطبيق للتصنيف يهدف إلى تحديد فئة أو تصنيف صفحة ويب بناءً على محتواها. [kdd_lec06_classifacation_1.pdf, page 5]\n\nأتمنى أن يساعدك هذا في فهم الموضوع.",
+   "final": "حسناً سأكرر ما ذكرت في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية العثور على نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يهدف إلى التنبؤ بقيمة متغير هدف فئة (مسمى فئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف العواطف\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n* ...\n\n**خطوات بناء نموذج تصنيف**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة تدريب و مجموعة اختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج: لتصنيف البيانات المستقبلية أو غير المعروفة أو غير المكتشفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف العواطف؟**\n\nتصنيف العواطف هو تطبيق للتصنيف يهدف إلى تحديد العاطفة أو التأثير الذي يسببه نص أو صورة أو صوت.\n\n**هل يوجد هرمية في البيانات؟**\n\nلا يوجد هرمية في البيانات، ولكن يمكن أن يوجد ترابط بين المتغيرات. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**ما هو تصنيف الأصناف؟**\n\nتصنيف الأصناف هو تطبيق للتصنيف يهدف إلى تحديد الفئة أو النوع الذي ينتمي إليه عنصر ما. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**ما هو تصنيف الصفحات؟**\n\nتصنيف الصفحات هو تطبيق للتصنيف يهدف إلى تحديد فئة أو تصنيف صفحة ويب بناءً على محتواها.\n\nأتمنى أن يساعدك هذا في فهم الموضوع.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 42,
+   "turn1_answer": "التصنيف هو عملية إيجاد نموذج (أو 関係) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nفي واقع الأمر، يعد التصنيف مهمة تعلم مسؤولة. [kdd_lec06_classifacation_1.pdf, page 7] حيث يتم تزويد البيانات المدخلة بتعيينات تصنيفية تشير إلى فئة كل tuple (مجموعة بيانات) [kdd_lec06_classifacation_1.pdf, page 7].\n\nيتم تطبيق التصنيف في العديد من التطبيقات، مثل تصنيف العواطف، وتصفية البريد العشوائي، وتصنيف صفحات الويب.\n\nيمكن أن يكون التصنيف متعدد الفئات، أي أنه لا يقتصر فقط على تصنيفات ثنائية، مثل إيجابي أو سلبي، بل يمكن أن يحتوي على فئات متعددة.\n\nفيما يلي خطوات بناء نموذج تصنيف:\n\n1.  تقسيم البيانات إلى مجموعتين، مجموعة التدريب ومجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2.  مرحلة التعلم أو مرحلة التدريب: يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3.  مرحلة الاختبار: يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4.  استخدام النموذج: يتم استخدام النموذج لتصنيف البيانات المستقبلية أو غير المعروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\nفيما يلي مثال على عملية تصنيف:\n\n*   suppose لدينا مجموعة بيانات تحتوي على معلومات عن الأشخاص، مثل العمر والجنس والجنسية.\n*   نريد تصنيف الأشخاص حسب الجنس.\n*   نقوم بتقسيم البيانات إلى مجموعة التدريب ومجموعة الاختبار.\n*   نتدرب نموذج تصنيف على مجموعة التدريب.\n*   ناختبار نموذج تصنيف على مجموعة الاختبار.\n*   نستخدم النموذج لتصنيف الأشخاص المستقبليين حسب الجنس.\n\nهذا مثال بسيط، ولكن يمكن تطبيق هذه العملية على مجموعة متنوعة من التطبيقات والبيانات.",
+   "turn1_disallowed": 2,
+   "query": "ما هو التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5801,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5632,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5631,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5506,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5358,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5264,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5222,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 A Categorization Of Major Clustering Methods ▪In general, the major fundamental clustering methods can be classified "
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00075,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "حسناً سأكرر ما سبق في اللغة العربية.\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو 関係) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nالتصنيف هو مهمة تعلم مسؤولة. [kdd_lec06_classifacation_1.pdf, page 7] حيث يتم تزويد البيانات المدخلة بتعيينات تصنيفية تشير إلى فئة كل tuple (مجموعة بيانات) [kdd_lec06_classifacation_1.pdf, page 7].\n\n**تطبيقات التصنيف**\n\n*   تصنيف العواطف\n*   تصفية البريد العشوائي\n*   تصنيف صفحات الويب\n\n**التصنيف متعدد الفئات**\n\nالتصنيف لا يقتصر فقط على تصنيفات ثنائية، مثل إيجابي أو سلبي، بل يمكن أن يحتوي على فئات متعددة.\n\n**خطوات بناء نموذج تصنيف**\n\n1.  تقسيم البيانات إلى مجموعتين، مجموعة التدريب ومجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2.  مرحلة التعلم أو مرحلة التدريب: يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3.  مرحلة الاختبار: يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4.  استخدام النموذج: يتم استخدام النموذج لتصنيف البيانات المستقبلية أو غير المعروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**مثال على عملية تصنيف**\n\n*   suppose لدينا مجموعة بيانات تحتوي على معلومات عن الأشخاص، مثل العمر والجنس والجنسية.\n*   نريد تصنيف الأشخاص حسب الجنس.\n*   نقوم بتقسيم البيانات إلى مجموعة التدريب ومجموعة الاختبار.\n*   نتدرب نموذج تصنيف على مجموعة التدريب.\n*   ناختبار نموذج تصنيف على مجموعة الاختبار.\n*   نستخدم النموذج لتصنيف الأشخاص المستقبليين حسب الجنس.\n\nهذا مثال بسيط، ولكن يمكن تطبيق هذه العملية على مجموعة متنوعة من التطبيقات والبيانات.",
+   "final": "حسناً سأكرر ما سبق في اللغة العربية.\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو 関係) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nالتصنيف هو مهمة تعلم مسؤولة. [kdd_lec06_classifacation_1.pdf, page 7] حيث يتم تزويد البيانات المدخلة بتعيينات تصنيفية تشير إلى فئة كل tuple (مجموعة بيانات) [kdd_lec06_classifacation_1.pdf, page 7].\n\n**تطبيقات التصنيف**\n\n*   تصنيف العواطف\n*   تصفية البريد العشوائي\n*   تصنيف صفحات الويب\n\n**التصنيف متعدد الفئات**\n\nالتصنيف لا يقتصر فقط على تصنيفات ثنائية، مثل إيجابي أو سلبي، بل يمكن أن يحتوي على فئات متعددة.\n\n**خطوات بناء نموذج تصنيف**\n\n1.  تقسيم البيانات إلى مجموعتين، مجموعة التدريب ومجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2.  مرحلة التعلم أو مرحلة التدريب: يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3.  مرحلة الاختبار: يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4.  استخدام النموذج: يتم استخدام النموذج لتصنيف البيانات المستقبلية أو غير المعروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**مثال على عملية تصنيف**\n\n*   suppose لدينا مجموعة بيانات تحتوي على معلومات عن الأشخاص، مثل العمر والجنس والجنسية.\n*   نريد تصنيف الأشخاص حسب الجنس.\n*   نقوم بتقسيم البيانات إلى مجموعة التدريب ومجموعة الاختبار.\n*   نتدرب نموذج تصنيف على مجموعة التدريب.\n*   ناختبار نموذج تصنيف على مجموعة الاختبار.\n*   نستخدم النموذج لتصنيف الأشخاص المستقبليين حسب الجنس.\n\nهذا مثال بسيط، ولكن يمكن تطبيق هذه العملية على مجموعة متنوعة من التطبيقات والبيانات.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [
+    "関 CJK",
+    "係 CJK"
+   ],
+   "final_disallowed": [
+    "関 CJK",
+    "係 CJK"
+   ],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 43,
+   "turn1_answer": "التصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nفي واقع الأمر، يهدف التصنيف إلى التنبؤ بقيمة متغير هدف تصنيفي (معرّف الفئة) بناءً على قيم متغيرات مستقلة أخرى.\n\nيمكن أن يكون التصنيف متعدد الفئات، حيث يمكن أن يكون له أكثر من فئة تصنيفية.\n\nفيما يلي خطوات بناء نموذج تصنيفي:\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة تدريب و مجموعة اختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. تعلم النموذج من مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج لتنبؤ قيمة متغير تصنيفي لمواضع جديدة أو غير معروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\nأمثلة على تطبيقات التصنيف تشمل:\n\n* تصنيف المشاعر\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5801,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5632,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5631,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5506,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5358,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5264,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5222,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 A Categorization Of Major Clustering Methods ▪In general, the major fundamental clustering methods can be classified "
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00075,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "حسناً سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nفي واقع الأمر، يهدف التصنيف إلى التنبؤ بقيمة متغير هدف تصنيفي (معرّف الفئة) بناءً على قيم متغيرات مستقلة أخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف المشاعر\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n\n**بناء نموذج تصنيفي**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة تدريب و مجموعة اختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. تعلم النموذج من مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج لتنبؤ قيمة متغير تصنيفي لمواضع جديدة أو غير معروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، حيث يمكن أن يكون له أكثر من فئة تصنيفية.\n\n**ما هو تصنيف مشابه للتصنيف؟**\n\nالتصنيف مشابه للتصنيف، حيث يهدف إلى إيجاد نموذج يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**ما هو التصنيف مقابل التصنيف؟**\n\nالتصنيف مختلف عن التصنيف، حيث يهدف التصنيف إلى إيجاد نموذج يصف ويتفرد بين فئات البيانات أو مفاهيمها، بينما يهدف التصنيف إلى إيجاد نموذج يصف ويتفرد بين مجموعات البيانات أو مفاهيمها. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، حيث يمكن أن يكون له أكثر من فئة تصنيفية.\n\n**ما هو تصنيف مشابه للتصنيف؟**\n\nالتصنيف مشابه للتصنيف، حيث يهدف إلى إيجاد نموذج يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، حيث يمكن أن يكون له أكثر من فئة تصنيفية.\n\n**ما هو تصنيف مشابه للتصنيف؟**\n\nالتصنيف مشابه للتصنيف، حيث ي",
+   "final": "حسناً سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nفي واقع الأمر، يهدف التصنيف إلى التنبؤ بقيمة متغير هدف تصنيفي (معرّف الفئة) بناءً على قيم متغيرات مستقلة أخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف المشاعر\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n\n**بناء نموذج تصنيفي**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة تدريب و مجموعة اختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. تعلم النموذج من مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج لتنبؤ قيمة متغير تصنيفي لمواضع جديدة أو غير معروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، حيث يمكن أن يكون له أكثر من فئة تصنيفية.\n\n**ما هو تصنيف مشابه للتصنيف؟**\n\nالتصنيف مشابه للتصنيف، حيث يهدف إلى إيجاد نموذج يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**ما هو التصنيف مقابل التصنيف؟**\n\nالتصنيف مختلف عن التصنيف، حيث يهدف التصنيف إلى إيجاد نموذج يصف ويتفرد بين فئات البيانات أو مفاهيمها، بينما يهدف التصنيف إلى إيجاد نموذج يصف ويتفرد بين مجموعات البيانات أو مفاهيمها. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، حيث يمكن أن يكون له أكثر من فئة تصنيفية.\n\n**ما هو تصنيف مشابه للتصنيف؟**\n\nالتصنيف مشابه للتصنيف، حيث يهدف إلى إيجاد نموذج يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، حيث يمكن أن يكون له أكثر من فئة تصنيفية.\n\n**ما هو تصنيف مشابه للتصنيف؟**\n\nالتصنيف مشابه للتصنيف، حيث ي",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": true,
+   "repeated_paragraph_final": true,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 44,
+   "turn1_answer": "التصنيف هو عملية إيجاد نموذج (أو 関�数) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3] \nيهدف التصنيف إلى التنبؤ بقيمة متغير هدف فئة (سمة الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\nيمكن أن يكون التصنيف متعدد الفئات، حيث يمكن أن يكون له أكثر من فئة.\n\nالخطوات العامة لإنشاء نموذج تصنيفي:\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب و مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج: حيث يتم استخدام النموذج لتنبؤ قيمة متغير هدف فئة لمجموعة جديدة من البيانات. [kdd_lec06_classifacation_1.pdf, page 7]\n\nأمثلة على تطبيقات التصنيف:\n\n* تصنيف العواطف\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب",
+   "turn1_disallowed": 3,
+   "query": "ما هو التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5801,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5632,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5631,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5506,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5358,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5264,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5222,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 A Categorization Of Major Clustering Methods ▪In general, the major fundamental clustering methods can be classified "
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00075,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "حسناً سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو 関�function) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3] \nيهدف التصنيف إلى التنبؤ بقيمة متغير هدف فئة (سمة الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف العواطف\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n* تصنيف الأشياء (مثل: حديد، حجر، ورقة)\n\n**خطوات إنشاء نموذج تصنيفي**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب و مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج: حيث يتم استخدام النموذج لتنبؤ قيمة متغير هدف فئة لمجموعة جديدة من البيانات. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nتصنيف متعدد الفئات هو عندما يكون له أكثر من فئة. [kdd_lec06_classifacation_1.pdf, page 5]\n\n**ما هو تصنيف غير ثنائي؟**\n\nتصنيف غير ثنائي هو عندما يكون له أكثر من فئة، وليس فقط إيجابي أو سلبي. [kdd_lec06_classifacation_1.pdf, page 5]\n\n**ما هو تصنيف Supervised؟**\n\nتصنيف Supervised هو عندما يتم تدريب النموذج على مجموعة تدريب مصنفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف غير Supervised؟**\n\nتصنيف غير Supervised هو عندما يتم تدريب النموذج على مجموعة غير مصنفة. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**ما هو تصنيف Cluster Analysis؟**\n\nتصنيف Cluster Analysis هو عندما يتم تقسيم البيانات إلى مجموعات بدون معرفة الفئات. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**سؤال الطالب**\n\nما الفئة للجسم الجديد؟ حديد، حجر، ورقة؟",
+   "final": "حسناً سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو 関�function) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3] \nيهدف التصنيف إلى التنبؤ بقيمة متغير هدف فئة (سمة الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف العواطف\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n* تصنيف الأشياء (مثل: حديد، حجر، ورقة)\n\n**خطوات إنشاء نموذج تصنيفي**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب و مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج: حيث يتم استخدام النموذج لتنبؤ قيمة متغير هدف فئة لمجموعة جديدة من البيانات. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nتصنيف متعدد الفئات هو عندما يكون له أكثر من فئة.\n\n**ما هو تصنيف غير ثنائي؟**\n\nتصنيف غير ثنائي هو عندما يكون له أكثر من فئة، وليس فقط إيجابي أو سلبي.\n\n**ما هو تصنيف Supervised؟**\n\nتصنيف Supervised هو عندما يتم تدريب النموذج على مجموعة تدريب مصنفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف غير Supervised؟**\n\nتصنيف غير Supervised هو عندما يتم تدريب النموذج على مجموعة غير مصنفة. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**ما هو تصنيف Cluster Analysis؟**\n\nتصنيف Cluster Analysis هو عندما يتم تقسيم البيانات إلى مجموعات بدون معرفة الفئات. [kdd_lec09_cluster_analyis.pdf, page 6]\n\n**سؤال الطالب**\n\nما الفئة للجسم الجديد؟ حديد، حجر، ورقة؟",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [
+    "関 CJK",
+    "� U+FFFD"
+   ],
+   "final_disallowed": [
+    "関 CJK",
+    "� U+FFFD"
+   ],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 45,
+   "turn1_answer": "التصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يهدف إلى التنبؤ بقيمة متغير هدف فئة (معرّف الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\nمثلا، إذا كان لدينا مجموعة من المستخدمين ونتيجة تصنيفهم كإيجابي أو سلبي، يمكننا استخدام التصنيف لتحديد نموذج يصف هذه الفئات ويتفريق بينها.\n\nالتصنيف ليس فقط محدود إلى تصنيفات ثنائية، يمكن أن يكون له فئات متعددة.\n\nالخطوات العامة لتصميم نموذج تصنيف هي:\n1. تقسيم البيانات إلى مجموعتين، مجموعة التدريب و مجموعة الاختبار.\n2. تعلم النموذج من مجموعة التدريب.\n3. اختبار النموذج على مجموعة الاختبار.\n4. استخدام النموذج لتصنيف بيانات جديدة. [kdd_lec06_classifacation_1.pdf, page 7]",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5801,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5632,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5631,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5506,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5358,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5264,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5222,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 A Categorization Of Major Clustering Methods ▪In general, the major fundamental clustering methods can be classified "
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00075,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "بالتأكيد! هنا هو ما قمت بترجمته إلى العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يهدف إلى التنبؤ بقيمة متغير هدف فئة (معرّف الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\nتصنيف المشاعر\nتصفية البريد العشوائي\nتصنيف الصفحات على الإنترنت\n[كتاب الدروس, الصفحة 5]\n\n**لا يعد التصنيف فقط ثنائي، يمكن أن يكون له فئات متعددة.**\n\n**بناء نموذج تصنيف**\n\nالتصنيف هو مهمة تعلم مساعد. [kdd_lec06_classifacation_1.pdf, page 7]\n\nهذا يعني أن البيانات المدخلة مرتبطة بتعليمات تصف كل tuple (مجموعة من البيانات) ويعرف فيها الفئة التي ينتمي إليها.\n\n**خطوات بناء نموذج تصنيف**\n\n1. تقسيم البيانات إلى مجموعتين، مجموعة التدريب و مجموعة الاختبار.\n2. تعلم النموذج من مجموعة التدريب.\n3. اختبار النموذج على مجموعة الاختبار.\n4. استخدام النموذج لتصنيف بيانات جديدة.\n\n**ما هو تصنيف البيانات؟**\n\nفي بعض التطبيقات، يسمى التصنيف تحليل المجموعات. [kdd_lec09_cluster_analyis.pdf, page 6]\n\nهذا يعني أن التصنيف يهدف إلى إيجاد المجموعات التي يمكن تعريفها بشكل ضمني.\n\n**هل هناك هرمية في البيانات؟**\n\nلا يوجد أي سؤال عن هذا في المادة الدراسية.",
+   "final": "بالتأكيد! هنا هو ما قمت بترجمته إلى العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يهدف إلى التنبؤ بقيمة متغير هدف فئة (معرّف الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\nتصنيف المشاعر\nتصفية البريد العشوائي\nتصنيف الصفحات على الإنترنت\n\n\n**لا يعد التصنيف فقط ثنائي، يمكن أن يكون له فئات متعددة.**\n\n**بناء نموذج تصنيف**\n\nالتصنيف هو مهمة تعلم مساعد. [kdd_lec06_classifacation_1.pdf, page 7]\n\nهذا يعني أن البيانات المدخلة مرتبطة بتعليمات تصف كل tuple (مجموعة من البيانات) ويعرف فيها الفئة التي ينتمي إليها.\n\n**خطوات بناء نموذج تصنيف**\n\n1. تقسيم البيانات إلى مجموعتين، مجموعة التدريب و مجموعة الاختبار.\n2. تعلم النموذج من مجموعة التدريب.\n3. اختبار النموذج على مجموعة الاختبار.\n4. استخدام النموذج لتصنيف بيانات جديدة.\n\n**ما هو تصنيف البيانات؟**\n\nفي بعض التطبيقات، يسمى التصنيف تحليل المجموعات. [kdd_lec09_cluster_analyis.pdf, page 6]\n\nهذا يعني أن التصنيف يهدف إلى إيجاد المجموعات التي يمكن تعريفها بشكل ضمني.\n\n**هل هناك هرمية في البيانات؟**\n\nلا يوجد أي سؤال عن هذا في المادة الدراسية.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 46,
+   "turn1_answer": "التصنيف هو عملية العثور على نموذج (أو 関係) يصف ويتفرد بين فئات البيانات أو مفاهيمها.\n\nهذا يعني أن التصنيف يهدف إلى تحديد قيمة متغير تصنفي (مثل فئة تصنيفية) بناءً على قيم المتغيرات المستقلة الأخرى.\n\nمثال على ذلك: تصنيف رسائل البريد الإلكتروني كرسائل إعلانية أو غير إعلانية. في هذه الحالة، يكون المتغير التصنفي هو \"نوع الرسالة\"، بينما تكون المتغيرات المستقلة هي الخصائص مثل \"الموضوع\"، \"المحتوى\"، \"الجهة المرسلة\"، الخ.\n\nخطوات التصنيف:\n\n1. جمع dataset مصنف (يحتوي على قيم متغير تصنفي).\n2. تقسيم dataset إلى مجموعتين: مجموعة التدريب (تستخدم لتعلم النموذج) ومجموعة الاختبار (تستخدم لتحسين النموذج).\n3. تعلم النموذج باستخدام مجموعة التدريب.\n4. تقييم أداء النموذج باستخدام مجموعة الاختبار.\n5. استخدام النموذج لتصنيف بيانات جديدة (غير مصنفة).\n\nمثال آخر: تصنيف آراء المستخدمين حول منتج ما على الإنترنت. في هذه الحالة، يكون المتغير التصنفي هو \"رأي المستخدم\"، بينما تكون المتغيرات المستقلة هي الخصائص مثل \"المحتوى\"، \"التصنيف\"، \"الرقمية\"، الخ.",
+   "turn1_disallowed": 2,
+   "query": "ما هو التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5801,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5632,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5631,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5506,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5358,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5264,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5222,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 A Categorization Of Major Clustering Methods ▪In general, the major fundamental clustering methods can be classified "
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00075,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "حسناً. سأكرر ما ذكرت في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية العثور على نموذج (أو 関係) يصف ويتفرد بين فئات البيانات أو مفاهيمها. يعني هذا أن التصنيف يهدف إلى تحديد قيمة متغير تصنفي (مثل فئة تصنيفية) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف آراء المستخدمين حول منتج ما على الإنترنت\n* تصفية البريد الإلكتروني\n* تصنيف صفحات الويب\n* التصنيف لا يعد فقط ثنائي، إيجابي أو سلبي، بل يمكن أن يكون متعدد الفئات.\n\n**بناء نموذج تصنيفي**\n\nالتصنيف هو مهمة تعلم مسؤولة. يعني هذا أن البيانات المدخلة مرتبطة بتعليمات تشير إلى فئة كل tuple (بيانات مصنفة). عادة ما يتم تقسيم البيانات المقدّمة إلى مجموعتين: مجموعة التدريب (تستخدم لتعلم النموذج) ومجموعة الاختبار (تستخدم لتحسين النموذج). يوجد نموذج عام لبناء نماذج تصنيفية (عملية ثنائية):\n1. خطوة التعلم أو مرحلة التدريب.\n2. مرحلة الاختبار.\n\n**استخدام النموذج**\n\nيستخدم النموذج لتصنيف \"بيانات مستقبلية\" أو \"غير معروفة\" أو \"غير مسبوقة\" (للم οποία لا يوجد تعليمات تصنيفية).\n\n**مثال على تصنيف**\n\nما فئة جديدة من الأشياء؟ (مثل: حديد، حجر، أو مقبض ورق؟)\n\n**هل هناك هيكل في البيانات؟**\n\nهل هناك هيكل في البيانات (على أساس خصائصها، مثل: العرض، الارتفاع؟)",
+   "final": "حسناً. سأكرر ما ذكرت في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية العثور على نموذج (أو 関係) يصف ويتفرد بين فئات البيانات أو مفاهيمها. يعني هذا أن التصنيف يهدف إلى تحديد قيمة متغير تصنفي (مثل فئة تصنيفية) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف آراء المستخدمين حول منتج ما على الإنترنت\n* تصفية البريد الإلكتروني\n* تصنيف صفحات الويب\n* التصنيف لا يعد فقط ثنائي، إيجابي أو سلبي، بل يمكن أن يكون متعدد الفئات.\n\n**بناء نموذج تصنيفي**\n\nالتصنيف هو مهمة تعلم مسؤولة. يعني هذا أن البيانات المدخلة مرتبطة بتعليمات تشير إلى فئة كل tuple (بيانات مصنفة). عادة ما يتم تقسيم البيانات المقدّمة إلى مجموعتين: مجموعة التدريب (تستخدم لتعلم النموذج) ومجموعة الاختبار (تستخدم لتحسين النموذج). يوجد نموذج عام لبناء نماذج تصنيفية (عملية ثنائية):\n1. خطوة التعلم أو مرحلة التدريب.\n2. مرحلة الاختبار.\n\n**استخدام النموذج**\n\nيستخدم النموذج لتصنيف \"بيانات مستقبلية\" أو \"غير معروفة\" أو \"غير مسبوقة\" (للم οποία لا يوجد تعليمات تصنيفية).\n\n**مثال على تصنيف**\n\nما فئة جديدة من الأشياء؟ (مثل: حديد، حجر، أو مقبض ورق؟)\n\n**هل هناك هيكل في البيانات؟**\n\nهل هناك هيكل في البيانات (على أساس خصائصها، مثل: العرض، الارتفاع؟)",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [
+    "関 CJK",
+    "係 CJK"
+   ],
+   "final_disallowed": [
+    "関 CJK",
+    "係 CJK"
+   ],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 47,
+   "turn1_answer": "التصنيف هو عملية العثور على نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها.\n\nهذه العملية تشمل تحديد قيمة متغير تصنفي (مؤشر تصنفي) بناءً على قيم متغيرات مستقلة أخرى.\n\nيمكن أن يكون التصنيف متعدد الفئات، حيث يمكن أن يكون هناك أكثر من فئة تصنيفية.\n\nفيما يلي خطوات بناء نموذج تصنفي:\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب و مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. تعلم النموذج من مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج لتصنيف بيانات جديدة. [kdd_lec06_classifacation_1.pdf, page 7]\n\nأمثلة على التصنيف:\n\n* تصنيف رسائل البريد الإلكتروني كرسائل إعلانية أو غير إعلانية.\n* تصنيف مواقع الويب إلى فئات مختلفة (مثل تجارية أو تعليمية).\n* تصنيف آراء المستخدمين على مواقع التواصل الاجتماعي (مثل إيجابية أو سلبية).\n\nهذه بعض الأمثلة على التصنيف، والذي يمكن أن يكون متعدد الفئات ويمكن أن يشمل أكثر من فئة تصنيفية.",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5801,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5632,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5631,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5506,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5358,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5264,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5222,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 A Categorization Of Major Clustering Methods ▪In general, the major fundamental clustering methods can be classified "
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00075,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "بالتأكيد. سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية العثور على نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, صفحة 4]\nيعد التصنيف عملية تعلم مساعد، حيث يتم تزويد البيانات بالعلامات التي تشير إلى فئة كل tuple (مجموعة بيانات مصنفة). [kdd_lec06_classifacation_1.pdf, صفحة 7]\n\n**تطبيقات التصنيف**\n\n* تصنيف آراء المستخدمين (مثل إيجابية أو سلبية)\n* تصفية البريد الإلكتروني (مثل رسائل إعلانية أو غير إعلانية)\n* تصنيف مواقع الويب إلى فئات مختلفة (مثل تجارية أو تعليمية)\n\n**بناء نموذج تصنيفي**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب و مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, صفحة 7]\n2. تعلم النموذج من مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, صفحة 7]\n3. اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, صفحة 7]\n4. استخدام النموذج لتصنيف بيانات جديدة. [kdd_lec06_classifacation_1.pdf, صفحة 7]\n\n**مثال على تصنيف**\n\n* تصنيف الأشياء إلى فئات مثل: حديد، نحف، أو ورق.\n\n**هل هناك هرمية في البيانات؟**\n\nلا يوجد هرمية في البيانات بناءً على خصائصها (مثل العرض أو الارتفاع). [kdd_lec09_cluster_analyis.pdf, صفحة 6]",
+   "final": "بالتأكيد. سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية العثور على نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها.\nيعد التصنيف عملية تعلم مساعد، حيث يتم تزويد البيانات بالعلامات التي تشير إلى فئة كل tuple (مجموعة بيانات مصنفة). [kdd_lec06_classifacation_1.pdf, page 7]\n\n**تطبيقات التصنيف**\n\n* تصنيف آراء المستخدمين (مثل إيجابية أو سلبية)\n* تصفية البريد الإلكتروني (مثل رسائل إعلانية أو غير إعلانية)\n* تصنيف مواقع الويب إلى فئات مختلفة (مثل تجارية أو تعليمية)\n\n**بناء نموذج تصنيفي**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب و مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. تعلم النموذج من مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج لتصنيف بيانات جديدة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**مثال على تصنيف**\n\n* تصنيف الأشياء إلى فئات مثل: حديد، نحف، أو ورق.\n\n**هل هناك هرمية في البيانات؟**\n\nلا يوجد هرمية في البيانات بناءً على خصائصها (مثل العرض أو الارتفاع). [kdd_lec09_cluster_analyis.pdf, page 6]",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 48,
+   "turn1_answer": "التصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يقوم بتخمين قيمة متغير هدف فئة (اسم الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\nيمكن أن يكون التصنيف متعدد الفئات، حيث يمكن أن يكون هناك أكثر من فئة.\n\nخطوات بناء نموذج تصنيف:\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب ومجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n\nأمثلة على تطبيقات التصنيف:\n\n* تصنيف العواطف\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5801,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5632,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5631,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5506,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5358,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5264,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5222,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 A Categorization Of Major Clustering Methods ▪In general, the major fundamental clustering methods can be classified "
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00075,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "حسناً سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يقوم بتخمين قيمة متغير هدف فئة (اسم الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف العواطف\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n* تصنيف الأشياء (مثل: حديد أو حجر أو ورق)\n\n**خطوات بناء نموذج تصنيف**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب ومجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nتصنيف متعدد الفئات هو عندما يكون هناك أكثر من فئة. [kdd_lec06_classifacation_1.pdf, page 5]\n\n**ما هو تصنيف غير ثنائي؟**\n\nتصنيف غير ثنائي هو عندما لا يكون هناك فقط فئتان: إيجابية أو سلبية. [kdd_lec06_classifacation_1.pdf, page 5]\n\n**ما هو التصنيف في علم البيانات؟**\n\nالتصنيف هو مهمة التعلم المشرف. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو التصنيف في علم البيانات؟**\n\nالتصنيف هو مهمة التعلم المشرف. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**هل هناك أي هيكل في البيانات؟**\n\nنعم، يمكن أن يكون هناك هيكل في البيانات بناءً على خصائصها (مثل: العرض والارتفاع). [kdd_lec09_cluster_analyis.pdf, page 6]",
+   "final": "حسناً سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يقوم بتخمين قيمة متغير هدف فئة (اسم الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف العواطف\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n* تصنيف الأشياء (مثل: حديد أو حجر أو ورق)\n\n**خطوات بناء نموذج تصنيف**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب ومجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nتصنيف متعدد الفئات هو عندما يكون هناك أكثر من فئة.\n\n**ما هو تصنيف غير ثنائي؟**\n\nتصنيف غير ثنائي هو عندما لا يكون هناك فقط فئتان: إيجابية أو سلبية.\n\n**ما هو التصنيف في علم البيانات؟**\n\nالتصنيف هو مهمة التعلم المشرف. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو التصنيف في علم البيانات؟**\n\nالتصنيف هو مهمة التعلم المشرف. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**هل هناك أي هيكل في البيانات؟**\n\nنعم، يمكن أن يكون هناك هيكل في البيانات بناءً على خصائصها (مثل: العرض والارتفاع). [kdd_lec09_cluster_analyis.pdf, page 6]",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": true,
+   "repeated_paragraph_final": true,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 49,
+   "turn1_answer": "التصنيف هو عملية إيجاد نموذج (أو 関�数) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يهدف إلى التنبؤ بقيمة متغير هدف فئة (مسمى فئة) بناءً على قيم متغيرات مستقلة أخرى.\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\nفيما يلي خطوات بناء نموذج تصنيف:\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة تدريب و مجموعة اختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج: حيث يتم استخدام النموذج لتصنيف بيانات جديدة أو غير معروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\nأمثلة على التصنيف تشمل:\n\n* تصنيف العواطف\n* تصفية الإعلانات الترويجية\n* تصنيف صفحات الويب\n\nهذه هي الخطوات والتعريفات الأساسية للتصنيف.",
+   "turn1_disallowed": 3,
+   "query": "ما هو التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5801,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5632,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5631,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5506,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5358,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5264,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5222,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 A Categorization Of Major Clustering Methods ▪In general, the major fundamental clustering methods can be classified "
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00075,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "حسناً سأكرر ما قمت بذكرها في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو 関�function) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يهدف إلى التنبؤ بقيمة متغير هدف فئة (مسمى فئة) بناءً على قيم متغيرات مستقلة أخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف العواطف\n* تصفية الإعلانات الترويجية\n* تصنيف صفحات الويب\n\n**بناء نموذج تصنيف**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة تدريب و مجموعة اختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج: حيث يتم استخدام النموذج لتصنيف بيانات جديدة أو غير معروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الف",
+   "final": "حسناً سأكرر ما قمت بذكرها في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو 関�function) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف يهدف إلى التنبؤ بقيمة متغير هدف فئة (مسمى فئة) بناءً على قيم متغيرات مستقلة أخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف العواطف\n* تصفية الإعلانات الترويجية\n* تصنيف صفحات الويب\n\n**بناء نموذج تصنيف**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة تدريب و مجموعة اختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n2. مرحلة التعلم أو مرحلة التدريب: حيث يتم تدريب النموذج على مجموعة التدريب. [kdd_lec06_classifacation_1.pdf, page 7]\n3. مرحلة الاختبار: حيث يتم اختبار النموذج على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n4. استخدام النموذج: حيث يتم استخدام النموذج لتصنيف بيانات جديدة أو غير معروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن يمكنه التعرف على أكثر من فئة أو تصنيف.\n\n**ما هو تصنيف متعدد الفئات؟**\n\nيمكن أن يكون التصنيف متعدد الف",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [
+    "関 CJK",
+    "� U+FFFD"
+   ],
+   "final_disallowed": [
+    "関 CJK",
+    "� U+FFFD"
+   ],
+   "repeated_paragraph_raw": true,
+   "repeated_paragraph_final": true,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 50,
+   "turn1_answer": "التصنيف هو عملية اكتشاف نموذج (أو 関�数) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nفيما يلي خطوات التصنيف:\n\n1. جمع dataset مصنف (مكون من بيانات مصنفة).\n2. تقسيم dataset إلى مجموعتين: مجموعة التدريب (training set) ومجموعة الاختبار (test set).\n3. تعلم نموذج تصنيف من خلال مجموعة التدريب.\n4. اختبار نموذج التصنيف على مجموعة الاختبار.\n5. استخدام نموذج التصنيف لتصنيف بيانات جديدة.\n\nمثال على ذلك: Suppose لدينا dataset يحتوي على بيانات عن المرضى، حيث يحتوي كل سجل على معلومات عن المريض (العمر، الجنس، تاريخ الميلاد، ...). يمكننا تصنيف هذه البيانات إلى فئتين: مرضى السرطان ومرضى غير السرطان. يمكننا استخدام نموذج تصنيف لتحديد ما إذا كان المريض مصابًا بالسرطان أم لا، بناءً على المعلومات المتوفرة في السجل.\n\nهذه هي الخطوات العامة لتصنيف البيانات. يمكننا استخدام تقنيات تصنيف مختلفة، مثل تصنيف القراءة، تصنيف الإيماءات، ...، اعتمادًا على نوع البيانات والهدف من التصنيف.",
+   "turn1_disallowed": 3,
+   "query": "ما هو التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5801,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5632,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5631,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5506,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5358,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5264,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5222,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 A Categorization Of Major Clustering Methods ▪In general, the major fundamental clustering methods can be classified "
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00075,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "حسناً سأساعدك.\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية اكتشاف نموذج (أو 関�function) يصف ويتفرد بين فئات البيانات أو مفاهيمها. يهدف إلى التنبؤ بفئة معينة من البيانات (مثل تصنيفها كمرضى السرطان أو غيرهم) بناءً على قيم متغيرات أخرى. [kdd_lec06_classifacation_1.pdf, صفحة 4]\n\n**تطبيقات التصنيف**\n\n* تصنيف العواطف\n* تصفية البريد العشوائي\n* تصنيف الصفحات الويب\n* ... وغيرها\n\n**التصنيف ليس فقط ثنائي**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن البيانات يمكن تصنيفها إلى أكثر من فئة واحدة. [kdd_lec06_classifacation_1.pdf, صفحة 5]\n\n**بناء نموذج تصنيف**\n\nالتصنيف هو مهمة التعلم المشرف. يتطلب وجود dataset مصنف، حيث يتم تعيين كل سجل مع فئته. يتم تقسيم dataset إلى مجموعتين: مجموعة التدريب (training set) ومجموعة الاختبار (test set). يتم تعلم نموذج تصنيف من خلال مجموعة التدريب، ثم يتم اختباره على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, صفحة 7]\n\n**ما هو تصنيف البيانات؟**\n\nتصنيف البيانات هو عملية اكتشاف نموذج يصف ويتفرد بين فئات البيانات أو مفاهيمها. يمكن أن يكون تصنيف البيانات متعدد الفئات، مما يعني أن البيانات يمكن تصنيفها إلى أكثر من فئة واحدة.\n\n**هل هناك هيكلية في البيانات؟**\n\nيمكن أن يكون هناك هيكلية في البيانات، مما يعني أن البيانات يمكن أن تكون موزعة بشكل غير عشوائي على فئات مختلفة. يمكن استخدام تقنيات التصنيف لاكتشاف هذه الهيكلية. [kdd_lec09_cluster_analyis.pdf, صفحة 6]",
+   "final": "حسناً سأساعدك.\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية اكتشاف نموذج (أو 関�function) يصف ويتفرد بين فئات البيانات أو مفاهيمها. يهدف إلى التنبؤ بفئة معينة من البيانات (مثل تصنيفها كمرضى السرطان أو غيرهم) بناءً على قيم متغيرات أخرى.\n\n**تطبيقات التصنيف**\n\n* تصنيف العواطف\n* تصفية البريد العشوائي\n* تصنيف الصفحات الويب\n* ... وغيرها\n\n**التصنيف ليس فقط ثنائي**\n\nيمكن أن يكون التصنيف متعدد الفئات، مما يعني أن البيانات يمكن تصنيفها إلى أكثر من فئة واحدة.\n\n**بناء نموذج تصنيف**\n\nالتصنيف هو مهمة التعلم المشرف. يتطلب وجود dataset مصنف، حيث يتم تعيين كل سجل مع فئته. يتم تقسيم dataset إلى مجموعتين: مجموعة التدريب (training set) ومجموعة الاختبار (test set). يتم تعلم نموذج تصنيف من خلال مجموعة التدريب، ثم يتم اختباره على مجموعة الاختبار. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف البيانات؟**\n\nتصنيف البيانات هو عملية اكتشاف نموذج يصف ويتفرد بين فئات البيانات أو مفاهيمها. يمكن أن يكون تصنيف البيانات متعدد الفئات، مما يعني أن البيانات يمكن تصنيفها إلى أكثر من فئة واحدة.\n\n**هل هناك هيكلية في البيانات؟**\n\nيمكن أن يكون هناك هيكلية في البيانات، مما يعني أن البيانات يمكن أن تكون موزعة بشكل غير عشوائي على فئات مختلفة. يمكن استخدام تقنيات التصنيف لاكتشاف هذه الهيكلية. [kdd_lec09_cluster_analyis.pdf, page 6]",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [
+    "関 CJK",
+    "� U+FFFD"
+   ],
+   "final_disallowed": [
+    "関 CJK",
+    "� U+FFFD"
+   ],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 51,
+   "turn1_answer": "التصنيف هو عملية إيجاد نموذج (أو 関�数) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nفي التصنيف، يتم التنبؤ بكمية من فئة متغير الهدف (مسمى الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\nيتم استخدام التصنيف في تطبيقات مختلفة مثل تصنيف العواطف، وتصفية البريد العشوائي، وتصنيف الصفحات الويب.\n\nالتصنيف ليس فقط ثنائي، يمكن أن يكون متعدد الفئات.\n\nالخطوات العامة لتصميم نموذج تصنيف:\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب و مجموعة الاختبار.\n2. تعلم النموذج من مجموعة التدريب.\n3. اختبار النموذج على مجموعة الاختبار.\n\nمثال على ذلك: Suppose لدينا مجموعة بيانات تتضمن معلومات عن العملاء، مثل العمر والجنس والعنوان. يمكننا استخدام التصنيف لتصنيف العملاء إلى فئات مثل \"مستخدم نشط\" أو \"مستخدم غير نشط\" بناءً على قيم هذه المتغيرات.",
+   "turn1_disallowed": 3,
+   "query": "ما هو التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5801,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5632,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5631,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5506,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5358,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5264,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5222,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 A Categorization Of Major Clustering Methods ▪In general, the major fundamental clustering methods can be classified "
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00075,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "بالتأكيد. سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو 関�function) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nفي التصنيف، يتم التنبؤ بكمية من فئة متغير الهدف (مسمى الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\nتصنيف العواطف، تصفية البريد العشوائي، تصنيف الصفحات الويب.\n\n**التصنيف ليس فقط ثنائي**\n\nيمكن أن يكون التصنيف متعدد الفئات.\n\n**خطوات تصميم نموذج تصنيف**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب و مجموعة الاختبار.\n2. تعلم النموذج من مجموعة التدريب.\n3. اختبار النموذج على مجموعة الاختبار.\n\n**ما هو تصنيف العواطف؟**\n\nتصنيف العواطف هو تطبيق للتصنيف يهدف إلى تحديد العواطف أو المشاعر من نصوص أو بيانات أخرى.\n\n**ما هو تصفية البريد العشوائي؟**\n\nتصفية البريد العشوائي هو تطبيق للتصنيف يهدف إلى تحديد البريد العشوائي من البريد الحقيقي.\n\n**ما هو تصنيف الصفحات الويب؟**\n\nتصنيف الصفحات الويب هو تطبيق للتصنيف يهدف إلى تحديد فئة الصفحة الويب (مثل أخبار أو تسويق).\n\n**ما هو تصنيف السكين؟**\n\nتصنيف السكين هو تطبيق للتصنيف يهدف إلى تحديد فئة السكين (مثل سكين أو حجر أو ورق).\n\n**هل هناك أي هيكل في البيانات؟**\n\nنعم، يمكن أن يكون هناك هيكل في البيانات بناءً على خصائصها (مثل العرض والارتفاع).",
+   "final": "بالتأكيد. سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو 関�function) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nفي التصنيف، يتم التنبؤ بكمية من فئة متغير الهدف (مسمى الفئة) بناءً على قيم المتغيرات المستقلة الأخرى.\n\n**تطبيقات التصنيف**\n\nتصنيف العواطف، تصفية البريد العشوائي، تصنيف الصفحات الويب.\n\n**التصنيف ليس فقط ثنائي**\n\nيمكن أن يكون التصنيف متعدد الفئات.\n\n**خطوات تصميم نموذج تصنيف**\n\n1. تقسيم البيانات إلى مجموعتين: مجموعة التدريب و مجموعة الاختبار.\n2. تعلم النموذج من مجموعة التدريب.\n3. اختبار النموذج على مجموعة الاختبار.\n\n**ما هو تصنيف العواطف؟**\n\nتصنيف العواطف هو تطبيق للتصنيف يهدف إلى تحديد العواطف أو المشاعر من نصوص أو بيانات أخرى.\n\n**ما هو تصفية البريد العشوائي؟**\n\nتصفية البريد العشوائي هو تطبيق للتصنيف يهدف إلى تحديد البريد العشوائي من البريد الحقيقي.\n\n**ما هو تصنيف الصفحات الويب؟**\n\nتصنيف الصفحات الويب هو تطبيق للتصنيف يهدف إلى تحديد فئة الصفحة الويب (مثل أخبار أو تسويق).\n\n**ما هو تصنيف السكين؟**\n\nتصنيف السكين هو تطبيق للتصنيف يهدف إلى تحديد فئة السكين (مثل سكين أو حجر أو ورق).\n\n**هل هناك أي هيكل في البيانات؟**\n\nنعم، يمكن أن يكون هناك هيكل في البيانات بناءً على خصائصها (مثل العرض والارتفاع).",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [
+    "関 CJK",
+    "� U+FFFD"
+   ],
+   "final_disallowed": [
+    "関 CJK",
+    "� U+FFFD"
+   ],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 52,
+   "turn1_answer": "التصنيف هو عملية إيجاد نموذج (أو 関�数) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nفي واقع الأمر، يعد التصنيف مهمة تعلم مسؤولة. [kdd_lec06_classifacation_1.pdf, page 7] يتم فيها تخصيص البيانات المدخلة بتعيينات تشير إلى فئة كل tuple (مجموعة بيانات) (مجموعة بيانات محددة). [kdd_lec06_classifacation_1.pdf, page 7]\n\nيتم تطبيق التصنيف في العديد من التطبيقات، مثل:\n\n* تصنيف المشاعر\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n\nوهو ليس فقط تصنيف ثنائي، إيجابي أو سلبي، بل يمكن أن يكون له فئات متعددة.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم فيها تخصيص البيانات المدخلة بتعيينات تشير إلى فئة كل tuple (مجموعة بيانات). [kdd_lec06_classifacation_1.pdf, page 7]\n\nيتم تطبيق التصنيف في العديد من التطبيقات، مثل تصنيف المشاعر، تصفية البريد العشوائي، تصنيف صفحات الويب.\n\nالخطوات الأساسية لتصنيف البيانات هي:\n\n1. تقسيم البيانات إلى مجموعتين، مجموعة تدريب و مجموعة اختبار.\n2. تعلم النموذج من مجموعة التدريب.\n3. اختبار النموذج على مجموعة الاختبار.\n\nالنموذج المستخدم في التصنيف هو نموذج يصف البيانات ويتفرد بين فئاتها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nيتم استخدام النموذج لتصنيف البيانات الجديدة أو غير المعروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\nفي النهاية، يعد التصنيف مهمة تعلم مسؤولة، حيث يتم فيها تخصيص البيانات المدخلة بتعيينات تشير إلى فئة كل tuple (مجموعة بيانات). [kdd_lec06_classifacation_1.pdf, page 7]",
+   "turn1_disallowed": 3,
+   "query": "ما هو التصنيف؟",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5801,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5632,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5631,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5506,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.5358,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5264,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.5222,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 A Categorization Of Major Clustering Methods ▪In general, the major fundamental clustering methods can be classified "
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.6174,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.595,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5904,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00075,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "حسناً سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو 関�function) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nفي واقع الأمر، يعد التصنيف مهمة تعلم مسؤولة. [kdd_lec06_classifacation_1.pdf, page 7] يتم فيها تخصيص البيانات المدخلة بتعيينات تشير إلى فئة كل tuple (مجموعة بيانات) (مجموعة بيانات محددة). [kdd_lec06_classifacation_1.pdf, page 7]\n\n**تطبيقات التصنيف**\n\n* تصنيف المشاعر\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n\nوهو ليس فقط تصنيف ثنائي، إيجابي أو سلبي، بل يمكن أن يكون له فئات متعددة.\n\n**خطوات التصنيف**\n\n1. تقسيم البيانات إلى مجموعتين، مجموعة تدريب و مجموعة اختبار.\n2. تعلم النموذج من مجموعة التدريب.\n3. اختبار النموذج على مجموعة الاختبار.\n\n**النموذج المستخدم في التصنيف**\n\nالنموذج المستخدم في التصنيف هو نموذج يصف البيانات ويتفرد بين فئاتها. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**استخدام النموذج**\n\nيتم استخدام النموذج لتصنيف البيانات الجديدة أو غير المعروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف البيانات؟**\n\nتصنيف البيانات هو عملية إيجاد نموذج يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**ما هو التصنيف؟**\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم فيها تخصيص البيانات المدخلة بتعيينات تشير إلى فئة كل tuple (مجموعة بيانات). [kdd_lec06_classifacation_1.pdf, page 7]\n\n**هل هناك أي هيكل في البيانات؟**\n\nلا يوجد هيكل في البيانات، ولكن يمكن أن يكون هناك هيكل في البيانات بناءً على خصائصها، مثل العرض والارتفاع.",
+   "final": "حسناً سأكرر ما سبق في اللغة العربية:\n\n**ما هو التصنيف؟**\n\nالتصنيف هو عملية إيجاد نموذج (أو 関�function) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\nفي واقع الأمر، يعد التصنيف مهمة تعلم مسؤولة. [kdd_lec06_classifacation_1.pdf, page 7] يتم فيها تخصيص البيانات المدخلة بتعيينات تشير إلى فئة كل tuple (مجموعة بيانات) (مجموعة بيانات محددة). [kdd_lec06_classifacation_1.pdf, page 7]\n\n**تطبيقات التصنيف**\n\n* تصنيف المشاعر\n* تصفية البريد العشوائي\n* تصنيف صفحات الويب\n\nوهو ليس فقط تصنيف ثنائي، إيجابي أو سلبي، بل يمكن أن يكون له فئات متعددة.\n\n**خطوات التصنيف**\n\n1. تقسيم البيانات إلى مجموعتين، مجموعة تدريب و مجموعة اختبار.\n2. تعلم النموذج من مجموعة التدريب.\n3. اختبار النموذج على مجموعة الاختبار.\n\n**النموذج المستخدم في التصنيف**\n\nالنموذج المستخدم في التصنيف هو نموذج يصف البيانات ويتفرد بين فئاتها. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**استخدام النموذج**\n\nيتم استخدام النموذج لتصنيف البيانات الجديدة أو غير المعروفة. [kdd_lec06_classifacation_1.pdf, page 7]\n\n**ما هو تصنيف البيانات؟**\n\nتصنيف البيانات هو عملية إيجاد نموذج يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\n\n**ما هو التصنيف؟**\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم فيها تخصيص البيانات المدخلة بتعيينات تشير إلى فئة كل tuple (مجموعة بيانات). [kdd_lec06_classifacation_1.pdf, page 7]\n\n**هل هناك أي هيكل في البيانات؟**\n\nلا يوجد هيكل في البيانات، ولكن يمكن أن يكون هناك هيكل في البيانات بناءً على خصائصها، مثل العرض والارتفاع.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [
+    "関 CJK",
+    "� U+FFFD"
+   ],
+   "final_disallowed": [
+    "関 CJK",
+    "� U+FFFD"
+   ],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  }
+ ]
+}

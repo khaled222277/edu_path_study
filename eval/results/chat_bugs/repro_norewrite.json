@@ -1,0 +1,3102 @@
+{
+ "turn1": "حسنا ما هو التصنيف",
+ "turn2": "okay i can't get it could repeat all that in arabic",
+ "rows": [
+  {
+   "route": "plain",
+   "seed": 41,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 42,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة.",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 43,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].\n\nالجواب: لا يوجد في المادة المقدمة معلومات عن التصنيف.",
+   "final": "التعريف: التصنيف هو مهمة تعلم مسؤولة.\n\nالجواب: لا يوجد في المادة المقدمة معلومات عن التصنيف.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 44,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].\n\nالجواب: لا يوجد في المواد المقدمة تعريف للتصنيف باللغة العربية، ولكن يمكن ترجمة تعريف التصنيف إلى العربية كما يلي: \"التصنيف هو مهمة تعلم مسؤولة\".",
+   "final": "التعريف: التصنيف هو مهمة تعلم مسؤولة.\n\nالجواب: لا يوجد في المواد المقدمة تعريف للتصنيف باللغة العربية، ولكن يمكن ترجمة تعريف التصنيف إلى العربية كما يلي: \"التصنيف هو مهمة تعلم مسؤولة\".",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 45,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة، حيث يتم تزويد البيانات المدخلة بالتسميات التي تشير إلى الفئة التي تنتمي إليها كل tuple (مجموعة بيانات محددة). [kdd_lec06_classifacation_1.pdf, page 7]",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "حسناً. السؤال هو: يمكنني تكرار ما سبق في اللغة العربية. الإجابة هي: نعم، يمكنني تكرار ما سبق في اللغة العربية.",
+   "final": "حسناً. السؤال هو: يمكنني تكرار ما سبق في اللغة العربية. الإجابة هي: نعم، يمكنني تكرار ما سبق في اللغة العربية.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 46,
+   "turn1_answer": "التصنيف هو عملية تعلم مساعد supervised learning task [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التعريف: التصنيف هو عملية تعلم مساعد supervised learning task [kdd_lec06_classifacation_1.pdf, page 7].\n\nالتوضيح: يعد التصنيف عملية تعلم مساعد حيث يتم تدريب نموذج على مجموعة بيانات لتحديد الفئة أو الفئة التي ينتمي إليها المثال. يتم استخدام هذه العملية في العديد من التطبيقات مثل تصنيف البريد الإلكتروني، وتصنيف الصور، وتصنيف النصوص.",
+   "final": "التعريف: التصنيف هو عملية تعلم مساعد supervised learning task.\n\nالتوضيح: يعد التصنيف عملية تعلم مساعد حيث يتم تدريب نموذج على مجموعة بيانات لتحديد الفئة أو الفئة التي ينتمي إليها المثال. يتم استخدام هذه العملية في العديد من التطبيقات مثل تصنيف البريد الإلكتروني، وتصنيف الصور، وتصنيف النصوص.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 47,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "حسناً. يُقصد بالتصنيف مهمة تعلم في علم البيانات تعني تصنيف البيانات إلى فئات أو مجموعات بناءً على خصائصها [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "حسناً. يُقصد بالتصنيف مهمة تعلم في علم البيانات تعني تصنيف البيانات إلى فئات أو مجموعات بناءً على خصائصها.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 48,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 49,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 50,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة.",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 51,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 52,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].\n\nالجواب: لا يوجد في المادة المقدمة.",
+   "final": "التعريف: التصنيف هو مهمة تعلم مسؤولة.\n\nالجواب: لا يوجد في المادة المقدمة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "stream",
+   "seed": 41,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].\n\nالجواب: لا يوجد في المادة المقدمة.",
+   "final": "التعريف: التصنيف هو مهمة تعلم مسؤولة.\n\nالجواب: لا يوجد في المادة المقدمة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 42,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التعريف: التصنيف هو مهمة تعلم مسؤولة.\n\nالتفاصيل: التصنيف هو عملية تحديد فئة أو فئة من البيانات على أساس خصائصها [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "التعريف: التصنيف هو مهمة تعلم مسؤولة.\n\nالتفاصيل: التصنيف هو عملية تحديد فئة أو فئة من البيانات على أساس خصائصها.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 43,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 44,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 45,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة، حيث يتم تزويد البيانات المدخلة بالتسميات التي تشير إلى الفئة التي تنتمي إليها كل tuple (مجموعة بيانات محددة). [kdd_lec06_classifacation_1.pdf, page 7]",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "حسناً. السؤال هو: يمكنني تكرار ما سبق في اللغة العربية. الإجابة هي: نعم، يمكنني تكرار ما سبق في اللغة العربية.",
+   "final": "حسناً. السؤال هو: يمكنني تكرار ما سبق في اللغة العربية. الإجابة هي: نعم، يمكنني تكرار ما سبق في اللغة العربية.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 46,
+   "turn1_answer": "التصنيف هو عملية تعلم مساعد supervised learning task [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التعريف: التصنيف هو عملية تعلم مساعد supervised learning task [kdd_lec06_classifacation_1.pdf, page 7].\n\nالتوضيح: يعد التصنيف عملية تعلم مساعد حيث يتم تدريب نموذج على مجموعة بيانات لتحديد الفئة أو الفئة التي ينتمي إليها المثال. يتم استخدام هذه العملية في العديد من التطبيقات مثل تصنيف البريد الإلكتروني، وتصنيف الصور، وتصنيف النصوص.",
+   "final": "التعريف: التصنيف هو عملية تعلم مساعد supervised learning task.\n\nالتوضيح: يعد التصنيف عملية تعلم مساعد حيث يتم تدريب نموذج على مجموعة بيانات لتحديد الفئة أو الفئة التي ينتمي إليها المثال. يتم استخدام هذه العملية في العديد من التطبيقات مثل تصنيف البريد الإلكتروني، وتصنيف الصور، وتصنيف النصوص.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 47,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "حسناً. يُقصد بالتصنيف مهمة تعلم في علم البيانات تعني تصنيف البيانات إلى فئات أو مجموعات بناءً على خصائصها [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "حسناً. يُقصد بالتصنيف مهمة تعلم في علم البيانات تعني تصنيف البيانات إلى فئات أو مجموعات بناءً على خصائصها.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 48,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 49,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 50,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة.",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 51,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "التصنيف هو مهمة تعلم مسؤولة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 52,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "okay i can't get it could repeat all that in arabic",
+   "candidates": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5409,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.5248,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.522,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has rows labeled \"Individual\" (1–10) and columns labeled \"Q1\" to \"Q5\". Each cell contains a letter: "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.5205,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.517,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table. It has columns labeled \"Cluster,\" \"Q1,\" \"Q2,\" \"Q3,\" \"Q4,\" \"Q5.\" Rows list three clusters: - Cluster 1: "
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.5148,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.5041,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 26,
+     "type": "image_description",
+     "score": 0.4972,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It includes newspaper icons labeled with times (8 am, 10 am, 11 am, 1 pm, 12 pm), an arrow pointing t"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.4892,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.4877,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a table titled \"Clusters\". It has rows labeled \"Cluster 1 (1)\", \"Cluster 2 (5)\", \"Cluster 3 (10)\" and columns \"Q"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "strategy": "reranked",
+   "top_score": 0.9987,
+   "kept_figure_chunks": 3,
+   "kept_boilerplate_chunks": 3,
+   "cand_figure_chunks": 9,
+   "raw": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].\n\nالجواب: لا يوجد في المادة المقدمة.",
+   "final": "التعريف: التصنيف هو مهمة تعلم مسؤولة.\n\nالجواب: لا يوجد في المادة المقدمة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  }
+ ]
+}

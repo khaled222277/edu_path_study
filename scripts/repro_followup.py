@@ -60,7 +60,7 @@ def run(box, seeds, routes) -> list[dict]:
             finally:
                 cc.retrieval_query, cc.retrieve, cc.finalize_answer = real_query, real_retrieve, real_final
 
-            t = trace["retrieval"]
+            t = trace.get("retrieval") or retrieval.RetrievalTrace([], [], [], "not searched", 0.0)
             final_text = second["stored"] or ""
             raw = trace.get("raw") or ""
             kept = [chunk_row(c) for c in t.final]
@@ -68,7 +68,7 @@ def run(box, seeds, routes) -> list[dict]:
             rows.append({
                 "route": route, "seed": seed,
                 "turn1_answer": first["stored"], "turn1_disallowed": len(disallowed_chars(first["stored"] or "")),
-                "query": trace["query"],
+                "query": trace.get("query"), "searched": "retrieval" in trace,
                 "candidates": [chunk_row(c) for c in t.candidates],
                 "kept": kept, "strategy": t.strategy, "top_score": round(t.top_score, 5),
                 "kept_figure_chunks": sum(1 for k in kept if k["type"] == "image_description"),
@@ -83,7 +83,7 @@ def run(box, seeds, routes) -> list[dict]:
                 "boilerplate_in_answer": bool(BOILERPLATE_RE.search(final_text)),
                 "streamed_equals_stored": (second.get("streamed") == second["stored"]) if route == "stream" else None,
             })
-            print(f"{route} seed={seed}: query={trace['query']!r} figs_kept={rows[-1]['kept_figure_chunks']}/"
+            print(f"{route} seed={seed}: searched={'retrieval' in trace} query={trace.get('query')!r} figs_kept={rows[-1]['kept_figure_chunks']}/"
                   f"{len(kept)} disallowed={len(chars)} repeat={rows[-1]['repeated_paragraph_final']}", flush=True)
     return rows
 

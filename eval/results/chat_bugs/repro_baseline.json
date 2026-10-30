@@ -1,0 +1,3118 @@
+{
+ "turn1": "حسنا ما هو التصنيف",
+ "turn2": "okay i can't get it could repeat all that in arabic",
+ "rows": [
+  {
+   "route": "plain",
+   "seed": 41,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف و",
+   "final": "التصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف ويتفاوت بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، حيث يتم العثور على نموذج (أو وظيفة) يصف و",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": true,
+   "repeated_paragraph_final": true,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 42,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة تعرف على كيفية تصنيف البيانات في فئات أو مفاهيم معينة. [kdd_lec06_classifacation_1.pdf, page 3]\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف",
+   "final": "التصنيف هو مهمة تعلم مسؤولة تعرف على كيفية تصنيف البيانات في فئات أو مفاهيم معينة. [kdd_lec06_classifacation_1.pdf, page 3]\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعتمد على البيانات المُمرَّضة، حيث يتم تخصيص كل tuple بالتسمية التي تشير إلى فئة كل منها. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": true,
+   "repeated_paragraph_final": true,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 43,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المهمة هي تعريف تصنيف. التصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 4].",
+   "final": "المهمة هي تعريف تصنيف. التصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 44,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المهمة هي تعريف التصنيف. التصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 3]. يهدف التصنيف إلى التنبؤ بقيمة متغير هدف تصنفي (اسم الفئة) بناءً على قيم متغيرات مستقلة أخرى [kdd_lec06_classifacation_1.pdf, page 3].",
+   "final": "المهمة هي تعريف التصنيف. التصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 3]. يهدف التصنيف إلى التنبؤ بقيمة متغير هدف تصنفي (اسم الفئة) بناءً على قيم متغيرات مستقلة أخرى [kdd_lec06_classifacation_1.pdf, page 3].",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 45,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة، حيث يتم تزويد البيانات المدخلة بالتسميات التي تشير إلى الفئة التي تنتمي إليها كل tuple (مجموعة بيانات محددة). [kdd_lec06_classifacation_1.pdf, page 7]",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المهمة التي تريد أن أعيد تكرارها هي السؤال التالي:\nما هو التصنيف؟\n\nالجواب:\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\nيتم التنبؤ بمقدار متغير الهدف الفئة (مؤشر الفئة) بناءً على قيم المتغيرات المستقلة الأخرى. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف هو مهمة تعلم مسؤولة، حيث يتم تزويد البيانات المدخلة بالتسميات التي تشير إلى الفئة التي تنتمي إليها كل tuple (مجموعة بيانات محددة). [kdd_lec06_classifacation_1.pdf, page 7]",
+   "final": "المهمة التي تريد أن أعيد تكرارها هي السؤال التالي:\nما هو التصنيف؟\n\nالجواب:\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\nيتم التنبؤ بمقدار متغير الهدف الفئة (مؤشر الفئة) بناءً على قيم المتغيرات المستقلة الأخرى. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف هو مهمة تعلم مسؤولة، حيث يتم تزويد البيانات المدخلة بالتسميات التي تشير إلى الفئة التي تنتمي إليها كل tuple (مجموعة بيانات محددة). [kdd_lec06_classifacation_1.pdf, page 7]",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 46,
+   "turn1_answer": "التصنيف هو عملية تعلم مساعد supervised learning task [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المسألة: ما هو التصنيف؟\nالإجابة: عملية تعلم مساعد supervised learning task [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "المسألة: ما هو التصنيف؟\nالإجابة: عملية تعلم مساعد supervised learning task [kdd_lec06_classifacation_1.pdf, page 7].",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 47,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4] يهدف التصنيف إلى التنبؤ بقيمة متغير استقلابي (مسمى فئة) بناءً على قيم متغيرات أخرى مستقلة. [kdd_lec06_classifacation_1.pdf, page 4]",
+   "final": "التصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. يهدف التصنيف إلى التنبؤ بقيمة متغير استقلابي (مسمى فئة) بناءً على قيم متغيرات أخرى مستقلة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 48,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المهمة هي: ما هو التصنيف؟\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. يPredict قيمة متغير مستقل تصنفي (اسم الفئة) بناءً على قيم متغيرات أخرى مستقل. [kdd_lec06_classifacation_1.pdf, page 3]",
+   "final": "المهمة هي: ما هو التصنيف؟\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. يPredict قيمة متغير مستقل تصنفي (اسم الفئة) بناءً على قيم متغيرات أخرى مستقل. [kdd_lec06_classifacation_1.pdf, page 3]",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 49,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المهمة هي تعريف تصنيف. التصنيف هو عملية إيجاد نموذج (أو 関�数) يصف ويتفاوت بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 3]. يهدف التصنيف إلى التنبؤ بقيمة متغير مستقل تصنفي (مسمى فئة) بناءً على قيم متغيرات مستقل أخرى [kdd_lec06_classifacation_1.pdf, page 3].",
+   "final": "المهمة هي تعريف تصنيف. التصنيف هو عملية إيجاد نموذج (أو 関�数) يصف ويتفاوت بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 3]. يهدف التصنيف إلى التنبؤ بقيمة متغير مستقل تصنفي (مسمى فئة) بناءً على قيم متغيرات مستقل أخرى [kdd_lec06_classifacation_1.pdf, page 3].",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [
+    "関 CJK",
+    "� U+FFFD",
+    "数 CJK"
+   ],
+   "final_disallowed": [
+    "関 CJK",
+    "� U+FFFD",
+    "数 CJK"
+   ],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 50,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].\nالوصف: عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 4].\nالهدف: التنبؤ بقيمة متغير مستقل تصنفي (اسم الفئة) بناءً على قيم متغيرات أخرى مستقل [kdd_lec06_classifacation_1.pdf, page 4].",
+   "final": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].\nالوصف: عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.\nالهدف: التنبؤ بقيمة متغير مستقل تصنفي (اسم الفئة) بناءً على قيم متغيرات أخرى مستقل.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 51,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7]. \nالوصف: عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 3]. \nالهدف: التنبؤ بقيمة متغير مستقل تصنفي (اسم الفئة) على أساس قيم متغيرات أخرى مستقل [kdd_lec06_classifacation_1.pdf, page 3].",
+   "final": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7]. \nالوصف: عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 3]. \nالهدف: التنبؤ بقيمة متغير مستقل تصنفي (اسم الفئة) على أساس قيم متغيرات أخرى مستقل [kdd_lec06_classifacation_1.pdf, page 3].",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "plain",
+   "seed": 52,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]",
+   "final": "التصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": true,
+   "repeated_paragraph_final": true,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": null
+  },
+  {
+   "route": "stream",
+   "seed": 41,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المهمة هي: ما هو التصنيف؟\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. يPredict قيمة متغير هدف فئة (اسم فئة) بناءً على قيم متغيرات مستقلة أخرى. [kdd_lec06_classifacation_1.pdf, page 3]",
+   "final": "المهمة هي: ما هو التصنيف؟\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. يPredict قيمة متغير هدف فئة (اسم فئة) بناءً على قيم متغيرات مستقلة أخرى. [kdd_lec06_classifacation_1.pdf, page 3]",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 42,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة تعرف على كيفية تصنيف البيانات في فئات أو مفاهيم معينة. [kdd_lec06_classifacation_1.pdf, page 3]\n\nالتصنيف هو عملية إيجاد نموذج أو وظيفة تصف وتفسر فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة تعرف على كيفية تصنيف البيانات في فئات أو مفاهيم معينة، وتتمثل هذه المهمة في تحديد الفئة التي ينتمي إليها عنصر جديد. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعرف على كيفية تصنيف البيانات في فئات أو مفاهيم معينة، وتتمثل هذه المهمة في تحديد الفئة التي ينتمي إليها عنصر جديد، مثل تصنيف عنصر ما كأداة (مثل حاملة أو رأس أو ورقة) أو كأداة (مثل حاملة أو رأس أو ورقة). [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعرف على كيفية تصنيف البيانات في فئات أو مفاهيم معينة، وتتمثل هذه المهمة في تحديد الفئة التي ينتمي إليها عنصر جديد، وتتم هذه المهمة من خلال استخدام نموذج تم تدريبه على البيانات الموجودة. [kdd_lec06_classifacation_1.pdf, page 7]",
+   "final": "التصنيف هو مهمة تعلم مسؤولة تعرف على كيفية تصنيف البيانات في فئات أو مفاهيم معينة. [kdd_lec06_classifacation_1.pdf, page 3]\n\nالتصنيف هو عملية إيجاد نموذج أو وظيفة تصف وتفسر فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة تعرف على كيفية تصنيف البيانات في فئات أو مفاهيم معينة، وتتمثل هذه المهمة في تحديد الفئة التي ينتمي إليها عنصر جديد. [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعرف على كيفية تصنيف البيانات في فئات أو مفاهيم معينة، وتتمثل هذه المهمة في تحديد الفئة التي ينتمي إليها عنصر جديد، مثل تصنيف عنصر ما كأداة (مثل حاملة أو رأس أو ورقة) أو كأداة (مثل حاملة أو رأس أو ورقة). [kdd_lec06_classifacation_1.pdf, page 7]\n\nالتصنيف هو مهمة تعلم مسؤولة تعرف على كيفية تصنيف البيانات في فئات أو مفاهيم معينة، وتتمثل هذه المهمة في تحديد الفئة التي ينتمي إليها عنصر جديد، وتتم هذه المهمة من خلال استخدام نموذج تم تدريبه على البيانات الموجودة. [kdd_lec06_classifacation_1.pdf, page 7]",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 43,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المهمة هي: ما هو التصنيف؟\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. يpredict قيمة متغير مستقل تصنفي (مسمى الفئة) بناءً على قيم المتغيرات المستقلة الأخرى [kdd_lec06_classifacation_1.pdf, page 3].",
+   "final": "المهمة هي: ما هو التصنيف؟\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. يpredict قيمة متغير مستقل تصنفي (مسمى الفئة) بناءً على قيم المتغيرات المستقلة الأخرى [kdd_lec06_classifacation_1.pdf, page 3].",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 44,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المهمة هي تعريف تصنيف. التصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]",
+   "final": "المهمة هي تعريف تصنيف. التصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 45,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة، حيث يتم تزويد البيانات المدخلة بالتسميات التي تشير إلى الفئة التي تنتمي إليها كل tuple (مجموعة بيانات محددة). [kdd_lec06_classifacation_1.pdf, page 7]",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المهمة التي تريد أن أعيد تكرارها هي السؤال التالي:\nما هو التصنيف؟\n\nالجواب:\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\nيتم التنبؤ بمقدار متغير الهدف الفئة (مؤشر الفئة) بناءً على قيم المتغيرات المستقلة الأخرى. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف هو مهمة تعلم مسؤولة، حيث يتم تزويد البيانات المدخلة بالتسميات التي تشير إلى الفئة التي تنتمي إليها كل tuple (مجموعة بيانات محددة). [kdd_lec06_classifacation_1.pdf, page 7]",
+   "final": "المهمة التي تريد أن أعيد تكرارها هي السؤال التالي:\nما هو التصنيف؟\n\nالجواب:\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفريق بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 3]\nيتم التنبؤ بمقدار متغير الهدف الفئة (مؤشر الفئة) بناءً على قيم المتغيرات المستقلة الأخرى. [kdd_lec06_classifacation_1.pdf, page 3]\n\nهذا يعني أن التصنيف هو مهمة تعلم مسؤولة، حيث يتم تزويد البيانات المدخلة بالتسميات التي تشير إلى الفئة التي تنتمي إليها كل tuple (مجموعة بيانات محددة). [kdd_lec06_classifacation_1.pdf, page 7]",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 46,
+   "turn1_answer": "التصنيف هو عملية تعلم مساعد supervised learning task [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المسألة: ما هو التصنيف؟\nالإجابة: عملية تعلم مساعد supervised learning task [kdd_lec06_classifacation_1.pdf, page 7].",
+   "final": "المسألة: ما هو التصنيف؟\nالإجابة: عملية تعلم مساعد supervised learning task [kdd_lec06_classifacation_1.pdf, page 7].",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 47,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4] يهدف التصنيف إلى التنبؤ بقيمة متغير استقلابي (مسمى فئة) بناءً على قيم متغيرات أخرى مستقلة. [kdd_lec06_classifacation_1.pdf, page 4]",
+   "final": "التصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. يهدف التصنيف إلى التنبؤ بقيمة متغير استقلابي (مسمى فئة) بناءً على قيم متغيرات أخرى مستقلة.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 48,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المهمة هي: ما هو التصنيف؟\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. يPredict قيمة متغير مستقل تصنفي (اسم الفئة) بناءً على قيم متغيرات أخرى مستقل. [kdd_lec06_classifacation_1.pdf, page 3]",
+   "final": "المهمة هي: ما هو التصنيف؟\n\nالتصنيف هو عملية إيجاد نموذج (أو وظيفة) يصف ويتفرد بين فئات البيانات أو مفاهيمها. يPredict قيمة متغير مستقل تصنفي (اسم الفئة) بناءً على قيم متغيرات أخرى مستقل. [kdd_lec06_classifacation_1.pdf, page 3]",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 49,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "المهمة هي تعريف تصنيف. التصنيف هو عملية إيجاد نموذج (أو 関�数) يصف ويتفاوت بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 3]. يهدف التصنيف إلى التنبؤ بقيمة متغير مستقل تصنفي (مسمى فئة) بناءً على قيم متغيرات مستقل أخرى [kdd_lec06_classifacation_1.pdf, page 3].",
+   "final": "المهمة هي تعريف تصنيف. التصنيف هو عملية إيجاد نموذج (أو 関�数) يصف ويتفاوت بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 3]. يهدف التصنيف إلى التنبؤ بقيمة متغير مستقل تصنفي (مسمى فئة) بناءً على قيم متغيرات مستقل أخرى [kdd_lec06_classifacation_1.pdf, page 3].",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [
+    "関 CJK",
+    "� U+FFFD",
+    "数 CJK"
+   ],
+   "final_disallowed": [
+    "関 CJK",
+    "� U+FFFD",
+    "数 CJK"
+   ],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 50,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].\nالوصف: عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 4].\nالهدف: التنبؤ بقيمة متغير مستقل تصنفي (اسم الفئة) بناءً على قيم متغيرات أخرى مستقل [kdd_lec06_classifacation_1.pdf, page 4].",
+   "final": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].\nالوصف: عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.\nالهدف: التنبؤ بقيمة متغير مستقل تصنفي (اسم الفئة) بناءً على قيم متغيرات أخرى مستقل.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 51,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7]. \nالوصف: عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 3]. \nالهدف: التنبؤ بقيمة متغير مستقل تصنفي (اسم الفئة) على أساس قيم متغيرات أخرى مستقل [kdd_lec06_classifacation_1.pdf, page 3].",
+   "final": "التعريف: التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7]. \nالوصف: عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها [kdd_lec06_classifacation_1.pdf, page 3]. \nالهدف: التنبؤ بقيمة متغير مستقل تصنفي (اسم الفئة) على أساس قيم متغيرات أخرى مستقل [kdd_lec06_classifacation_1.pdf, page 3].",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": false,
+   "repeated_paragraph_final": false,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  },
+  {
+   "route": "stream",
+   "seed": 52,
+   "turn1_answer": "التصنيف هو مهمة تعلم مسؤولة [kdd_lec06_classifacation_1.pdf, page 7].",
+   "turn1_disallowed": 0,
+   "query": "ما هو التصنيف",
+   "candidates": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 27,
+     "type": "text",
+     "score": 0.5247,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.5147,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪ Clustering is an unsupervised learning task o We are given an input dataset but there are no"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.5107,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪Cluster analysis or simply clustering is the process of partitioning a set of data objects in"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.51,
+     "no_arabic_boilerplate": false,
+     "snippet": "Classification Models ▪Each classifier comes with its own assumptions and parameters o and there are >1 learning algorit"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 46,
+     "type": "image_description",
+     "score": 0.5025,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table. It has columns: \"Categorical / Ordinal Value\", \"Integer Value\", \"x₀\", \"x₁\", \"x₂\". Rows list categorical"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.4945,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques Bayes Classification Methods 4 Bayes Classification Methods ▪A probabilistic framework f"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 26,
+     "type": "text",
+     "score": 0.4906,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪The term prediction refers to both numeric prediction and class label prediction. ▪Two types of predictive tasks: 2. Cl"
+    }
+   ],
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 3,
+     "type": "text",
+     "score": 0.5586,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lecture Index ➢What is classification? ➢Applications of classification ➢Building A Classification Model ➢Classification "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.5515,
+     "no_arabic_boilerplate": false,
+     "snippet": "Building A Classification Model 7 ▪Classification is a supervised learning task. o Supervision, the input data are assoc"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.5392,
+     "no_arabic_boilerplate": false,
+     "snippet": "What Is Cluster Analysis? ▪In some applications, clustering is called automatic classification. o automatically find the"
+    }
+   ],
+   "strategy": "vector-order (reranker unconfident)",
+   "top_score": 0.00069,
+   "kept_figure_chunks": 0,
+   "kept_boilerplate_chunks": 0,
+   "cand_figure_chunks": 1,
+   "raw": "التصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها. [kdd_lec06_classifacation_1.pdf, page 4]",
+   "final": "التصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.\n\nالتصنيف هو مهمة تعلم مسؤولة، وهي عملية إيجاد نموذج (أو وظيفة) يصف ويفصل بين فئات البيانات أو مفاهيمها.",
+   "refused_sources_shown": 3,
+   "raw_disallowed": [],
+   "final_disallowed": [],
+   "repeated_paragraph_raw": true,
+   "repeated_paragraph_final": true,
+   "boilerplate_in_answer": false,
+   "streamed_equals_stored": true
+  }
+ ]
+}

@@ -1,0 +1,2386 @@
+{
+ "turn1": "حسنا ما هو التصنيف",
+ "turn2": "okay i can't get it could repeat all that in arabic",
+ "rows": [
+  {
+   "previous": "What are the steps of the KDD process?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What are the steps of the KDD process in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 10,
+     "type": "text",
+     "score": 0.9995,
+     "no_arabic_boilerplate": false,
+     "snippet": "11 Data Mining in KDD Process can include relational databases, data warehouses, Flat files, the Web, other data reposit"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 9,
+     "type": "text",
+     "score": 0.9994,
+     "no_arabic_boilerplate": false,
+     "snippet": "10 Data Mining in KDD Process ▪Many people treat data mining as a synonym for KDD, while others view data mining as an e"
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 32,
+     "type": "text",
+     "score": 0.9981,
+     "no_arabic_boilerplate": false,
+     "snippet": "Apriori Algorithm-implementation ▪Convention: For efficient implementation, Apriori Algorithm assumes that items within "
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "What are the steps of the KDD process?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "What are the four types of attributes in a dataset?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What are the four types of attributes in a dataset in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 5,
+     "type": "text",
+     "score": 0.9997,
+     "no_arabic_boilerplate": false,
+     "snippet": "What is Data? ▪A Collection of data objects o e.g., in a sales dataset, the objects may be customers, products, and sale"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 17,
+     "type": "text",
+     "score": 0.9994,
+     "no_arabic_boilerplate": false,
+     "snippet": "Characteristics & Types of data sets General Characteristics of Data Sets ▪Three characteristics have a significant impa"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.9993,
+     "no_arabic_boilerplate": false,
+     "snippet": "Introduction ▪To start data mining, we need a closer look at attributes and data values to get the data ready. oWhy? Rea"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "What are the four types of attributes in a dataset?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "How does min-max normalization transform a value?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What is the process of min-max normalization in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 42,
+     "type": "text",
+     "score": 0.9998,
+     "no_arabic_boilerplate": false,
+     "snippet": "Min-max normalization ▪ performs a linear transformation on the original data. o A value,vi, of a numeric attribute A is"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.9995,
+     "no_arabic_boilerplate": false,
+     "snippet": "Z-Score Normalization ▪useful when the actual minimum and maximum of a numeric attribute A are unknown, or when there ar"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 41,
+     "type": "text",
+     "score": 0.9992,
+     "no_arabic_boilerplate": false,
+     "snippet": "Normalization ▪In general, expressing an attribute in smaller units will lead to a larger range and thus tend to give su"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "How does min-max normalization transform a value?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "When is z-score normalization useful?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What is the purpose of repeating the explanation of when z-score normalization is useful in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.9996,
+     "no_arabic_boilerplate": false,
+     "snippet": "Z-Score Normalization ▪useful when the actual minimum and maximum of a numeric attribute A are unknown, or when there ar"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 41,
+     "type": "text",
+     "score": 0.9994,
+     "no_arabic_boilerplate": false,
+     "snippet": "Normalization ▪In general, expressing an attribute in smaller units will lead to a larger range and thus tend to give su"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9992,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 1
+  },
+  {
+   "previous": "When is z-score normalization useful?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "How does binning smooth noisy data?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "How does binning smooth noisy data in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 17,
+     "type": "text",
+     "score": 0.9995,
+     "no_arabic_boilerplate": false,
+     "snippet": "How to Handle Noisy Data? ▪Basic statistical description techniques (e.g., boxplots and scatter plots) can be used to hi"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 20,
+     "type": "text",
+     "score": 0.9984,
+     "no_arabic_boilerplate": false,
+     "snippet": "Data Smoothing - Binning ▪Example(1): Suppose the following data for the price attribute: 4, 8, 9, 15, 21, 21, 24, 25, 2"
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 1,
+     "type": "text",
+     "score": 0.9983,
+     "no_arabic_boilerplate": false,
+     "snippet": "Knowledge Discovery in Databases Lecture-4: Frequent Patterns and Association rules Mining 1 جامعة محص كلية اهلندسة املع"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "How does binning smooth noisy data?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "What does the lift of an association rule tell you?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What does the lift of an association rule tell you in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 14,
+     "type": "text",
+     "score": 0.999,
+     "no_arabic_boilerplate": false,
+     "snippet": "Association Rules - Support ▪Determines how often a rule is applicable to a given dataset. ▪Support,𝐒, of a rule 𝐗⇒𝐘 : p"
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 41,
+     "type": "text",
+     "score": 0.9988,
+     "no_arabic_boilerplate": false,
+     "snippet": "Lik 0 Generating Association Rules Generating Association Rules ▪(recall the) 2-step method to extract the association r"
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 46,
+     "type": "text",
+     "score": 0.9986,
+     "no_arabic_boilerplate": false,
+     "snippet": "Evaluating Association Rules ▪To tackle the weakness of the support–confidence framework, a correlation measure can be u"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "What does the lift of an association rule tell you?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "What is a strong association rule?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What is a strong association rule in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 12,
+     "type": "text",
+     "score": 0.9992,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Concepts Association Rules Association Rules ▪Let 𝑋, 𝑌 be two disjoint itemsets. o Association rules: rules of the"
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.9988,
+     "no_arabic_boilerplate": false,
+     "snippet": "Generating Association Rules 44 ▪Example: based on the transactional data in Example (1), What are the association rules"
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 45,
+     "type": "text",
+     "score": 0.9986,
+     "no_arabic_boilerplate": false,
+     "snippet": "Evaluating Association Rules ▪Although the support–confidence framework help to exclude a good number of uninteresting r"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "What is a strong association rule?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "How is entropy calculated and what does it measure?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What is the formula for calculating entropy in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 21,
+     "type": "text",
+     "score": 0.999,
+     "no_arabic_boilerplate": false,
+     "snippet": "Entropy For Measuring Impurity 21 ▪Example: Let S: [9+,5-] Entropy(S)=−( 9 14) log2( 9 14) −( 5 14) log2 5 14 = 0.94 ▪In"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9984,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram illustrating Information Gain in decision trees. It features a large circle labeled \"Entire population"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 22,
+     "type": "text",
+     "score": 0.9959,
+     "no_arabic_boilerplate": false,
+     "snippet": "Information Gain 22 ▪Used in ID3 (Quinlan, 1986) ▪It uses entropy, a measure of pureness of the data ▪The information ga"
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 1
+  },
+  {
+   "previous": "How is entropy calculated and what does it measure?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "What do TP, TN, FP and FN mean in a confusion matrix?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What are the meanings of TP, TN, FP and FN in a confusion matrix in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.9994,
+     "no_arabic_boilerplate": false,
+     "snippet": "Confusion Matrix ▪A useful tool for analyzing how well a classifier performs . ▪built from the test set and the predicti"
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.9994,
+     "no_arabic_boilerplate": false,
+     "snippet": "Confusion Matrix ▪TP and TN tell us when the classifier is getting things right, while FP and FN tell us when the classi"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9993,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 1
+  },
+  {
+   "previous": "What do TP, TN, FP and FN mean in a confusion matrix?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "Give me an overview of ensemble methods for classification.",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What is the overview of ensemble methods for classification in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 48,
+     "type": "image_description",
+     "score": 0.9991,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of Python code from a machine learning lecture. It shows imports for scikit-learn ensemble and tree"
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 31,
+     "type": "text",
+     "score": 0.9987,
+     "no_arabic_boilerplate": false,
+     "snippet": "Input: D, a set of d data tuples; k, the number of models in the ensemble; a classification learning scheme (decision tr"
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 47,
+     "type": "text",
+     "score": 0.9984,
+     "no_arabic_boilerplate": false,
+     "snippet": "47 Random Forests v Create decision tree from each bootstrap sample ” At each node in choosing the split feature Create "
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "Give me an overview of ensemble methods for classification.",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "What does the diagram of under-fitting, balanced and over-fitting models show?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What does the diagram of under-fitting, balanced and over-fitting models show in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 31,
+     "type": "image_description",
+     "score": 0.9994,
+     "no_arabic_boilerplate": false,
+     "snippet": "The figure is a tree - like diagram titled \"Really Overfit\" in blue text. It consists of numerous interconnected nodes l"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 49,
+     "type": "image_description",
+     "score": 0.9991,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a diagram with three subplots. Each subplot has an x-axis and y-axis, green data points, and a red fitted line. "
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 7,
+     "type": "image_description",
+     "score": 0.9989,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram. It features a cartoon robot on the left and three right-pointing arrows leading to labeled steps on t"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 1
+  },
+  {
+   "previous": "What does the diagram of under-fitting, balanced and over-fitting models show?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "What does the diagram of the Apriori algorithm illustrate?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What does the Apriori algorithm illustrate in the diagram?",
+   "kept": [
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 32,
+     "type": "text",
+     "score": 0.9995,
+     "no_arabic_boilerplate": false,
+     "snippet": "Apriori Algorithm-implementation ▪Convention: For efficient implementation, Apriori Algorithm assumes that items within "
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 39,
+     "type": "image_description",
+     "score": 0.9994,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a diagram illustrating the Apriori algorithm for frequent itemset mining. It shows sequential steps: a Database "
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 40,
+     "type": "image_description",
+     "score": 0.9993,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a diagram illustrating the Apriori algorithm's frequent itemset mining process. It includes: - A **Database TDB*"
+    }
+   ],
+   "kept_figures": 2,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "What does the diagram of the Apriori algorithm illustrate?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "Can you give me an example?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "Can you explain the example you gave me in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 6,
+     "type": "image_description",
+     "score": 0.9921,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a composite image with two photographs and a textual label. On the left, a person with curly hair writes in a no"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 42,
+     "type": "image_description",
+     "score": 0.9914,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a square diagram with a red diagonal line from top-left corner labeled \"B₁\" to bottom-right corner. Green square"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9435,
+     "no_arabic_boilerplate": true,
+     "snippet": "The figure consists of two tables. The first table has columns \"Time,\" \"Customer,\" and \"Items Purchased,\" listing transa"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "Can you give me an example?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "Who won the football World Cup in 2018?",
+   "previous_lang": "en",
+   "mode": "rewritten",
+   "query": "What is the winner of the 2018 football World Cup in Arabic?",
+   "kept": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9988,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 1,
+     "type": "image_description",
+     "score": 0.9954,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a circular university emblem. It has a green and black outer border with red stars. At the top, Arabic text read"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 36,
+     "type": "image_description",
+     "score": 0.9928,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a diagram of two decision trees. Each tree has nodes labeled with questions (e.g., \"A1?\", \"A2?\", \"A4?\") and bran"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 2
+  },
+  {
+   "previous": "Who won the football World Cup in 2018?",
+   "previous_lang": "en",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ما هي خطوات عملية اكتشاف المعرفة من قواعد البيانات (KDD)؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هي خطوات عملية اكتشاف المعرفة من قواعد البيانات (KDD)؟",
+   "kept": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 1,
+     "type": "text",
+     "score": 0.9996,
+     "no_arabic_boilerplate": false,
+     "snippet": "Knowledge Discovery in Databases Lecture-9: Cluster Analysis (part-1) 1 جامعة محص كلية اهلندسة املعلوماتية السنة اخلامسة"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 1,
+     "type": "text",
+     "score": 0.9996,
+     "no_arabic_boilerplate": false,
+     "snippet": "Knowledge Discovery in Databases Lecture-5: Regression 1 جامعة محص كلية اهلندسة املعلوماتية السنة اخلامسة Dr. Asmaa Shaa"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 1,
+     "type": "text",
+     "score": 0.9995,
+     "no_arabic_boilerplate": false,
+     "snippet": "Knowledge Discovery in Databases Lecture-1: Introduction 1 جامعة محص كلية اهلندسة املعلوماتية السنة اخلامسة Dr. Asmaa Sh"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ما هي خطوات عملية اكتشاف المعرفة من قواعد البيانات (KDD)؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ما هي أنواع الخصائص الأربعة في البيانات؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هي أنواع الخصائص الأربعة في البيانات؟",
+   "kept": [
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 9,
+     "type": "text",
+     "score": 0.6208,
+     "no_arabic_boilerplate": false,
+     "snippet": "Attribute Types ▪Given these previous operations, we can define four types of attributes: oNominal (distinctness) oOrdin"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 42,
+     "type": "image_description",
+     "score": 0.6028,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a text-based diagram listing four features with mathematical definitions. It shows: - *feature 1 = 1 (constant)*"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 4,
+     "type": "text",
+     "score": 0.6026,
+     "no_arabic_boilerplate": false,
+     "snippet": "Introduction ▪To start data mining, we need a closer look at attributes and data values to get the data ready. oWhy? Rea"
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ما هي أنواع الخصائص الأربعة في البيانات؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "كيف تعمل عملية التطبيع بطريقة الحد الأدنى والحد الأقصى (min-max)؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هي عملية التطبيع بطريقة الحد الأدنى والحد الأقصى؟",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 42,
+     "type": "text",
+     "score": 0.4402,
+     "no_arabic_boilerplate": false,
+     "snippet": "Min-max normalization ▪ performs a linear transformation on the original data. o A value,vi, of a numeric attribute A is"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 50,
+     "type": "text",
+     "score": 0.4285,
+     "no_arabic_boilerplate": false,
+     "snippet": "▪In order to maximize d = 2/∥𝒘∥, we need to minimize ∥ 𝒘 ∥ o actually, we minimize the following: oThis allows us to per"
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 38,
+     "type": "image_description",
+     "score": 0.4267,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table titled \"Database TDB\". It has two columns: \"Tid\" (Transaction ID) with values 1–10, and \"Items\" containi"
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "كيف تعمل عملية التطبيع بطريقة الحد الأدنى والحد الأقصى (min-max)؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "متى نستخدم التطبيع بالدرجة المعيارية (z-score)؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "متى نستخدم التطبيع بالدرجة المعيارية (z-score)؟",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.9992,
+     "no_arabic_boilerplate": false,
+     "snippet": "Z-Score Normalization ▪useful when the actual minimum and maximum of a numeric attribute A are unknown, or when there ar"
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 16,
+     "type": "text",
+     "score": 0.996,
+     "no_arabic_boilerplate": false,
+     "snippet": "Which Metric Should You Use ٠ Accuracy is a good measure to start with if all classes are balanced (e.g. same amount of "
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 24,
+     "type": "text",
+     "score": 0.9953,
+     "no_arabic_boilerplate": false,
+     "snippet": "𝝌𝟐Correlation Test for Nominal Data ▪The chi‐square (χ2) tests the hypothesis that two categorical attributes A & B are "
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "متى نستخدم التطبيع بالدرجة المعيارية (z-score)؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "كيف يمكن معالجة القيم الناقصة في البيانات؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "كيف يمكن معالجة القيم الناقصة في البيانات؟",
+   "kept": [
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 1,
+     "type": "text",
+     "score": 0.9996,
+     "no_arabic_boilerplate": false,
+     "snippet": "Knowledge Discovery in Databases Lecture-4: Frequent Patterns and Association rules Mining 1 جامعة محص كلية اهلندسة املع"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.0009,
+     "no_arabic_boilerplate": false,
+     "snippet": "Why Data Preprocessing? ▪The real-world data we wish to analyze by data mining techniques tend to be dirty: oInaccurate "
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 12,
+     "type": "text",
+     "score": 0.0006,
+     "no_arabic_boilerplate": false,
+     "snippet": "How to Handle Missing Data? 5. Fill in the missing value automatically with: o A global constant e.g., “unknown”: a simp"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "كيف يمكن معالجة القيم الناقصة في البيانات؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ما هي خاصية أبريوري (Apriori) في استخراج الأنماط المتكررة؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هي خاصية أبريوري (Apriori) في استخراج الأنماط المتكررة؟",
+   "kept": [
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 37,
+     "type": "text",
+     "score": 0.9693,
+     "no_arabic_boilerplate": false,
+     "snippet": "Apriori Algorithm- Example (1) 4. The generation of L4 from L3 : o The Join step: C4 = L3 ⋈L3 = {{I1, I2, I3}, I1, I2, I"
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 39,
+     "type": "text",
+     "score": 0.9631,
+     "no_arabic_boilerplate": false,
+     "snippet": "Apriori Algorithm- Example )2( err ‏د‎ : {B, {B Ce eee a - 6 | ‏عق‎ ‎a ‎BG ! 8 | 6 minSupport = 4 5 * Green rows: prune "
+    },
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 39,
+     "type": "image_description",
+     "score": 0.95,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a diagram illustrating the Apriori algorithm for frequent itemset mining. It shows sequential steps: a Database "
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ما هي خاصية أبريوري (Apriori) في استخراج الأنماط المتكررة؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ما هو الإنتروبيا وكيف تُحسب؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هو الإنتروبيا وكيف تُحسب؟",
+   "kept": [
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 23,
+     "type": "text",
+     "score": 0.3177,
+     "no_arabic_boilerplate": false,
+     "snippet": "17 13 (Weighted) Average Entropy of Children = ‏جا مي‎ 0. s01|- 0.615 Information Gain= 0.996 - 0.615 = 0.38 38 Informat"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 22,
+     "type": "text",
+     "score": 0.0029,
+     "no_arabic_boilerplate": false,
+     "snippet": "Information Gain 22 ▪Used in ID3 (Quinlan, 1986) ▪It uses entropy, a measure of pureness of the data ▪The information ga"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 22,
+     "type": "image_description",
+     "score": 0.0007,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a mathematical diagram illustrating the information gain formula in decision trees. It displays the equation \\(G"
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ما هو الإنتروبيا وكيف تُحسب؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ما هو الإفراط في التكيّف (overfitting) وكيف نتجنبه؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هو الإفراط في التكيّف (overfitting) وكيف نتجنبه؟",
+   "kept": [
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 48,
+     "type": "text",
+     "score": 0.9729,
+     "no_arabic_boilerplate": false,
+     "snippet": "49 Assessing Performance Model + algorithm > fitted function Predictions > decisions > outcome Assessing Performance Und"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 35,
+     "type": "image_description",
+     "score": 0.8789,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a line graph. The y-axis is labeled \"Error\" and the x-axis is labeled \"Model Complexity\". Two curves are visible"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 30,
+     "type": "text",
+     "score": 0.0854,
+     "no_arabic_boilerplate": false,
+     "snippet": "Gain Ratio 31 ▪Example: Compute of gain ratio for the wind attribute. o𝑣𝑎𝑙𝑢𝑒𝑠(𝑤𝑖𝑛𝑑)={weak, strong} o𝑆𝑝𝑙𝑖𝑡𝐼𝑛𝑓𝑜𝑆, 𝑤𝑖𝑛𝑑= − "
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ما هو الإفراط في التكيّف (overfitting) وكيف نتجنبه؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ما الفرق بين التجميع (bagging) والتعزيز (boosting)؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما الفرق بين التجميع (bagging) والتعزيز (boosting)؟",
+   "kept": [
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 35,
+     "type": "text",
+     "score": 0.9939,
+     "no_arabic_boilerplate": false,
+     "snippet": "the weight of each classifier’s vote is a function of its accuracy. ▪Comparing with bagging: Boosting tends to have grea"
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 37,
+     "type": "text",
+     "score": 0.9932,
+     "no_arabic_boilerplate": false,
+     "snippet": "AdaBoost algorithm. ▪Input: o D, a set of d class-labeled training tuples, (𝑥1, 𝑦1), (𝑥2, 𝑦2), …, (𝑥𝑑, 𝑦𝑑); o k, the num"
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 50,
+     "type": "image_description",
+     "score": 0.9885,
+     "no_arabic_boilerplate": false,
+     "snippet": "The figure consists of two side-by-side bar charts. Each chart displays three categories on the x-axis: \"Random Forest,\""
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ما الفرق بين التجميع (bagging) والتعزيز (boosting)؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "كيف تعمل خوارزمية k-means؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "كيف تعمل خوارزمية k-means؟",
+   "kept": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 32,
+     "type": "text",
+     "score": 0.974,
+     "no_arabic_boilerplate": false,
+     "snippet": "K-means Properties ▪Strength: Efficient, The time complexity of k-means algorithm is O(nkt) where n is # objects, k is #"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 40,
+     "type": "text",
+     "score": 0.9297,
+     "no_arabic_boilerplate": false,
+     "snippet": "From K-Means to K-Medoids ▪To modify the k-means algorithm to reduce such sensitivity to outliers, Instead of taking the"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 33,
+     "type": "text",
+     "score": 0.8394,
+     "no_arabic_boilerplate": false,
+     "snippet": "Variations of K-Means ▪There are many variants of the K-Means method, varying in different aspects oSelection of the ini"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "كيف تعمل خوارزمية k-means؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ما هي مصفوفة الارتباك (confusion matrix)؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هي مصفوفة الارتباك (confusion matrix)؟",
+   "kept": [
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.997,
+     "no_arabic_boilerplate": false,
+     "snippet": "Confusion Matrix ▪A useful tool for analyzing how well a classifier performs . ▪built from the test set and the predicti"
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 6,
+     "type": "image_description",
+     "score": 0.9961,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a table illustrating a confusion matrix. It has \"Actual class\" as rows (C₁, ¬C₁, Total) and \"Predicted class\" as"
+    },
+    {
+     "file": "kdd_lec08_classifacation_3.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.9961,
+     "no_arabic_boilerplate": false,
+     "snippet": "Confusion Matrix ▪TP and TN tell us when the classifier is getting things right, while FP and FN tell us when the classi"
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ما هي مصفوفة الارتباك (confusion matrix)؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "كيف تعمل خوارزمية الجار الأقرب (kNN)؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "كيف تعمل خوارزمية الجار الأقرب (kNN)؟",
+   "kept": [
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 25,
+     "type": "text",
+     "score": 0.9977,
+     "no_arabic_boilerplate": false,
+     "snippet": "k-Nearest Neighbor (kNN) classifiers ▪Input: oA training set D (with known class labels) oA distance measure to compute "
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 34,
+     "type": "text",
+     "score": 0.9959,
+     "no_arabic_boilerplate": false,
+     "snippet": "Generating dataset 40 ▪The code for generating and plotting the data is shown below. Generating dataset 41 ▪All instance"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 22,
+     "type": "text",
+     "score": 0.995,
+     "no_arabic_boilerplate": false,
+     "snippet": "Basic Classification Techniques k-Nearest Neighbor (kNN) classifier 26 Lazy vs Eager learners ▪Eager learners: oConstruc"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "كيف تعمل خوارزمية الجار الأقرب (kNN)؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ما هو الافتراض الذي يقوم عليه مصنّف بايز البسيط (Naive Bayes)؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هو الافتراض الذي يقوم عليه مصنّف بايز البسيط (Naive Bayes)?",
+   "kept": [
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 7,
+     "type": "text",
+     "score": 0.998,
+     "no_arabic_boilerplate": false,
+     "snippet": "Bayes’ Theorem: Basics ▪Bayes’ theorem is: 𝑷𝑯𝑿= 𝑷𝑿𝑯𝑷(𝑯) 𝑷(𝑿) 8 For classification problem, we are looking for the probab"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 9,
+     "type": "text",
+     "score": 0.998,
+     "no_arabic_boilerplate": false,
+     "snippet": "Bayes’ Theorem: Basics ▪Example (2): Given that o A doctor knows that meningitis causes stiff neck 50% of the time→ P(S|"
+    },
+    {
+     "file": "kdd_lec07_classifacation_2.pdf",
+     "page": 11,
+     "type": "text",
+     "score": 0.9974,
+     "no_arabic_boilerplate": false,
+     "snippet": "Naive Bayesian Classifier ▪To reduce computation in evaluating 𝑃𝑋𝑐, A simplified assumption is made: “The attributes’ va"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ما هو الافتراض الذي يقوم عليه مصنّف بايز البسيط (Naive Bayes)؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "اشرح لي المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات.",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هي المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات؟",
+   "kept": [
+    {
+     "file": "kdd_lec04_association_rule.pdf",
+     "page": 1,
+     "type": "text",
+     "score": 0.9994,
+     "no_arabic_boilerplate": false,
+     "snippet": "Knowledge Discovery in Databases Lecture-4: Frequent Patterns and Association rules Mining 1 جامعة محص كلية اهلندسة املع"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 1,
+     "type": "text",
+     "score": 0.9993,
+     "no_arabic_boilerplate": false,
+     "snippet": "Knowledge Discovery in Databases Lecture-3: Data Preprocessing 1 جامعة محص كلية اهلندسة املعلوماتية السنة اخلامسة Dr. As"
+    },
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 6,
+     "type": "text",
+     "score": 0.0012,
+     "no_arabic_boilerplate": false,
+     "snippet": "Why Data Preprocessing? ▪The real-world data we wish to analyze by data mining techniques tend to be dirty: oInaccurate "
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "اشرح لي المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات.",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ما هي مهام التنقيب في البيانات (data mining tasks)؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هي مهام التنقيب في البيانات (data mining tasks)؟",
+   "kept": [
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 22,
+     "type": "text",
+     "score": 0.9985,
+     "no_arabic_boilerplate": false,
+     "snippet": "Data Mining Tasks ▪Generally, Divided into two major categories: oPredictive tasks: predict the value of a particular at"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 8,
+     "type": "text",
+     "score": 0.9978,
+     "no_arabic_boilerplate": false,
+     "snippet": "What is (not) Data Mining? 9 ▪What is Data Mining? o Group together similar documents returned by search engine accordin"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 23,
+     "type": "text",
+     "score": 0.9884,
+     "no_arabic_boilerplate": false,
+     "snippet": "24 labeled dataset unlabeled dataset Data Mining Tasks Association Rules Mining ▪Task: Given a set of transactional reco"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ما هي مهام التنقيب في البيانات (data mining tasks)؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "هل يمكنك إعطائي مثالاً؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ماذا يمكنك إعادة قوله في العربية؟",
+   "kept": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 43,
+     "type": "text",
+     "score": 0.9956,
+     "no_arabic_boilerplate": false,
+     "snippet": "= كة | ‎me‏ 0ق ‎ee‏ —_- عط اقم ‎oof‏ ee a 1 21 ‏لا‎ 5 66 7 ه٠‎ a oi Swap if quality is improved 18<26 > swap Do loop Unt"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 34,
+     "type": "image_description",
+     "score": 0.0013,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a mathematical expression showing the gradient of RSS (residual sum of squares) with respect to parameters \\(w_0"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 30,
+     "type": "text",
+     "score": 0.0008,
+     "no_arabic_boilerplate": false,
+     "snippet": "An Example of K-Means Clustering 34 Cluster1: {(2,10), (4,9)} Cluster2: {(8,4),(5,8),(7,5),(6,4)} Cluster3: {(2,5),(1,2)"
+    }
+   ],
+   "kept_figures": 1,
+   "kept_boilerplate": 1
+  },
+  {
+   "previous": "هل يمكنك إعطائي مثالاً؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "وما هي عيوبها؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هي عيوبها؟",
+   "kept": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 32,
+     "type": "text",
+     "score": 0.4232,
+     "no_arabic_boilerplate": false,
+     "snippet": "K-means Properties ▪Strength: Efficient, The time complexity of k-means algorithm is O(nkt) where n is # objects, k is #"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 52,
+     "type": "image_description",
+     "score": 0.4178,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a diagram (graph) with a main plot and two smaller subplots. The main plot has a y-axis labeled \"Error\" and an x"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 44,
+     "type": "image_description",
+     "score": 0.4015,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a text-based diagram from a university lecture slide. It shows a regression model equation: \\( y_i = \\sum_{j=0}^"
+    }
+   ],
+   "kept_figures": 2,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "وما هي عيوبها؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ماذا يوضح الشكل الخاص بخطوات خوارزمية k-means؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هو شرح خوارزمية k-means؟",
+   "kept": [
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 40,
+     "type": "text",
+     "score": 0.9846,
+     "no_arabic_boilerplate": false,
+     "snippet": "From K-Means to K-Medoids ▪To modify the k-means algorithm to reduce such sensitivity to outliers, Instead of taking the"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 34,
+     "type": "text",
+     "score": 0.9839,
+     "no_arabic_boilerplate": false,
+     "snippet": "K-Modes: Clustering Nominal Data ▪k-modes is a variant of k-means for handling Nominal data: oReplacing the means of clu"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 32,
+     "type": "text",
+     "score": 0.9782,
+     "no_arabic_boilerplate": false,
+     "snippet": "K-means Properties ▪Strength: Efficient, The time complexity of k-means algorithm is O(nkt) where n is # objects, k is #"
+    }
+   ],
+   "kept_figures": 0,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ماذا يوضح الشكل الخاص بخطوات خوارزمية k-means؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ماذا توضح الرسوم عن النموذج ناقص التكيّف والنموذج المفرط التكيّف؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ماذا توضح الرسوم عن النموذج ناقص التكيّف والنموذج المفرط التكيّف؟",
+   "kept": [
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 54,
+     "type": "image_description",
+     "score": 0.5656,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a diagram illustrating model complexity versus error. The x-axis is labeled \"Model complexity,\" and the y-axis i"
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 33,
+     "type": "image_description",
+     "score": 0.5648,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a line chart. The x-axis shows \"Size of tree (number of nodes)\" (0–100), and the y-axis shows \"Accuracy\" (0.5–0."
+    },
+    {
+     "file": "kdd_lec06_classifacation_1.pdf",
+     "page": 31,
+     "type": "image_description",
+     "score": 0.5551,
+     "no_arabic_boilerplate": false,
+     "snippet": "The figure is a tree - like diagram titled \"Really Overfit\" in blue text. It consists of numerous interconnected nodes l"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ماذا توضح الرسوم عن النموذج ناقص التكيّف والنموذج المفرط التكيّف؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "ما هي عاصمة اليابان؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "ما هي عاصمة اليابان؟",
+   "kept": [
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 24,
+     "type": "image_description",
+     "score": 0.3617,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 29,
+     "type": "image_description",
+     "score": 0.3362,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a screenshot of"
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 5,
+     "type": "image_description",
+     "score": 0.3337,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a diagram illustrating the Internet of Things. Central to the image is the text \"INTERNET of THINGS,\" with \"INTE"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "ما هي عاصمة اليابان؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  },
+  {
+   "previous": "من هو مخترع الهاتف؟",
+   "previous_lang": "ar",
+   "mode": "rewritten",
+   "query": "من هو مخترع الهاتف؟",
+   "kept": [
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 25,
+     "type": "image_description",
+     "score": 0.3804,
+     "no_arabic_boilerplate": false,
+     "snippet": "The figure is a composite image: left side is a network diagram with interconnected nodes (dots) and lines forming a web"
+    },
+    {
+     "file": "kdd_lec05_regression.pdf",
+     "page": 5,
+     "type": "image_description",
+     "score": 0.3673,
+     "no_arabic_boilerplate": false,
+     "snippet": "The figure is a composite image: left side is a network diagram with interconnected nodes (circles) and lines forming a "
+    },
+    {
+     "file": "kdd_lec01_Introduction.pdf",
+     "page": 5,
+     "type": "image_description",
+     "score": 0.3621,
+     "no_arabic_boilerplate": false,
+     "snippet": "This is a diagram illustrating the Internet of Things. Central to the image is the text \"INTERNET of THINGS,\" with \"INTE"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 0
+  },
+  {
+   "previous": "من هو مخترع الهاتف؟",
+   "previous_lang": "ar",
+   "mode": "as_typed",
+   "query": "okay i can't get it could repeat all that in arabic",
+   "kept": [
+    {
+     "file": "kdd_lec03_data_preprocessing.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.9987,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing triangular arrows (rewind symbol) on the left, and"
+    },
+    {
+     "file": "kdd_lec09_cluster_analyis.pdf",
+     "page": 2,
+     "type": "image_description",
+     "score": 0.996,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a logo. It features a red square with two white left-pointing arrows (resembling a rewind symbol) on the left, a"
+    },
+    {
+     "file": "kdd_lec02_data.pdf",
+     "page": 23,
+     "type": "image_description",
+     "score": 0.9958,
+     "no_arabic_boilerplate": true,
+     "snippet": "This is a text block displaying a sequence of nucleotide bases (G, T, C, A) in yellow on a black background. It consists"
+    }
+   ],
+   "kept_figures": 3,
+   "kept_boilerplate": 3
+  }
+ ]
+}

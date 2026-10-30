@@ -1,0 +1,2988 @@
+{
+ "meta": {
+  "label": "after",
+  "seeds": [
+   41,
+   42,
+   43
+  ],
+  "model": "llama3.1:8b"
+ },
+ "summary": {
+  "transform/en": {
+   "n": 36,
+   "searched": 0.0,
+   "on_topic": 0.9166666666666666,
+   "language_ok": 1.0,
+   "figure_talk": 0.0,
+   "disallowed_answers": 0.027777777777777776,
+   "repeated_paragraph": 0.0,
+   "no_new_sources": 1.0,
+   "on_topic_by_seed": [
+    0.9166666666666666,
+    0.9166666666666666,
+    0.9166666666666666
+   ]
+  },
+  "transform/ar": {
+   "n": 24,
+   "searched": 0.0,
+   "on_topic": 1.0,
+   "language_ok": 1.0,
+   "figure_talk": 0.0,
+   "disallowed_answers": 0.0,
+   "repeated_paragraph": 0.0,
+   "no_new_sources": 1.0,
+   "on_topic_by_seed": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "transform/all": {
+   "n": 60,
+   "searched": 0.0,
+   "on_topic": 0.95,
+   "language_ok": 1.0,
+   "figure_talk": 0.0,
+   "disallowed_answers": 0.016666666666666666,
+   "repeated_paragraph": 0.0,
+   "no_new_sources": 1.0,
+   "on_topic_by_seed": [
+    0.95,
+    0.95,
+    0.95
+   ]
+  },
+  "near_miss/en": {
+   "n": 18,
+   "searched": 1.0,
+   "on_topic": 1.0,
+   "language_ok": 1.0,
+   "figure_talk": 0.0,
+   "disallowed_answers": 0.0,
+   "repeated_paragraph": 0.0,
+   "has_sources": 1.0,
+   "new_sources_vs_previous": 1.0,
+   "on_topic_by_seed": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "near_miss/ar": {
+   "n": 12,
+   "searched": 1.0,
+   "on_topic": 1.0,
+   "language_ok": 1.0,
+   "figure_talk": 0.0,
+   "disallowed_answers": 0.16666666666666666,
+   "repeated_paragraph": 0.0,
+   "has_sources": 1.0,
+   "new_sources_vs_previous": 1.0,
+   "on_topic_by_seed": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  },
+  "near_miss/all": {
+   "n": 30,
+   "searched": 1.0,
+   "on_topic": 1.0,
+   "language_ok": 1.0,
+   "figure_talk": 0.0,
+   "disallowed_answers": 0.06666666666666667,
+   "repeated_paragraph": 0.0,
+   "has_sources": 1.0,
+   "new_sources_vs_previous": 1.0,
+   "on_topic_by_seed": [
+    1.0,
+    1.0,
+    1.0
+   ]
+  }
+ },
+ "rows": [
+  {
+   "id": "t01",
+   "kind": "transform",
+   "seed": 41,
+   "question": "say that in Arabic",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10].\n\nNote that the KDD process is also described as an iterative sequence of steps in [kdd_lec01_Introduction.pdf, page 9], but the above list provides the specific steps mentioned in the lecture.",
+   "answer": "خطوات عملية KDD هي:\n\n1. تنظيف البيانات: لإزالة الضوضاء والبيانات غير المتسقة [kdd_lec01_Introduction.pdf, page 10].\n2. دمج البيانات: قد يتم دمج مصادر البيانات المتعددة [kdd_lec01_Introduction.pdf, page 10].\n3. تحديد البيانات: يتم استرجاع البيانات ذات الصلة بالتarefa التالية من قاعدة البيانات [kdd_lec01_Introduction.pdf, page 10].\n4. تحويل البيانات: يتم تحويل البيانات إلى أشكال مناسبة للتarefa التالية [kdd_lec01_Introduction.pdf, page 10].\n5. التعلم الآلي: يتم تطبيق طرق ذكية لاستخراج الأنماط أو بناء النماذج [kdd_lec01_Introduction.pdf, page 10].\n6. التقييم: يتم تحديد الأنماط أو النماذج الفعلية المثيرة للاهتمام بناءً على معايير معينة [kdd_lec01_Introduction.pdf, page 10].\n7. عرض المعرفة: يتم استخدام تقنيات تمثيل المعرفة والتصوير لتقديم المعرفة المستخرجة للمستخدمين [kdd_lec01_Introduction.pdf, page 10].\n\nتوصف عملية KDD أيضًا بأنها سلسلة متكررة من الخطوات في [kdd_lec01_Introduction.pdf, page 9]."
+  },
+  {
+   "id": "t02",
+   "kind": "transform",
+   "seed": 41,
+   "question": "okay i can't get it could repeat all that in arabic",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10].\n\nNote that the KDD process is also described as an iterative sequence of steps in [kdd_lec01_Introduction.pdf, page 9], but the above list provides the specific steps mentioned in the lecture.",
+   "answer": "خطوات عملية KDD هي:\n\n1. تنظيف البيانات: لإزالة الضوضاء والبيانات غير المتسقة [kdd_lec01_Introduction.pdf, page 10].\n2. دمج البيانات: قد يتم دمج مصادر البيانات المتعددة [kdd_lec01_Introduction.pdf, page 10].\n3. تحديد البيانات: يتم استرجاع البيانات ذات الصلة بالتarefa التالية من قاعدة البيانات [kdd_lec01_Introduction.pdf, page 10].\n4. تحويل البيانات: يتم تحويل البيانات إلى أشكال مناسبة للتarefa التالية [kdd_lec01_Introduction.pdf, page 10].\n5. التعلم الآلي: يتم تطبيق طرق ذكية لاستخراج النماذج أو بناء النماذج [kdd_lec01_Introduction.pdf, page 10].\n6. التقييم: لتحديد النماذج الفعلية المثيرة للاهتمام بناءً على معايير معينة [kdd_lec01_Introduction.pdf, page 10].\n7. عرض المعرفة: يتم استخدام تقنيات عرض المعرفة والتمثيل لتقديم المعرفة المستخرجة للمستخدمين [kdd_lec01_Introduction.pdf, page 10].\n\nمن الملاحظ أن عملية KDD أيضاًوصفها كتتابع متكرر من الخطوات في [kdd_lec01_Introduction.pdf, page 9], ولكن القائمة السابقة توفر الخطوات المحددة التي ذكرت في المحاضرة."
+  },
+  {
+   "id": "t03",
+   "kind": "transform",
+   "seed": 41,
+   "question": "I don't get it",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance, representing the impurity of the data [kdd_lec06_classifacation_1.pdf, page 21].",
+   "answer": "Let me try to simplify it for you. Entropy is a measure of how uncertain we are about the class label of an instance. It's like trying to guess the class label without any prior knowledge. The formula calculates the average amount of information needed to make that guess. In other words, it measures how \"mixed up\" the data is, with a higher entropy indicating more uncertainty and a lower entropy indicating less uncertainty."
+  },
+  {
+   "id": "t04",
+   "kind": "transform",
+   "seed": 41,
+   "question": "simplify it please",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance, representing the impurity of the data [kdd_lec06_classifacation_1.pdf, page 21].",
+   "answer": "Entropy measures the impurity of the data, representing the average amount of information needed to identify the class label of an instance. It is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝓰𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]."
+  },
+  {
+   "id": "t05",
+   "kind": "transform",
+   "seed": 41,
+   "question": "repeat all that",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     24
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     29
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     31
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Ensemble methods for classification are a technique to improve the accuracy of a model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, which is a combination of k learned models, 𝑀1, 𝑀2, … . , 𝑀𝑘. The ensemble tends to be more accurate than its base classifiers [kdd_lec08_classifacation_3.pdf, page 24].",
+   "answer": "Ensemble methods for classification are a technique to improve the accuracy of a model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, which is a combination of k learned models, 𝑀1, 𝑀2, … . , 𝑀𝑘. The ensemble tends to be more accurate than its base classifiers [kdd_lec08_classifacation_3.pdf, page 24]."
+  },
+  {
+   "id": "t06",
+   "kind": "transform",
+   "seed": 41,
+   "question": "give an example",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     24
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     29
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     31
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Ensemble methods for classification are a technique to improve the accuracy of a model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, which is a combination of k learned models, 𝑀1, 𝑀2, … . , 𝑀𝑘. The ensemble tends to be more accurate than its base classifiers [kdd_lec08_classifacation_3.pdf, page 24].",
+   "answer": "Consider a scenario where we want to classify images as either \"cats\" or \"dogs\". We have three base classifiers: M1, M2, and M3, each trained on a different dataset. M1 is a convolutional neural network (CNN) that excels at recognizing cats, but struggles with dogs. M2 is a different CNN that is good at recognizing dogs, but not as accurate with cats. M3 is a support vector machine (SVM) that is mediocre at both tasks.\n\nTo create the ensemble model M*, we combine the predictions of M1, M2, and M3. For example, if M1 predicts a 70% chance that an image is a cat, M2 predicts a 30% chance that it's a dog, and M3 predicts a 50% chance that it's a cat, the ensemble model M* would take into account these predictions and output a final classification. The ensemble tends to be more accurate than its base classifiers [kdd_lec08_classifacation_3.pdf, page 24]."
+  },
+  {
+   "id": "t07",
+   "kind": "transform",
+   "seed": 41,
+   "question": "translate this to arabic",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     14
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly defined in the provided context, but implied to be the complement of TP and TN)\n\nNote that the context does not explicitly define FN, but based on the definitions of TP and TN, it can be inferred that FN refers to # false negatives (#positive tuples that were incorrectly labeled as negative).",
+   "answer": "حسب النص الدراسي [kdd_lec08_classifacation_3.pdf, page 6], يتم استخدام الأربعة \"الحجارة الأساسية\" في حساب العديد من المقايير التقييمية في جدول التباين:\n\n* TP: عدد الإيجابيات الصحيحة (#positive tuples التي تم تصنيفها بشكل صحيح من قبل المُصنف) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: عدد السلبيات الصحيحة (#negative tuples التي تم تصنيفها بشكل صحيح من قبل المُصنف) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: عدد الإيجابيات الخاطئة (#negative tuples التي تم تصنيفها بشكل خاطئ على أنها إيجابية) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (ليست محددة بشكل واضح في السياق المُقدم, ولكن يمكن استنتاجها من تعريفات TP و TN)\n\nتُلاحظ أن السياق لا يحدد FN بشكل واضح, ولكن يمكن استنتاجها من تعريفات TP و TN, ويمكن استنتاج أن FN تشير إلى عدد السلبيات الخاطئة (#positive tuples التي تم تصنيفها بشكل خاطئ على أنها سلبية)."
+  },
+  {
+   "id": "t08",
+   "kind": "transform",
+   "seed": 41,
+   "question": "Can you explain that again in simpler words?",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     14
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly defined in the provided context, but implied to be the complement of TP and TN)\n\nNote that the context does not explicitly define FN, but based on the definitions of TP and TN, it can be inferred that FN refers to # false negatives (#positive tuples that were incorrectly labeled as negative).",
+   "answer": "Here's a simpler explanation:\n\nWhen we look at a confusion matrix, we use four main numbers to evaluate how well a classifier is doing. These numbers are:\n\n* TP (True Positives): This is the number of things that are actually positive, and the classifier correctly said were positive.\n* TN (True Negatives): This is the number of things that are actually negative, and the classifier correctly said were negative.\n* FP (False Positives): This is the number of things that are actually negative, but the classifier incorrectly said were positive.\n* FN (False Negatives): This is the number of things that are actually positive, but the classifier incorrectly said were negative.\n\nNote that FN is not explicitly defined in the text, but we can figure it out by looking at the definitions of TP and TN."
+  },
+  {
+   "id": "t09",
+   "kind": "transform",
+   "seed": 41,
+   "question": "summarize that in 3 bullet points",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10].\n\nNote that the KDD process is also described as an iterative sequence of steps in [kdd_lec01_Introduction.pdf, page 9], but the above list provides the specific steps mentioned in the lecture.",
+   "answer": "Here are the 7 steps of the KDD process summarized in 3 bullet points:\n\n* The KDD process involves several steps, including Data Cleaning, Data Integration, Data Selection, Data Transformation, Data Mining, Evaluation, and Knowledge Presentation.\n* The process starts with Data Cleaning and Data Integration to prepare the data, followed by Data Selection and Data Transformation to prepare the data for mining.\n* The final steps involve applying intelligent methods to extract patterns or construct models (Data Mining), evaluating the results (Evaluation), and presenting the mined knowledge to users (Knowledge Presentation)."
+  },
+  {
+   "id": "t10",
+   "kind": "transform",
+   "seed": 41,
+   "question": "could you say all that in Arabic please",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": false,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance, representing the impurity of the data [kdd_lec06_classifacation_1.pdf, page 21].",
+   "answer": "يتم حساب الارتفاع باستخدام الصيغة: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. هذه الصيغة تحسب متوسط كمية المعلومات اللازمة لتحديد علامة الفئة للinstance.\n\nيحسرب الارتفاع يمثل متوسط كمية المعلومات اللازمة لتحديد علامة الفئة للinstance، ويحسرب أيضاً نقصان نقاء البيانات [kdd_lec06_classifacation_1.pdf, page 21]."
+  },
+  {
+   "id": "t11",
+   "kind": "transform",
+   "seed": 41,
+   "question": "ترجم ذلك للانجليزية",
+   "question_lang": "ar",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم البيانات إلى مجموعات (clusters) من حيث تشابهها، وتستخدم هذه الخوارزمية في تحديد مركزي كل مجموعة (centroid) الذي يعتبر المرجع للعناصر في المجموعة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "The k-means algorithm works by dividing the data into groups (clusters) based on their similarity, and it uses this algorithm to determine the central point (centroid) of each group, which serves as a reference for the elements within the group. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "t12",
+   "kind": "transform",
+   "seed": 41,
+   "question": "مش فاهم",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم البيانات إلى مجموعات (clusters) من حيث تشابهها، وتستخدم هذه الخوارزمية في تحديد مركزي كل مجموعة (centroid) الذي يعتبر المرجع للعناصر في المجموعة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "حسناً. يمكنني شرحها بشكل أبسط. تعمل خوارزمية k-means على تقسيم البيانات إلى مجموعات من حيث تشابهها، وتحديد مركزي كل مجموعة الذي يعتبر المرجع للعناصر في المجموعة. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "t13",
+   "kind": "transform",
+   "seed": 41,
+   "question": "اشرح ذلك مرة أخرى",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     48
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج مع البيانات التدريبية بدرجة كبيرة، مما يؤدي إلى انخفاض نسبة الخطأ التدريبي (training error) ولكن يؤدي إلى زيادة نسبة الخطأ على البيانات التي لم تُدرّب عليها (test error).\n\nللتجنب من الإفراط في التكيّف، يجب أن نبحث عن النموذج الذي يتوازن بين انخفاض نسبة الخطأ التدريبي و انخفاض نسبة الخطأ على البيانات التي لم تُدرّب عليها. هذا يمكن أن يتم عن طريق استخدام تقنيات مثل تقنيات التأثير (regularization) أو تقنيات تحديد البحوث (cross-validation).",
+   "answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج مع البيانات التدريبية بدرجة كبيرة، مما يؤدي إلى انخفاض نسبة الخطأ التدريبي (training error) ولكن يؤدي إلى زيادة نسبة الخطأ على البيانات التي لم تُدرّب عليها (test error).\n\nللتجنب من الإفراط في التكيّف، يجب أن نبحث عن النموذج الذي يتوازن بين انخفاض نسبة الخطأ التدريبي و انخفاض نسبة الخطأ على البيانات التي لم تُدرّب عليها. هذا يمكن أن يتم عن طريق استخدام تقنيات مثل تقنيات التأثير (regularization) أو تقنيات تحديد البحوث (cross-validation)."
+  },
+  {
+   "id": "t14",
+   "kind": "transform",
+   "seed": 41,
+   "question": "ممكن تبسطها",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     48
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج مع البيانات التدريبية بدرجة كبيرة، مما يؤدي إلى انخفاض نسبة الخطأ التدريبي (training error) ولكن يؤدي إلى زيادة نسبة الخطأ على البيانات التي لم تُدرّب عليها (test error).\n\nللتجنب من الإفراط في التكيّف، يجب أن نبحث عن النموذج الذي يتوازن بين انخفاض نسبة الخطأ التدريبي و انخفاض نسبة الخطأ على البيانات التي لم تُدرّب عليها. هذا يمكن أن يتم عن طريق استخدام تقنيات مثل تقنيات التأثير (regularization) أو تقنيات تحديد البحوث (cross-validation).",
+   "answer": "يمكن أن نقول إن الإفراط في التكيّف يحدث عندما يتعامل النموذج مع البيانات التدريبية بدرجة كبيرة، مما يؤدي إلى انخفاض نسبة الخطأ التدريبي ولكن يؤدي إلى زيادة نسبة الخطأ على البيانات التي لم تُدرّب عليها.\n\nللتجنب من هذا، يجب أن نبحث عن النموذج الذي يتوازن بين انخفاض نسبة الخطأ التدريبي و انخفاض نسبة الخطأ على البيانات التي لم تُدرّب عليها. يمكن أن يتم ذلك عن طريق استخدام تقنيات مثل تقنيات التأثير أو تقنيات تحديد البحوث."
+  },
+  {
+   "id": "t15",
+   "kind": "transform",
+   "seed": 41,
+   "question": "اعطني مثال",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     4
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تكامل البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation) [kdd_lec03_data_preprocessing.pdf, page 1].",
+   "answer": "مثال على المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات:\n- تنظيف البيانات: إذا كان لدينا قاعدة بيانات تحتوي على معلومات عن العملاء، قد نحتاج إلى إزالة البيانات الخاطئة أو غير الصحيحة، مثل عنوان أو رقم هاتف غير صحيح. على سبيل المثال، إذا كان لدينا قاعدة بيانات تحتوي على عنوان \"شارع xyz\"، قد نحتاج إلى تحديثه إلى \"شارع xyz، رقم 123\" [kdd_lec03_data_preprocessing.pdf, page 1]."
+  },
+  {
+   "id": "t16",
+   "kind": "transform",
+   "seed": 41,
+   "question": "لخص ما سبق",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     4
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تكامل البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation) [kdd_lec03_data_preprocessing.pdf, page 1].",
+   "answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي تنظيف البيانات و تكامل البيانات و تخفيض البيانات و تحويل البيانات."
+  },
+  {
+   "id": "t17",
+   "kind": "transform",
+   "seed": 41,
+   "question": "لم أفهم",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم البيانات إلى مجموعات (clusters) من حيث تشابهها، وتستخدم هذه الخوارزمية في تحديد مركزي كل مجموعة (centroid) الذي يعتبر المرجع للعناصر في المجموعة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "حسناً. سأعيد شرح الخوارزمية k-means بتفصيل أكبر.\n\nتعتبر خوارزمية k-means هي إحدى الطرق الشائعة المستخدمة في تحليل البيانات، وتعمل على تقسيم البيانات إلى مجموعات أو مجموعات (clusters) من حيث تشابهها. [kdd_lec09_cluster_analyis.pdf, page 32] هذه المجموعات أو clusters تعتبر مجموعات من البيانات التي تظهر تشابهًا كبيرًا في خصائصها.\n\nتستخدم خوارزمية k-means في تحديد مركزي كل مجموعة (centroid) الذي يعتبر المرجع للعناصر في المجموعة. هذا المركز أو centroid يعتبر نقطة المرجعية التي تتم مقارنة العناصر في المجموعة بها لتحديد مدى تشابهها. [kdd_lec09_cluster_analyis.pdf, page 32]\n\nيمكن أن يكون هذا التحليل مفيدًا في العديد من المجالات مثل علم البيانات، علم الحاسوب، وعلوم البيئة، حيث يمكن استخدام خوارزمية k-means لتحليل البيانات وتحديد مجموعات من البيانات التي تظهر تشابهًا كبيرًا.\n\nأتمنى أن يكون هذا شرحًا مفيدًا."
+  },
+  {
+   "id": "t18",
+   "kind": "transform",
+   "seed": 41,
+   "question": "كرر الكلام ده بالانجليزي",
+   "question_lang": "ar",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     48
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج مع البيانات التدريبية بدرجة كبيرة، مما يؤدي إلى انخفاض نسبة الخطأ التدريبي (training error) ولكن يؤدي إلى زيادة نسبة الخطأ على البيانات التي لم تُدرّب عليها (test error).\n\nللتجنب من الإفراط في التكيّف، يجب أن نبحث عن النموذج الذي يتوازن بين انخفاض نسبة الخطأ التدريبي و انخفاض نسبة الخطأ على البيانات التي لم تُدرّب عليها. هذا يمكن أن يتم عن طريق استخدام تقنيات مثل تقنيات التأثير (regularization) أو تقنيات تحديد البحوث (cross-validation).",
+   "answer": "Overfitting occurs when a model is too closely fitted to the training data, resulting in a decrease in the training error rate but an increase in the test error rate.\n\nTo avoid overfitting, we need to find a model that balances the decrease in training error rate and the decrease in test error rate. This can be achieved by using techniques such as regularization or cross-validation."
+  },
+  {
+   "id": "t19",
+   "kind": "transform",
+   "seed": 41,
+   "question": "say that in english",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     4
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تكامل البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation) [kdd_lec03_data_preprocessing.pdf, page 1].",
+   "answer": "The main tasks in the data preprocessing stage are:\n\n➢Data Cleaning\n➢Data Integration\n➢Data Reduction\n➢Data Transformation [kdd_lec03_data_preprocessing.pdf, page 1]."
+  },
+  {
+   "id": "t20",
+   "kind": "transform",
+   "seed": 41,
+   "question": "I don't get it",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم البيانات إلى مجموعات (clusters) من حيث تشابهها، وتستخدم هذه الخوارزمية في تحديد مركزي كل مجموعة (centroid) الذي يعتبر المرجع للعناصر في المجموعة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "Let me try to simplify it:\n\nThe k-means algorithm groups similar data points together into clusters. It then identifies a central point, called the centroid, for each cluster. This centroid serves as a reference point for all the data points in that cluster. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "n01",
+   "kind": "near_miss",
+   "seed": 41,
+   "question": "explain overfitting again",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     33
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     31
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10].\n\nNote that the KDD process is also described as an iterative sequence of steps in [kdd_lec01_Introduction.pdf, page 9], but the above list provides the specific steps mentioned in the lecture.",
+   "answer": "Overfitting occurs when a model learns the noise in the training data, rather than the underlying patterns, leading to poor generalization to new, unseen data. This can be seen in a decision tree when the regions become very small, indicating that the model is over-specializing to the training data [kdd_lec06_classifacation_1.pdf, page 35]. In a decision tree, overfitting can be visually represented by a complex, branching structure, such as the \"Really Overfit\" diagram [kdd_lec06_classifacation_1.pdf, page 31]."
+  },
+  {
+   "id": "n02",
+   "kind": "near_miss",
+   "seed": 41,
+   "question": "give an example of entropy",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     22
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10].\n\nNote that the KDD process is also described as an iterative sequence of steps in [kdd_lec01_Introduction.pdf, page 9], but the above list provides the specific steps mentioned in the lecture.",
+   "answer": "Entropy is a measure of the impurity or purity of a data set. An example of entropy is given in the lecture as:\n\nEntropy = -log₂(p(+))\n\nwhere p(+) is the probability of a positive class [kdd_lec06_classifacation_1.pdf, page 21]."
+  },
+  {
+   "id": "n03",
+   "kind": "near_miss",
+   "seed": 41,
+   "question": "what is translation in NLP",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": null,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     51
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     42
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     42
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance, representing the impurity of the data [kdd_lec06_classifacation_1.pdf, page 21].",
+   "answer": "Translation in NLP refers to the process of converting text from one language to another, preserving the meaning and context of the original text [kdd_lec06_classifacation_1.pdf, page 42]."
+  },
+  {
+   "id": "n04",
+   "kind": "near_miss",
+   "seed": 41,
+   "question": "explain the Apriori property in more detail",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     39
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     32
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     40
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Ensemble methods for classification are a technique to improve the accuracy of a model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, which is a combination of k learned models, 𝑀1, 𝑀2, … . , 𝑀𝑘. The ensemble tends to be more accurate than its base classifiers [kdd_lec08_classifacation_3.pdf, page 24].",
+   "answer": "The Apriori property states that any subset of a frequent itemset must also be frequent. In other words, if an itemset is found to be frequent, all its subsets must also be frequent. This property is used in the prune step of the Apriori algorithm to eliminate non-frequent itemsets and their subsets [kdd_lec04_association_rule.pdf, page 40]."
+  },
+  {
+   "id": "n05",
+   "kind": "near_miss",
+   "seed": 41,
+   "question": "summarize the KDD process",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     41
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance, representing the impurity of the data [kdd_lec06_classifacation_1.pdf, page 21].",
+   "answer": "The KDD (Knowledge Discovery in Databases) process is an iterative sequence of steps that converts raw data into useful knowledge [kdd_lec01_Introduction.pdf, page 9]. The steps in the KDD process are:\n\n1. Data Cleaning: removing noise and inconsistent data.\n2. Data Integration: combining multiple data sources.\n3. Data Selection: retrieving relevant data for the next mining task.\n4. Data Transformation: transforming data into a suitable form.\n5. Data Mining: applying intelligent methods to extract patterns or construct models.\n6. Evaluation: identifying truly interesting patterns or models.\n7. Knowledge Presentation: visualizing and representing mined knowledge to users.\n\nThis process is not a linear sequence, but rather an iterative one, where each step may require revisiting previous steps [kdd_lec01_Introduction.pdf, page 9]."
+  },
+  {
+   "id": "n06",
+   "kind": "near_miss",
+   "seed": 41,
+   "question": "repeat the steps of the k-means algorithm",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     26
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     34
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly defined in the provided context, but implied to be the complement of TP and TN)\n\nNote that the context does not explicitly define FN, but based on the definitions of TP and TN, it can be inferred that FN refers to # false negatives (#positive tuples that were incorrectly labeled as negative).",
+   "answer": "According to the lecture text [kdd_lec09_cluster_analyis.pdf, page 26], the steps of the k-means algorithm are:\n\n1. Randomly selects k data points from D, each of which initially represents a cluster centroid.\n2. Repeat:\n   • Form K clusters by assigning each point to its closest (most similar) centroid.\n   • Re-compute the centroids (i.e., mean point) of each cluster using the new data points assigned to the cluster.\n3. Until convergence criterion is satisfied."
+  },
+  {
+   "id": "n07",
+   "kind": "near_miss",
+   "seed": 41,
+   "question": "اشرح التجميع",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     4
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     6
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج مع البيانات التدريبية بدرجة كبيرة، مما يؤدي إلى انخفاض نسبة الخطأ التدريبي (training error) ولكن يؤدي إلى زيادة نسبة الخطأ على البيانات التي لم تُدرّب عليها (test error).\n\nللتجنب من الإفراط في التكيّف، يجب أن نبحث عن النموذج الذي يتوازن بين انخفاض نسبة الخطأ التدريبي و انخفاض نسبة الخطأ على البيانات التي لم تُدرّب عليها. هذا يمكن أن يتم عن طريق استخدام تقنيات مثل تقنيات التأثير (regularization) أو تقنيات تحديد البحوث (cross-validation).",
+   "answer": "التجميع (clustering) هو عملية تقسيم مجموعة من البيانات إلى مجموعات فرعية تسمى مجموعات (clusters). يجب أن تكون هذه المجموعات ذات جودة عالية، مما يعني أن البيانات داخل نفس المجموعة تكون متشابهة (متماثلة أو متعلقة) و أن البيانات في مجموعات مختلفة تكون متميزة (غير متشابهة أو غير متعلقة). [kdd_lec09_cluster_analyis.pdf, page 4]"
+  },
+  {
+   "id": "n08",
+   "kind": "near_miss",
+   "seed": 41,
+   "question": "اعطني مثال على الإفراط في التكيف",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     34
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ]
+   ],
+   "new_sources": 1,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم البيانات إلى مجموعات (clusters) من حيث تشابهها، وتستخدم هذه الخوارزمية في تحديد مركزي كل مجموعة (centroid) الذي يعتبر المرجع للعناصر في المجموعة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "الإفراط في التكيف هو عندما تؤثر القيم المثيرة للجدل أو القيم النادرة (outliers) على النتائج. مثال على ذلك هو عندما تؤثر قيمة كبيرة على المتوسط (mean) في خوارزمية k-means، مما يؤدي إلى تغيير مركز المجموعة بشكل غير متناسب."
+  },
+  {
+   "id": "n09",
+   "kind": "near_miss",
+   "seed": 41,
+   "question": "ما هو الترجمة في معالجة اللغة",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": null,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     39
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     3
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     31
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تكامل البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation) [kdd_lec03_data_preprocessing.pdf, page 1].",
+   "answer": "الترجمة في معالجة اللغة هي عملية تحويل قيم معينة في مجموعة البيانات إلى قيم جديدة مناسبة للمهمة التحليلية. [kdd_lec03_data_preprocessing.pdf, page 39]."
+  },
+  {
+   "id": "n10",
+   "kind": "near_miss",
+   "seed": 41,
+   "question": "لخص خطوات عملية اكتشاف المعرفة",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     1
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     1
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     1
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": false,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم البيانات إلى مجموعات (clusters) من حيث تشابهها، وتستخدم هذه الخوارزمية في تحديد مركزي كل مجموعة (centroid) الذي يعتبر المرجع للعناصر في المجموعة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "خطوات عملية اكتشاف المعرفة هي:\n1. تعريف المشكلة: تحديد المشكلة التي تريد حلها.\n2. جمع البيانات: جمع البيانات المتعلقة بالمشكلة.\n3. تحليل البيانات: تحليل البيانات لتحديد العلاقات بين المتغيرات.\n4. تعريف الهدف: تعريف الهدف من عملية اكتشاف المعرفة.\n5. اختيار التقنية المناسبة: اختيار التقنية المناسبة لتحقيق الهدف.\n6. تطبيق التقنية: تطبيق التقنية على البيانات.\n7. تقييم النتائج: تقييم النتائج لتحديد مدى نجاح العملية."
+  },
+  {
+   "id": "t01",
+   "kind": "transform",
+   "seed": 42,
+   "question": "say that in Arabic",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: [kdd_lec01_Introduction.pdf, page 10]\n2. Data Integration: [kdd_lec01_Introduction.pdf, page 10]\n3. Data selection: [kdd_lec01_Introduction.pdf, page 10]\n4. Data transformation: [kdd_lec01_Introduction.pdf, page 10]\n5. Data Mining: [kdd_lec01_Introduction.pdf, page 10]\n6. Evaluation: [kdd_lec01_Introduction.pdf, page 10]\n7. Knowledge presentation: [kdd_lec01_Introduction.pdf, page 10]\n\nNote that the lecture text on page 9 provides a brief overview of the KDD process as an iterative sequence of steps, but it does not list the specific steps.",
+   "answer": "خطوات عملية اكتشاف المعرفة هي:\n\n1. تنظيف البيانات: [kdd_lec01_Introduction.pdf, page 10]\n2. دمج البيانات: [kdd_lec01_Introduction.pdf, page 10]\n3. تحديد البيانات: [kdd_lec01_Introduction.pdf, page 10]\n4. تحويل البيانات: [kdd_lec01_Introduction.pdf, page 10]\n5. اكتشاف البيانات: [kdd_lec01_Introduction.pdf, page 10]\n6. التقييم: [kdd_lec01_Introduction.pdf, page 10]\n7. عرض المعرفة: [kdd_lec01_Introduction.pdf, page 10]\n\nملاحظة: يوجد تلخيص لعمليات اكتشاف المعرفة في الصفحة 9 من المذكرة، ولكنها لا تشير إلى الخطوات المحددة."
+  },
+  {
+   "id": "t02",
+   "kind": "transform",
+   "seed": 42,
+   "question": "okay i can't get it could repeat all that in arabic",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: [kdd_lec01_Introduction.pdf, page 10]\n2. Data Integration: [kdd_lec01_Introduction.pdf, page 10]\n3. Data selection: [kdd_lec01_Introduction.pdf, page 10]\n4. Data transformation: [kdd_lec01_Introduction.pdf, page 10]\n5. Data Mining: [kdd_lec01_Introduction.pdf, page 10]\n6. Evaluation: [kdd_lec01_Introduction.pdf, page 10]\n7. Knowledge presentation: [kdd_lec01_Introduction.pdf, page 10]\n\nNote that the lecture text on page 9 provides a brief overview of the KDD process as an iterative sequence of steps, but it does not list the specific steps.",
+   "answer": "خطوات عملية KDD هي:\n\n1. تنظيف البيانات: [kdd_lec01_Introduction.pdf, page 10]\n2. دمج البيانات: [kdd_lec01_Introduction.pdf, page 10]\n3. تحديد البيانات: [kdd_lec01_Introduction.pdf, page 10]\n4. تحويل البيانات: [kdd_lec01_Introduction.pdf, page 10]\n5. استخراج المعرفة: [kdd_lec01_Introduction.pdf, page 10]\n6. التقييم: [kdd_lec01_Introduction.pdf, page 10]\n7. عرض المعرفة: [kdd_lec01_Introduction.pdf, page 10]\n\nملاحظة: يوجد تلخيص لعمليات KDD على الصفحة 9 من المذكرة، ولكنها لا تذكر الخطوات بالتفصيل."
+  },
+  {
+   "id": "t03",
+   "kind": "transform",
+   "seed": 42,
+   "question": "I don't get it",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21]. It represents the impurity or uncertainty in the data, and it comes from information theory.",
+   "answer": "Let me try to simplify it for you. Entropy is a measure of the uncertainty or impurity in the data. It's a way to calculate how much information is needed on average to identify the class label of an instance. Think of it like trying to guess the class label of an instance without any prior knowledge - the higher the entropy, the more difficult it is to make an accurate guess."
+  },
+  {
+   "id": "t04",
+   "kind": "transform",
+   "seed": 42,
+   "question": "simplify it please",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21]. It represents the impurity or uncertainty in the data, and it comes from information theory.",
+   "answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊). This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance. It represents the impurity or uncertainty in the data."
+  },
+  {
+   "id": "t05",
+   "kind": "transform",
+   "seed": 42,
+   "question": "repeat all that",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     24
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     29
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     31
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Ensemble methods for classification are a technique to improve the accuracy of a classification model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, which is a combination of k learned models, M1, M2, ..., Mk, each trained on a different training set, Di, sampled with replacement from the original data set, D. The ensemble model returns a class prediction based on the votes of the base classifiers, where each classifier votes by returning a class prediction [kdd_lec08_classifacation_3.pdf, page 31].",
+   "answer": "Ensemble methods for classification are a technique to improve the accuracy of a classification model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, which is a combination of k learned models, M1, M2, ..., Mk, each trained on a different training set, Di, sampled with replacement from the original data set, D. The ensemble model returns a class prediction based on the votes of the base classifiers, where each classifier votes by returning a class prediction [kdd_lec08_classifacation_3.pdf, page 31]."
+  },
+  {
+   "id": "t06",
+   "kind": "transform",
+   "seed": 42,
+   "question": "give an example",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     24
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     29
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     31
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Ensemble methods for classification are a technique to improve the accuracy of a classification model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, which is a combination of k learned models, M1, M2, ..., Mk, each trained on a different training set, Di, sampled with replacement from the original data set, D. The ensemble model returns a class prediction based on the votes of the base classifiers, where each classifier votes by returning a class prediction [kdd_lec08_classifacation_3.pdf, page 31].",
+   "answer": "Here's an example of how ensemble methods for classification can be used:\n\nSuppose we have a dataset of images of animals, and we want to classify them into three categories: mammals, birds, and reptiles. We train three different base classifiers, M1, M2, and M3, each on a different training set, D1, D2, and D3, which are sampled with replacement from the original dataset D.\n\nM1 is a classifier that uses texture features to distinguish between mammals and birds, and it achieves an accuracy of 80% on its training set D1.\n\nM2 is a classifier that uses shape features to distinguish between birds and reptiles, and it achieves an accuracy of 85% on its training set D2.\n\nM3 is a classifier that uses color features to distinguish between mammals and reptiles, and it achieves an accuracy of 90% on its training set D3.\n\nWe then combine these three base classifiers into a composite model, M*, which returns a class prediction based on the votes of the base classifiers. For example, if M1 predicts a class of \"mammal\", M2 predicts a class of \"bird\", and M3 predicts a class of \"reptile\", the ensemble model M* might return a class prediction of \"mammal\" if two out of the three base classifiers agree on this class.\n\nThis way, the ensemble model M* can achieve a higher accuracy than any of the individual base classifiers, by combining their strengths and compensating for their weaknesses."
+  },
+  {
+   "id": "t07",
+   "kind": "transform",
+   "seed": 42,
+   "question": "translate this to arabic",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     14
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly defined in the provided context, but implied as the remaining category)\n\nHowever, since FN is not explicitly defined in the provided context, I will provide the correct answer based on the given information.\n\nTP, TN, FP, and FN are the four \"building blocks\" used in computing many evaluation measures in a confusion matrix.",
+   "answer": "حسب النص الدراسي [kdd_lec08_classifacation_3.pdf, page 6], يتم استخدام الأربعة \"أحجار البناء\" في الحساب العديد من المقايير التقييمية في جدول الخلط هي:\n\n* TP: # إيجابيات حقيقية (#تuples الإيجابية التي تم تصنيفها بشكل صحيح من قبل المُصنف) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # سلبيات حقيقية (#تuples السلبية التي تم تصنيفها بشكل صحيح من قبل المُصنف) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # إيجابيات كاذبة (#تuples السلبية التي تم تصنيفها بشكل خاطئ على أنها إيجابية) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (ليس محددًا بشكل واضح في السياق المُقدم، ولكن يُفترض أنه الفئة المتبقية)\n\nإذاً، منذ FN لم يُحدد بشكل واضح في السياق المُقدم، سأقدم الإجابة الصحيحة بناءً على المعلومات المُقدمة.\n\nTP, TN, FP, و FN هم الأربعة \"أحجار البناء\" التي يتم استخدامها في الحساب العديد من المقايير التقييمية في جدول الخلط."
+  },
+  {
+   "id": "t08",
+   "kind": "transform",
+   "seed": 42,
+   "question": "Can you explain that again in simpler words?",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     14
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly defined in the provided context, but implied as the remaining category)\n\nHowever, since FN is not explicitly defined in the provided context, I will provide the correct answer based on the given information.\n\nTP, TN, FP, and FN are the four \"building blocks\" used in computing many evaluation measures in a confusion matrix.",
+   "answer": "To explain it in simpler words, a confusion matrix is a tool used to evaluate how well a classifier is performing. It breaks down the results into four main categories:\n\n* True Positives (TP): These are the cases where the classifier correctly identified something as positive.\n* True Negatives (TN): These are the cases where the classifier correctly identified something as negative.\n* False Positives (FP): These are the cases where the classifier incorrectly identified something as positive when it's actually negative.\n* False Negatives (FN): These are the cases where the classifier incorrectly identified something as negative when it's actually positive.\n\nThese four categories are the \"building blocks\" used to compute many evaluation measures in a confusion matrix."
+  },
+  {
+   "id": "t09",
+   "kind": "transform",
+   "seed": 42,
+   "question": "summarize that in 3 bullet points",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: [kdd_lec01_Introduction.pdf, page 10]\n2. Data Integration: [kdd_lec01_Introduction.pdf, page 10]\n3. Data selection: [kdd_lec01_Introduction.pdf, page 10]\n4. Data transformation: [kdd_lec01_Introduction.pdf, page 10]\n5. Data Mining: [kdd_lec01_Introduction.pdf, page 10]\n6. Evaluation: [kdd_lec01_Introduction.pdf, page 10]\n7. Knowledge presentation: [kdd_lec01_Introduction.pdf, page 10]\n\nNote that the lecture text on page 9 provides a brief overview of the KDD process as an iterative sequence of steps, but it does not list the specific steps.",
+   "answer": "Here are the 3 main steps of the KDD process summarized in bullet points:\n\n• Data Cleaning, Integration, Selection, Transformation, and Mining: [kdd_lec01_Introduction.pdf, page 10]\n• Evaluation: [kdd_lec01_Introduction.pdf, page 10]\n• Knowledge presentation: [kdd_lec01_Introduction.pdf, page 10]"
+  },
+  {
+   "id": "t10",
+   "kind": "transform",
+   "seed": 42,
+   "question": "could you say all that in Arabic please",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": false,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21]. It represents the impurity or uncertainty in the data, and it comes from information theory.",
+   "answer": "يتم حساب الارتجاع باستخدام الصيغة التالية: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. هذه الصيغة تحسب متوسط كمية المعلومات اللازمة لتحديد علامة الفئة للinstance.\n\nيحسبر الارتجاع متوسط كمية المعلومات اللازمة لتحديد علامة الفئة للinstance [kdd_lec06_classifacation_1.pdf, page 21]. ي đại للارتجاع يمثل العشوائية أو عدم اليقين في البيانات، وينشأ من نظرية المعلومات."
+  },
+  {
+   "id": "t11",
+   "kind": "transform",
+   "seed": 42,
+   "question": "ترجم ذلك للانجليزية",
+   "question_lang": "ar",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم مجموعة من البيانات إلى كتل (clusters) منفصلة، وتحديد مركزي كل كتلة (centroid) الذي يعتبر المرجع للكتل. يتم تحديد المركزي للكتلة عن طريق حساب متوسط قيم الأعضاء في الكتلة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "The k-means algorithm works by dividing a set of data into distinct clusters and determining the centroid of each cluster, which serves as the reference point for the cluster. The centroid of each cluster is determined by calculating the average values of its members. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "t12",
+   "kind": "transform",
+   "seed": 42,
+   "question": "مش فاهم",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم مجموعة من البيانات إلى كتل (clusters) منفصلة، وتحديد مركزي كل كتلة (centroid) الذي يعتبر المرجع للكتل. يتم تحديد المركزي للكتلة عن طريق حساب متوسط قيم الأعضاء في الكتلة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "حسناً. سأحاول تفسيرها بشكل أبسط. تعمل خوارزمية k-means على تقسيم البيانات إلى كتل منفصلة، وتحديد مركزي لكل كتلة. المركزي هو المكان الذي يجمعه الأعضاء في الكتلة. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "t13",
+   "kind": "transform",
+   "seed": 42,
+   "question": "اشرح ذلك مرة أخرى",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     48
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية ولكن يقلل من دقته على البيانات التي لم تكن معروفة له سابقًا.\n\n\n\nللتجنب من الإفراط في التكيّف، يجب أن نضمن أن نموذجنا يلائم البيانات التدريبية جيدًا (يقلل من خطأ التدريب) ولكن أيضًا يتصرف بشكل صحيح على البيانات التي لم تكن معروفة له سابقًا (يقلل من خطأ الاختبار). يمكننا تحقيق ذلك عن طريق تجنب زيادة تعقيد نموذجنا أكثر من اللازم.",
+   "answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية ولكن يقلل من دقته على البيانات التي لم تكن معروفة له سابقًا. لتحقيق دقة أفضل على البيانات التي لم تكن معروفة له سابقًا، يجب أن نضمن أن نموذجنا يلائم البيانات التدريبية جيدًا (يقلل من خطأ التدريب) ولكن أيضًا يتصرف بشكل صحيح على البيانات التي لم تكن معروفة له سابقًا (يقلل من خطأ الاختبار). يمكننا تحقيق ذلك عن طريق تجنب زيادة تعقيد نموذجنا أكثر من اللازم."
+  },
+  {
+   "id": "t14",
+   "kind": "transform",
+   "seed": 42,
+   "question": "ممكن تبسطها",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     48
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية ولكن يقلل من دقته على البيانات التي لم تكن معروفة له سابقًا.\n\n\n\nللتجنب من الإفراط في التكيّف، يجب أن نضمن أن نموذجنا يلائم البيانات التدريبية جيدًا (يقلل من خطأ التدريب) ولكن أيضًا يتصرف بشكل صحيح على البيانات التي لم تكن معروفة له سابقًا (يقلل من خطأ الاختبار). يمكننا تحقيق ذلك عن طريق تجنب زيادة تعقيد نموذجنا أكثر من اللازم.",
+   "answer": "يمكننا التعبير عن ذلك ببساطة: يجب أن نضمن أن نموذجنا يلائم البيانات التدريبية جيدًا ولكن أيضًا يتصرف بشكل صحيح على البيانات غير المعروفة له. يمكننا تحقيق ذلك عن طريق تجنب زيادة تعقيد نموذجنا أكثر من اللازم."
+  },
+  {
+   "id": "t15",
+   "kind": "transform",
+   "seed": 42,
+   "question": "اعطني مثال",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     4
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تدمج البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation) [kdd_lec03_data_preprocessing.pdf, page 1].",
+   "answer": "إليك مثالًا على المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات:\n\n- تنظيف البيانات: إذا كان لدينا قاعدة بيانات تحتوي على بيانات عن أسماء الأشخاص، ووجدنا أن بعض الأسماء تحتوي على أحرف غير صحيحة، فمن خلال عملية التنظيف، يمكننا إزالة هذه الأخطاء وتحسين جودة البيانات.\n- تدمج البيانات: إذا كان لدينا قاعدة بيانات تحتوي على بيانات عن مبيعات منتجات، ووجدنا أن البيانات تحتوي على شفرات مختلفة لوصف المنتجات، فمن خلال عملية التدمج، يمكننا دمج هذه البيانات وتحويلها إلى شفرة واحدة.\n- تخفيض البيانات: إذا كان لدينا قاعدة بيانات تحتوي على بيانات عن مبيعات منتجات، ووجدنا أن بعض البيانات غير ضرورية، فمن خلال عملية التخفيض، يمكننا حذف هذه البيانات وتقليل حجم البيانات.\n- تحويل البيانات: إذا كان لدينا قاعدة بيانات تحتوي على بيانات عن مبيعات منتجات، ووجدنا أن البيانات تحتوي على شفرات مختلفة لوصف المنتجات، فمن خلال عملية التحويل، يمكننا تحويل هذه البيانات إلى شفرة أخرى لتحسين جودة البيانات."
+  },
+  {
+   "id": "t16",
+   "kind": "transform",
+   "seed": 42,
+   "question": "لخص ما سبق",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     4
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تدمج البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation) [kdd_lec03_data_preprocessing.pdf, page 1].",
+   "answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي تنظيف البيانات وتدمج البيانات وتخفيض البيانات وتحويل البيانات."
+  },
+  {
+   "id": "t17",
+   "kind": "transform",
+   "seed": 42,
+   "question": "لم أفهم",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم مجموعة من البيانات إلى كتل (clusters) منفصلة، وتحديد مركزي كل كتلة (centroid) الذي يعتبر المرجع للكتل. يتم تحديد المركزي للكتلة عن طريق حساب متوسط قيم الأعضاء في الكتلة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "حسناً. سأحاول شرحها بشكل أبسط.\n\nتعتبر خوارزمية k-means هي طريقة لتقسيم البيانات إلى مجموعات منفصلة. هذه المجموعات تسمى الكتل (clusters). [kdd_lec09_cluster_analyis.pdf, page 32]\n\nتعتبر كل كتلة لها مركز (centroid) الذي يعتبر مرجعاً لها. يتم تحديد مركز الكتلة عن طريق حساب متوسط قيم الأعضاء في الكتلة. [kdd_lec09_cluster_analyis.pdf, page 32]\n\nيمكن أن نفهم هذا بشكل أبسط عن طريق مثال. افترض أن لدينا مجموعة من الأشخاص، كل شخص له عمر معين. يمكن أن نستخدم خوارزمية k-means لتقسيم هذه المجموعة إلى كتل، مثل كتلة للأشخاص الذين هم في العشرينيات، وكتلة للأشخاص الذين هم في الثلاثينيات، وكتلة للأشخاص الذين هم في الأربعينيات. [kdd_lec09_cluster_analyis.pdf, page 32]\n\nفي كل كتلة، يمكن أن نجد مركزها عن طريق حساب متوسط أعمار الأشخاص في تلك الكتلة. على سبيل المثال، إذا كانت كتلة الأشخاص الذين هم في العشرينيات، فإن مركزها سيكون عمر 22 سنة، لأن هذا هو متوسط أعمار الأشخاص في تلك الكتلة. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "t18",
+   "kind": "transform",
+   "seed": 42,
+   "question": "كرر الكلام ده بالانجليزي",
+   "question_lang": "ar",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     48
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية ولكن يقلل من دقته على البيانات التي لم تكن معروفة له سابقًا.\n\n\n\nللتجنب من الإفراط في التكيّف، يجب أن نضمن أن نموذجنا يلائم البيانات التدريبية جيدًا (يقلل من خطأ التدريب) ولكن أيضًا يتصرف بشكل صحيح على البيانات التي لم تكن معروفة له سابقًا (يقلل من خطأ الاختبار). يمكننا تحقيق ذلك عن طريق تجنب زيادة تعقيد نموذجنا أكثر من اللازم.",
+   "answer": "Overfitting occurs when a model is overly adjusted to the training data, resulting in an increase in the model's accuracy on the training data but a decrease in its accuracy on data that was not previously known to it.\n\nTo avoid overfitting, we must ensure that our model fits the training data well (reduces the training error) but also behaves correctly on data that was not previously known to it (reduces the test error). This can be achieved by avoiding increasing the complexity of our model more than necessary."
+  },
+  {
+   "id": "t19",
+   "kind": "transform",
+   "seed": 42,
+   "question": "say that in english",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     4
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تدمج البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation) [kdd_lec03_data_preprocessing.pdf, page 1].",
+   "answer": "The main tasks in the data preprocessing stage are:\n\n➢Data Cleaning\n➢Data Integration\n➢Data Reduction\n➢Data Transformation [kdd_lec03_data_preprocessing.pdf, page 1]."
+  },
+  {
+   "id": "t20",
+   "kind": "transform",
+   "seed": 42,
+   "question": "I don't get it",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم مجموعة من البيانات إلى كتل (clusters) منفصلة، وتحديد مركزي كل كتلة (centroid) الذي يعتبر المرجع للكتل. يتم تحديد المركزي للكتلة عن طريق حساب متوسط قيم الأعضاء في الكتلة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "Let me try to simplify it for you. The k-means algorithm is used to divide a set of data into separate groups or clusters. It then identifies the center of each cluster, which is used as a reference point for the cluster. The center of each cluster is calculated by finding the average value of the data points within that cluster."
+  },
+  {
+   "id": "n01",
+   "kind": "near_miss",
+   "seed": 42,
+   "question": "explain overfitting again",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     33
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     31
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: [kdd_lec01_Introduction.pdf, page 10]\n2. Data Integration: [kdd_lec01_Introduction.pdf, page 10]\n3. Data selection: [kdd_lec01_Introduction.pdf, page 10]\n4. Data transformation: [kdd_lec01_Introduction.pdf, page 10]\n5. Data Mining: [kdd_lec01_Introduction.pdf, page 10]\n6. Evaluation: [kdd_lec01_Introduction.pdf, page 10]\n7. Knowledge presentation: [kdd_lec01_Introduction.pdf, page 10]\n\nNote that the lecture text on page 9 provides a brief overview of the KDD process as an iterative sequence of steps, but it does not list the specific steps.",
+   "answer": "Overfitting occurs when a model learns the noise in the training data, rather than the underlying patterns, leading to poor generalization to new, unseen data. This can be seen in a complex decision tree, where excessive branching occurs, as illustrated in the \"Really Overfit\" diagram [kdd_lec06_classifacation_1.pdf, page 31]. In such a tree, the decision regions become very small, and the decision boundary between neighboring regions of different classes becomes overly complex [kdd_lec06_classifacation_1.pdf, page 35]. This results in a high generalization error, even though the training error may be low."
+  },
+  {
+   "id": "n02",
+   "kind": "near_miss",
+   "seed": 42,
+   "question": "give an example of entropy",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     22
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: [kdd_lec01_Introduction.pdf, page 10]\n2. Data Integration: [kdd_lec01_Introduction.pdf, page 10]\n3. Data selection: [kdd_lec01_Introduction.pdf, page 10]\n4. Data transformation: [kdd_lec01_Introduction.pdf, page 10]\n5. Data Mining: [kdd_lec01_Introduction.pdf, page 10]\n6. Evaluation: [kdd_lec01_Introduction.pdf, page 10]\n7. Knowledge presentation: [kdd_lec01_Introduction.pdf, page 10]\n\nNote that the lecture text on page 9 provides a brief overview of the KDD process as an iterative sequence of steps, but it does not list the specific steps.",
+   "answer": "Entropy is a measure of the impurity or uncertainty of a dataset. In the context of the lecture, an example of entropy is given on page 22 of [kdd_lec06_classifacation_1.pdf]:\n\n\"The attribute with the higher information is chosen as the splitting attribute.\n✓This attribute minimizes the number of tests needed to identify the class label of an instance.\"\n\nHowever, a specific numerical example of entropy is provided on page 22 of [kdd_lec06_classifacation_1.pdf]:\n\n\"Weighted) Average Entropy of Children = 0.615\"\n\nThis example illustrates the calculation of entropy for a subset of the data."
+  },
+  {
+   "id": "n03",
+   "kind": "near_miss",
+   "seed": 42,
+   "question": "what is translation in NLP",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": null,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     51
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     42
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     42
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21]. It represents the impurity or uncertainty in the data, and it comes from information theory.",
+   "answer": "Translation in NLP refers to the process of converting text from one language to another language [kdd_lec06_classifacation_1.pdf, page 42]. It involves mapping the words, phrases, and grammar of the source language to the corresponding words, phrases, and grammar of the target language."
+  },
+  {
+   "id": "n04",
+   "kind": "near_miss",
+   "seed": 42,
+   "question": "explain the Apriori property in more detail",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     39
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     32
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     40
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Ensemble methods for classification are a technique to improve the accuracy of a classification model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, which is a combination of k learned models, M1, M2, ..., Mk, each trained on a different training set, Di, sampled with replacement from the original data set, D. The ensemble model returns a class prediction based on the votes of the base classifiers, where each classifier votes by returning a class prediction [kdd_lec08_classifacation_3.pdf, page 31].",
+   "answer": "The Apriori property states that if an itemset is not frequent, then none of its supersets can be frequent. In other words, if an itemset X is not frequent, then any itemset that contains X as a subset cannot be frequent [kdd_lec04_association_rule.pdf, page 40]. This property is used in the prune step of the Apriori algorithm to eliminate non-frequent itemsets and their supersets, reducing the search space for frequent itemsets."
+  },
+  {
+   "id": "n05",
+   "kind": "near_miss",
+   "seed": 42,
+   "question": "summarize the KDD process",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     41
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝒎𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance.\n\nEntropy measures the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21]. It represents the impurity or uncertainty in the data, and it comes from information theory.",
+   "answer": "The KDD (Knowledge Discovery in Databases) process is an iterative sequence of steps that converts raw data into useful knowledge [kdd_lec01_Introduction.pdf, page 9]. The steps include:\n\n1. Data Cleaning: removing noise and inconsistent data.\n2. Data Integration: combining multiple data sources.\n3. Data Selection: retrieving relevant data for the next mining task.\n4. Data Transformation: transforming data into a suitable form.\n5. Data Mining: applying intelligent methods to extract patterns or construct models.\n6. Evaluation: identifying truly interesting patterns or models.\n7. Knowledge Presentation: visualizing and representing mined knowledge to users.\n\nThis process is also referred to as the overall process of converting raw data into useful knowledge [kdd_lec01_Introduction.pdf, page 9]."
+  },
+  {
+   "id": "n06",
+   "kind": "near_miss",
+   "seed": 42,
+   "question": "repeat the steps of the k-means algorithm",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     26
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     34
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly defined in the provided context, but implied as the remaining category)\n\nHowever, since FN is not explicitly defined in the provided context, I will provide the correct answer based on the given information.\n\nTP, TN, FP, and FN are the four \"building blocks\" used in computing many evaluation measures in a confusion matrix.",
+   "answer": "According to the lecture text [kdd_lec09_cluster_analyis.pdf, page 26], the steps of the k-means algorithm are:\n\n1. Randomly selects k data points from D, each of which initially represents a cluster centroid.\n2. Repeat:\n   • Form K clusters by assigning each point to its closest (most similar) centroid.\n   • Re-compute the centroids (i.e., mean point) of each cluster using the new data points assigned to the cluster.\n3. Until convergence criterion is satisfied."
+  },
+  {
+   "id": "n07",
+   "kind": "near_miss",
+   "seed": 42,
+   "question": "اشرح التجميع",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     4
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     6
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية ولكن يقلل من دقته على البيانات التي لم تكن معروفة له سابقًا.\n\n\n\nللتجنب من الإفراط في التكيّف، يجب أن نضمن أن نموذجنا يلائم البيانات التدريبية جيدًا (يقلل من خطأ التدريب) ولكن أيضًا يتصرف بشكل صحيح على البيانات التي لم تكن معروفة له سابقًا (يقلل من خطأ الاختبار). يمكننا تحقيق ذلك عن طريق تجنب زيادة تعقيد نموذجنا أكثر من اللازم.",
+   "answer": "التجميع (clustering) هو عملية تقسيم مجموعة من البيانات إلى مجموعات فرعية تسمى مجموعات (clusters). يجب أن تكون هذه المجموعات عالية الجودة، مما يعني أن البيانات داخل نفس المجموعة تكون متشابهة (متماثلة أو مرتبطة) وبيانات المجموعات المختلفة تكون مختلفة (غير متشابهة أو غير مرتبطة)."
+  },
+  {
+   "id": "n08",
+   "kind": "near_miss",
+   "seed": 42,
+   "question": "اعطني مثال على الإفراط في التكيف",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     34
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ]
+   ],
+   "new_sources": 1,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم مجموعة من البيانات إلى كتل (clusters) منفصلة، وتحديد مركزي كل كتلة (centroid) الذي يعتبر المرجع للكتل. يتم تحديد المركزي للكتلة عن طريق حساب متوسط قيم الأعضاء في الكتلة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "الإفراط في التكيف يحدث عندما يتم تأثير عدد قليل من البيانات المرتجعة (outliers) على النتيجة النهائية للخوارزمية. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "n09",
+   "kind": "near_miss",
+   "seed": 42,
+   "question": "ما هو الترجمة في معالجة اللغة",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": null,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     39
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     3
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     31
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 6,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تدمج البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation) [kdd_lec03_data_preprocessing.pdf, page 1].",
+   "answer": "الترجمة في معالجة اللغة هي عملية تحويل قيم الأтрибутات من نظام قيم واحد إلى آخر مناسب للمهمة التعلمية.."
+  },
+  {
+   "id": "n10",
+   "kind": "near_miss",
+   "seed": 42,
+   "question": "لخص خطوات عملية اكتشاف المعرفة",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     1
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     1
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     1
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعمل خوارزمية k-means على تقسيم مجموعة من البيانات إلى كتل (clusters) منفصلة، وتحديد مركزي كل كتلة (centroid) الذي يعتبر المرجع للكتل. يتم تحديد المركزي للكتلة عن طريق حساب متوسط قيم الأعضاء في الكتلة. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "خطوات عملية اكتشاف المعرفة هي:\n1- جمع البيانات (Data Collection)\n2- إعداد البيانات (Data Preprocessing)\n3- تحليل البيانات (Data Analysis)\n4- اكتشاف المعرفة (Knowledge Discovery) [kdd_lec01_Introduction.pdf, page 1]"
+  },
+  {
+   "id": "t01",
+   "kind": "transform",
+   "seed": 43,
+   "question": "say that in Arabic",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 12,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10].",
+   "answer": "خطوات عملية KDD هي:\n\n1. تنظيف البيانات: لإزالة الضوضاء والبيانات غير المتسقة [kdd_lec01_Introduction.pdf, page 10].\n2. دمج البيانات: قد يتم دمج مصادر البيانات المتعددة [kdd_lec01_Introduction.pdf, page 10].\n3. تحديد البيانات: يتم استرجاع البيانات ذات الصلة بالتarefa التالية من قاعدة البيانات [kdd_lec01_Introduction.pdf, page 10].\n4. تحويل البيانات: يتم تحويل البيانات إلى أشكال مناسبة للوظيفة التالية [kdd_lec01_Introduction.pdf, page 10].\n5. التعلم الآلي: يتم تطبيق طرق ذكية لاستخراج النماذج أو بناء النماذج [kdd_lec01_Introduction.pdf, page 10].\n6. التقييم: لتحديد النماذج الفعلية المثيرة للاهتمام بناءً على معايير معينة [kdd_lec01_Introduction.pdf, page 10].\n7. عرض المعرفة: يتم استخدام تقنيات العرض والتمثيل للعرض المعرفة المعدة لل пользователя [kdd_lec01_Introduction.pdf, page 10]."
+  },
+  {
+   "id": "t02",
+   "kind": "transform",
+   "seed": 43,
+   "question": "okay i can't get it could repeat all that in arabic",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10].",
+   "answer": "بالتأكيد، هنا خطوات عملية KDD:\n\n1. تنظيف البيانات: لإزالة الأخطاء والبيانات غير المتماثلة [kdd_lec01_Introduction.pdf, page 10].\n2. دمج البيانات: يمكن دمج مصادر البيانات المتعددة [kdd_lec01_Introduction.pdf, page 10].\n3. تحديد البيانات: يتم استرجاع البيانات ذات الصلة بالتarefa التالية من قاعدة البيانات [kdd_lec01_Introduction.pdf, page 10].\n4. تحويل البيانات: يتم تحويل البيانات إلى أشكال مناسبة للتarefa التالية [kdd_lec01_Introduction.pdf, page 10].\n5. التعلم الآلي: يتم تطبيق طرق ذكية لاستخراج النماذج أو بناء النماذج [kdd_lec01_Introduction.pdf, page 10].\n6. التقييم: يتم تحديد النماذج الفعلية المثيرة للاهتمام بناءً على معايير معينة [kdd_lec01_Introduction.pdf, page 10].\n7. تقديم المعرفة: يتم استخدام تقنيات تمثيل المعرفة والتمثيل والتمثيل لتقديم المعرفة المكتشفة للمستخدمين [kdd_lec01_Introduction.pdf, page 10]."
+  },
+  {
+   "id": "t03",
+   "kind": "transform",
+   "seed": 43,
+   "question": "I don't get it",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance. Entropy measures the impurity or randomness in the data, representing the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21].",
+   "answer": "Let me try to simplify it. Entropy is a measure of the impurity or randomness in the data. It's like a way to quantify how unclear or uncertain the class labels are in a dataset. The formula calculates the average amount of information needed to figure out which class label belongs to each instance. Think of it like trying to guess the class label of an instance - the higher the entropy, the more information you need to make an accurate guess."
+  },
+  {
+   "id": "t04",
+   "kind": "transform",
+   "seed": 43,
+   "question": "simplify it please",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance. Entropy measures the impurity or randomness in the data, representing the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21].",
+   "answer": "Entropy measures the impurity or randomness in the data, representing the average amount of information needed to identify the class label of an instance. It is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊)."
+  },
+  {
+   "id": "t05",
+   "kind": "transform",
+   "seed": 43,
+   "question": "repeat all that",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     24
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     29
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     31
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Ensemble methods for classification are a technique to improve the accuracy of a model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, that combines the predictions of k individual models, M1, M2, ..., Mk, each trained on a different subset of the data, D1, D2, ..., Dk [kdd_lec08_classifacation_3.pdf, page 24]. The ensemble model then uses a voting mechanism to determine the final class prediction for a new tuple [kdd_lec08_classifacation_3.pdf, page 31].",
+   "answer": "Ensemble methods for classification are a technique to improve the accuracy of a model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, that combines the predictions of k individual models, M1, M2, ..., Mk, each trained on a different subset of the data, D1, D2, ..., Dk [kdd_lec08_classifacation_3.pdf, page 24]. The ensemble model then uses a voting mechanism to determine the final class prediction for a new tuple [kdd_lec08_classifacation_3.pdf, page 31]."
+  },
+  {
+   "id": "t06",
+   "kind": "transform",
+   "seed": 43,
+   "question": "give an example",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     24
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     29
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     31
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Ensemble methods for classification are a technique to improve the accuracy of a model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, that combines the predictions of k individual models, M1, M2, ..., Mk, each trained on a different subset of the data, D1, D2, ..., Dk [kdd_lec08_classifacation_3.pdf, page 24]. The ensemble model then uses a voting mechanism to determine the final class prediction for a new tuple [kdd_lec08_classifacation_3.pdf, page 31].",
+   "answer": "Let's consider an example of ensemble methods for classification. Suppose we have a dataset of images of animals, and we want to train a model to classify them into three categories: mammals, birds, and reptiles.\n\nWe can create three individual models, M1, M2, and M3, each trained on a different subset of the data:\n\n* M1 is trained on images of mammals and birds, but not reptiles.\n* M2 is trained on images of birds and reptiles, but not mammals.\n* M3 is trained on images of mammals and reptiles, but not birds.\n\nEach model is trained to predict the class of an image based on its features. For example, M1 might use features such as the presence of fur or feathers to make its predictions.\n\nThe ensemble model, M*, combines the predictions of M1, M2, and M3 using a voting mechanism. For a new image, each model makes a prediction, and the ensemble model uses the majority vote to determine the final class prediction.\n\nFor example, suppose the three models make the following predictions for a new image of a cat:\n\n* M1 predicts the class as \"mammal\" with a confidence of 0.8.\n* M2 predicts the class as \"bird\" with a confidence of 0.2.\n* M3 predicts the class as \"mammal\" with a confidence of 0.9.\n\nThe ensemble model would use the voting mechanism to determine the final class prediction. In this case, two out of the three models predict the class as \"mammal\", so the ensemble model would predict the class as \"mammal\" with a confidence of 0.9."
+  },
+  {
+   "id": "t07",
+   "kind": "transform",
+   "seed": 43,
+   "question": "translate this to arabic",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     14
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly mentioned in the provided context, but implied as the complement of TP and TN)",
+   "answer": "حسب النص الدراسي [kdd_lec08_classifacation_3.pdf, page 6], يتم استخدام الأربعة \"الحجوم\" في الحساب العديد من القياسات التقييمية في جدول الخلط:\n\n* TP: عدد الإيجابيات الصحيحة (#positive tuples التي تم تصنيفها بشكل صحيح من قبل المُصنّف) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: عدد السلبيات الصحيحة (#negative tuples التي تم تصنيفها بشكل صحيح من قبل المُصنّف) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: عدد الإيجابيات الخاطئة (#negative tuples التي تم تصنيفها بشكل خاطئ على أنها إيجابية) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (ليس مدرجًا بشكل واضح في السياق المُقدم، ولكن يُفترض أنه هو المعكوس من TP و TN)"
+  },
+  {
+   "id": "t08",
+   "kind": "transform",
+   "seed": 43,
+   "question": "Can you explain that again in simpler words?",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     14
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly mentioned in the provided context, but implied as the complement of TP and TN)",
+   "answer": "Here's a simpler explanation:\n\nIn a confusion matrix, we use four main numbers to evaluate how well a classifier is doing. These numbers are:\n\n* TP (True Positives): This is the number of things that are actually positive and were correctly labeled as such by the classifier.\n* TN (True Negatives): This is the number of things that are actually negative and were correctly labeled as such by the classifier.\n* FP (False Positives): This is the number of things that are actually negative but were incorrectly labeled as positive by the classifier.\n* FN (False Negatives): This is the number of things that are actually positive but were incorrectly labeled as negative by the classifier.\n\nNote: FN is not explicitly mentioned in the original text, but it's implied as the complement of TP and TN."
+  },
+  {
+   "id": "t09",
+   "kind": "transform",
+   "seed": 43,
+   "question": "summarize that in 3 bullet points",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10].",
+   "answer": "Here are the 7 steps of the KDD process summarized in 3 bullet points:\n\n* The data is prepared for mining through steps such as data cleaning, integration, selection, and transformation [kdd_lec01_Introduction.pdf, page 10].\n* Data mining is then applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n* Finally, the mined knowledge is evaluated and presented to users through visualization and knowledge representation techniques [kdd_lec01_Introduction.pdf, page 10]."
+  },
+  {
+   "id": "t10",
+   "kind": "transform",
+   "seed": 43,
+   "question": "could you say all that in Arabic please",
+   "question_lang": "en",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": false,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance. Entropy measures the impurity or randomness in the data, representing the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21].",
+   "answer": "يتم حساب الارتفاع باستخدام الصيغة: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. هذه الصيغة تحسب متوسط كمية المعلومات اللازمة لتحديد علامة الفئة للنص. يعد الارتفاع قياسًا للنظafe أو الارتباك في البيانات، وي đại للكمية المتوسطة من المعلومات اللازمة لتحديد علامة الفئة للنص [kdd_lec06_classifacation_1.pdf, page 21]."
+  },
+  {
+   "id": "t11",
+   "kind": "transform",
+   "seed": 43,
+   "question": "ترجم ذلك للانجليزية",
+   "question_lang": "ar",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعتمد خوارزمية k-means على تحديد مراكز للفرق (clusters) من خلال حساب متوسط القيم للجسميات (objects) في كل فرقة، وتحديد هذه المراكز هي الخطوة الأولى في الخوارزمية. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "The k-means algorithm relies on determining the centers of the clusters through the calculation of the average values of the objects in each cluster, and determining these centers is the first step in the algorithm. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "t12",
+   "kind": "transform",
+   "seed": 43,
+   "question": "مش فاهم",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعتمد خوارزمية k-means على تحديد مراكز للفرق (clusters) من خلال حساب متوسط القيم للجسميات (objects) في كل فرقة، وتحديد هذه المراكز هي الخطوة الأولى في الخوارزمية. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "حسناً. يمكنني تفسيرها لكم. تعتمد خوارزمية k-means على تحديد مراكز للفرق (clusters) من خلال حساب متوسط القيم للجسميات (objects) في كل فرقة، وتحديد هذه المراكز هي الخطوة الأولى في الخوارزمية. [kdd_lec09_cluster_analyis.pdf, page 32] هذا يعني أن الخوارزمية تحاول تجميع الجسميات التي تشبه بعضها البعض حول مراكز معينة."
+  },
+  {
+   "id": "t13",
+   "kind": "transform",
+   "seed": 43,
+   "question": "اشرح ذلك مرة أخرى",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     48
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية، لكنه يفشل في التكيف مع البيانات الجديدة التي لم يتم تدريبه عليها. [kdd_lec06_classifacation_1.pdf, page 30]\n\nللتجنب من الإفراط في التكيّف، يجب أن نبحث عن التوازن بين دقة النموذج على البيانات التدريبية (التدريب) و دقة النموذج على البيانات الجديدة التي لم يتم تدريبه عليها (الاختبار). يمكننا استخدام الرسم البياني في [kdd_lec06_classifacation_1.pdf, page 35] لتحديد نقطة الأفضلية (best complexity) حيث يقلل من دقة النموذج على البيانات التدريبية و يقلل من دقة النموذج على البيانات الجديدة. [kdd_lec06_classifacation_1.pdf, page 35]",
+   "answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية، لكنه يفشل في التكيف مع البيانات الجديدة التي لم يتم تدريبه عليها. لالتجنب من الإفراط في التكيّف، يجب أن نبحث عن التوازن بين دقة النموذج على البيانات التدريبية (التدريب) و دقة النموذج على البيانات الجديدة التي لم يتم تدريبه عليها (الاختبار). يمكننا استخدام الرسم البياني لتحديد نقطة الأفضلية (best complexity) حيث يقلل من دقة النموذج على البيانات التدريبية و يقلل من دقة النموذج على البيانات الجديدة. [kdd_lec06_classifacation_1.pdf, page 30] [kdd_lec06_classifacation_1.pdf, page 35] [kdd_lec06_classifacation_1.pdf, page 35]"
+  },
+  {
+   "id": "t14",
+   "kind": "transform",
+   "seed": 43,
+   "question": "ممكن تبسطها",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     48
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية، لكنه يفشل في التكيف مع البيانات الجديدة التي لم يتم تدريبه عليها. [kdd_lec06_classifacation_1.pdf, page 30]\n\nللتجنب من الإفراط في التكيّف، يجب أن نبحث عن التوازن بين دقة النموذج على البيانات التدريبية (التدريب) و دقة النموذج على البيانات الجديدة التي لم يتم تدريبه عليها (الاختبار). يمكننا استخدام الرسم البياني في [kdd_lec06_classifacation_1.pdf, page 35] لتحديد نقطة الأفضلية (best complexity) حيث يقلل من دقة النموذج على البيانات التدريبية و يقلل من دقة النموذج على البيانات الجديدة. [kdd_lec06_classifacation_1.pdf, page 35]",
+   "answer": "يمكننا القول أن الإفراط في التكيّف يحدث عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج، لكنه يفشل في التكيف مع البيانات الجديدة. [kdd_lec06_classifacation_1.pdf, page 30]\n\nللتجنب من ذلك، يجب أن نبحث عن التوازن بين دقة النموذج على البيانات التدريبية و دقة النموذج على البيانات الجديدة. يمكننا استخدام الرسم البياني لتحديد نقطة الأفضلية حيث يقلل من دقة النموذج على البيانات التدريبية و يقلل من دقة النموذج على البيانات الجديدة. [kdd_lec06_classifacation_1.pdf, page 35]"
+  },
+  {
+   "id": "t15",
+   "kind": "transform",
+   "seed": 43,
+   "question": "اعطني مثال",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     4
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تكامل البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation)",
+   "answer": "إليك مثالًا على المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات:\n➢تنظيف البيانات: إذا كان لديك جدول يحتوي على معلومات عن العملاء، وتريد إزالة البيانات الخاطئة مثل الأرقام أو الأسماء غير الصحيحة، يمكنك استخدام تقنية التنظيف لتحديد وتصحيح هذه البيانات.\n➢تكامل البيانات: إذا كان لديك جدولين يحتويان على معلومات عن العملاء، واحد يحتوي على معلومات عن المشتريات وآخر يحتوي على معلومات عن المبيعات، يمكنك استخدام تقنية التكامل لدمج هذه الجداول وتحويلها إلى جدول واحد.\n➢تخفيض البيانات: إذا كان لديك جدول يحتوي على معلومات عن العملاء، وتريد تقليل كمية البيانات دون فقدان المعلومات، يمكنك استخدام تقنية التخفيض لتحديد وتخزين البيانات الأكثر أهمية.\n➢تحويل البيانات: إذا كان لديك جدول يحتوي على معلومات عن العملاء، وتريد تغيير شكل البيانات من جدول إلى شريحة، يمكنك استخدام تقنية التحويل لتحويل البيانات إلى شكل جديد."
+  },
+  {
+   "id": "t16",
+   "kind": "transform",
+   "seed": 43,
+   "question": "لخص ما سبق",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     4
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تكامل البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation)",
+   "answer": "يمكن تلخيص المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات إلى أربعة مهام رئيسية هي:\n➢تنظيف البيانات\n➢تكامل البيانات\n➢تخفيض البيانات\n➢تحويل البيانات"
+  },
+  {
+   "id": "t17",
+   "kind": "transform",
+   "seed": 43,
+   "question": "لم أفهم",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعتمد خوارزمية k-means على تحديد مراكز للفرق (clusters) من خلال حساب متوسط القيم للجسميات (objects) في كل فرقة، وتحديد هذه المراكز هي الخطوة الأولى في الخوارزمية. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "حسناً. سأجرب شرحها مرة أخرى.\n\nتعتمد خوارزمية k-means على تحديد مراكز للفرق (clusters) من خلال حساب متوسط القيم للجسميات (objects) في كل فرقة، وتحديد هذه المراكز هي الخطوة الأولى في الخوارزمية. [kdd_lec09_cluster_analyis.pdf, page 32]\n\nهذه هي الخطوة الأولى في الخوارزمية، حيث يتم تحديد المراكز التي ستكون الأساس للفرق. بعد ذلك، يتم تخصيص كل جسمية (object) إلى فرقة بناءً على أقرب مركز لها. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "t18",
+   "kind": "transform",
+   "seed": 43,
+   "question": "كرر الكلام ده بالانجليزي",
+   "question_lang": "ar",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     48
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية، لكنه يفشل في التكيف مع البيانات الجديدة التي لم يتم تدريبه عليها. [kdd_lec06_classifacation_1.pdf, page 30]\n\nللتجنب من الإفراط في التكيّف، يجب أن نبحث عن التوازن بين دقة النموذج على البيانات التدريبية (التدريب) و دقة النموذج على البيانات الجديدة التي لم يتم تدريبه عليها (الاختبار). يمكننا استخدام الرسم البياني في [kdd_lec06_classifacation_1.pdf, page 35] لتحديد نقطة الأفضلية (best complexity) حيث يقلل من دقة النموذج على البيانات التدريبية و يقلل من دقة النموذج على البيانات الجديدة. [kdd_lec06_classifacation_1.pdf, page 35]",
+   "answer": "Overfitting is when the model deals excessively with the training data, leading to an increase in the model's accuracy on the training data, but it fails to adapt to new data that it has not been trained on. [kdd_lec06_classifacation_1.pdf, page 30]\n\nTo avoid overfitting, we need to find a balance between the model's accuracy on the training data (training) and the model's accuracy on the new data that it has not been trained on (testing). We can use the graph in [kdd_lec06_classifacation_1.pdf, page 35] to determine the point of optimality (best complexity) where the model's accuracy on the training data decreases and the model's accuracy on the new data decreases. [kdd_lec06_classifacation_1.pdf, page 35]"
+  },
+  {
+   "id": "t19",
+   "kind": "transform",
+   "seed": 43,
+   "question": "say that in english",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     4
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تكامل البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation)",
+   "answer": "The main tasks in the data preprocessing stage are:\n\n➢Data Cleaning\n➢Data Integration\n➢Data Reduction\n➢Data Transformation"
+  },
+  {
+   "id": "t20",
+   "kind": "transform",
+   "seed": 43,
+   "question": "I don't get it",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": false,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33
+    ]
+   ],
+   "new_sources": 0,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعتمد خوارزمية k-means على تحديد مراكز للفرق (clusters) من خلال حساب متوسط القيم للجسميات (objects) في كل فرقة، وتحديد هذه المراكز هي الخطوة الأولى في الخوارزمية. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "Let me try to simplify it. The k-means algorithm relies on finding the centers of the clusters by calculating the average values of the objects within each cluster. The first step in this algorithm is to identify these centers. [kdd_lec09_cluster_analyis.pdf, page 32]"
+  },
+  {
+   "id": "n01",
+   "kind": "near_miss",
+   "seed": 43,
+   "question": "explain overfitting again",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     33
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     31
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10].",
+   "answer": "Overfitting occurs when a model learns noise in the training data, leading to poor generalization. This is evident when the model's complexity is too high, resulting in a high training error and an even higher generalization error [kdd_lec06_classifacation_1.pdf, page 33]. In the case of decision trees, overfitting can cause the decision regions to become very small, making it difficult for the model to generalize to new, unseen data [kdd_lec06_classifacation_1.pdf, page 35]. This is illustrated in the \"Really Overfit\" diagram, which shows a complex decision tree with excessive branching [kdd_lec06_classifacation_1.pdf, page 31]."
+  },
+  {
+   "id": "n02",
+   "kind": "near_miss",
+   "seed": 43,
+   "question": "give an example of entropy",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     22
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "The steps of the KDD process are:\n\n1. Data Cleaning: To remove noise and inconsistent data [kdd_lec01_Introduction.pdf, page 10].\n2. Data Integration: multiple data sources may be combined [kdd_lec01_Introduction.pdf, page 10].\n3. Data selection: data relevant to the next mining task are retrieved from the database [kdd_lec01_Introduction.pdf, page 10].\n4. Data transformation: data are transformed into forms appropriate for the next mining task [kdd_lec01_Introduction.pdf, page 10].\n5. Data Mining: intelligent methods are applied to extract patterns or construct models [kdd_lec01_Introduction.pdf, page 10].\n6. Evaluation: to identify the truly interesting patterns or models based on certain measures [kdd_lec01_Introduction.pdf, page 10].\n7. Knowledge presentation: visualization and knowledge representation techniques are used to present mined knowledge to users [kdd_lec01_Introduction.pdf, page 10].",
+   "answer": "Entropy is a measure of the impurity or uncertainty of a set of examples. An example of entropy is given in the lecture as:\n\n\"parent entropy\" = -log₂(14/30) = 0.996 [kdd_lec06_classifacation_1.pdf, page 23].\n\nThis is an example of calculating the entropy of a set of examples, in this case, the entire population of 30 instances."
+  },
+  {
+   "id": "n03",
+   "kind": "near_miss",
+   "seed": 43,
+   "question": "what is translation in NLP",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": null,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec05_regression.pdf",
+     51
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     42
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     42
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance. Entropy measures the impurity or randomness in the data, representing the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21].",
+   "answer": "Translation in NLP refers to the process of converting text from one language to another language, while preserving the meaning and context of the original text [kdd_lec06_classifacation_1.pdf, page 42]."
+  },
+  {
+   "id": "n04",
+   "kind": "near_miss",
+   "seed": 43,
+   "question": "explain the Apriori property in more detail",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     39
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     32
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     40
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Ensemble methods for classification are a technique to improve the accuracy of a model by combining the predictions of multiple base classifiers. This is done by creating a composite model, M*, that combines the predictions of k individual models, M1, M2, ..., Mk, each trained on a different subset of the data, D1, D2, ..., Dk [kdd_lec08_classifacation_3.pdf, page 24]. The ensemble model then uses a voting mechanism to determine the final class prediction for a new tuple [kdd_lec08_classifacation_3.pdf, page 31].",
+   "answer": "The Apriori property states that any subset of a frequent itemset must also be frequent [kdd_lec04_association_rule.pdf, page 40]. This means that if an itemset of size k is frequent, then all its subsets of size k-1 must also be frequent. For example, if {A, B, C} is a frequent itemset, then {A, B} and {A, C} must also be frequent. This property is used in the prune step of the Apriori algorithm to eliminate non-frequent itemsets and their subsets [kdd_lec04_association_rule.pdf, page 32]."
+  },
+  {
+   "id": "n05",
+   "kind": "near_miss",
+   "seed": 43,
+   "question": "summarize the KDD process",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     41
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "Entropy is calculated using the formula: 𝑬𝒏𝒕𝒓𝒐𝒑𝒚(𝑺) = −σ𝒊=𝟏 𝑷𝒊𝒍𝒐𝒈𝟐(𝑷𝒊) [kdd_lec06_classifacation_1.pdf, page 21]. This formula calculates the average amount of information needed to identify the class label of an instance. Entropy measures the impurity or randomness in the data, representing the average amount of information needed to identify the class label of an instance [kdd_lec06_classifacation_1.pdf, page 21].",
+   "answer": "The KDD (Knowledge Discovery in Databases) process is an iterative sequence of steps that converts raw data into useful knowledge [kdd_lec01_Introduction.pdf, page 9]. The steps include:\n\n1. Data Cleaning: removing noise and inconsistent data.\n2. Data Integration: combining multiple data sources.\n3. Data Selection: retrieving relevant data for the next mining task.\n4. Data Transformation: transforming data into a suitable form for mining.\n5. Data Mining: applying intelligent methods to extract patterns or construct models.\n6. Evaluation: identifying truly interesting patterns or models based on certain measures.\n7. Knowledge Presentation: visualizing and representing mined knowledge to users.\n\nNote that the KDD process is often confused with data mining, but data mining is considered an essential step within the KDD process [kdd_lec01_Introduction.pdf, page 10]."
+  },
+  {
+   "id": "n06",
+   "kind": "near_miss",
+   "seed": 43,
+   "question": "repeat the steps of the k-means algorithm",
+   "question_lang": "en",
+   "expect_lang": "en",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     26
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     34
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "According to the lecture text [kdd_lec08_classifacation_3.pdf, page 6], the four \"building blocks\" used in computing many evaluation measures in a confusion matrix are:\n\n* TP: # true positives (#positive tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* TN: # true negatives (#negative tuples that were correctly labeled by the classifier) [kdd_lec08_classifacation_3.pdf, page 6]\n* FP: # false positives (#negative tuples that were incorrectly labeled as positive) [kdd_lec08_classifacation_3.pdf, page 6]\n* FN: (not explicitly mentioned in the provided context, but implied as the complement of TP and TN)",
+   "answer": "According to the lecture text [kdd_lec09_cluster_analyis.pdf, page 26], the steps of the k-means algorithm are:\n\n1. Randomly selects k data points from D, each of which initially represents a cluster centroid.\n2. Repeat:\n   • Form K clusters by assigning each point to its closest (most similar) centroid.\n   • Re-compute the centroids (i.e., mean point) of each cluster using the new data points assigned to the cluster.\n3. Until convergence criterion is satisfied."
+  },
+  {
+   "id": "n07",
+   "kind": "near_miss",
+   "seed": 43,
+   "question": "اشرح التجميع",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     4
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     6
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     10
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 6,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "الإفراط في التكيّف (overfitting) هو عندما يتعامل النموذج بشكل مفرط مع البيانات التدريبية، مما يؤدي إلى زيادة في دقة النموذج على البيانات التدريبية، لكنه يفشل في التكيف مع البيانات الجديدة التي لم يتم تدريبه عليها. [kdd_lec06_classifacation_1.pdf, page 30]\n\nللتجنب من الإفراط في التكيّف، يجب أن نبحث عن التوازن بين دقة النموذج على البيانات التدريبية (التدريب) و دقة النموذج على البيانات الجديدة التي لم يتم تدريبه عليها (الاختبار). يمكننا استخدام الرسم البياني في [kdd_lec06_classifacation_1.pdf, page 35] لتحديد نقطة الأفضلية (best complexity) حيث يقلل من دقة النموذج على البيانات التدريبية و يقلل من دقة النموذج على البيانات الجديدة. [kdd_lec06_classifacation_1.pdf, page 35]",
+   "answer": "التجميع (clustering) هو عملية تقسيم مجموعة من البيانات إلى مجموعات فرعية تسمى مجموعات (clusters). [kdd_lec09_cluster_analyis.pdf, page 4] يجب أن تكون هذه المجموعات ذات جودة عالية، أي أن البيانات داخل كل مجموعة تكون متشابهة (high intra-cluster similarity) و أن البيانات بين المجموعات تكون مختلفة (low inter-cluster similarity). [kdd_lec09_cluster_analyis.pdf, page 4]\n\nيتم تقييم التشابه والاختلاف بين البيانات على أساس القيم الموجودة في الأтрибутات التي تشير إلى هذه البيانات. [kdd_lec09_cluster_analyis.pdf, page 4]\n\nالتجميع يعتبر عملية تلقائية للتصنيف في بعض التطبيقات، حيث يتم العثور على المجموعات التي يمكن اعتبارها كتصنيفات ضمنية. [kdd_lec09_cluster_analyis.pdf, page 6] في حين أن التجميع يعتبر عملية تقسيم البيانات إلى مجموعات أصغر في بعض التطبيقات، حيث يتم تقسيم البيانات الكبيرة إلى مجموعات أصغر. [kdd_lec09_cluster_analyis.pdf, page 6]\n\nالتجميع لا يعتبر تقسيم البيانات إلى مجموعات بشكل عشوائي، مثل تقسيم الطلاب إلى مجموعات حسب الاسم الأخير. [kdd_lec09_cluster_analyis.pdf, page 6]"
+  },
+  {
+   "id": "n08",
+   "kind": "near_miss",
+   "seed": 43,
+   "question": "اعطني مثال على الإفراط في التكيف",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     34
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40
+    ]
+   ],
+   "new_sources": 1,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "تعتمد خوارزمية k-means على تحديد مراكز للفرق (clusters) من خلال حساب متوسط القيم للجسميات (objects) في كل فرقة، وتحديد هذه المراكز هي الخطوة الأولى في الخوارزمية. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "الإفراط في التكيف يحدث عندما يؤثر عدد قليل من البيانات المزعجة (outlier points) بشكل كبير على القيمة المتوسطة (mean value)."
+  },
+  {
+   "id": "n09",
+   "kind": "near_miss",
+   "seed": 43,
+   "question": "ما هو الترجمة في معالجة اللغة",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": null,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     39
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     3
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     31
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": true,
+   "previous_answer": "المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات هي:\n➢تنظيف البيانات (Data Cleaning)\n➢تكامل البيانات (Data Integration)\n➢تخفيض البيانات (Data Reduction)\n➢تحويل البيانات (Data Transformation)",
+   "answer": "الترجمة في معالجة اللغة هي عملية تحويل قيم معينة في مجموعة البيانات إلى قيم جديدة مناسبة للمهمة التحليلية. [kdd_lec03_data_preprocessing.pdf, page 39]"
+  },
+  {
+   "id": "n10",
+   "kind": "near_miss",
+   "seed": 43,
+   "question": "لخص خطوات عملية اكتشاف المعرفة",
+   "question_lang": "ar",
+   "expect_lang": "ar",
+   "searched": true,
+   "on_topic": true,
+   "language_ok": true,
+   "sources": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     1
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     1
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     1
+    ]
+   ],
+   "new_sources": 3,
+   "figure_talk": false,
+   "disallowed": 0,
+   "repeated_paragraph": false,
+   "streamed_equals_stored": false,
+   "previous_answer": "تعتمد خوارزمية k-means على تحديد مراكز للفرق (clusters) من خلال حساب متوسط القيم للجسميات (objects) في كل فرقة، وتحديد هذه المراكز هي الخطوة الأولى في الخوارزمية. [kdd_lec09_cluster_analyis.pdf, page 32]",
+   "answer": "خطوات عملية اكتشاف المعرفة هي:\n1. تحديد الهدف: تحديد ما نريد اكتشافه من المعرفة.\n2. جمع البيانات: جمع البيانات من مصادر مختلفة.\n3. تحليل البيانات: تحليل البيانات لتحديد الميزات والخصائص.\n4. استخراج المعرفة: استخراج المعرفة من البيانات باستخدام تقنيات مختلفة مثل التعلم الآلي والتحليل الإحصائي.\n5. تقييم المعرفة: تقييم المعرفة لتحديد مدى صحتها وفعاليتها."
+  }
+ ]
+}

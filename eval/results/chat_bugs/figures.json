@@ -1,0 +1,3736 @@
+{
+ "summary": {
+  "all/normal": {
+   "questions": 35,
+   "with_gold": 32,
+   "hits": 24,
+   "hit_rate": 0.75,
+   "figure_share": 0.29523809523809524,
+   "boilerplate_share": 0.02857142857142857
+  },
+  "all/demote": {
+   "questions": 35,
+   "with_gold": 32,
+   "hits": 23,
+   "hit_rate": 0.71875,
+   "figure_share": 0.12380952380952381,
+   "boilerplate_share": 0.0
+  },
+  "all/exclude": {
+   "questions": 35,
+   "with_gold": 32,
+   "hits": 23,
+   "hit_rate": 0.71875,
+   "figure_share": 0.0761904761904762,
+   "boilerplate_share": 0.0
+  },
+  "ar/normal": {
+   "questions": 21,
+   "with_gold": 19,
+   "hits": 13,
+   "hit_rate": 0.6842105263157895,
+   "figure_share": 0.31746031746031744,
+   "boilerplate_share": 0.015873015873015872
+  },
+  "ar/demote": {
+   "questions": 21,
+   "with_gold": 19,
+   "hits": 12,
+   "hit_rate": 0.631578947368421,
+   "figure_share": 0.09523809523809523,
+   "boilerplate_share": 0.0
+  },
+  "ar/exclude": {
+   "questions": 21,
+   "with_gold": 19,
+   "hits": 12,
+   "hit_rate": 0.631578947368421,
+   "figure_share": 0.047619047619047616,
+   "boilerplate_share": 0.0
+  },
+  "en/normal": {
+   "questions": 14,
+   "with_gold": 13,
+   "hits": 11,
+   "hit_rate": 0.8461538461538461,
+   "figure_share": 0.2619047619047619,
+   "boilerplate_share": 0.047619047619047616
+  },
+  "en/demote": {
+   "questions": 14,
+   "with_gold": 13,
+   "hits": 11,
+   "hit_rate": 0.8461538461538461,
+   "figure_share": 0.16666666666666666,
+   "boilerplate_share": 0.0
+  },
+  "en/exclude": {
+   "questions": 14,
+   "with_gold": 13,
+   "hits": 11,
+   "hit_rate": 0.8461538461538461,
+   "figure_share": 0.11904761904761904,
+   "boilerplate_share": 0.0
+  },
+  "no figure asked/normal": {
+   "questions": 31,
+   "with_gold": 28,
+   "hits": 21,
+   "hit_rate": 0.75,
+   "figure_share": 0.24731182795698925,
+   "boilerplate_share": 0.03225806451612903
+  },
+  "no figure asked/demote": {
+   "questions": 31,
+   "with_gold": 28,
+   "hits": 20,
+   "hit_rate": 0.7142857142857143,
+   "figure_share": 0.053763440860215055,
+   "boilerplate_share": 0.0
+  },
+  "no figure asked/exclude": {
+   "questions": 31,
+   "with_gold": 28,
+   "hits": 20,
+   "hit_rate": 0.7142857142857143,
+   "figure_share": 0.0,
+   "boilerplate_share": 0.0
+  },
+  "figure asked/normal": {
+   "questions": 4,
+   "with_gold": 4,
+   "hits": 3,
+   "hit_rate": 0.75,
+   "figure_share": 0.6666666666666666,
+   "boilerplate_share": 0.0
+  },
+  "figure asked/demote": {
+   "questions": 4,
+   "with_gold": 4,
+   "hits": 3,
+   "hit_rate": 0.75,
+   "figure_share": 0.6666666666666666,
+   "boilerplate_share": 0.0
+  },
+  "figure asked/exclude": {
+   "questions": 4,
+   "with_gold": 4,
+   "hits": 3,
+   "hit_rate": 0.75,
+   "figure_share": 0.6666666666666666,
+   "boilerplate_share": 0.0
+  }
+ },
+ "regressions": [
+  {
+   "id": "a08",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false
+  },
+  {
+   "id": "a14",
+   "lang": "ar",
+   "kind": "broad",
+   "mode": "demote",
+   "asks_for_figure": false
+  },
+  {
+   "id": "a14",
+   "lang": "ar",
+   "kind": "broad",
+   "mode": "exclude",
+   "asks_for_figure": false
+  }
+ ],
+ "followups": [
+  {
+   "id": "f01",
+   "kind": "follow_up",
+   "mode": "normal",
+   "query": "What is k-means clustering in simpler words?",
+   "hit": true,
+   "figures": 1,
+   "kept": 3
+  },
+  {
+   "id": "f01",
+   "kind": "follow_up",
+   "mode": "demote",
+   "query": "What is k-means clustering in simpler words?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f01",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "query": "What is k-means clustering in simpler words?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f02",
+   "kind": "follow_up",
+   "mode": "normal",
+   "query": "How does the Apriori principle reduce the number of candidate itemsets?",
+   "hit": true,
+   "figures": 2,
+   "kept": 3
+  },
+  {
+   "id": "f02",
+   "kind": "follow_up",
+   "mode": "demote",
+   "query": "How does the Apriori principle reduce the number of candidate itemsets?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f02",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "query": "How does the Apriori principle reduce the number of candidate itemsets?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f03",
+   "kind": "follow_up",
+   "mode": "normal",
+   "query": "How can I avoid overfitting?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f03",
+   "kind": "follow_up",
+   "mode": "demote",
+   "query": "How can I avoid overfitting?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f03",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "query": "How can I avoid overfitting?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f04",
+   "kind": "follow_up",
+   "mode": "normal",
+   "query": "How is a decision tree pruned?",
+   "hit": true,
+   "figures": 1,
+   "kept": 3
+  },
+  {
+   "id": "f04",
+   "kind": "follow_up",
+   "mode": "demote",
+   "query": "How is a decision tree pruned?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f04",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "query": "How is a decision tree pruned?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f05",
+   "kind": "follow_up",
+   "mode": "normal",
+   "query": "What is the simplest method for handling missing values?",
+   "hit": true,
+   "figures": 1,
+   "kept": 3
+  },
+  {
+   "id": "f05",
+   "kind": "follow_up",
+   "mode": "demote",
+   "query": "What is the simplest method for handling missing values?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f05",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "query": "What is the simplest method for handling missing values?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f06",
+   "kind": "follow_up",
+   "mode": "normal",
+   "query": "هل يمكنك تبيين طرق معالجة البيانات الناقصة بشكل أسهل؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f06",
+   "kind": "follow_up",
+   "mode": "demote",
+   "query": "هل يمكنك تبيين طرق معالجة البيانات الناقصة بشكل أسهل؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f06",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "query": "هل يمكنك تبيين طرق معالجة البيانات الناقصة بشكل أسهل؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f07",
+   "kind": "follow_up",
+   "mode": "normal",
+   "query": "ما هي عيوب خوارزمية k-means؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f07",
+   "kind": "follow_up",
+   "mode": "demote",
+   "query": "ما هي عيوب خوارزمية k-means؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f07",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "query": "ما هي عيوب خوارزمية k-means؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f08",
+   "kind": "follow_up",
+   "mode": "normal",
+   "query": "What is an example of the confidence of an association rule?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f08",
+   "kind": "follow_up",
+   "mode": "demote",
+   "query": "What is an example of the confidence of an association rule?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f08",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "query": "What is an example of the confidence of an association rule?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f10",
+   "kind": "follow_up",
+   "mode": "normal",
+   "query": "How is bagging different from boosting?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f10",
+   "kind": "follow_up",
+   "mode": "demote",
+   "query": "How is bagging different from boosting?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f10",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "query": "How is bagging different from boosting?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f11",
+   "kind": "follow_up",
+   "mode": "normal",
+   "query": "What is the formula for entropy in a decision tree?",
+   "hit": true,
+   "figures": 1,
+   "kept": 3
+  },
+  {
+   "id": "f11",
+   "kind": "follow_up",
+   "mode": "demote",
+   "query": "What is the formula for entropy in a decision tree?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f11",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "query": "What is the formula for entropy in a decision tree?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f12",
+   "kind": "follow_up",
+   "mode": "normal",
+   "query": "كيف أتجنب الـ overfitting؟",
+   "hit": true,
+   "figures": 1,
+   "kept": 3
+  },
+  {
+   "id": "f12",
+   "kind": "follow_up",
+   "mode": "demote",
+   "query": "كيف أتجنب الـ overfitting؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "f12",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "query": "كيف أتجنب الـ overfitting؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t01",
+   "kind": "topic_change",
+   "mode": "normal",
+   "query": "What is the Apriori principle?",
+   "hit": true,
+   "figures": 2,
+   "kept": 3
+  },
+  {
+   "id": "t01",
+   "kind": "topic_change",
+   "mode": "demote",
+   "query": "What is the Apriori principle?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t01",
+   "kind": "topic_change",
+   "mode": "exclude",
+   "query": "What is the Apriori principle?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t02",
+   "kind": "topic_change",
+   "mode": "normal",
+   "query": "How does the k-means algorithm assign points to clusters?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t02",
+   "kind": "topic_change",
+   "mode": "demote",
+   "query": "How does the k-means algorithm assign points to clusters?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t02",
+   "kind": "topic_change",
+   "mode": "exclude",
+   "query": "How does the k-means algorithm assign points to clusters?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t03",
+   "kind": "topic_change",
+   "mode": "normal",
+   "query": "What is entropy in decision trees?",
+   "hit": true,
+   "figures": 2,
+   "kept": 3
+  },
+  {
+   "id": "t03",
+   "kind": "topic_change",
+   "mode": "demote",
+   "query": "What is entropy in decision trees?",
+   "hit": false,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t03",
+   "kind": "topic_change",
+   "mode": "exclude",
+   "query": "What is entropy in decision trees?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t04",
+   "kind": "topic_change",
+   "mode": "normal",
+   "query": "ما هي الثقة في قواعد الارتباط؟",
+   "hit": true,
+   "figures": 1,
+   "kept": 3
+  },
+  {
+   "id": "t04",
+   "kind": "topic_change",
+   "mode": "demote",
+   "query": "ما هي الثقة في قواعد الارتباط؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t04",
+   "kind": "topic_change",
+   "mode": "exclude",
+   "query": "ما هي الثقة في قواعد الارتباط؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t05",
+   "kind": "topic_change",
+   "mode": "normal",
+   "query": "What is a dendrogram?",
+   "hit": false,
+   "figures": 3,
+   "kept": 3
+  },
+  {
+   "id": "t05",
+   "kind": "topic_change",
+   "mode": "demote",
+   "query": "What is a dendrogram?",
+   "hit": false,
+   "figures": 3,
+   "kept": 3
+  },
+  {
+   "id": "t05",
+   "kind": "topic_change",
+   "mode": "exclude",
+   "query": "What is a dendrogram?",
+   "hit": false,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t06",
+   "kind": "topic_change",
+   "mode": "normal",
+   "query": "How are outliers detected in the context of bagging?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t06",
+   "kind": "topic_change",
+   "mode": "demote",
+   "query": "How are outliers detected in the context of bagging?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t06",
+   "kind": "topic_change",
+   "mode": "exclude",
+   "query": "How are outliers detected in the context of bagging?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t08",
+   "kind": "topic_change",
+   "mode": "normal",
+   "query": "ما هو الـ overfitting في خوارزمية k-means؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t08",
+   "kind": "topic_change",
+   "mode": "demote",
+   "query": "ما هو الـ overfitting في خوارزمية k-means؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t08",
+   "kind": "topic_change",
+   "mode": "exclude",
+   "query": "ما هو الـ overfitting في خوارزمية k-means؟",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t09",
+   "kind": "topic_change",
+   "mode": "normal",
+   "query": "How does Naive Bayes classify a record?",
+   "hit": true,
+   "figures": 1,
+   "kept": 3
+  },
+  {
+   "id": "t09",
+   "kind": "topic_change",
+   "mode": "demote",
+   "query": "How does Naive Bayes classify a record?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t09",
+   "kind": "topic_change",
+   "mode": "exclude",
+   "query": "How does Naive Bayes classify a record?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t10",
+   "kind": "topic_change",
+   "mode": "normal",
+   "query": "What is cross-validation?",
+   "hit": true,
+   "figures": 1,
+   "kept": 3
+  },
+  {
+   "id": "t10",
+   "kind": "topic_change",
+   "mode": "demote",
+   "query": "What is cross-validation?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  },
+  {
+   "id": "t10",
+   "kind": "topic_change",
+   "mode": "exclude",
+   "query": "What is cross-validation?",
+   "hit": true,
+   "figures": 0,
+   "kept": 3
+  }
+ ],
+ "rows": [
+  {
+   "id": "e01",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e01",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e01",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     10,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     9,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     38,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e02",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec02_data.pdf",
+     5,
+     "text"
+    ],
+    [
+     "kdd_lec02_data.pdf",
+     17,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     22,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e02",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec02_data.pdf",
+     5,
+     "text"
+    ],
+    [
+     "kdd_lec02_data.pdf",
+     17,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     22,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e02",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec02_data.pdf",
+     5,
+     "text"
+    ],
+    [
+     "kdd_lec02_data.pdf",
+     17,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     22,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e03",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     44,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e03",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     44,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e03",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     41,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e04",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     41,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e04",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     41,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e04",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     41,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e05",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     17,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     20,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     19,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e05",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     17,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     20,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     19,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e05",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     17,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     20,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     19,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e06",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     46,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     14,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     47,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e06",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     46,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     14,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     47,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e06",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     46,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     44,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     14,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e07",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     14,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     12,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     44,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e07",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     14,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     12,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     44,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e07",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     14,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     12,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     44,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e08",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 1,
+   "pages": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23,
+     "image_description"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e08",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     22,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e08",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     16,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     22,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e09",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6,
+     "image_description"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e09",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     14,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e09",
+   "lang": "en",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     14,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e10",
+   "lang": "en",
+   "kind": "broad",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     24,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     29,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     31,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e10",
+   "lang": "en",
+   "kind": "broad",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     24,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     29,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     31,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e10",
+   "lang": "en",
+   "kind": "broad",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     24,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     27,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     31,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e13",
+   "lang": "en",
+   "kind": "figure",
+   "mode": "normal",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 3,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     19,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     54,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     49,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "e13",
+   "lang": "en",
+   "kind": "figure",
+   "mode": "demote",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 3,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     19,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     54,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     49,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "e13",
+   "lang": "en",
+   "kind": "figure",
+   "mode": "exclude",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 3,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     19,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     54,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     49,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "e14",
+   "lang": "en",
+   "kind": "figure",
+   "mode": "normal",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 2,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     39,
+     "image_description"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     32,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     40,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "e14",
+   "lang": "en",
+   "kind": "figure",
+   "mode": "demote",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 2,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     39,
+     "image_description"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     32,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     40,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "e14",
+   "lang": "en",
+   "kind": "figure",
+   "mode": "exclude",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 2,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     39,
+     "image_description"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     32,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     40,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "e15",
+   "lang": "en",
+   "kind": "follow_up",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 1,
+   "pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     19,
+     "image_description"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     55,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     39,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e15",
+   "lang": "en",
+   "kind": "follow_up",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     55,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     39,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     32,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e15",
+   "lang": "en",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     55,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     39,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     30,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "e16",
+   "lang": "en",
+   "kind": "out_of_scope",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": false,
+   "hit": false,
+   "kept": 3,
+   "figures": 3,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec02_data.pdf",
+     24,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     5,
+     "image_description"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     25,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "e16",
+   "lang": "en",
+   "kind": "out_of_scope",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": false,
+   "hit": false,
+   "kept": 3,
+   "figures": 2,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     18,
+     "text"
+    ],
+    [
+     "kdd_lec02_data.pdf",
+     24,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     5,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "e16",
+   "lang": "en",
+   "kind": "out_of_scope",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": false,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     18,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     38,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a01",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     1,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a01",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     1,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a01",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     1,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a02",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec02_data.pdf",
+     9,
+     "text"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     42,
+     "image_description"
+    ],
+    [
+     "kdd_lec02_data.pdf",
+     4,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a02",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec02_data.pdf",
+     9,
+     "text"
+    ],
+    [
+     "kdd_lec02_data.pdf",
+     4,
+     "text"
+    ],
+    [
+     "kdd_lec02_data.pdf",
+     19,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a02",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec02_data.pdf",
+     9,
+     "text"
+    ],
+    [
+     "kdd_lec02_data.pdf",
+     4,
+     "text"
+    ],
+    [
+     "kdd_lec02_data.pdf",
+     19,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a03",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     17,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     38,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a03",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     17,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     50,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a03",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     42,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     17,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     50,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a04",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     16,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     24,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a04",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     16,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     24,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a04",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     43,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     24,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     16,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a05",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     6,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     12,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a05",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     6,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     12,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a05",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     6,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     12,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a06",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     37,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     39,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     39,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a06",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     37,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     39,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     34,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a06",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec05_regression.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     39,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a07",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     22,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     22,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a07",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     22,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     21,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a07",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec05_regression.pdf",
+     56,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     22,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a08",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec05_regression.pdf",
+     48,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     35,
+     "image_description"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a08",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec05_regression.pdf",
+     48,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     33,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a08",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     16,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     23,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     30,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a09",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     35,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     37,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     50,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a09",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     35,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     37,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     49,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a09",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     47,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     33,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     35,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a10",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a10",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     33,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a10",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     34,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     26,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     40,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a11",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a11",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     7,
+     "text"
+    ],
+    [
+     "kdd_lec04_association_rule.pdf",
+     6,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a11",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec05_regression.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     6,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a12",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     25,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     34,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     22,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a12",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     25,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     34,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     22,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a12",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     25,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     22,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     30,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a13",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     7,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     21,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     9,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a13",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     7,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     21,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     9,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a13",
+   "lang": "ar",
+   "kind": "narrow",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     7,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     9,
+     "text"
+    ],
+    [
+     "kdd_lec07_classifacation_2.pdf",
+     6,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a14",
+   "lang": "ar",
+   "kind": "broad",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 1,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     9,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a14",
+   "lang": "ar",
+   "kind": "broad",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     6,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a14",
+   "lang": "ar",
+   "kind": "broad",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec04_association_rule.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     1,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     10,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a15",
+   "lang": "ar",
+   "kind": "broad",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     22,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     8,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     23,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a15",
+   "lang": "ar",
+   "kind": "broad",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     22,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     8,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     23,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a15",
+   "lang": "ar",
+   "kind": "broad",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     8,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     22,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     23,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a19",
+   "lang": "ar",
+   "kind": "follow_up",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec05_regression.pdf",
+     29,
+     "image_description"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     15,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     39,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a19",
+   "lang": "ar",
+   "kind": "follow_up",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     15,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     39,
+     "text"
+    ],
+    [
+     "kdd_lec08_classifacation_3.pdf",
+     32,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a19",
+   "lang": "ar",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     31,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     43,
+     "text"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     39,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a20",
+   "lang": "ar",
+   "kind": "follow_up",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 2,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32,
+     "text"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     52,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     44,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a20",
+   "lang": "ar",
+   "kind": "follow_up",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     8,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     32,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a20",
+   "lang": "ar",
+   "kind": "follow_up",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     8,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     32,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a22",
+   "lang": "ar",
+   "kind": "figure",
+   "mode": "normal",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     26,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     34,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a22",
+   "lang": "ar",
+   "kind": "figure",
+   "mode": "demote",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     26,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     34,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a22",
+   "lang": "ar",
+   "kind": "figure",
+   "mode": "exclude",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     32,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     26,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     34,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a23",
+   "lang": "ar",
+   "kind": "figure",
+   "mode": "normal",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 3,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec05_regression.pdf",
+     54,
+     "image_description"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     33,
+     "image_description"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     31,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a23",
+   "lang": "ar",
+   "kind": "figure",
+   "mode": "demote",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 3,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec05_regression.pdf",
+     54,
+     "image_description"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     33,
+     "image_description"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     31,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a23",
+   "lang": "ar",
+   "kind": "figure",
+   "mode": "exclude",
+   "asks_for_figure": true,
+   "has_gold": true,
+   "hit": true,
+   "kept": 3,
+   "figures": 3,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec05_regression.pdf",
+     54,
+     "image_description"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     33,
+     "image_description"
+    ],
+    [
+     "kdd_lec06_classifacation_1.pdf",
+     31,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a24",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": false,
+   "hit": false,
+   "kept": 3,
+   "figures": 3,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     24,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     29,
+     "image_description"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     5,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a24",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": false,
+   "hit": false,
+   "kept": 3,
+   "figures": 1,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     16,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     29,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     24,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a24",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": false,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     42,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     43,
+     "text"
+    ],
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     31,
+     "text"
+    ]
+   ]
+  },
+  {
+   "id": "a26",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "mode": "normal",
+   "asks_for_figure": false,
+   "has_gold": false,
+   "hit": false,
+   "kept": 3,
+   "figures": 3,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec01_Introduction.pdf",
+     25,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     5,
+     "image_description"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     5,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a26",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "mode": "demote",
+   "asks_for_figure": false,
+   "has_gold": false,
+   "hit": false,
+   "kept": 3,
+   "figures": 2,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     16,
+     "text"
+    ],
+    [
+     "kdd_lec01_Introduction.pdf",
+     25,
+     "image_description"
+    ],
+    [
+     "kdd_lec05_regression.pdf",
+     5,
+     "image_description"
+    ]
+   ]
+  },
+  {
+   "id": "a26",
+   "lang": "ar",
+   "kind": "out_of_scope",
+   "mode": "exclude",
+   "asks_for_figure": false,
+   "has_gold": false,
+   "hit": false,
+   "kept": 3,
+   "figures": 0,
+   "boilerplate": 0,
+   "pages": [
+    [
+     "kdd_lec03_data_preprocessing.pdf",
+     31,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     42,
+     "text"
+    ],
+    [
+     "kdd_lec09_cluster_analyis.pdf",
+     43,
+     "text"
+    ]
+   ]
+  }
+ ]
+}
