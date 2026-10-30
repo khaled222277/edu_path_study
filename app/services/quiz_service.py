@@ -704,6 +704,68 @@ Context:
 """.strip()
 
 
+# --- optional second pass: ask the model whether the question stands on its own -------------------------
+#
+# Behind QUIZ_MODEL_CHECK (off by default). The model gets the slide text, the question and the options and
+# answers two things. A failed or unreadable check lets the item through: the check can only remove
+# questions, and an outage of it must not empty the quiz.
+
+REASON_MODEL_CHECK = "model_check_rejected"
+CHECK_OPTIONS = {"temperature": 0, "num_predict": 40}
+
+CHECK_PROMPT = """You are checking a multiple-choice quiz question that was written from a lecture slide.
+
+Slide text:
+{context}
+
+Question: {question}
+Options:
+{options}
+Marked correct: {letter}
+
+Answer two things about the question.
+1. standalone: could a student who has studied the whole course, but cannot see this slide or any figure on it,
+   understand what is asked and answer it? Say false if it depends on "this", "the figure", "the table",
+   "the example", "here", or anything only the slide shows, or if it is not a complete question.
+2. supported: does the slide text support the marked option as the correct answer?
+
+Return ONLY JSON: {{"standalone": true or false, "supported": true or false}}"""
+
+_CHECK_JSON_RE = re.compile(r"\{[^{}]*\}", re.DOTALL)
+
+
+def parse_model_check(raw: str) -> tuple[bool, bool] | None:
+    """(standalone, supported) from the model's reply, or None if it cannot be read."""
+    match = _CHECK_JSON_RE.search(raw or "")
+    if not match:
+        return None
+    try:
+        data = json.loads(match.group(0))
+    except ValueError:
+        return None
+    standalone, supported = data.get("standalone"), data.get("supported")
+    if isinstance(standalone, bool) and isinstance(supported, bool):
+        return standalone, supported
+    return None
+
+
+def model_check(
+    context: str, question: str, options: list[str], answer: str, model: str
+) -> tuple[str | None, float]:
+    """(reason to reject or None, seconds spent). One extra model call; LLMUnavailableError propagates."""
+    started = time.perf_counter()
+    letters = "ABCD"
+    prompt = CHECK_PROMPT.format(
+        context=context,
+        question=question,
+        options="\n".join(f"{letters[i]}. {o}" for i, o in enumerate(options)),
+        letter=f"{letters[options.index(answer)]}. {answer}",
+    )
+    verdict = parse_model_check(_ask_model(prompt, model, CHECK_OPTIONS))
+    reason = REASON_MODEL_CHECK if verdict is not None and not all(verdict) else None
+    return reason, time.perf_counter() - started
+
+
 def _parse_items(raw: str) -> list[dict]:
     """Pull the JSON list out of a model response that may be fenced."""
     clean = _FENCE_RE.sub("", raw).strip()
@@ -778,12 +840,12 @@ def _take_call_stats() -> tuple[int | None, int | None, float | None]:
     return value or (None, None, None)
 
 
-def _ask_model(prompt: str, model: str) -> str:
+def _ask_model(prompt: str, model: str, options: dict | None = None) -> str:
     try:
         response = get_client().generate(
             model=model,
             prompt=prompt,
-            options=QUIZ_OPTIONS,
+            options=options or QUIZ_OPTIONS,
             # Same value as chat: if the two models are the same, a quiz must not
             # reset the model's expiry to something shorter than chat set.
             keep_alive=keep_alive(),
@@ -850,6 +912,7 @@ def _generate_one(
 
         reasons: list[str] = []
         result: GeneratedQuestion | None = None
+        check_model_s = 0.0  # extra model calls made by QUIZ_MODEL_CHECK
         # V1 wrapped the whole attempt so any malformed response simply became
         # another retry; keep that, rather than letting one odd shape abort the
         # quiz mid-generation.
@@ -887,6 +950,16 @@ def _generate_one(
                 reasons.append(why)
                 continue
 
+            if settings.quiz_model_check:
+                if cancel is not None and cancel.is_set():
+                    raise GenerationCancelled()  # the check is a model call too
+                why, spent = model_check(chunk.text, question, options, answer, model)
+                check_model_s += spent
+                if why is not None:
+                    rejected += 1
+                    reasons.append(why)
+                    continue
+
             result = GeneratedQuestion(
                 question_text=question,
                 options=options,
@@ -898,8 +971,8 @@ def _generate_one(
         trace.attempts.append(
             AttemptTrace(
                 phase,
-                t1 - t0,
-                time.perf_counter() - t1,
+                t1 - t0 + check_model_s,
+                time.perf_counter() - t1 - check_model_s,
                 OUTCOME_ACCEPTED if result is not None else (reasons[0] if reasons else REASON_EMPTY),
                 reasons,
                 tokens_out,

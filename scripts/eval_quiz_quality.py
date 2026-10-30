@@ -67,6 +67,10 @@ def generate(args) -> list[dict]:
                 questions = qs.generate_quiz(SUBJECT_ID, args.count, lang, seed=seed, trace=trace)
             except qs.QuizGenerationError:
                 questions, error = [], "no_valid_question"
+            except qs.LLMUnavailableError as exc:
+                # e.g. Ollama aborting a generation ("token repeat limit reached"): the service gives up on the
+                # whole quiz. Counted as a failed quiz, with whatever it produced before, not as a crash.
+                questions, error = [], f"model_error: {type(exc.__cause__).__name__}"
             seconds = time.perf_counter() - t0
             calls = [a for c in trace.chunks for a in c.attempts]
             quiz = {
@@ -225,6 +229,47 @@ def validator(path: str, sample: int) -> None:
             print(f"     {w}: {q}")
 
 
+def modelcheck(path: str, out: str, sample: int) -> None:
+    """Run the optional model check (QUIZ_MODEL_CHECK) over saved items, one extra call each, and compare it with the rules.
+
+    There is no ground truth here: the report says how many items the check removes, how many of those the rules
+    already flag, how many it removes that the rules call fine (candidates for false rejections: read them), and
+    the seconds one check takes. Run it with nothing else using Ollama, or the seconds are inflated.
+    """
+    from app.config import settings
+    from app.services import quiz_service as qs
+
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    rows = reflag(data["rows"])
+    results = []
+    for r in rows:
+        for it in r["items"]:
+            correct = it["options"][it["correct"]]
+            reason, seconds = qs.model_check(it["source"]["text"], it["question"], it["options"], correct, settings.quiz_model)
+            rules = qs.answerability_reason(it["question"], r["lang"] == "ar")
+            results.append({"lang": r["lang"], "question": it["question"], "options": it["options"], "correct": it["correct"],
+                            "source": f"{it['source']['file']} p{it['source']['page']}", "figure": it["source"]["figure"],
+                            "model_rejects": reason is not None, "seconds": round(seconds, 2),
+                            "rules_flag": it["flags"]["primary"], "rules_reject": rules})
+        print(f"{r['lang']} quiz {r['quiz']} checked", flush=True)
+    Path(out).write_text(json.dumps({"source": data["meta"]["label"], "model": settings.quiz_model, "items": results},
+                                    ensure_ascii=False, indent=1), encoding="utf-8")
+    for lang in ("ar", "en"):
+        sel = [x for x in results if x["lang"] == lang]
+        rej = [x for x in sel if x["model_rejects"]]
+        flagged = [x for x in sel if x["rules_flag"] != "self_contained" or x["rules_reject"]]
+        clean = [x for x in sel if x not in flagged]
+        print(f"\n[{lang}] {len(sel)} items, mean {statistics.mean(x['seconds'] for x in sel):.2f}s per check")
+        print(f"   model check rejects {len(rej)}/{len(sel)}")
+        print(f"   of the {len(flagged)} the rules flag: model also rejects {sum(x['model_rejects'] for x in flagged)}")
+        print(f"   of the {len(clean)} the rules call fine: model rejects {sum(x['model_rejects'] for x in clean)}")
+        for title, group in (("rejected by the model, rules say fine", [x for x in clean if x["model_rejects"]]),
+                             ("accepted by the model, rules flag", [x for x in flagged if not x["model_rejects"]])):
+            print(f"   -- {title}")
+            for x in group[:sample]:
+                print(f"      Q: {x['question']}  | options: {' | '.join(x['options'])} (correct #{x['correct'] + 1}) [{x['source']}]")
+
+
 def compare(a_path: str, b_path: str) -> None:
     a, b = (json.loads(Path(p).read_text(encoding="utf-8")) for p in (a_path, b_path))
     sa, sb = summarize(reflag(a["rows"])), summarize(reflag(b["rows"]))
@@ -254,6 +299,11 @@ def main() -> None:
     v = sub.add_parser("validator")
     v.add_argument("result")
     v.add_argument("--sample", type=int, default=12)
+    m = sub.add_parser("modelcheck")
+    m.add_argument("result")
+    m.add_argument("--out", required=True)
+    m.add_argument("--chroma-copy", required=False)
+    m.add_argument("--sample", type=int, default=8)
     r = sub.add_parser("report")
     r.add_argument("result")
     r.add_argument("--sample", type=int, default=12)
@@ -262,6 +312,8 @@ def main() -> None:
     c.add_argument("b")
     args = p.parse_args()
 
+    if args.mode == "modelcheck":
+        return modelcheck(args.result, args.out, args.sample)
     if args.mode == "validator":
         return validator(args.result, args.sample)
     if args.mode == "eligibility":

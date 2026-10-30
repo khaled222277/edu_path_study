@@ -88,6 +88,11 @@ class Settings(BaseSettings):
     # Reject questions that cannot stand on their own ("this idea is", "what is shown in the table",
     # no question form). Rules only, no extra model call; rejected items are retried like any other.
     quiz_answerability_rules: bool = True
+    # A second model call per accepted-looking question: can a student who has studied the course but
+    # cannot see the slide answer it, and does the slide support the marked option? Costs one short call
+    # (about a second) per candidate question; off unless the measured gain justifies it
+    # (eval/README.md, "Model-based answerability check").
+    quiz_model_check: bool = False
 
     # --- Retrieval ---
     # Which cross-encoder reorders the vector candidates. "flashrank" is the small ONNX
