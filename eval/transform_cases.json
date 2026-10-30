@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "description": "Turns that ask for the previous answer to be worked on ('say that in Arabic', 'I don't get it') and look-alike turns that are real questions, for scripts/eval_transform.py. Every case is a two-turn conversation about subject 7 (data mining / KDD): the `previous` question is asked first, for real, then `question`. 20 transform cases (10 English, 10 Arabic) and 10 near-miss real questions. Pass criteria are in the script: a transform case must stay on the previous topic, answer in `expect_lang`, add no source the previous turn did not have, and not search; a near-miss must still be searched.",
+  "limits": [
+    "Arabic phrasing was written by a model, not checked by a native speaker.",
+    "'On topic' is a coarse check: the answer contains one of `topic_terms` (lower-cased substring). It cannot tell a good explanation from a poor one.",
+    "Whether a question is a transform request is a judgement; 'give an example' is counted as one here (the example must be built from the previous answer), which a student may not expect."
+  ],
+  "previous": {
+    "p_kdd_en": {"question": "What are the steps of the KDD process?", "topic_terms": ["kdd", "data cleaning", "data mining", "knowledge", "integration", "selection", "اكتشاف المعرفة", "تنظيف", "تكامل", "تنقيب"]},
+    "p_entropy_en": {"question": "How is entropy calculated and what does it measure?", "topic_terms": ["entropy", "impurity", "إنتروبيا", "الإنتروبيا", "الانتروبيا", "عدم النقاء", "اللانقاء"]},
+    "p_ensemble_en": {"question": "Give me an overview of ensemble methods for classification.", "topic_terms": ["ensemble", "bagging", "boosting", "classifier", "المصنف", "مصنف", "تجميع", "مجموعة"]},
+    "p_confusion_en": {"question": "What do TP, TN, FP and FN mean in a confusion matrix?", "topic_terms": ["tp", "fp", "confusion", "positive", "negative", "مصفوفة", "الإيجاب", "السلب", "موجب", "سالب"]},
+    "p_kmeans_ar": {"question": "كيف تعمل خوارزمية k-means؟", "topic_terms": ["k-means", "centroid", "cluster", "center", "مركز", "تجميع", "عنقود", "مجموعات"]},
+    "p_overfit_ar": {"question": "ما هو الإفراط في التكيّف (overfitting) وكيف نتجنبه؟", "topic_terms": ["overfit", "training", "complex", "الإفراط", "التكيف", "التكيّف", "تدريب", "معقد", "فرط"]},
+    "p_preprocess_ar": {"question": "اشرح لي المهام الرئيسية في مرحلة المعالجة المسبقة للبيانات.", "topic_terms": ["cleaning", "integration", "reduction", "transformation", "تنظيف", "تكامل", "تقليل", "تحويل", "المعالجة المسبقة", "دمج"]}
+  },
+  "cases": [
+    {"id": "t01", "kind": "transform", "previous": "p_kdd_en", "question": "say that in Arabic", "expect_lang": "ar"},
+    {"id": "t02", "kind": "transform", "previous": "p_kdd_en", "question": "okay i can't get it could repeat all that in arabic", "expect_lang": "ar"},
+    {"id": "t03", "kind": "transform", "previous": "p_entropy_en", "question": "I don't get it", "expect_lang": "en"},
+    {"id": "t04", "kind": "transform", "previous": "p_entropy_en", "question": "simplify it please", "expect_lang": "en"},
+    {"id": "t05", "kind": "transform", "previous": "p_ensemble_en", "question": "repeat all that", "expect_lang": "en"},
+    {"id": "t06", "kind": "transform", "previous": "p_ensemble_en", "question": "give an example", "expect_lang": "en"},
+    {"id": "t07", "kind": "transform", "previous": "p_confusion_en", "question": "translate this to arabic", "expect_lang": "ar"},
+    {"id": "t08", "kind": "transform", "previous": "p_confusion_en", "question": "Can you explain that again in simpler words?", "expect_lang": "en"},
+    {"id": "t09", "kind": "transform", "previous": "p_kdd_en", "question": "summarize that in 3 bullet points", "expect_lang": "en"},
+    {"id": "t10", "kind": "transform", "previous": "p_entropy_en", "question": "could you say all that in Arabic please", "expect_lang": "ar"},
+    {"id": "t11", "kind": "transform", "previous": "p_kmeans_ar", "question": "ترجم ذلك للانجليزية", "expect_lang": "en"},
+    {"id": "t12", "kind": "transform", "previous": "p_kmeans_ar", "question": "مش فاهم", "expect_lang": "ar"},
+    {"id": "t13", "kind": "transform", "previous": "p_overfit_ar", "question": "اشرح ذلك مرة أخرى", "expect_lang": "ar"},
+    {"id": "t14", "kind": "transform", "previous": "p_overfit_ar", "question": "ممكن تبسطها", "expect_lang": "ar"},
+    {"id": "t15", "kind": "transform", "previous": "p_preprocess_ar", "question": "اعطني مثال", "expect_lang": "ar"},
+    {"id": "t16", "kind": "transform", "previous": "p_preprocess_ar", "question": "لخص ما سبق", "expect_lang": "ar"},
+    {"id": "t17", "kind": "transform", "previous": "p_kmeans_ar", "question": "لم أفهم", "expect_lang": "ar"},
+    {"id": "t18", "kind": "transform", "previous": "p_overfit_ar", "question": "كرر الكلام ده بالانجليزي", "expect_lang": "en"},
+    {"id": "t19", "kind": "transform", "previous": "p_preprocess_ar", "question": "say that in english", "expect_lang": "en"},
+    {"id": "t20", "kind": "transform", "previous": "p_kmeans_ar", "question": "I don't get it", "expect_lang": "en"},
+
+    {"id": "n01", "kind": "near_miss", "previous": "p_kdd_en", "question": "explain overfitting again", "expect_lang": "en", "topic_terms": ["overfit"]},
+    {"id": "n02", "kind": "near_miss", "previous": "p_kdd_en", "question": "give an example of entropy", "expect_lang": "en", "topic_terms": ["entropy", "impurity"]},
+    {"id": "n03", "kind": "near_miss", "previous": "p_entropy_en", "question": "what is translation in NLP", "expect_lang": "en", "topic_terms": []},
+    {"id": "n04", "kind": "near_miss", "previous": "p_ensemble_en", "question": "explain the Apriori property in more detail", "expect_lang": "en", "topic_terms": ["apriori", "infrequent", "frequent"]},
+    {"id": "n05", "kind": "near_miss", "previous": "p_entropy_en", "question": "summarize the KDD process", "expect_lang": "en", "topic_terms": ["kdd", "cleaning", "mining"]},
+    {"id": "n06", "kind": "near_miss", "previous": "p_confusion_en", "question": "repeat the steps of the k-means algorithm", "expect_lang": "en", "topic_terms": ["k-means", "center", "centroid"]},
+    {"id": "n07", "kind": "near_miss", "previous": "p_overfit_ar", "question": "اشرح التجميع", "expect_lang": "ar", "topic_terms": ["تجميع", "cluster", "عنقود"]},
+    {"id": "n08", "kind": "near_miss", "previous": "p_kmeans_ar", "question": "اعطني مثال على الإفراط في التكيف", "expect_lang": "ar", "topic_terms": ["overfit", "الإفراط", "فرط"]},
+    {"id": "n09", "kind": "near_miss", "previous": "p_preprocess_ar", "question": "ما هو الترجمة في معالجة اللغة", "expect_lang": "ar", "topic_terms": []},
+    {"id": "n10", "kind": "near_miss", "previous": "p_kmeans_ar", "question": "لخص خطوات عملية اكتشاف المعرفة", "expect_lang": "ar", "topic_terms": ["kdd", "تنظيف", "تنقيب", "اكتشاف المعرفة"]}
+  ]
+}

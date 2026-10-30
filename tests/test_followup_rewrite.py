@@ -19,6 +19,9 @@ CHUNK = RetrievedChunk(
 PREV = "What is k-means clustering?"
 FOLLOW = "Can you explain that again in simpler words?"
 STANDALONE = "What is k-means clustering in simpler words?"
+# A follow-up that is still a question about the topic. "Explain that again" is not: it is answered from the
+# previous answer without searching (tests/test_transform_turn.py), so the route tests use this one.
+OPEN_FOLLOW = "What are its limitations?"
 
 
 def reply(text):
@@ -142,12 +145,12 @@ def test_the_search_uses_the_rewrite_but_the_prompt_keeps_the_students_words(
     turn(db, session, ROLE_ASSISTANT, "K-means groups points.")
     model()  # answers every rewrite request with STANDALONE, however many are made
     answer = fake_ollama(default=reply("simpler"))
-    login(client, world["alice"]).post(f"/chat/sessions/{session.id}/messages", json={"content": FOLLOW})
+    login(client, world["alice"]).post(f"/chat/sessions/{session.id}/messages", json={"content": OPEN_FOLLOW})
 
     assert searched == [STANDALONE]
     prompt = answer.kwargs[0]["messages"]
     assert STANDALONE not in str(prompt), "the rewrite never reaches the answer prompt"
-    assert FOLLOW in prompt[-1]["content"] and prompt[-2]["content"] == FOLLOW
+    assert OPEN_FOLLOW in prompt[-1]["content"] and prompt[-2]["content"] == OPEN_FOLLOW
 
 
 def test_the_first_turn_searches_with_the_question_and_makes_no_rewrite_call(
@@ -168,7 +171,7 @@ def test_the_previous_question_is_the_last_one_asked_not_an_answer_or_the_curren
     turn(db, session, ROLE_ASSISTANT, "another answer")
     rewrite = model(STANDALONE)
     fake_ollama(default=reply("x"))
-    login(client, world["alice"]).post(f"/chat/sessions/{session.id}/messages", json={"content": FOLLOW})
+    login(client, world["alice"]).post(f"/chat/sessions/{session.id}/messages", json={"content": OPEN_FOLLOW})
     prompt = rewrite.kwargs[0]["messages"][0]["content"]
     assert f"Previous question: {PREV}\n" in prompt and "older question" not in prompt
 
@@ -178,9 +181,9 @@ def test_a_failing_rewrite_does_not_fail_the_turn(client, db, world, session, se
     turn(db, session, ROLE_ASSISTANT, "x")
     model(error=ConnectionError("down"))
     fake_ollama(default=reply("still answered"))
-    r = login(client, world["alice"]).post(f"/chat/sessions/{session.id}/messages", json={"content": FOLLOW})
+    r = login(client, world["alice"]).post(f"/chat/sessions/{session.id}/messages", json={"content": OPEN_FOLLOW})
     assert r.status_code == 200 and r.json()["message"]["content"] == "still answered"
-    assert searched == [FOLLOW]
+    assert searched == [OPEN_FOLLOW]
 
 
 def test_the_stream_route_searches_the_same_way(
@@ -190,7 +193,7 @@ def test_the_stream_route_searches_the_same_way(
     turn(db, session, ROLE_ASSISTANT, "x")
     model(STANDALONE)
     fake_async_ollama(script=["ok"])
-    r = login(client, world["alice"]).post(f"/chat/sessions/{session.id}/messages/stream", json={"content": FOLLOW})
+    r = login(client, world["alice"]).post(f"/chat/sessions/{session.id}/messages/stream", json={"content": OPEN_FOLLOW})
     assert r.status_code == 200 and searched == [STANDALONE]
 
 

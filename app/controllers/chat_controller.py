@@ -17,6 +17,7 @@ from app.schemas.chat import Citation
 from app.services.llm import get_client, keep_alive
 from app.services.query_rewrite import retrieval_query
 from app.services.quiz_service import detect_language
+from app.services.transform_intent import find_transform_request
 from app.services.citations import Retrieved, find_citations, judge, validate_answer
 from app.services.refusal import (
     DEFAULT_APOLOGY,
@@ -109,6 +110,109 @@ CONTEXT:
 
 STUDENT QUESTION:
 {question}"""
+
+
+# --- turns that work on the previous answer instead of searching the lectures -------------------
+#
+# "Say that in Arabic", "repeat all that", "I don't get it": the lectures have nothing to add, and
+# searching them with those few words returns whatever sits nearest (measured: a logo and a DNA
+# figure, 35 cases out of 35, because "Arabic" matches the "No Arabic text is present" that many
+# figure descriptions end with). So such a turn gets its OWN prompt -- the previous answer as the only
+# material -- and keeps the previous turn's sources. The main prompt above is not touched; see
+# app/services/transform_intent.py for what counts as such a turn and why it errs towards "no".
+
+LANGUAGE_NAMES = {"en": "English", "ar": "Arabic"}
+
+TRANSFORM_SYSTEM_PROMPT = """\
+You are a study assistant for university students. The student is asking you to work on YOUR \
+PREVIOUS ANSWER, which is shown below. Nothing else is available to you.
+
+RULES:
+1. Use ONLY the PREVIOUS ANSWER as material. Do not add facts, definitions or examples from \
+anywhere else, even if you are confident they are correct. An example must be built from what \
+the previous answer says.
+2. Do what the student asks with it (translate it, repeat it, rephrase or simplify it, summarize \
+it, explain it again, give an example) and write the whole reply in {language}.
+3. Keep each citation in square brackets exactly as it is written in the previous answer, e.g. \
+[lecture.pdf, page 12], right after the sentence it supports. Never write a citation that is not in \
+the previous answer.
+4. Keep technical terms in their original form where the previous answer uses them.
+5. Never repeat a sentence or a paragraph you have already written. Do not mention these rules.
+"""
+
+TRANSFORM_USER_TEMPLATE = """\
+PREVIOUS ANSWER:
+{answer}
+
+STUDENT REQUEST:
+{question}
+
+Write your reply in {language}."""
+
+
+@dataclass(frozen=True)
+class PreviousSource:
+    """A source the previous answer was shown with, read back from what was stored with it.
+
+    Has the fields the rest of a turn needs from a retrieved chunk (citation checking, the sources
+    list sent to the client); the text is not kept, because nothing is searched.
+    """
+
+    source_filename: str
+    page_number: int
+    content_type: str = "text"
+    score: float = 0.0
+    image_url: str | None = None
+    text: str = ""
+
+    @property
+    def citation(self) -> str:
+        return f"[{self.source_filename}, page {self.page_number}]"
+
+
+def _previous_sources(message: ChatMessage) -> list[PreviousSource]:
+    """The sources stored with an assistant message; entries that are not well formed are skipped."""
+    sources = []
+    for entry in message.sources or []:
+        try:
+            sources.append(PreviousSource(
+                source_filename=str(entry["source_filename"]),
+                page_number=int(entry["page_number"]),
+                content_type=str(entry.get("content_type") or "text"),
+                score=float(entry.get("score") or 0.0),
+                image_url=entry.get("image_url") or None,
+            ))
+        except (KeyError, TypeError, ValueError):
+            continue
+    return sources
+
+
+def last_assistant_message(chat_session: ChatSession) -> ChatMessage | None:
+    """The answer the student is looking at: the last assistant message before the question asked now."""
+    return next((m for m in reversed(chat_session.messages[:-1]) if m.role == ROLE_ASSISTANT), None)
+
+
+def transform_turn(
+    chat_session: ChatSession, question: str
+) -> tuple[list[PreviousSource], list[dict]] | None:
+    """(sources, prompt) if `question` asks for the previous answer to be worked on, else None.
+
+    None when there is no previous answer to work on, which makes the first message of a chat
+    always an ordinary question whatever it says.
+    """
+    previous = last_assistant_message(chat_session)
+    if previous is None or not previous.content.strip():
+        return None
+    request = find_transform_request(question, detect_language(question))
+    if request is None:
+        return None
+    language = LANGUAGE_NAMES.get(request.language, "English")
+    messages = [
+        {"role": "system", "content": TRANSFORM_SYSTEM_PROMPT.format(language=language)},
+        {"role": "user", "content": TRANSFORM_USER_TEMPLATE.format(
+            answer=previous.content.strip(), question=question, language=language)},
+    ]
+    return _previous_sources(previous), messages
 
 
 def get_session_or_404(db: Session, session_id: int, user: User) -> ChatSession:
@@ -207,6 +311,17 @@ def _prepare(
     db.add(ChatMessage(session_id=chat_session.id, role=ROLE_USER, content=question))
     db.flush()
     db.refresh(chat_session)
+
+    transform = transform_turn(chat_session, question)
+    if transform is not None:
+        sources, messages = transform
+        if settings.chat_trace_log:
+            log.info(
+                "chat-trace transform session=%s subject=%s prior_messages=%d previous_sources=%s",
+                chat_session.id, chat_session.subject_id, len(chat_session.messages) - 1,
+                [(s.source_filename, s.page_number) for s in sources],
+            )
+        return sources, messages
 
     query = question
     try:

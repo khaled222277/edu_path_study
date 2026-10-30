@@ -69,17 +69,19 @@ def test_a_follow_up_keeps_the_earlier_exchange_and_the_bare_question_after_it(
 ):
     turn(db, chat_session, ROLE_USER, "what is k-means?")
     turn(db, chat_session, ROLE_ASSISTANT, "K-means groups points around centroids.")
+    # not "explain that again": that is answered from the previous answer without a search, in its own
+    # prompt (tests/test_transform_turn.py). This is the shape of every turn that IS searched.
     fake = fake_ollama(default={"message": {"content": "simpler"}})
     login(client, world["alice"]).post(
-        f"/chat/sessions/{chat_session.id}/messages", json={"content": "explain that again"}
+        f"/chat/sessions/{chat_session.id}/messages", json={"content": "what are its limitations?"}
     )
     messages = prompt_of(fake)
     assert [(m["role"], m["content"]) for m in messages[1:-1]] == [
         ("user", "what is k-means?"),
         ("assistant", "K-means groups points around centroids."),
-        ("user", "explain that again"),  # directly after the answer it refers to
+        ("user", "what are its limitations?"),  # directly after the answer it refers to
     ]
-    assert "CONTEXT:" in messages[-1]["content"] and "explain that again" in messages[-1]["content"]
+    assert "CONTEXT:" in messages[-1]["content"] and "what are its limitations?" in messages[-1]["content"]
 
 
 def test_the_stream_route_builds_the_same_prompt(
