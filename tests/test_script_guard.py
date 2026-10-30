@@ -40,6 +40,23 @@ def test_the_observed_leaks_are_taken_out_and_a_latin_term_after_them_is_kept():
     assert strip_foreign("لا يوجد 数据 هنا") == ("لا يوجد هنا", 2)
 
 
+def test_a_word_mixing_foreign_and_arabic_letters_is_dropped_whole_not_left_as_a_fragment():
+    assert strip_foreign("من الأтрибут إلى قيمة") == ("من إلى قيمة", 9)
+    assert strip_foreign("قيم الأтрибутات الأخرى") == ("قيم الأخرى", 11)
+    assert strip_foreign("(الأ数) و") == ("() و", 4)
+
+
+def test_english_is_not_held_back_but_an_arabic_word_waits_for_its_end():
+    guard = ScriptFilter()
+    assert guard.feed("Hello wor") == "Hello wor"
+    assert guard.feed("ld ") == "ld "
+    assert guard.feed("كلمة") == "", "might still get a foreign letter glued on"
+    assert guard.feed("ٌ و") == "كلمةٌ ", "released at the space; the next word is held in turn"
+    guard = ScriptFilter()
+    assert guard.feed("نهاية") == ""
+    assert guard.flush() == "نهاية", "the last word is released at the end"
+
+
 def test_a_cut_anywhere_gives_the_same_text_as_the_whole():
     text = "نموذج (أو 関係) يصف �function و 数 b  c"
     whole = strip_foreign(text)[0]
@@ -119,3 +136,14 @@ def test_english_and_mixed_answers_pass_through_both_routes(
     fake_async_ollama(script=[MIXED[:20], MIXED[20:]])
     r = login(client, world["alice"]).post(f"/chat/sessions/{session.id}/messages/stream", json={"content": "q"})
     assert next(e for e in events(r) if e["type"] == "done")["message"]["content"] == MIXED
+
+
+def test_an_answer_that_ends_on_an_arabic_word_still_shows_and_stores_it(
+    client, db, world, session, fake_async_ollama, store_in_test_db
+):
+    fake_async_ollama(script=["التصنيف هو ", "عملية"])
+    r = login(client, world["alice"]).post(f"/chat/sessions/{session.id}/messages/stream", json={"content": "ما هو التصنيف"})
+    evs = events(r)
+    shown = "".join(e["text"] for e in evs if e["type"] == "token")
+    done = next(e for e in evs if e["type"] == "done")
+    assert shown == done["message"]["content"] == "التصنيف هو عملية"

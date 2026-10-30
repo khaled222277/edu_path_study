@@ -135,8 +135,14 @@ async def stream_events(
                     emitted = True
                     yield encode_event({"type": "token", "text": visible})
             part = await anext(stream, None)
+        last_word = scripts.flush()  # the word the script filter was still holding back
         cc.log_dropped_characters(scripts.dropped)
-        tail = cited.feed(shown.flush()) + cited.flush()
+        if last_word:
+            raw.append(last_word)
+            tail = cited.feed(shown.feed(last_word))
+        else:
+            tail = ""
+        tail += cited.feed(shown.flush()) + cited.flush()
         if tail:
             emitted = True
             yield encode_event({"type": "token", "text": tail})
