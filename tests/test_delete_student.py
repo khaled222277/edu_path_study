@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from app.models import AllowedEmail, ChatMessage, ChatSession, MessageFeedback, QuizAttempt, QuizItem, User
+from app.models import AllowedEmail, ChatMessage, ChatSession, MessageFeedback, QuizAttempt, QuizItem, QuizItemReport, User
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 import delete_student  # noqa: E402
@@ -24,13 +24,16 @@ def fill(db, world, user):
     att = QuizAttempt(user_id=user.id, subject_id=world["subject"].id, score=1, total_questions=1, language="en")
     db.add(att)
     db.flush()
-    db.add(QuizItem(attempt_id=att.id, question_text="q", options_json=["a", "b"], correct_answer_index=0, chosen_answer_index=0, is_correct=True, source_citation="x.pdf, page 1"))
+    item = QuizItem(attempt_id=att.id, question_text="q", options_json=["a", "b"], correct_answer_index=0, chosen_answer_index=0, is_correct=True, source_citation="x.pdf, page 1")
+    db.add(item)
+    db.flush()
+    db.add(QuizItemReport(attempt_id=att.id, item_id=item.id, reason="unclear"))
     db.commit()
     return s, a
 
 
 def counts(db):
-    return {m.__name__: db.query(m).count() for m in (User, ChatSession, ChatMessage, MessageFeedback, QuizAttempt, QuizItem)}
+    return {m.__name__: db.query(m).count() for m in (User, ChatSession, ChatMessage, MessageFeedback, QuizAttempt, QuizItem, QuizItemReport)}
 
 
 def test_one_student_is_deleted_completely_and_the_other_is_untouched(db, world):
@@ -38,9 +41,9 @@ def test_one_student_is_deleted_completely_and_the_other_is_untouched(db, world)
     fill(db, world, world["bob"])
     before = counts(db)
     done = delete_student.delete_student(db, delete_student.find_user(db, "A@Example.com"))
-    assert done == {"chat_sessions": 1, "chat_messages": 2, "feedback_rows": 1, "quiz_attempts": 1, "quiz_items": 1}
+    assert done == {"chat_sessions": 1, "chat_messages": 2, "feedback_rows": 1, "quiz_attempts": 1, "quiz_items": 1, "quiz_item_reports": 1}
     after = counts(db)
-    assert after == {"User": before["User"] - 1, "ChatSession": 1, "ChatMessage": 2, "MessageFeedback": 1, "QuizAttempt": 1, "QuizItem": 1}
+    assert after == {"User": before["User"] - 1, "ChatSession": 1, "ChatMessage": 2, "MessageFeedback": 1, "QuizAttempt": 1, "QuizItem": 1, "QuizItemReport": 1}
     assert db.query(User).filter_by(email="b@example.com").one()
     assert {s.user_id for s in db.query(ChatSession)} == {world["bob"].id}
     assert {f.user_id for f in db.query(MessageFeedback)} == {world["bob"].id}

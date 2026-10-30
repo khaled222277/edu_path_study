@@ -17,6 +17,7 @@ from app.schemas.quiz import (
     QuizResults,
     QuizStart,
     QuizStartOut,
+    ReportIn,
 )
 
 router = APIRouter(prefix="/quiz", tags=["quiz"])
@@ -119,6 +120,34 @@ def answer_question(
         total_questions=attempt.total_questions,
         is_complete=attempt.is_complete,
     )
+
+
+@router.put("/{attempt_id}/items/{item_id}/report", status_code=status.HTTP_204_NO_CONTENT)
+def report_question(
+    attempt_id: int,
+    item_id: int,
+    payload: ReportIn,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> None:
+    """Flag one of the student's own questions as bad (not answerable, wrong answer, unclear, other).
+
+    Allowed before or after answering. Reporting again replaces the reason. 404 for an attempt
+    that is not theirs and for an item that is not in the attempt.
+    """
+    attempt = quiz_controller.get_attempt_or_404(db, attempt_id, user)
+    quiz_controller.report_item(db, attempt, item_id, payload.reason)
+
+
+@router.delete("/{attempt_id}/items/{item_id}/report", status_code=status.HTTP_204_NO_CONTENT)
+def unreport_question(
+    attempt_id: int,
+    item_id: int,
+    user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+) -> None:
+    attempt = quiz_controller.get_attempt_or_404(db, attempt_id, user)
+    quiz_controller.clear_item_report(db, attempt, item_id)
 
 
 @router.post("/{attempt_id}/complete", response_model=QuizResults)

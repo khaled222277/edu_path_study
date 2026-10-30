@@ -182,6 +182,7 @@ def test_migration_goes_up_and_down(tmp_path, monkeypatch):
     engine = create_engine(url)
     Base.metadata.create_all(engine)
     with engine.begin() as c:
+        c.execute(text("DROP TABLE quiz_item_reports"))  # created by a later migration
         c.execute(text("DROP TABLE allowed_emails"))
         c.execute(text("CREATE TABLE alembic_version (version_num VARCHAR(32) NOT NULL PRIMARY KEY)"))
         c.execute(text("INSERT INTO alembic_version VALUES ('c3e8a1d94f52')"))

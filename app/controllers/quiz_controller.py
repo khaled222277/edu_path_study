@@ -8,12 +8,12 @@ from dataclasses import dataclass, field
 from datetime import UTC, datetime
 
 from fastapi import HTTPException, status
-from sqlalchemy import func, select
+from sqlalchemy import delete, func, select
 from sqlalchemy.orm import Session
 
 from app.controllers.chat_controller import assert_subject_in_scope
 from app.db.session import session_scope
-from app.models.quiz import QuizAttempt, QuizItem
+from app.models.quiz import QuizAttempt, QuizItem, QuizItemReport
 from app.models.user import User
 from app.services.llm import LLMUnavailableError
 from app.services.quiz_service import (
@@ -382,3 +382,28 @@ def discard_streamed_quiz(attempt_id: int) -> None:
         if attempt is not None:
             db.delete(attempt)
             db.commit()
+
+
+def _item_of_attempt(db: Session, attempt: QuizAttempt, item_id: int) -> QuizItem:
+    """The item, if it belongs to this attempt; 404 otherwise (the same answer for a missing and a foreign id)."""
+    item = db.get(QuizItem, item_id)
+    if item is None or item.attempt_id != attempt.id:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Quiz item not found")
+    return item
+
+
+def report_item(db: Session, attempt: QuizAttempt, item_id: int, reason: str | None) -> None:
+    """Flag a question as bad. Reporting again replaces the reason; allowed before or after answering."""
+    item = _item_of_attempt(db, attempt, item_id)
+    existing = db.scalar(select(QuizItemReport).where(QuizItemReport.item_id == item.id))
+    if existing is None:
+        db.add(QuizItemReport(attempt_id=attempt.id, item_id=item.id, reason=reason))
+    else:
+        existing.reason = reason
+    db.commit()
+
+
+def clear_item_report(db: Session, attempt: QuizAttempt, item_id: int) -> None:
+    item = _item_of_attempt(db, attempt, item_id)
+    db.execute(delete(QuizItemReport).where(QuizItemReport.item_id == item.id))
+    db.commit()

@@ -30,6 +30,7 @@ from app.models import (  # noqa: E402
     MessageFeedback,
     QuizAttempt,
     QuizItem,
+    QuizItemReport,
     User,
 )
 from app.services.allowlist import normalize  # noqa: E402
@@ -57,6 +58,7 @@ def summarize(db: Session, user: User) -> dict:
         ),
         "quiz_attempts": len(attempts),
         "quiz_items": db.scalar(select(func.count()).select_from(QuizItem).where(QuizItem.attempt_id.in_(attempts or [0]))),
+        "quiz_item_reports": db.scalar(select(func.count()).select_from(QuizItemReport).where(QuizItemReport.attempt_id.in_(attempts or [0]))),
     }
 
 
@@ -92,6 +94,7 @@ def delete_student(db: Session, user: User, remove_from_allowlist: bool = False)
     if sessions:
         db.execute(delete(ChatSession).where(ChatSession.id.in_(sessions)))
     if attempts:
+        db.execute(delete(QuizItemReport).where(QuizItemReport.attempt_id.in_(attempts)))
         db.execute(delete(QuizItem).where(QuizItem.attempt_id.in_(attempts)))
         db.execute(delete(QuizAttempt).where(QuizAttempt.id.in_(attempts)))
     db.execute(delete(User).where(User.id == user.id))

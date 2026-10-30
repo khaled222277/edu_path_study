@@ -1313,3 +1313,13 @@ li.option.static {
 
 /* a citation stays one left-to-right unit; wraps inside only if wider than the line */
 .msg-cite { display: inline-block; max-width: 100%; overflow-wrap: anywhere; }
+
+/* Report this question */
+.report {
+  margin: 0.75rem 0;
+}
+.report-reasons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}

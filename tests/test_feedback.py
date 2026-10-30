@@ -149,6 +149,7 @@ def test_feedback_migration_goes_up_and_down(tmp_path, monkeypatch):
     engine = create_engine(url)
     Base.metadata.create_all(engine)
     with engine.begin() as c:
+        c.execute(text("DROP TABLE quiz_item_reports"))  # created by a later migration
         c.execute(text("DROP TABLE message_feedback"))
         c.execute(text("DROP TABLE revoked_tokens"))
         c.execute(text("DROP TABLE allowed_emails"))

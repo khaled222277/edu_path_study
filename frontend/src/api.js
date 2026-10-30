@@ -162,6 +162,16 @@ export const answerQuestion = (attemptId, itemId, chosenAnswerIndex) =>
 
 export const getQuizResults = (attemptId) => request(`/quiz/${attemptId}/results`);
 
+/** Flag one question as bad. `reason` is optional: "not_answerable" | "wrong_answer" | "unclear" | "other". */
+export const reportQuestion = (attemptId, itemId, reason = null) =>
+  request(`/quiz/${attemptId}/items/${itemId}/report`, {
+    method: "PUT",
+    body: JSON.stringify({ reason }),
+  });
+
+export const unreportQuestion = (attemptId, itemId) =>
+  request(`/quiz/${attemptId}/items/${itemId}/report`, { method: "DELETE" });
+
 export const getQuizHistory = () => request("/quiz/history");
 
 export const getDashboardSummary = () => request("/dashboard/summary");

@@ -25,7 +25,7 @@ const subject = { id: 7, name: "Data Mining", code: "DM501" };
 
 /** A scripted server. */
 function server({ startStatus = 200 } = {}) {
-  const calls = { answer: [], complete: 0, results: 0, startSignal: null };
+  const calls = { answer: [], complete: 0, results: 0, startSignal: null, report: [] };
   let controller;
   let aborted = false;
   const body = new ReadableStream({
@@ -52,6 +52,11 @@ function server({ startStatus = 200 } = {}) {
       init.signal?.addEventListener("abort", () => { try { controller.error(new DOMException("aborted", "AbortError")); } catch {} });
       if (startStatus !== 200) return new Response(JSON.stringify({ detail: "x" }), { status: startStatus });
       return new Response(body);
+    }
+    const rm = path.match(/^\/quiz\/9\/items\/(\d+)\/report$/);
+    if (rm) {
+      calls.report.push({ method: init.method, item: Number(rm[1]), body: init.body ? JSON.parse(init.body) : null });
+      return api.reportStatus ? new Response(JSON.stringify({ detail: "x" }), { status: api.reportStatus }) : new Response(null, { status: 204 });
     }
     const m = path.match(/^\/quiz\/9\/(\w+)$/);
     if (m && m[1] === "answer") {
@@ -228,4 +233,70 @@ test("a late event after Stop does not bring the indicator back", async () => {
   await act(async () => { try { s.question(2, 1); } catch {} }); await tick();
   assert.equal(screen.queryByText(/Writing question/), null);
   assert.ok(screen.getByText(/Question 1 of 1/));
+});
+
+// --- report this question -------------------------------------------------------------------------
+
+async function openFirstQuestion(s) {
+  mount(); clickStart(); await tick();
+  await act(async () => { s.start(2); s.question(1, 0); s.question(2, 1); }); await tick();
+}
+
+test("a question can be reported before it is answered, with a reason", async () => {
+  const s = server();
+  await openFirstQuestion(s);
+  assert.equal(screen.queryByRole("button", { name: "Unclear" }), null, "the reasons are not in the way until asked for");
+  fireEvent.click(screen.getByRole("button", { name: "Report this question" }));
+  assert.ok(screen.getByRole("group", { name: /why are you reporting/i }));
+  fireEvent.click(screen.getByRole("button", { name: "Can't be answered" }));
+  await waitFor(() => assert.ok(screen.getByText(/this question was reported/i)));
+  assert.deepEqual(s.calls.report, [{ method: "PUT", item: 1, body: { reason: "not_answerable" } }]);
+  assert.deepEqual(s.calls.answer, [], "reporting does not answer or skip the question");
+  assert.ok(screen.getByText("opt-1-a"), "the question is still there to answer");
+});
+
+test("it can also be reported after answering, and the report can be withdrawn", async () => {
+  const s = server();
+  await openFirstQuestion(s);
+  fireEvent.click(screen.getByText("opt-1-b")); await waitFor(() => screen.getByText("Not quite"));
+  fireEvent.click(screen.getByRole("button", { name: "Report this question" }));
+  fireEvent.click(screen.getByRole("button", { name: "Wrong answer marked" }));
+  await waitFor(() => screen.getByText(/this question was reported/i));
+  fireEvent.click(screen.getByRole("button", { name: "Undo" }));
+  await waitFor(() => assert.ok(screen.getByRole("button", { name: "Report this question" })));
+  assert.deepEqual(s.calls.report.map((c) => c.method), ["PUT", "DELETE"]);
+});
+
+test("a report on one question does not show as sent on the next", async () => {
+  const s = server();
+  await openFirstQuestion(s);
+  fireEvent.click(screen.getByRole("button", { name: "Report this question" }));
+  fireEvent.click(screen.getByRole("button", { name: "Unclear" }));
+  await waitFor(() => screen.getByText(/this question was reported/i));
+  fireEvent.click(screen.getByText("opt-1-a")); await waitFor(() => screen.getByText("Correct"));
+  fireEvent.click(screen.getByRole("button", { name: "Next question" })); await tick();
+  assert.ok(screen.getByText("Question text 2"));
+  assert.ok(screen.getByRole("button", { name: "Report this question" }), "fresh control on question 2");
+  assert.equal(screen.queryByText(/this question was reported/i), null);
+});
+
+test("Cancel closes the reasons without sending anything", async () => {
+  const s = server();
+  await openFirstQuestion(s);
+  fireEvent.click(screen.getByRole("button", { name: "Report this question" }));
+  fireEvent.click(screen.getByRole("button", { name: "Cancel" }));
+  assert.ok(screen.getByRole("button", { name: "Report this question" }));
+  assert.deepEqual(s.calls.report, []);
+});
+
+test("a failed report says so, keeps the control usable and does not touch the quiz", async () => {
+  const s = server();
+  s.reportStatus = 503;
+  await openFirstQuestion(s);
+  fireEvent.click(screen.getByRole("button", { name: "Report this question" }));
+  fireEvent.click(screen.getByRole("button", { name: "Something else" }));
+  await waitFor(() => assert.ok(screen.getByRole("alert")));
+  assert.equal(screen.queryByText(/this question was reported/i), null);
+  assert.ok(screen.getByRole("button", { name: "Something else" }), "can try again");
+  assert.ok(screen.getByText("Question text 1"));
 });

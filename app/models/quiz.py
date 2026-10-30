@@ -51,6 +51,14 @@ class QuizAttempt(Base):
         return f"<QuizAttempt id={self.id} subject={self.subject_id} score={self.score}>"
 
 
+# Why a student reported a question. A fixed list, no free text: the report carries no personal data.
+REPORT_NOT_ANSWERABLE = "not_answerable"
+REPORT_WRONG_ANSWER = "wrong_answer"
+REPORT_UNCLEAR = "unclear"
+REPORT_OTHER = "other"
+REPORT_REASONS = (REPORT_NOT_ANSWERABLE, REPORT_WRONG_ANSWER, REPORT_UNCLEAR, REPORT_OTHER)
+
+
 class QuizItem(Base):
     __tablename__ = "quiz_items"
 
@@ -82,3 +90,29 @@ class QuizItem(Base):
 
     def __repr__(self) -> str:
         return f"<QuizItem id={self.id} attempt={self.attempt_id}>"
+
+
+class QuizItemReport(Base):
+    """A student's "this question is bad" flag on one quiz item.
+
+    One row per item (an item belongs to exactly one student's attempt, so who reported it is already
+    implied and is deliberately not stored again): attempt, item, an optional reason from REPORT_REASONS
+    and when. Exports leave out everything about the student.
+    """
+
+    __tablename__ = "quiz_item_reports"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    attempt_id: Mapped[int] = mapped_column(
+        ForeignKey("quiz_attempts.id", ondelete="CASCADE"), nullable=False, index=True
+    )
+    item_id: Mapped[int] = mapped_column(
+        ForeignKey("quiz_items.id", ondelete="CASCADE"), nullable=False, unique=True
+    )
+    reason: Mapped[str | None] = mapped_column(String(32), nullable=True)
+    created_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), nullable=False
+    )
+
+    def __repr__(self) -> str:
+        return f"<QuizItemReport item={self.item_id} reason={self.reason}>"

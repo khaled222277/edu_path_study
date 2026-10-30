@@ -5,7 +5,9 @@ import {
   completeQuiz,
   getMySubjects,
   getQuizResults,
+  reportQuestion,
   streamQuiz,
+  unreportQuestion,
 } from "./api.js";
 import { friendlyError } from "./errors.js";
 import {
@@ -17,6 +19,80 @@ import {
 } from "./stream.js";
 
 const QUESTION_COUNTS = [3, 5, 10];
+
+// Why a question is being reported; the values are what the server accepts.
+export const REPORT_REASONS = [
+  { value: "not_answerable", label: "Can't be answered" },
+  { value: "wrong_answer", label: "Wrong answer marked" },
+  { value: "unclear", label: "Unclear" },
+  { value: "other", label: "Something else" },
+];
+
+/** "Report this question": one click to open, one click on a reason to send, Undo to withdraw. */
+function ReportControl({ attemptId, itemId }) {
+  const [open, setOpen] = useState(false);
+  const [sent, setSent] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [failed, setFailed] = useState(false);
+
+  async function change(action) {
+    setBusy(true);
+    setFailed(false);
+    try {
+      await action();
+      return true;
+    } catch {
+      setFailed(true);
+      return false;
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function send(reason) {
+    if (await change(() => reportQuestion(attemptId, itemId, reason))) {
+      setSent(true);
+      setOpen(false);
+    }
+  }
+
+  async function undo() {
+    if (await change(() => unreportQuestion(attemptId, itemId))) setSent(false);
+  }
+
+  return (
+    <div className="report">
+      {sent ? (
+        <p className="hint" role="status">
+          Thanks, this question was reported.{" "}
+          <button className="btn-small" onClick={undo} disabled={busy}>
+            Undo
+          </button>
+        </p>
+      ) : open ? (
+        <div role="group" aria-label="Why are you reporting this question?" className="report-reasons">
+          {REPORT_REASONS.map((r) => (
+            <button key={r.value} className="btn-small" onClick={() => send(r.value)} disabled={busy}>
+              {r.label}
+            </button>
+          ))}
+          <button className="btn-small btn-secondary" onClick={() => setOpen(false)} disabled={busy}>
+            Cancel
+          </button>
+        </div>
+      ) : (
+        <button className="btn-small btn-secondary" onClick={() => setOpen(true)}>
+          Report this question
+        </button>
+      )}
+      {failed && (
+        <p className="error" role="alert">
+          Could not send that. Please try again.
+        </p>
+      )}
+    </div>
+  );
+}
 
 export default function Quiz({ subject = null, onExit }) {
   // Reached from a dashboard card, `subject` is supplied. Reached from the
@@ -418,6 +494,9 @@ export default function Quiz({ subject = null, onExit }) {
       </ul>
 
       {error && <p className="error">{error}</p>}
+
+      {/* Keyed by question so a report made on one never shows as sent on the next. */}
+      <ReportControl key={question.id} attemptId={attemptId} itemId={question.id} />
 
       {feedback && (
         <div className={`feedback ${feedback.is_correct ? "correct" : "wrong"}`}>

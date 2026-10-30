@@ -23,6 +23,7 @@ def old_database(tmp_path, monkeypatch):
     Base.metadata.create_all(engine)
     with engine.begin() as c:
         c.execute(text("ALTER TABLE chat_messages DROP COLUMN sources"))
+        c.execute(text("DROP TABLE quiz_item_reports"))  # created by a later migration
         c.execute(text("DROP TABLE message_feedback"))  # later migrations' tables
         c.execute(text("DROP TABLE revoked_tokens"))
         c.execute(text("DROP TABLE allowed_emails"))

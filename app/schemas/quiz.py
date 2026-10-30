@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -82,3 +83,9 @@ class QuizHistoryEntry(BaseModel):
     total_questions: int
     created_at: datetime
     completed_at: datetime | None
+
+
+class ReportIn(BaseModel):
+    """Why a question is being reported. Omit the reason to report without one."""
+
+    reason: Literal["not_answerable", "wrong_answer", "unclear", "other"] | None = None
